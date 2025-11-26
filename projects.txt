@@ -1,0 +1,10 @@
+- Low-leakage ESD Protection Pads - Clyde Laforge
+- Decimation Filter - Michael Köfinger
+- Tetris - Dominik Brandstetter & HTL Leonding
+- Digital Core Event-Based ADC - Simon Dorrer
+- TinyWhisper + RISC-V - JKU & JMU
+- Digital Core Master Thesis - Ilir Shala
+- Digital Core Master Thesis - Max Golser
+- Traffic Light Controller (Studi Projekt) - Maximilian Kernmaier
+- VGA Clock (Studi Projekt) - Timo Laimer
+- LiTEC - Gerald Hilber & Schüler
