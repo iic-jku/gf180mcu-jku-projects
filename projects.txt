@@ -40,9 +40,9 @@
 	--> 300um x 200um
 	
 - Traffic Light Controller (Studi Project) - Maximilian Kernmaier
-	--> 6 x inputs
-	--> 15 x outputs
-	--> 200um x 200um
+	--> 5 x inputs
+	--> 10 x outputs
+	--> 400um x 200um
 	
 - TinyBF (Studi Project) - Rene Hahn
 	--> 4 x inputs
