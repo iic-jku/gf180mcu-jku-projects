@@ -37,7 +37,7 @@
 - Digital Filter (Studi Project) - Gregor Flachs
 	--> 14 x inputs
 	--> 8 x outputs
-	--> 200um x 150um
+	--> 300um x 200um
 	
 - Traffic Light Controller (Studi Project) - Maximilian Kernmaier
 	--> 6 x inputs
