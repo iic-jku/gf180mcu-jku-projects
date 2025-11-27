@@ -45,9 +45,9 @@
 	--> 400um x 200um
 	
 - TinyBF (Studi Project) - Rene Hahn
-	--> 4 x inputs
+	--> 6 x inputs
 	--> 11 x outputs
-	--> 350um x 300um
+	--> 500um x 300um
 	
 - VGA Clock (Studi Project) - Timo Laimer
 	--> 7 x inputs
