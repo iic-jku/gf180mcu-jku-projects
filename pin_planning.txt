@@ -1,0 +1,12 @@
+ToDo:
+
+Studi Projects:
+ - clock
+ - reset
+ - 3 x MUX select
+ - 12 x inputs
+ - 15 x outputs
+
+Total:
+ - 17 x inputs
+ - 15 x outputs

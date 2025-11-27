@@ -1,10 +1,60 @@
 - Low-leakage ESD Protection Pads - Clyde Laforge
 - Decimation Filter - Michael Köfinger
+	-->
+	-->
+	-->
+	
 - Tetris - Dominik Brandstetter & HTL Leonding
+	-->
+	-->
+	-->
+	
 - Digital Core Event-Based ADC - Simon Dorrer
+	-->
+	-->
+	-->
+	
 - TinyWhisper + RISC-V - JKU & JMU
+	-->
+	-->
+	-->
+	
 - Digital Core Master Thesis - Ilir Shala
+	-->
+	-->
+	-->
+	
 - Digital Core Master Thesis - Max Golser
-- Traffic Light Controller (Studi Projekt) - Maximilian Kernmaier
-- VGA Clock (Studi Projekt) - Timo Laimer
+	-->
+	-->
+	-->
+
+- LedSpinner (Studi Project) - Tim Tremetsberger
+	--> 14 x inputs
+	--> 8 x outputs
+	--> 200um x 150um
+	
+- Digital Filter (Studi Project) - Gregor Flachs
+	--> 14 x inputs
+	--> 8 x outputs
+	--> 200um x 150um
+	
+- Traffic Light Controller (Studi Project) - Maximilian Kernmaier
+	--> 6 x inputs
+	--> 15 x outputs
+	--> 200um x 200um
+	
+- TinyBF (Studi Project) - Rene Hahn
+	--> 4 x inputs
+	--> 11 x outputs
+	--> 350um x 300um
+	
+- VGA Clock (Studi Project) - Timo Laimer
+	--> 7 x inputs
+	--> 4 x outputs
+	--> 625um x 500um
+	
 - LiTEC - Gerald Hilber & Schüler
+	-->
+	-->
+	-->
