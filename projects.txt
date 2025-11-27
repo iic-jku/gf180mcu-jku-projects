@@ -29,7 +29,7 @@
 	-->
 	-->
 
-- LedSpinner (Studi Project) - Tim Tremetsberger
+- Led Spinner (Studi Project) - Tim Tremetsberger
 	--> 13 x inputs
 	--> 8 x outputs
 	--> 200um x 150um

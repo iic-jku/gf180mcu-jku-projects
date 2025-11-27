@@ -5,8 +5,8 @@ meta:
     KLayout.DRC: null
     Checker.KLayoutDRC: null
     
-DESIGN_NAME: LEDSpinner
-VERILOG_FILES: ["dir::../verilog/src/LEDSpinner.v"]
+DESIGN_NAME: led_spinner
+VERILOG_FILES: ["dir::../verilog/src/led_spinner.v"]
 
 # Enable plugin for better SystemVerilog support
 # USE_SLANG: True

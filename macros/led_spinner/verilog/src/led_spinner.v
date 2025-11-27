@@ -20,7 +20,7 @@
 `include "seg_driver.v"
 `include "guess_eval.v"
 
-module LEDSpinner (
+module led_spinner (
     input  wire       clk,      		// clock
     input  wire       rst_n,    		// reset_n - low to reset
 	input  wire [3:0] speed_bits_in,
