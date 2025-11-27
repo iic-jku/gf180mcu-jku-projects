@@ -1,0 +1,51 @@
+meta:
+  version: 3
+  flow: Classic
+  substituting_steps:
+    KLayout.DRC: null
+    Checker.KLayoutDRC: null
+    
+DESIGN_NAME: LEDSpinner
+VERILOG_FILES: ["dir::../verilog/src/LEDSpinner.v"]
+
+# Enable plugin for better SystemVerilog support
+# USE_SLANG: True
+
+# Slightly smaller file sizes
+# PRIMARY_GDSII_STREAMOUT_TOOL: klayout
+
+# Layout / Floorplan Rules
+DIE_AREA: [0, 0, 200, 150]
+PL_TARGET_DENSITY_PCT: 60
+GRT_ALLOW_CONGESTION: true
+RUN_MAGIC_DRC: true
+RUN_CTS: true
+SYNTH_STRATEGY: DELAY 4
+MAX_FANOUT_CONSTRAINT: 6
+RT_MAX_LAYER: Metal4
+FP_PIN_ORDER_CFG: dir::pin_order.cfg
+FP_PDN_MULTILAYER: false
+FP_SIZING: absolute
+
+# Power / ground nets
+VDD_NETS: ["VDD"]
+GND_NETS: ["VSS"]
+VERILOG_POWER_DEFINE: "USE_POWER_PINS"
+
+# Clock
+CLOCK_PORT: clk
+CLOCK_NET: clk
+CLOCK_PERIOD: 40 # in ns
+
+# SDC files
+PNR_SDC_FILE: dir::impl.sdc
+SIGNOFF_SDC_FILE: dir::signoff.sdc
+
+# Fix setup violations
+PL_RESIZER_SETUP_SLACK_MARGIN: 0.25
+GRT_RESIZER_SETUP_SLACK_MARGIN: 0.25
+
+# Fix hold violations
+GRT_RESIZER_HOLD_SLACK_MARGIN: 0.1
+PL_RESIZER_HOLD_SLACK_MARGIN: 0.1
+PL_RESIZER_HOLD_MAX_BUFFER_PCT: 100

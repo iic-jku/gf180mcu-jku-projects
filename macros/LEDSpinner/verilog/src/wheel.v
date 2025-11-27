@@ -1,0 +1,91 @@
+// Copyright 2025 Tim Tremetsberger
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE−2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+`ifndef __WHEEL__
+`define __WHEEL__
+`default_nettype none
+
+module wheel (
+    input  wire       clk_i,
+    input  wire       rst_i,
+    input  wire       tick_i,    // spin on tick
+    input  wire       stop_i,    // stop request
+    input  wire [3:0] rand_i,    // 1..15
+    output reg [2:0]  pos_o,     // 0..5
+    output reg        running_o  // 1 = spinning, 0 = stopped
+);
+    reg [2:0] target_seg;
+    reg stopping;
+
+/* verilator lint_off BLKSEQ */
+    function [2:0] corr_range (input [2:0] pos, input [3:0] r);
+        reg [3:0] tmp;
+        begin
+            if (r >= 12) begin   
+                tmp = r - 12; // 12..15 -> 0..3
+            end else if (r >= 6) begin
+                tmp = r - 6; // 6..11  -> 0..5
+            end else begin             
+                tmp = r; // 0..5
+            end
+
+            // pos + tmp = 0..10
+            tmp = tmp + pos;
+            if (tmp >= 6) tmp = tmp - 6;
+
+            corr_range = tmp[2:0];
+        end
+    endfunction
+/* verilator lint_on BLKSEQ */    
+
+    // if next_pos would be 6 (too high for 7seg) -> make it 0
+    wire [2:0] next_pos = (pos_o == 5) ? 0 : (pos_o + 1);
+
+    always @(posedge clk_i) begin
+        if (rst_i) begin
+            pos_o       <= 0;
+            running_o   <= 1; // start spinning
+            target_seg  <= 0;
+            stopping    <= 0;
+        end else begin
+            if (tick_i) begin
+                // user wants wheel to stop
+                if (stop_i && !stopping) begin
+                    target_seg <= corr_range(pos_o, rand_i); // calc target in range
+                    stopping   <= 1; // stopping activates
+                end
+
+                if (running_o) begin
+                    // check for target_seg while spinning
+                    if (stopping && (next_pos == target_seg)) begin
+                        // found -> stop wheel and reset stopping
+                        pos_o     <= next_pos;
+                        running_o <= 0;
+                        stopping  <= 0;
+                    end else begin
+                        pos_o <= next_pos; // spin 
+                    end
+                end
+            end
+
+            // user wants wheel to spin again
+            if (!stop_i && !running_o) begin
+                running_o <= 1;
+            end
+        end
+    end
+
+endmodule
+`endif
+`default_nettype wire
