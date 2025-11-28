@@ -1,4 +1,4 @@
-// Copyright 2025 A Person
+// Copyright 2025 TL
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 //for example: https://github.com/ShanDash/Cordic-Algorithm/tree/main
 
 module cordic_sin_cos (
-    input clk,
+    input clk,			//25 MHz
     input start,
     input wire reset,
     input [8:0] i_angle,              // input angle in degrees

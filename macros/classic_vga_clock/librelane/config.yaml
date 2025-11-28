@@ -35,7 +35,7 @@ VERILOG_POWER_DEFINE: "USE_POWER_PINS"
 # Clock
 CLOCK_PORT: clk
 CLOCK_NET: clk
-CLOCK_PERIOD: 32 # in ns
+CLOCK_PERIOD: 40 # in ns
 
 # SDC files
 PNR_SDC_FILE: dir::impl.sdc

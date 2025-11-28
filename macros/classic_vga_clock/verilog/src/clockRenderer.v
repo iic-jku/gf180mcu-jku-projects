@@ -1,4 +1,4 @@
-// Copyright 2025 A Person
+// Copyright 2025 TL
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
 `include "cordic_sin_cos.v"
 
 module clockRenderer (
-    input clk,
+    input clk,			//25 MHz
     input slow_clk,
     input reset,
     input [3:0] hour,     // 0–12

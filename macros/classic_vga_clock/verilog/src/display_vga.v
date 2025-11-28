@@ -1,4 +1,4 @@
-// Copyright 2025 A Person
+// Copyright 2025 TL
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
 // limitations under the License.
 
 module display_vga (
-    input wire clk,             //31.5 MHz
+    input wire clk,             //25 MHz
     input wire sys_rst,         //reset
     output reg hsync,           //horizontal sync
     output reg vsync,           //vertical sync

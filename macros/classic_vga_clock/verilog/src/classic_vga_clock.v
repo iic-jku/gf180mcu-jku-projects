@@ -1,4 +1,4 @@
-// Copyright 2025 Timo Laimer
+// Copyright 2025 TL
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 `include "display_vga.v"
 
 module classic_vga_clock (
-    input wire clk,                 //31.25MHz
+    input wire clk,                 //25 MHz
     input wire reset_n,             //Inverted reset line
     input wire hour_in,             //Hour increment button
     input wire min_in,              //Minute increment button 
@@ -45,8 +45,8 @@ reg [3:0] hours;
 reg [5:0] al_minutes;
 reg [3:0] al_hours;
 reg [24:0] sec_counter;
-reg [18:0] slow_clk_counter;
-reg [13:0] buzzer_clk_counter;
+reg [17:0] slow_clk_counter;
+reg [12:0] buzzer_clk_counter;
 reg [7:0] bell_symb [0:7];
 
 wire [9:0] x_pix;          // X position for actual pixel.
@@ -148,27 +148,27 @@ always @(posedge clk or posedge reset) begin
 
         // second counter
         sec_counter <= sec_counter + 1;
-        if(sec_counter == 15_750_000) begin
+        if(sec_counter == 12_500_000) begin
             sec_clock = ~sec_clock;
         end
-        if(sec_counter == 31_500_000) begin
+        if(sec_counter == 25_000_000) begin
             seconds <= seconds + 1;
             sec_clock = ~sec_clock;
             sec_counter <= 0;
         end
         slow_clk_counter <= slow_clk_counter + 1;
-        if (slow_clk_counter == 157_500) begin
+        if (slow_clk_counter == 125_000) begin
             slow_clk = ~slow_clk;
         end
-        if (slow_clk_counter == 315_000) begin
+        if (slow_clk_counter == 250_000) begin
             slow_clk = ~slow_clk;
             slow_clk_counter <= 0;
         end
         buzzer_clk_counter <= buzzer_clk_counter + 1;
-        if (buzzer_clk_counter == 5000) begin
+        if (buzzer_clk_counter == 3500) begin
             buzzer_clk = ~buzzer_clk;
         end
-        if (buzzer_clk_counter == 10_000) begin
+        if (buzzer_clk_counter == 7_000) begin
             buzzer_clk = ~buzzer_clk;
             buzzer_clk_counter <= 0;
         end

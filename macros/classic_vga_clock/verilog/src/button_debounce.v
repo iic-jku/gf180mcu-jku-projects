@@ -1,5 +1,4 @@
-
-// Copyright 2025 A Person
+// Copyright 2025 TL
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,7 +16,7 @@
 //for example: https://github.com/Rawster/digital_clock_verilog
 
 module button_debounce (
-    input wire regular_clk,     // 31.5 MHz Clock
+    input wire regular_clk,     // 25 MHz Clock
     input wire reset,
     input wire slow_clk,    
     input wire button_signal,   
