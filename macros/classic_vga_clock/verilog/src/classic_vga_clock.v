@@ -26,9 +26,9 @@ module classic_vga_clock (
     input wire al_on_off_toggle_in, //Alarm On/Off toggle button
 
     output wire buzzer_out,         //Alarm buzzer output (!!! External Buffer + Driver required !!!)
-    output wire vga_horizSync,      //Horizontal sync
-    output wire vga_vertSync,       //Vertical sync
-    output wire black_white         //black/white image line
+    output wire vga_horizSync_out,      //Horizontal sync
+    output wire vga_vertSync_out,       //Vertical sync
+    output wire black_white_out         //black/white image line
 );
 
 /* verilator lint_off BLKSEQ */
@@ -60,7 +60,7 @@ wire drawClockhandPx;
 
 clockRenderer clockfaceRendering (.clk(clk), .slow_clk(slow_clk), .reset(reset), .hour(hours), .minute(minutes), .second(seconds), .al_hour(al_hours), .al_minute(al_minutes), .horizCounter(x_pix), .vertCounter(y_pix), .x_offset(x_offs), .y_offset(y_offs), .pixel_bw(drawClockhandPx));
 
-display_vga vga_0 (.clk(clk), .sys_rst(reset), .hsync(vga_horizSync), .vsync(vga_vertSync), .horizPos(x_pix), .vertPos(y_pix), .active(video_visible_range));
+display_vga vga_0 (.clk(clk), .sys_rst(reset), .hsync(vga_horizSync_out), .vsync(vga_vertSync_out), .horizPos(x_pix), .vertPos(y_pix), .active(video_visible_range));
 
 reg [9:0] x_offset_bell;
 reg [9:0] y_offset_bell;
@@ -86,17 +86,13 @@ wire bell_px = bell_symb[fb_bell_y][8 - fb_bell_x];
 wire draw_bell = in_display_area && al_on && bell_px;
 wire draw = drawClockhandPx | draw_bell;
 
-assign black_white = video_visible_range && draw ? 1'b1 : 1'b0;
-
-
+assign black_white_out = video_visible_range && draw ? 1'b1 : 1'b0;
 
 button_debounce hrsAdj  (.regular_clk(clk), .slow_clk(slow_clk), .button_signal(hour_in), .output_pulse(hrs_adj_input), .reset(reset));
 button_debounce minAdj  (.regular_clk(clk), .slow_clk(slow_clk), .button_signal(min_in), .output_pulse(min_adj_input), .reset(reset));
 button_debounce secAdj  (.regular_clk(clk), .slow_clk(slow_clk), .button_signal(sec_in), .output_pulse(sec_adj_input), .reset(reset));
 button_debounce alAdj   (.regular_clk(clk), .slow_clk(slow_clk), .button_signal(al_in), .output_pulse(al_adj_input), .reset(reset));
 button_debounce alOnOff (.regular_clk(clk), .slow_clk(slow_clk), .button_signal(al_on_off_toggle_in), .output_pulse(al_on_off_toggle_line), .reset(reset));
-
-
 
 always @(posedge clk or posedge reset) begin
     if (reset) begin
