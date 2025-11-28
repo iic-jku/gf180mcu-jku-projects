@@ -6,4 +6,5 @@ Studi Projects:
 - Traffic Light Controller (400, 700)
 - TinyBF (0, 1000)
 - TinyToneGen (600, 1000)
-- Led Spinner (600, 1250)
+- Led Spinner (600, 1165)
+- SAR ADC Controller (600, 1380)
