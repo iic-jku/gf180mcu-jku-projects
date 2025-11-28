@@ -2,6 +2,11 @@ Project Overview:
 https://www.crowdsupply.com/wafer-space/gf180mcu-run-1/updates/tholin-feature
 https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 
+- Digital Core Master Thesis (Studi Project) - Ilir Shala
+	--> 4 x inputs
+	--> 11 x outputs
+	--> 200um x 120um
+	
 - Led Spinner (Studi Project) - Tim Tremetsberger
 	--> 13 x inputs
 	--> 8 x outputs
@@ -43,11 +48,6 @@ https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 	-->
 	
 - Digital Core Master Thesis - Max Golser
-	-->
-	-->
-	-->
-	
-- Digital Core Master Thesis - Ilir Shala
 	-->
 	-->
 	-->
