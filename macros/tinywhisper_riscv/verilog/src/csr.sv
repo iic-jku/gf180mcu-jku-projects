@@ -65,7 +65,6 @@ module csr (
       mstatus[3] <= 1;
     end
 
-    /* verilator lint_off CASEINCOMPLETE */
     if (write_en) begin
       case (addr_reg)
         12'h300: mstatus <= data_in;
@@ -76,7 +75,6 @@ module csr (
         12'h344: mip <= data_in;
       endcase
     end
-    /* verilator lint_on CASEINCOMPLETE */
 
     if (external_interrupt) mcause <= {1'b1, 31'd11};
     else if (uart_interrupt) mcause <= {1'b1, 31'd16};
@@ -96,8 +94,6 @@ module csr (
     end
   end
 
-  /* verilator lint_off WIDTHEXPAND */
-  /* verilator lint_off WIDTHTRUNC */
   always_comb begin
     if (mcause[31]) isr_target = (mtvec[31:2] + mcause[30:0]) << 2;
     else isr_target = {mtvec[31:2], 2'b00};
@@ -113,7 +109,5 @@ module csr (
       default: data_out = 0;
     endcase
   end
-  /* verilator lint_on WIDTHEXPAND */
-  /* verilator lint_on WIDTHTRUNC */
 
 endmodule

@@ -141,7 +141,6 @@ module uart_rx (
     end
   end
 
-  /* verilator lint_off WIDTHTRUNC */
   //
   // Increments the bit counter when recieving.
   always @(posedge clk) begin : p_bit_counter
@@ -153,7 +152,6 @@ module uart_rx (
       bit_counter <= bit_counter + 1'b1;
     end
   end
-  /* verilator lint_on WIDTHTRUNC */
 
   //
   // Sample the recieved bit when in the middle of a bit frame.

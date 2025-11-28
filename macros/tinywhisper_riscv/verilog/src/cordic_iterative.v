@@ -40,7 +40,6 @@ localparam integer COORDINATE_SYSTEM = 0;  // 0 = CIRCULAR, 1 = LINEAR, 2 = HYPE
 localparam integer N_CORDIC_ITERATIONS   = BITWIDTH;           
 localparam integer SHIFT_VALUE_BITWIDTH  = $clog2(N_CORDIC_ITERATIONS + 1);
 
-/* verilator lint_off WIDTHTRUNC */
 // Generate arctan lookup table in Matlab:
 // TinyWhisper/verilog/tb/matlab/write_std_definitions.m
 localparam signed [BITWIDTH-1:0] PI_HALF = 30'b010000000000000000000000000000;
@@ -77,7 +76,6 @@ localparam [N_CORDIC_ITERATIONS*BITWIDTH-1:0] ATAN_TABLE = {
 30'b000100101110010000000101000111,  // 0.147584 (quant.), 0.147584 (exact) 
 30'b001000000000000000000000000000}; // 0.250000 (quant.), 0.250000 (exact) 
 
-/* verilator lint_on WIDTHTRUNC */
 
 function [BITWIDTH-1:0] atan_value;
     input [SHIFT_VALUE_BITWIDTH-1:0] i;

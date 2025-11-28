@@ -125,7 +125,6 @@ module uart_tx (
   end
 
 
-  /* verilator lint_off WIDTHTRUNC */
   //
   // Increments the bit counter each time a new bit frame is sent.
   always @(posedge clk) begin : p_bit_counter
@@ -141,7 +140,6 @@ module uart_tx (
       bit_counter <= bit_counter + 1'b1;
     end
   end
-  /* verilator lint_on WIDTHTRUNC */
 
 
   //
