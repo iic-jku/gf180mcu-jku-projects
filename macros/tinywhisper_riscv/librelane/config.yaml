@@ -6,27 +6,25 @@ meta:
     Checker.KLayoutDRC: null
     
 DESIGN_NAME: tinywhisper_riscv
-VERILOG_FILES:
-- dir::../rtl/constants.sv
-# - dir::../rtl/src/chip_top.sv
-# - dir::../rtl/src/chip_core.sv
-- dir::../rtl/src/tinywhisper_riscv.sv
-- dir::../rtl/src/alu.sv
-- dir::../rtl/src/lo_gen.v
-- dir::../rtl/src/csr.sv
-- dir::../rtl/src/memory.sv
-- dir::../rtl/src/dsmod.v
-- dir::../rtl/src/regs.sv
-- dir::../rtl/src/freq_generator.sv
-- dir::../rtl/src/spi_master.sv
-- dir::../rtl/src/control.sv
-- dir::../rtl/src/i2c_master.sv
-- dir::../rtl/src/cordic_iterative.v
-- dir::../rtl/src/imm_gen.sv
-- dir::../rtl/src/uart_tx.v
-- dir::../rtl/src/uart_rx.v
-- dir::../rtl/src/cordic_slice.v
-- dir::../rtl/src/instructioncounter.sv
+VERILOG_FILES: ["dir::../verilog/constants.sv",
+"dir::../verilog/src/tinywhisper_riscv.sv",
+"dir::../verilog/src/alu.sv",
+"dir::../verilog/src/lo_gen.v",
+"dir::../verilog/src/csr.sv",
+"dir::../verilog/src/memory.sv",
+"dir::../verilog/src/dsmod.v",
+"dir::../verilog/src/regs.sv",
+"dir::../verilog/src/freq_generator.sv",
+"dir::../verilog/src/spi_master.sv",
+"dir::../verilog/src/control.sv",
+"dir::../verilog/src/i2c_master.sv",
+"dir::../verilog/src/imm_gen.sv",
+"dir::../verilog/src/uart_tx.v",
+"dir::../verilog/src/uart_rx.v",
+"dir::../verilog/src/cordic_slice.v",
+"dir::../verilog/src/cordic_iterative.v",
+"dir::../verilog/src/instructioncounter.sv"]
+
 
 # Enable plugin for better SystemVerilog support
 # USE_SLANG: True
@@ -35,8 +33,8 @@ VERILOG_FILES:
 # PRIMARY_GDSII_STREAMOUT_TOOL: klayout
 
 # Layout / Floorplan Rules
-DIE_AREA: [0, 0, 400, 200]
-PL_TARGET_DENSITY_PCT: 35
+DIE_AREA: [0, 0, 2000, 2000]
+PL_TARGET_DENSITY_PCT: 50
 GRT_ALLOW_CONGESTION: true
 RUN_MAGIC_DRC: true
 RUN_CTS: true
@@ -55,7 +53,7 @@ VERILOG_POWER_DEFINE: "USE_POWER_PINS"
 # Clock
 CLOCK_PORT: clk
 CLOCK_NET: clk
-CLOCK_PERIOD: 35 # in ns == ~28 MHz
+CLOCK_PERIOD: 35 # in ns == ~28MHz
 
 # SDC files
 PNR_SDC_FILE: dir::impl.sdc

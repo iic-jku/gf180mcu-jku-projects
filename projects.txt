@@ -38,8 +38,8 @@ https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 	--> 800um x 400um
 	
 - TinyWhisper + RISC-V - JKU & JMU
-	--> 8 x inputs
-	--> 17 x outputs, 1x inout (sda)
+	--> 10 x inputs
+	--> 18 x outputs, 1x inout (sda)
 	--> ?um x ?um
 	
 - Decimation Filter - Michael Köfinger
