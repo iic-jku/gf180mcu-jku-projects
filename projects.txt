@@ -2,7 +2,7 @@ Project Overview:
 https://www.crowdsupply.com/wafer-space/gf180mcu-run-1/updates/tholin-feature
 https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 
-- Digital Core Master Thesis SAR ADC Controller (Studi Project) - Ilir Shala
+- SAR ADC Controller (Digital Core Master Thesis) - Ilir Shala
 	--> 4 x inputs
 	--> 11 x outputs
 	--> 200um x 120um
@@ -43,9 +43,9 @@ https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 	-->
 	
 - Decimation Filter - Michael Köfinger
-	-->
-	-->
-	-->
+	--> 3 x inputs
+	--> 2 x outputs
+	--> 2000um x 1000um
 	
 - Digital Core Master Thesis - Max Golser
 	-->
