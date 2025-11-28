@@ -15,8 +15,8 @@ VERILOG_FILES: ["dir::../verilog/src/decimator_ser_top.v"]
 # PRIMARY_GDSII_STREAMOUT_TOOL: klayout
 
 # Layout / Floorplan Rules
-DIE_AREA: [0, 0, 2000, 1000]
-PL_TARGET_DENSITY_PCT: 80
+DIE_AREA: [0, 0, 3000, 1500]
+PL_TARGET_DENSITY_PCT: 70
 GRT_ALLOW_CONGESTION: true
 RUN_MAGIC_DRC: true
 RUN_CTS: true
