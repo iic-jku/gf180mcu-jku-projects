@@ -8,3 +8,4 @@ Studi Projects:
 - TinyToneGen (600, 1000)
 - Led Spinner (600, 1165)
 - SAR ADC Controller (600, 1380)
+- TinyWhisper RISC-V (?, ?)
