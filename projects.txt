@@ -1,38 +1,21 @@
-- Low-leakage ESD Protection Pads - Clyde Laforge
-- Decimation Filter - Michael Köfinger
-	-->
-	-->
-	-->
-	
-- Tetris - Dominik Brandstetter & HTL Leonding
-	-->
-	-->
-	-->
-	
-- Digital Core Event-Based ADC - Simon Dorrer
-	-->
-	-->
-	-->
-	
-- TinyWhisper + RISC-V - JKU & JMU
-	-->
-	-->
-	-->
-	
-- Digital Core Master Thesis - Ilir Shala
-	-->
-	-->
-	-->
-	
-- Digital Core Master Thesis - Max Golser
-	-->
-	-->
-	-->
+Project Overview:
+https://www.crowdsupply.com/wafer-space/gf180mcu-run-1/updates/tholin-feature
+https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 
 - Led Spinner (Studi Project) - Tim Tremetsberger
 	--> 13 x inputs
 	--> 8 x outputs
 	--> 200um x 150um
+
+- TinyToneGen (Studi Project) - Felix Feierabend
+	--> 12 x inputs
+	--> 1 x outputs
+	--> 200um x 150um
+
+- TinyBF (Studi Project) - Rene Hahn
+	--> 6 x inputs
+	--> 11 x outputs
+	--> 500um x 400um
 	
 - Digital Filter (Studi Project) - Gregor Flachs
 	--> 14 x inputs
@@ -44,17 +27,37 @@
 	--> 10 x outputs
 	--> 400um x 200um
 	
-- TinyBF (Studi Project) - Rene Hahn
-	--> 6 x inputs
-	--> 11 x outputs
-	--> 500um x 300um
-	
 - VGA Clock (Studi Project) - Timo Laimer
 	--> 7 x inputs
 	--> 4 x outputs
-	--> 625um x 500um
+	--> 800um x 400um
 	
-- LiTEC - Gerald Hilber & Schüler
+- TinyWhisper + RISC-V - JKU & JMU
+	-->
+	-->
+	-->
+	
+- Decimation Filter - Michael Köfinger
+	-->
+	-->
+	-->
+	
+- Digital Core Master Thesis - Max Golser
+	-->
+	-->
+	-->
+	
+- Digital Core Master Thesis - Ilir Shala
+	-->
+	-->
+	-->
+	
+- Tetris - Dominik Brandstetter & HTL Leonding
+	-->
+	-->
+	-->
+	
+- Digital Core Event-Based ADC - Simon Dorrer
 	-->
 	-->
 	-->

@@ -1,0 +1,9 @@
+ToDo:
+
+Studi Projects:
+- VGA Clock (0, 0)
+- Digital Filter (0, 700)
+- Traffic Light Controller (400, 700)
+- TinyBF (0, 1000)
+- TinyToneGen (600, 1000)
+- Led Spinner (600, 1250)

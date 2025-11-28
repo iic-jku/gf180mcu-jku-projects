@@ -5,8 +5,9 @@ Studi Projects:
  - reset
  - 3 x MUX select
  - 12 x inputs
- - 15 x outputs
+ - 11 x outputs
 
 Total:
  - 17 x inputs
- - 15 x outputs
+ - 11 x outputs
+ - 28 x pins

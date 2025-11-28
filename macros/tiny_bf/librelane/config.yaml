@@ -15,8 +15,8 @@ VERILOG_FILES: ["dir::../verilog/src/rh_bf_top.v"]
 # PRIMARY_GDSII_STREAMOUT_TOOL: klayout
 
 # Layout / Floorplan Rules
-DIE_AREA: [0, 0, 500, 300]
-PL_TARGET_DENSITY_PCT: 70
+DIE_AREA: [0, 0, 500, 400]
+PL_TARGET_DENSITY_PCT: 60
 GRT_ALLOW_CONGESTION: true
 RUN_MAGIC_DRC: true
 RUN_CTS: true

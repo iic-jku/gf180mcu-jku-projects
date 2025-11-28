@@ -15,7 +15,7 @@ VERILOG_FILES: ["dir::../verilog/src/classic_vga_clock.v"]
 # PRIMARY_GDSII_STREAMOUT_TOOL: klayout
 
 # Layout / Floorplan Rules
-DIE_AREA: [0, 0, 900, 400]
+DIE_AREA: [0, 0, 800, 600]
 PL_TARGET_DENSITY_PCT: 70
 GRT_ALLOW_CONGESTION: true
 RUN_MAGIC_DRC: true

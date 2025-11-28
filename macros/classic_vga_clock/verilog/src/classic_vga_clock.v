@@ -26,9 +26,9 @@ module classic_vga_clock (
     input wire al_on_off_toggle_in, //Alarm On/Off toggle button
 
     output wire buzzer_out,         //Alarm buzzer output (!!! External Buffer + Driver required !!!)
-    output wire vga_horizSync_out,      //Horizontal sync
-    output wire vga_vertSync_out,       //Vertical sync
-    output wire black_white_out         //black/white image line
+    output wire vga_horizSync_out,  //Horizontal sync
+    output wire vga_vertSync_out,   //Vertical sync
+    output wire black_white_out     //black/white image line
 );
 
 /* verilator lint_off BLKSEQ */
