@@ -47,10 +47,10 @@ https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 	--> 2 x outputs
 	--> 2000um x 1000um
 	
-- Digital Core Master Thesis - Max Golser
-	-->
-	-->
-	-->
+- Octawave (Digital Core Master Thesis) - Max Golser
+	--> 3 x inputs
+	--> 9 x outputs
+	--> Aum x Bum
 	
 - Tetris - Dominik Brandstetter & HTL Leonding
 	-->
