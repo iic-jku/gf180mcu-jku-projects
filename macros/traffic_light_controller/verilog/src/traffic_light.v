@@ -17,9 +17,11 @@
 `define TRAFFIC_LIGHT_V
 `default_nettype none
 
-`include "clk_enable.v"
-`include "max7219_driver.v"
-`include "spi_master.v"
+`ifndef SIM
+    `include "clk_enable.v"
+    `include "max7219_driver.v"
+    `include "spi_master.v"
+`endif
 
 module traffic_light (
 	input  wire clk,      // 1MHz

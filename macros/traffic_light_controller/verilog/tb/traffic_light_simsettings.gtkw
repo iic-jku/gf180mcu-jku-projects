@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
-[*] Mon Nov 10 16:33:43 2025
+[*] Fri Nov 28 08:21:41 2025
 [*]
-[dumpfile] "/foss/designs/kvic_336007_ws25/verilog/tb/traffic_light_tb.vcd"
-[dumpfile_mtime] "Mon Nov 10 16:30:42 2025"
-[dumpfile_size] 11704145
-[savefile] "/foss/designs/kvic_336007_ws25/verilog/tb/traffic_light_simsettings.gtkw"
-[timestart] 2857000000
-[size] 1427 600
+[dumpfile] "/foss/designs/gf180Abgabe/traffic_light_controller/verilog/tb/traffic_light_tb.vcd"
+[dumpfile_mtime] "Fri Nov 28 08:09:15 2025"
+[dumpfile_size] 11319121
+[savefile] "/foss/designs/gf180Abgabe/traffic_light_controller/verilog/tb/traffic_light_simsettings.gtkw"
+[timestart] 20200000000
+[size] 1655 600
 [pos] -1 -1
-*-30.344419 4925230000 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+*-34.844421 96800000000 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 [markername] AA
 [markername] BB
 [markername] CC
@@ -36,9 +36,8 @@
 [markername] XX
 [markername] YY
 [markername] ZZ
-[treeopen] tt_um_Max00Ker_tb.
-[treeopen] tt_um_Max00Ker_tb.dut.
-[treeopen] tt_um_Max00Ker_tb.dut.matrix_driver.
+[treeopen] traffic_light_tb.
+[treeopen] traffic_light_tb.dut.
 [sst_width] 297
 [signals_width] 273
 [sst_expanded] 1
@@ -47,56 +46,49 @@
 -Clock Signals
 @28
 [color] 2
-tt_um_Max00Ker_tb.dut.ena_10Hz
-tt_um_Max00Ker_tb.dut.ena_1kHz
+traffic_light_tb.dut.clk
 [color] 2
-tt_um_Max00Ker_tb.dut.blink
+traffic_light_tb.dut.ena_1kHz
+[color] 2
+traffic_light_tb.dut.ena_10Hz
+@200
+-Main ON OFF Switch
+@28
+traffic_light_tb.dut.switch_traffic_light_on
 @200
 -Car Lights
 @28
 [color] 1
-tt_um_Max00Ker_tb.dut.car_red_light
+traffic_light_tb.dut.car_red_light_out
 [color] 3
-tt_um_Max00Ker_tb.dut.car_yellow_light
-tt_um_Max00Ker_tb.dut.car_green_light
-@24
-tt_um_Max00Ker_tb.dut.car_state[2:0]
+traffic_light_tb.dut.car_yellow_light_out
+traffic_light_tb.dut.car_green_light_out
 @200
 -Pedestrian Lights
 @28
 [color] 1
-tt_um_Max00Ker_tb.dut.ped_red_light
-tt_um_Max00Ker_tb.dut.ped_green_light
-@24
-tt_um_Max00Ker_tb.dut.ped_state[1:0]
+traffic_light_tb.dut.ped_red_light_out
+traffic_light_tb.dut.ped_green_light_out
+@200
+-Pedestrian Button
+@28
+traffic_light_tb.dut.pushed_left_out
+traffic_light_tb.dut.pushed_right_out
+traffic_light_tb.dut.ped_request_left_in
+traffic_light_tb.dut.ped_request_right_in
+traffic_light_tb.dut.early_ped_green
 @200
 -
--Buttons
-@28
-tt_um_Max00Ker_tb.dut.switch_traffic_light_on
-tt_um_Max00Ker_tb.dut.early_ped_green
-tt_um_Max00Ker_tb.dut.ped_request_right
-tt_um_Max00Ker_tb.dut.pushed_right
-tt_um_Max00Ker_tb.dut.ped_request_left
-tt_um_Max00Ker_tb.dut.pushed_left
-@200
 -MAX7219
-@29
-tt_um_Max00Ker_tb.dut.countdown_active
 @28
-tt_um_Max00Ker_tb.dut.enable_smiley
-@24
-tt_um_Max00Ker_tb.dut.countdown[3:0]
+traffic_light_tb.dut.enable_smiley
 @200
 -SPI
 @28
-tt_um_Max00Ker_tb.dut.DIN
-@22
-tt_um_Max00Ker_tb.dut.matrix_driver.spi.data_in[15:0]
-tt_um_Max00Ker_tb.dut.matrix_driver.state[3:0]
-tt_um_Max00Ker_tb.dut.matrix_driver.next_state[3:0]
+traffic_light_tb.dut.CS_out
+@29
+traffic_light_tb.dut.DIN_out
 @28
-tt_um_Max00Ker_tb.dut.CS
-tt_um_Max00Ker_tb.dut.SCLK
+traffic_light_tb.dut.SCLK_out
 [pattern_trace] 1
 [pattern_trace] 0

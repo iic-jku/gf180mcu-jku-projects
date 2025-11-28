@@ -15,32 +15,53 @@
 
 `timescale 1s / 1ns
 
-module tt_um_Max00Ker_tb;
+module traffic_light_tb;
   // --- Signals ---
   reg clk    = 0;
   reg rst_n  = 0;
-  reg ena    = 1;
-  reg traffic_light_on = 0;
-  reg ped_push_button_left = 0;
-  reg ped_push_button_right = 0;
+
+  reg switch_traffic_light_on_in = 0;
+  reg ped_request_left_in = 0;
+  reg ped_request_right_in = 0;
      
-  reg  [7:0] ui_in = 8'b0;
-  wire [7:0] uo_out;
-  wire [7:0] uio_in;
-  wire [7:0] uio_out;
-  wire [7:0] uio_oe;
+  wire car_red_light_out;
+  wire car_yellow_light_out;
+  wire car_green_light_out;
+  wire ped_red_light_out;
+  wire ped_green_light_out;
+
+  wire DIN_out;
+  wire CS_out;
+  wire SCLK_out;
+
+  wire pushed_left_out;
+  wire pushed_right_out;
 
 
   // --- DUT (Device Under Test) ---
-  tt_um_Max00Ker_Traffic_Light dut (
-      .ui_in  (ui_in),    // Dedicated inputs
-      .uo_out (uo_out),   // Dedicated outputs
-      .uio_in (uio_in),   // IOs: Input path
-      .uio_out(uio_out),  // IOs: Output path
-      .uio_oe (uio_oe),   // IOs: Enable path (active high: 0=input, 1=output)
-      .ena    (ena),      // enable - goes high when design is selected
+  traffic_light dut (
       .clk    (clk),      // clock
-      .rst_n  (rst_n) // not reset        // ungenutzte bidirektionale Pins
+      .rst_n  (rst_n),     // not reset 
+
+      .switch_traffic_light_on_in(switch_traffic_light_on_in),
+
+      .ped_request_left_in(ped_request_left_in),
+      .ped_request_right_in(ped_request_right_in),
+
+      .car_red_light_out(car_red_light_out),
+      .car_yellow_light_out(car_yellow_light_out),
+      .car_green_light_out(car_green_light_out),
+      .ped_red_light_out(ped_red_light_out),
+      .ped_green_light_out(ped_green_light_out),
+
+      .DIN_out(DIN_out),
+      .CS_out(CS_out),
+      .SCLK_out(SCLK_out),
+
+      .pushed_left_out(pushed_left_out),
+      .pushed_right_out(pushed_right_out)
+
+
   );
 
   // --- Clock Generator ---
@@ -50,18 +71,10 @@ module tt_um_Max00Ker_tb;
     always #0.0000005 clk = ~clk;     // 1MHz source
   `endif
 
-  // --- Update inputs ---
-  always @(*) begin
-    ui_in[0] = traffic_light_on;    // Pin 0 = on/off switch
-    ui_in[1] = ped_push_button_left; //Pin 1 = push button left
-    ui_in[2] = ped_push_button_right; //Pin 1 = push button left
-  end
-
-
   // --- Stimulus / Reset ---
   initial begin
     $dumpfile("traffic_light_tb.vcd");
-    $dumpvars(0, tt_um_Max00Ker_tb);
+    $dumpvars(0, traffic_light_tb);
 
     // Hold reset active
     rst_n = 0; 
@@ -69,27 +82,31 @@ module tt_um_Max00Ker_tb;
     rst_n = 1;
 
     // Test traffic light ON/OFF
-    traffic_light_on = 0;
+    switch_traffic_light_on_in = 0;
     #10
-    traffic_light_on = 1;
+    switch_traffic_light_on_in = 1;
     #10
 
     // Press pedestrian button
-    ped_push_button_left = 1;
+    ped_request_left_in = 1;
     #1
-    ped_push_button_left = 0;
+    ped_request_left_in = 0;
     #15
-    ped_push_button_left = 1;
+    ped_request_left_in = 1;
     #1
-    ped_push_button_left = 0;
+    ped_request_left_in = 0;
     #32
-    ped_push_button_right = 1;
+    ped_request_right_in = 1;
     #1
-    ped_push_button_right = 0;
+    ped_request_right_in = 0;
+    #1
+    ped_request_left_in = 1;
+    #1
+    ped_request_left_in = 0;
 
     // Turn traffic light OFF after some time
     #150
-    traffic_light_on = 0;
+    switch_traffic_light_on_in = 0;
     #20
 
     // Simulation laufen lassen
