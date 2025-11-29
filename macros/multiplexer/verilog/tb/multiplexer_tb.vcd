@@ -1,0 +1,309 @@
+$date
+	Sat Nov 29 17:35:19 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module multiplexer_tb $end
+$var wire 1 ! CS_in $end
+$var wire 1 " DIN_in $end
+$var wire 1 # SCLK_in $end
+$var wire 1 $ black_white_in $end
+$var wire 1 % buzzer_in $end
+$var wire 1 & car_green_light_in $end
+$var wire 1 ' car_red_light_in $end
+$var wire 1 ( car_yellow_light_in $end
+$var wire 8 ) dac_bits_in [7:0] $end
+$var wire 8 * data_in [7:0] $end
+$var wire 1 + done_in $end
+$var wire 1 , dp_on_in $end
+$var wire 1 - ped_green_light_in $end
+$var wire 1 . ped_red_light_in $end
+$var wire 1 / pushed_left_in $end
+$var wire 1 0 pushed_right_in $end
+$var wire 7 1 seg_bits_in [6:0] $end
+$var wire 1 2 signal_bit_in $end
+$var wire 1 3 sound_in $end
+$var wire 1 4 spi_miso_in $end
+$var wire 1 5 spi_sclk_in $end
+$var wire 7 6 ui_in [6:0] $end
+$var wire 4 7 uio_in [3:0] $end
+$var wire 1 8 vga_horizSync_in $end
+$var wire 1 9 vga_vertSync_in $end
+$var wire 11 : mux_out [10:0] $end
+$var reg 1 ; clk $end
+$var reg 3 < design_sel_in [2:0] $end
+$scope module dut $end
+$var wire 1 ! CS_in $end
+$var wire 1 " DIN_in $end
+$var wire 1 # SCLK_in $end
+$var wire 1 $ black_white_in $end
+$var wire 1 % buzzer_in $end
+$var wire 1 & car_green_light_in $end
+$var wire 1 ' car_red_light_in $end
+$var wire 1 ( car_yellow_light_in $end
+$var wire 1 ; clk $end
+$var wire 8 = dac_bits_in [7:0] $end
+$var wire 8 > data_in [7:0] $end
+$var wire 3 ? design_sel_in [2:0] $end
+$var wire 1 + done_in $end
+$var wire 1 , dp_on_in $end
+$var wire 11 @ mux_out [10:0] $end
+$var wire 1 - ped_green_light_in $end
+$var wire 1 . ped_red_light_in $end
+$var wire 1 / pushed_left_in $end
+$var wire 1 0 pushed_right_in $end
+$var wire 7 A seg_bits_in [6:0] $end
+$var wire 1 2 signal_bit_in $end
+$var wire 1 3 sound_in $end
+$var wire 1 4 spi_miso_in $end
+$var wire 1 5 spi_sclk_in $end
+$var wire 7 B ui_in [6:0] $end
+$var wire 4 C uio_in [3:0] $end
+$var wire 1 8 vga_horizSync_in $end
+$var wire 1 9 vga_vertSync_in $end
+$var reg 11 D mux_out_reg [10:0] $end
+$upscope $end
+$upscope $end
+$scope module multiplexer_tb $end
+$scope module dut $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b11111111111 D
+b1111 C
+b1111111 B
+b1111111 A
+b11111111111 @
+b0 ?
+b11111111 >
+b11111111 =
+b0 <
+0;
+b11111111111 :
+19
+18
+b1111 7
+b1111111 6
+15
+14
+13
+12
+b1111111 1
+10
+1/
+1.
+1-
+1,
+1+
+b11111111 *
+b11111111 )
+1(
+1'
+1&
+1%
+1$
+1#
+1"
+1!
+$end
+#20
+1;
+#40
+0;
+#60
+1;
+#80
+0;
+#100
+1;
+#120
+0;
+#140
+1;
+#160
+0;
+#180
+1;
+#200
+0;
+b1 <
+b1 ?
+#220
+1;
+#240
+0;
+#260
+1;
+#280
+0;
+#300
+1;
+#320
+0;
+#340
+1;
+#360
+0;
+#380
+1;
+#400
+b11111111 :
+b11111111 @
+b11111111 D
+0;
+b10 <
+b10 ?
+#420
+1;
+#440
+0;
+#460
+1;
+#480
+0;
+#500
+1;
+#520
+0;
+#540
+1;
+#560
+0;
+#580
+1;
+#600
+b1 :
+b1 @
+b1 D
+0;
+b11 <
+b11 ?
+#620
+1;
+#640
+0;
+#660
+1;
+#680
+0;
+#700
+1;
+#720
+0;
+#740
+1;
+#760
+0;
+#780
+1;
+#800
+b11111111 :
+b11111111 @
+b11111111 D
+0;
+b100 <
+b100 ?
+#820
+1;
+#840
+0;
+#860
+1;
+#880
+0;
+#900
+1;
+#920
+0;
+#940
+1;
+#960
+0;
+#980
+1;
+#1000
+b1111111111 :
+b1111111111 @
+b1111111111 D
+0;
+b101 <
+b101 ?
+#1020
+1;
+#1040
+0;
+#1060
+1;
+#1080
+0;
+#1100
+1;
+#1120
+0;
+#1140
+1;
+#1160
+0;
+#1180
+1;
+#1200
+b1 :
+b1 @
+b1 D
+0;
+b110 <
+b110 ?
+#1220
+1;
+#1240
+0;
+#1260
+1;
+#1280
+0;
+#1300
+1;
+#1320
+0;
+#1340
+1;
+#1360
+0;
+#1380
+1;
+#1400
+b1111 :
+b1111 @
+b1111 D
+0;
+b111 <
+b111 ?
+#1420
+1;
+#1440
+0;
+#1460
+1;
+#1480
+0;
+#1500
+1;
+#1520
+0;
+#1540
+1;
+#1560
+0;
+#1580
+1;
+#1600
+0;

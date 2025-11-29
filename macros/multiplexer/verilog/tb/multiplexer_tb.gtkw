@@ -1,0 +1,55 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Sat Nov 29 16:35:15 2025
+[*]
+[dumpfile] "/foss/designs/gf180mcu-jku-projects/macros/multiplexer/verilog/tb/multiplexer_tb.vcd"
+[dumpfile_mtime] "Sat Nov 29 16:34:46 2025"
+[dumpfile_size] 3365
+[savefile] "/foss/designs/gf180mcu-jku-projects/macros/multiplexer/verilog/tb/multiplexer_tb.gtkw"
+[timestart] 0
+[size] 1602 949
+[pos] -1 -1
+*-8.637562 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+[markername] AA
+[markername] BB
+[markername] CC
+[markername] DD
+[markername] EE
+[markername] FF
+[markername] GG
+[markername] HH
+[markername] II
+[markername] JJ
+[markername] KK
+[markername] LL
+[markername] MM
+[markername] NN
+[markername] OO
+[markername] PP
+[markername] QQ
+[markername] RR
+[markername] SS
+[markername] TT
+[markername] UU
+[markername] VV
+[markername] WW
+[markername] XX
+[markername] YY
+[markername] ZZ
+[sst_width] 297
+[signals_width] 481
+[sst_expanded] 1
+[sst_vpaned_height] 271
+@201
+-INPUTS
+@28
+multiplexer_tb.clk
+multiplexer_tb.design_sel_in[2:0]
+@24
+multiplexer_tb.design_sel_in[2:0]
+@200
+-OUTPUTS
+@28
+multiplexer_tb.mux_out[10:0]
+[pattern_trace] 1
+[pattern_trace] 0
