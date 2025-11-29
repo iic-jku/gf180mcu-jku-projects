@@ -40,7 +40,7 @@ https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 - TinyWhisper + RISC-V - JKU & JMU
 	--> 10 x inputs
 	--> 18 x outputs, 1x inout (sda)
-	--> ?um x ?um
+	--> 1000um x 2000um
 	
 - Decimation Filter - Michael Köfinger
 	--> 3 x inputs
@@ -50,7 +50,7 @@ https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 - Octawave (Digital Core Master Thesis) - Max Golser
 	--> 3 x inputs
 	--> 9 x outputs
-	--> Aum x Bum
+	--> 1800um x 1200um
 	
 - Tetris - Dominik Brandstetter & HTL Leonding
 	-->
