@@ -1,0 +1,110 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Fri Nov 28 16:41:32 2025
+[*]
+[dumpfile] "/foss/designs/TinyBF_WaferSpace_sub/verilog/tb/results/rh_bf_top_tb.vcd"
+[dumpfile_mtime] "Fri Nov 28 16:40:39 2025"
+[dumpfile_size] 3637026
+[savefile] "/foss/designs/TinyBF_WaferSpace_sub/verilog/tb/gtkw/rh_bf_top.gtkw"
+[timestart] 522000000
+[size] 1920 1043
+[pos] -1 -1
+*-25.268396 -1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+[markername] AA
+[markername] BB
+[markername] CC
+[markername] DD
+[markername] EE
+[markername] FF
+[markername] GG
+[markername] HH
+[markername] II
+[markername] JJ
+[markername] KK
+[markername] LL
+[markername] MM
+[markername] NN
+[markername] OO
+[markername] PP
+[markername] QQ
+[markername] RR
+[markername] SS
+[markername] TT
+[markername] UU
+[markername] VV
+[markername] WW
+[markername] XX
+[markername] YY
+[markername] ZZ
+[treeopen] rh_bf_top_tb.
+[treeopen] rh_bf_top_tb.dut.
+[treeopen] rh_bf_top_tb.dut.u_bf_core.
+[sst_width] 297
+[signals_width] 158
+[sst_expanded] 1
+[sst_vpaned_height] 304
+@28
+rh_bf_top_tb.dut.clk
+rh_bf_top_tb.dut.rst_n
+@22
+rh_bf_top_tb.dut.dp[3:0]
+rh_bf_top_tb.dut.pc[4:0]
+@28
+rh_bf_top_tb.dut.uart_tx
+@c00022
+rh_bf_top_tb.dut.ui_in[3:0]
+@28
+(0)rh_bf_top_tb.dut.ui_in[3:0]
+(1)rh_bf_top_tb.dut.ui_in[3:0]
+(2)rh_bf_top_tb.dut.ui_in[3:0]
+(3)rh_bf_top_tb.dut.ui_in[3:0]
+@1401200
+-group_end
+@c00022
+rh_bf_top_tb.dut.uio_out[3:0]
+@28
+(0)rh_bf_top_tb.dut.uio_out[3:0]
+(1)rh_bf_top_tb.dut.uio_out[3:0]
+(2)rh_bf_top_tb.dut.uio_out[3:0]
+(3)rh_bf_top_tb.dut.uio_out[3:0]
+@1401200
+-group_end
+@c00022
+rh_bf_top_tb.dut.uo_out[6:0]
+@28
+(0)rh_bf_top_tb.dut.uo_out[6:0]
+(1)rh_bf_top_tb.dut.uo_out[6:0]
+(2)rh_bf_top_tb.dut.uo_out[6:0]
+(3)rh_bf_top_tb.dut.uo_out[6:0]
+(4)rh_bf_top_tb.dut.uo_out[6:0]
+(5)rh_bf_top_tb.dut.uo_out[6:0]
+(6)rh_bf_top_tb.dut.uo_out[6:0]
+@1401200
+-group_end
+@200
+-
+@28
+rh_bf_top_tb.dut.u_bf_core.u_programmer.prog_mode_i
+@22
+rh_bf_top_tb.dut.u_bf_core.u_programmer.uart_data_i[7:0]
+@28
+rh_bf_top_tb.dut.u_bf_core.u_programmer.uart_valid_i
+@200
+-
+@28
+[color] 2
+rh_bf_top_tb.dut.u_bf_core.u_uart_rx.rx_serial_i
+@22
+rh_bf_top_tb.dut.u_bf_core.u_uart_rx.rx_data_o[7:0]
+@28
+rh_bf_top_tb.dut.u_bf_core.u_uart_rx.rx_valid_o
+@200
+-
+@28
+[color] 2
+rh_bf_top_tb.dut.u_bf_core.u_uart_tx.tx_serial_o
+rh_bf_top_tb.dut.u_bf_core.u_uart_tx.state[2:0]
+@22
+rh_bf_top_tb.dut.u_bf_core.u_uart_tx.shift_reg[7:0]
+[pattern_trace] 1
+[pattern_trace] 0

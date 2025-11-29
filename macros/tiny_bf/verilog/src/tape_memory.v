@@ -1,7 +1,7 @@
 //=============================================================================
 // tape_memory.v - TinyBF Data Tape Memory (Runtime Data Storage)
 //=============================================================================
-// Project:     TinyBF - Tiny Tapeout Sky 25B Brainfuck ASIC CPU
+// Project:     TinyBF - wafer.space GF180 Brainfuck ASIC CPU
 // Author:      René Hahn
 // Date:        2025-11-10
 // Version:     1.0
@@ -57,7 +57,7 @@ module tape_memory #(
     // Synchronous write and read with write-first behavior
     always @(posedge clk_i or negedge rst_i) begin
         if (!rst_i) begin
-            // Clear all memory on reset (critical for repeatable execution)
+            // Clear all memory on reset
             for (i = 0; i < DEPTH; i = i + 1) begin
                 mem[i] <= {CELL_W{1'b0}};
             end
@@ -78,7 +78,6 @@ module tape_memory #(
                     rdata_o <= mem[raddr_i];
                 end
             end
-            // Note: If ren_i is low, rdata_o retains its previous value
         end
     end
 

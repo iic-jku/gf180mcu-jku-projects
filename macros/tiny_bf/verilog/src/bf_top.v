@@ -1,20 +1,20 @@
 //=============================================================================
 // bf_top.v - TinyBF CPU Top Level Module
 //=============================================================================
-// Project:     TinyBF - Tiny Tapeout Sky 25B Brainfuck ASIC CPU
+// Project:     TinyBF - wafer.space GF180 Brainfuck ASIC CPU
 // Author:      René Hahn
 // Date:        2025-11-25
 // Version:     3.0
 //
 // Description:
 //   Complete Brainfuck interpreter for ASIC implementation
-//   Integrates: CPU core, RAM program memory, tape memory, UART (TX/RX), baud generator
-//   Programs can be loaded via programmer module or default program on reset
+//   Integrates CPU core, RAM program memory, tape memory, UART, and baud generator
+//   Programs can be uploaded via UART or use default program on reset
 //
 // Parameters:
 //   ADDR_W:      Program memory address width (default 5 = 32 instructions)
 //   TAPE_ADDR_W: Data tape address width (default 4 = 16 cells)
-//   CLK_FREQ:    System clock frequency in Hz (default 50MHz)
+//   CLK_FREQ:    System clock frequency in Hz (default 25MHz)
 //   BAUD_RATE:   UART baud rate in bps (default 115200)
 // 
 // Interfaces:
@@ -37,7 +37,7 @@
 module bf_top #(
     parameter ADDR_W = 5,              // Program address width (32 entries)
     parameter TAPE_ADDR_W = 4,         // Tape address width (16 cells)
-    parameter CLK_FREQ = 50000000,     // System clock frequency (Hz)
+    parameter CLK_FREQ = 25000000,     // System clock frequency (Hz)
     parameter BAUD_RATE = 115200       // UART baud rate
 )(
     // Clock and reset
@@ -109,8 +109,7 @@ module bf_top #(
     wire [ADDR_W-1:0]     prog_waddr;
     wire [INSTR_W-1:0]    prog_wdata;
     
-    // UART RX routing: When in programming mode, rx_valid goes to programmer only
-    // When in execute mode, rx_valid goes to CPU only
+    // UART RX routing based on programming mode
     wire rx_valid_to_cpu = rx_valid & ~prog_mode_i;
     wire rx_valid_to_prog = rx_valid & prog_mode_i;
 
@@ -127,9 +126,6 @@ module bf_top #(
     //========================================================================
     // Baud Rate Generator
     //========================================================================
-    // Generates timing ticks for UART:
-    //   - tick_16x: 16x oversampled for RX (mid-bit sampling)
-    //   - tick_1x: 1x baud rate for TX (bit timing)
     
     baud_gen #(
         .CLK_FREQ  (CLK_FREQ),
@@ -144,7 +140,6 @@ module bf_top #(
     //========================================================================
     // UART Transmitter
     //========================================================================
-    // 8N1 format: 1 start bit, 8 data bits (LSB first), 1 stop bit
     
     uart_tx u_uart_tx (
         .clk_i        (clk_i),
@@ -159,7 +154,6 @@ module bf_top #(
     //========================================================================
     // UART Receiver
     //========================================================================
-    // 8N1 format: 1 start bit, 8 data bits (LSB first), 1 stop bit
     
     uart_rx u_uart_rx (
         .clk_i           (clk_i),
@@ -175,7 +169,6 @@ module bf_top #(
     //========================================================================
     // Programmer Module
     //========================================================================
-    // Uploads programs to RAM via UART
     
     programmer #(
         .INSTR_W (INSTR_W),
@@ -193,9 +186,8 @@ module bf_top #(
     );
 
     //========================================================================
-    // Program Memory (RAM - Programmable)
+    // Program Memory (RAM)
     //========================================================================
-    // Stores Brainfuck instructions
     
     program_memory #(
         .DATA_W (INSTR_W),
@@ -214,7 +206,6 @@ module bf_top #(
     //========================================================================
     // Tape Memory
     //========================================================================
-    // Stores data cells for Brainfuck tape
     
     tape_memory #(
         .CELL_W (CELL_W),
@@ -280,8 +271,6 @@ module bf_top #(
     //========================================================================
     // CPU Busy Detection
     //========================================================================
-    // Derive busy status from CPU outputs
-    // CPU is busy when it's accessing memory or UART
     
     assign cpu_busy_o = prog_ren || tape_ren || tape_wen || tx_start || tx_busy || rx_busy;
 

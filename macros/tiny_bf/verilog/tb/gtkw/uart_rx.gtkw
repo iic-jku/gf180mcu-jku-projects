@@ -1,0 +1,63 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Sun Nov  9 11:23:47 2025
+[*]
+[dumpfile] "/foss/designs/TTtemp/tb/results/uart_rx_tb.vcd"
+[dumpfile_mtime] "Sun Nov  9 11:05:55 2025"
+[dumpfile_size] 4618008
+[savefile] "/foss/designs/TTtemp/tb/gtkw/uart_rx.gtkw"
+[timestart] 0
+[size] 1440 773
+[pos] -27 -24
+*-26.400000 242230000 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+[markername] AA
+[markername] BB
+[markername] CC
+[markername] DD
+[markername] EE
+[markername] FF
+[markername] GG
+[markername] HH
+[markername] II
+[markername] JJ
+[markername] KK
+[markername] LL
+[markername] MM
+[markername] NN
+[markername] OO
+[markername] PP
+[markername] QQ
+[markername] RR
+[markername] SS
+[markername] TT
+[markername] UU
+[markername] VV
+[markername] WW
+[markername] XX
+[markername] YY
+[markername] ZZ
+[treeopen] uart_rx_tb.
+[sst_width] 297
+[signals_width] 181
+[sst_expanded] 1
+[sst_vpaned_height] 210
+@28
+uart_rx_tb.dut.clk_i
+uart_rx_tb.dut.rst_i
+uart_rx_tb.dut.rx
+uart_rx_tb.dut.rx_busy_o
+uart_rx_tb.dut.rx_busy_o
+uart_rx_tb.dut.rx_serial_i
+uart_rx_tb.dut.rx_sync[2:0]
+@22
+uart_rx_tb.dut.rx_data_o[7:0]
+@28
+uart_rx_tb.dut.rx_valid_o
+uart_rx_tb.dut.state[1:0]
+uart_rx_tb.dut.baud_tick_16x_i
+uart_rx_tb.dut.bit_cnt[2:0]
+@820
+uart_rx_tb.check_data.test_name[255:0]
+uart_rx_tb.check_signal.test_name[255:0]
+[pattern_trace] 1
+[pattern_trace] 0

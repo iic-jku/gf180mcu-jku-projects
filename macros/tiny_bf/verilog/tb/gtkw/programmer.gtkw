@@ -1,0 +1,69 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Wed Nov 26 16:21:51 2025
+[*]
+[dumpfile] "/foss/designs/TinyBF/tb/results/programmer_tb.vcd"
+[dumpfile_mtime] "Wed Nov 26 16:20:45 2025"
+[dumpfile_size] 19903
+[savefile] "/foss/designs/TinyBF/tb/gtkw/programmer.gtkw"
+[timestart] 4482000
+[size] 1898 1027
+[pos] -1 -1
+*-18.299999 6450000 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+[markername] AA
+[markername] BB
+[markername] CC
+[markername] DD
+[markername] EE
+[markername] FF
+[markername] GG
+[markername] HH
+[markername] II
+[markername] JJ
+[markername] KK
+[markername] LL
+[markername] MM
+[markername] NN
+[markername] OO
+[markername] PP
+[markername] QQ
+[markername] RR
+[markername] SS
+[markername] TT
+[markername] UU
+[markername] VV
+[markername] WW
+[markername] XX
+[markername] YY
+[markername] ZZ
+[treeopen] programmer_tb.
+[sst_width] 297
+[signals_width] 192
+[sst_expanded] 1
+[sst_vpaned_height] 299
+@820
+programmer_tb.check_value.test_name[255:0]
+@420
+programmer_tb.test_num
+@28
+programmer_tb.dut.rst_i
+programmer_tb.dut.clk_i
+@22
+programmer_tb.dut.addr[4:0]
+@28
+programmer_tb.dut.state[1:0]
+@22
+programmer_tb.dut.data_reg[7:0]
+@28
+programmer_tb.dut.prog_mode_i
+@22
+programmer_tb.dut.uart_data_i[7:0]
+@28
+programmer_tb.dut.uart_valid_i
+programmer_tb.dut.prog_busy_o
+@22
+programmer_tb.dut.prog_wdata_o[7:0]
+@28
+programmer_tb.dut.prog_wen_o
+[pattern_trace] 1
+[pattern_trace] 0

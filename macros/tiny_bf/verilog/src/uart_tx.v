@@ -1,7 +1,7 @@
 //=============================================================================
 // uart_tx.v - TinyBF UART Transmitter (8N1 Serial Output)
 //=============================================================================
-// Project:     TinyBF - Tiny Tapeout Sky 25B Brainfuck ASIC CPU
+// Project:     TinyBF - wafer.space GF180 Brainfuck ASIC CPU
 // Author:      René Hahn
 // Date:        2025-11-10
 // Version:     1.0
@@ -36,13 +36,14 @@ module uart_tx (
 );
 
     // State encoding
-    localparam [1:0] IDLE      = 2'b00;
-    localparam [1:0] START_BIT = 2'b01;
-    localparam [1:0] DATA_BITS = 2'b10;
-    localparam [1:0] STOP_BIT  = 2'b11;
+    localparam [2:0] IDLE      = 3'b000;
+    localparam [2:0] WAIT_SYNC = 3'b001;
+    localparam [2:0] START_BIT = 3'b010;
+    localparam [2:0] DATA_BITS = 3'b011;
+    localparam [2:0] STOP_BIT  = 3'b100;
 
     // Registers
-    reg [1:0] state;
+    reg [2:0] state;
     reg [2:0] bit_cnt;      // 0-7 for data bits
     reg [7:0] shift_reg;    // Shift register for data
 
@@ -52,58 +53,67 @@ module uart_tx (
             state <= IDLE;
             bit_cnt <= 3'd0;
             shift_reg <= 8'd0;
-            tx_serial_o <= 1'b1;   // Idle high
+            tx_serial_o <= 1'b1;
             tx_busy_o <= 1'b0;
         end else begin
             case (state)
                 IDLE: begin
-                    tx_serial_o <= 1'b1;   // Idle high
+                    tx_serial_o <= 1'b1;
                     tx_busy_o <= 1'b0;
                     
                     if (tx_start_i) begin
-                        shift_reg <= tx_data_i;    // Latch data
-                        state <= START_BIT;
+                        shift_reg <= tx_data_i;
+                        state <= WAIT_SYNC;
                         tx_busy_o <= 1'b1;
-                        tx_serial_o <= 1'b0;       // Pre-set start bit (look-ahead)
+                    end
+                end
+
+                WAIT_SYNC: begin
+                    tx_serial_o <= 1'b1;
+                    tx_busy_o <= 1'b1;
+                    
+                    if (baud_tick_i) begin
+                        state <= START_BIT;
+                        tx_serial_o <= 1'b0;
                     end
                 end
 
                 START_BIT: begin
-                    // tx_serial_o already set to 0 from IDLE state
                     tx_busy_o <= 1'b1;
+                    tx_serial_o <= 1'b0;
                     
                     if (baud_tick_i) begin
                         state <= DATA_BITS;
                         bit_cnt <= 3'd0;
-                        tx_serial_o <= shift_reg[0];  // Pre-set first data bit
+                        tx_serial_o <= shift_reg[0];
                     end
                 end
 
                 DATA_BITS: begin
-                    // tx_serial_o already set from previous state
                     tx_busy_o <= 1'b1;
                     
                     if (baud_tick_i) begin
-                        shift_reg <= {1'b0, shift_reg[7:1]};  // Shift right
+                        shift_reg <= {1'b0, shift_reg[7:1]};
                         
                         if (bit_cnt == 3'd7) begin
                             state <= STOP_BIT;
-                            tx_serial_o <= 1'b1;    // Pre-set stop bit
+                            tx_serial_o <= 1'b1;
                         end else begin
                             bit_cnt <= bit_cnt + 1'b1;
-                            tx_serial_o <= shift_reg[1];  // Pre-set next data bit (after shift)
+                            tx_serial_o <= shift_reg[0];
                         end
+                    end else begin
+                        tx_serial_o <= shift_reg[0];
                     end
                 end
 
                 STOP_BIT: begin
-                    // tx_serial_o already set to 1 from DATA_BITS state
                     tx_busy_o <= 1'b1;
+                    tx_serial_o <= 1'b1;
                     
                     if (baud_tick_i) begin
                         state <= IDLE;
                         tx_busy_o <= 1'b0;
-                        tx_serial_o <= 1'b1;    // Maintain idle high
                     end
                 end
 

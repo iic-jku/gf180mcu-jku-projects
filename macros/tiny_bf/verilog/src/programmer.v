@@ -1,7 +1,7 @@
 //=============================================================================
 // programmer.v - TinyBF Program Uploader via UART
 //=============================================================================
-// Project:     TinyBF - Tiny Tapeout Sky 25B Brainfuck ASIC CPU
+// Project:     TinyBF - wafer.space GF180 Brainfuck ASIC CPU
 // Author:      René Hahn
 // Date:        2025-11-25
 // Version:     1.0
@@ -13,10 +13,9 @@
 //   Address auto-increments after each write
 //
 // Protocol:
-//   - When prog_mode_i=1, programmer is active
-//   - Each UART byte received is written to program memory
-//   - Address starts at 0 and auto-increments
-//   - When prog_mode_i=0, programmer is disabled
+//   - When prog_mode_i=1, each UART byte is written to program memory
+//   - Address auto-increments after each write, starting from 0
+//   - When prog_mode_i=0, address resets to 0
 //
 // Parameters:
 //   INSTR_W:     Instruction width in bits (default 8)
@@ -94,7 +93,6 @@ module programmer #(
         case (state)
             S_IDLE: begin
                 if (prog_mode_i && uart_valid_i) begin
-                    // Latch incoming data
                     next_data_reg = uart_data_i;
                     next_state = S_WRITE;
                 end else if (!prog_mode_i) begin

@@ -1,0 +1,119 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Mon Nov 10 15:21:48 2025
+[*]
+[dumpfile] "/foss/designs/TinyBF/tb/results/control_unit_tb.vcd"
+[dumpfile_mtime] "Mon Nov 10 15:17:06 2025"
+[dumpfile_size] 50789
+[savefile] "/foss/designs/TinyBF/tb/gtkw/control_unit.gtkw"
+[timestart] 301000
+[size] 1920 1043
+[pos] -1 -1
+*-17.999998 2190000 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+[markername] AA
+[markername] BB
+[markername] CC
+[markername] DD
+[markername] EE
+[markername] FF
+[markername] GG
+[markername] HH
+[markername] II
+[markername] JJ
+[markername] KK
+[markername] LL
+[markername] MM
+[markername] NN
+[markername] OO
+[markername] PP
+[markername] QQ
+[markername] RR
+[markername] SS
+[markername] TT
+[markername] UU
+[markername] VV
+[markername] WW
+[markername] XX
+[markername] YY
+[markername] ZZ
+[treeopen] control_unit_tb.
+[sst_width] 297
+[signals_width] 408
+[sst_expanded] 1
+[sst_vpaned_height] 305
+@820
+control_unit_tb.check_signal.test_name[255:0]
+control_unit_tb.check_state.test_name[255:0]
+@28
+control_unit_tb.start_run
+control_unit_tb.dut.rst_i
+control_unit_tb.dut.clk_i
+@200
+-
+@2029
+^1 /foss/designs/TinyBF/tb/gtkw/state_translate.txt
+control_unit_tb.dut.state[3:0]
+@24
+[color] 3
+control_unit_tb.dut.dp[2:0]
+control_unit_tb.dut.dp_next[2:0]
+[color] 2
+control_unit_tb.dut.dp_inc[2:0]
+@22
+control_unit_tb.dut.dp_dec[2:0]
+@200
+-
+@22
+[color] 3
+control_unit_tb.dut.pc[3:0]
+control_unit_tb.dut.pc_next[3:0]
+[color] 2
+control_unit_tb.dut.pc_inc[3:0]
+@200
+-
+@28
+control_unit_tb.dut.instr_reg[7:0]
+@22
+control_unit_tb.dut.arg5[4:0]
+@24
+control_unit_tb.dut.opcode[2:0]
+@28
+control_unit_tb.dut.prog_raddr_o[3:0]
+control_unit_tb.dut.prog_rdata_i[7:0]
+@24
+control_unit_tb.dut.cell_reg[7:0]
+@28
+control_unit_tb.dut.tape_addr_r_o[2:0]
+control_unit_tb.dut.tape_addr_w_o[2:0]
+@24
+control_unit_tb.dut.tape_rdata_i[7:0]
+@22
+control_unit_tb.dut.tape_wdata_o[7:0]
+@28
+control_unit_tb.dut.tape_ren_o
+control_unit_tb.dut.tape_wen_o
+control_unit_tb.dut.prog_ren_o
+control_unit_tb.dut.dp_out_o[2:0]
+control_unit_tb.dut.dp_inc[2:0]
+@200
+-
+@28
+control_unit_tb.dut.prog_ren_o
+@22
+control_unit_tb.dut.prog_raddr_o[3:0]
+control_unit_tb.dut.prog_raddr_next[3:0]
+@28
+control_unit_tb.dut.prog_ren_next
+@200
+-
+@22
+control_unit_tb.dut.uart_tx_byte_o[7:0]
+@28
+control_unit_tb.dut.uart_tx_start_o
+control_unit_tb.dut.uart_tx_busy_i
+@22
+control_unit_tb.dut.uart_rx_byte_i[7:0]
+@28
+control_unit_tb.dut.uart_rx_valid_i
+[pattern_trace] 1
+[pattern_trace] 0

@@ -1,0 +1,51 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Mon Nov 10 14:15:57 2025
+[*]
+[dumpfile] "/foss/designs/TinyBF/tb/results/program_memory_tb.vcd"
+[dumpfile_mtime] "Mon Nov 10 14:14:58 2025"
+[dumpfile_size] 46415
+[savefile] "/foss/designs/TinyBF/tb/gtkw/program_memory.gtkw"
+[timestart] 5645400
+[size] 1427 600
+[pos] -1 -1
+*-16.499998 5810000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] program_memory_tb.
+[sst_width] 297
+[signals_width] 230
+[sst_expanded] 1
+[sst_vpaned_height] 149
+@820
+program_memory_tb.check_rdata.test_name[255:0]
+@29
+program_memory_tb.dut.clk_i
+@28
+program_memory_tb.dut.rst_i
+@22
+program_memory_tb.dut.raddr_i[3:0]
+program_memory_tb.dut.rdata_o[7:0]
+@28
+program_memory_tb.dut.ren_i
+@22
+program_memory_tb.dut.waddr_i[3:0]
+program_memory_tb.dut.wdata_i[7:0]
+@28
+program_memory_tb.dut.wen_i
+program_memory_tb.clk
+program_memory_tb.rst_n
+@200
+-
+@28
+program_memory_tb.wen
+@22
+program_memory_tb.waddr[3:0]
+program_memory_tb.wdata[7:0]
+@200
+-
+@28
+program_memory_tb.ren
+@22
+program_memory_tb.raddr[3:0]
+program_memory_tb.rdata[7:0]
+[pattern_trace] 1
+[pattern_trace] 0

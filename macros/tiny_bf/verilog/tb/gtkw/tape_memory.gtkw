@@ -1,0 +1,47 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Sat Nov  8 17:21:03 2025
+[*]
+[dumpfile] "/foss/designs/TTtemp/tb/tape_memory_tb.vcd"
+[dumpfile_mtime] "Sat Nov  8 17:20:23 2025"
+[dumpfile_size] 27882
+[optimize_vcd]
+[savefile] "/foss/designs/TTtemp/tb/gtkw/tape_memory.gtkw"
+[timestart] 2354800
+[size] 1920 1080
+[pos] -1 -1
+*-16.200001 2530000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tape_memory_tb.
+[treeopen] tape_memory_tb.dut.
+[sst_width] 297
+[signals_width] 230
+[sst_expanded] 1
+[sst_vpaned_height] 315
+@820
+tape_memory_tb.check_rdata.test_name[255:0]
+@28
+tape_memory_tb.clk
+tape_memory_tb.rst_n
+@200
+-
+-
+-Read Port
+@28
+tape_memory_tb.ren
+@22
+tape_memory_tb.raddr[2:0]
+tape_memory_tb.rdata[7:0]
+@200
+-
+-Write Port
+@28
+tape_memory_tb.wen
+@22
+tape_memory_tb.waddr[2:0]
+tape_memory_tb.wdata[7:0]
+@200
+-
+-Memory Contents
+-
+[pattern_trace] 1
+[pattern_trace] 0

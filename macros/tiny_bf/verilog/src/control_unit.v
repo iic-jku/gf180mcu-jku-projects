@@ -1,7 +1,7 @@
 //=============================================================================
 // control_unit.v - TinyBF CPU Control Unit (11-State FSM)
 //=============================================================================
-// Project:     TinyBF - Tiny Tapeout Sky 25B Brainfuck ASIC CPU
+// Project:     TinyBF - wafer.space GF180 Brainfuck ASIC CPU
 // Author:      René Hahn
 // Date:        2025-11-26
 // Version:     2.0
@@ -86,17 +86,11 @@ module control_unit #(
     localparam [2:0] OP_JZ       = 3'b110; // '[' -> JZ rel offset
     localparam [2:0] OP_JNZ      = 3'b111; // ']' -> JNZ rel offset
 
-    // ----------------------------
-    // Special Instructions
-    // ----------------------------
-    // HALT: All opcodes are used (3 bits = 8 opcodes) -> repurpose DP_INC with arg=0
-    // Rationale: "Move data pointer by 0" is semantically a NOP -> use it to halt execution
-    localparam [7:0] INSTR_HALT = 8'h00;  // OP_DP_INC (000) + arg=0 (00000)
+    // Special instructions
+    // HALT: DP_INC with arg=0 (instruction 0x00)
+    localparam [7:0] INSTR_HALT = 8'h00;
 
-    // ----------------------------
-    // State encoding (binary)
-    // ----------------------------
-    // 11 states requires 4 bits (2^4 = 16 states)
+    // State encoding (4 bits for 11 states)
     localparam [3:0] S_IDLE        = 4'd0;
     localparam [3:0] S_FETCH       = 4'd1;
     localparam [3:0] S_WAIT_FETCH  = 4'd2;
@@ -109,7 +103,7 @@ module control_unit #(
     localparam [3:0] S_WAIT_RX     = 4'd9;
     localparam [3:0] S_HALT        = 4'd10;
 
-    // State registers (4 bits instead of 11 bits = 7 FFs saved)
+    // State registers
     reg [3:0] state, next_state;
 
     // Core registers
@@ -134,36 +128,28 @@ module control_unit #(
     wire [4:0] arg5 = instr_reg[4:0];
     
     // PC arithmetic with sign extension for jumps
-    // Note: Jumps are PC-relative (not PC+1 relative), this means offset=-1 goes back one instruction
-    // Sign-extend arg5 (5 bits) to ADDR_W+1 bits for signed arithmetic
-    // For ADDR_W=5: extends 5-bit arg5 to 6-bit signed value
-    // For ADDR_W<5: truncate arg5 to ADDR_W bits, then sign-extend
     wire signed [ADDR_W:0] arg_signed;
     generate
         if (ADDR_W >= 5) begin : gen_pc_full_arg
-            // Use full 5-bit argument, sign-extend to ADDR_W+1 bits
             assign arg_signed = $signed({{(ADDR_W+1-5){arg5[4]}}, arg5});
         end else begin : gen_pc_truncate_arg
-            // Truncate to ADDR_W bits, sign-extend from truncated MSB to ADDR_W+1 bits
             assign arg_signed = $signed({arg5[ADDR_W-1], arg5[ADDR_W-1:0]});
         end
     endgenerate
     wire signed [ADDR_W:0] pc_ext = $signed({1'b0, pc});
     /* verilator lint_off UNUSEDSIGNAL */
-    wire signed [ADDR_W:0] pc_plus1 = pc_ext + 1;  // MSB unused (overflow intentionally discarded)
-    wire [ADDR_W:0] temp_pc_jump = pc_ext + arg_signed;  // PC-relative, not (PC+1)-relative
+    wire signed [ADDR_W:0] pc_plus1 = pc_ext + 1;
+    wire [ADDR_W:0] temp_pc_jump = pc_ext + arg_signed;
     /* verilator lint_on UNUSEDSIGNAL */
     wire [ADDR_W-1:0] pc_jump = temp_pc_jump[ADDR_W-1:0];
     wire [ADDR_W-1:0] pc_inc = pc_plus1[ADDR_W-1:0];
 
-    // Data pointer arithmetic with proper sign extension and wrapping
+    // Data pointer arithmetic with sign extension
     wire signed [TAPE_ADDR_W:0] arg_dp_signed;
     generate
         if (TAPE_ADDR_W >= 5) begin : gen_extend_arg
-            // TAPE_ADDR_W >= 5: sign-extend 5-bit arg5 to TAPE_ADDR_W+1 bits
             assign arg_dp_signed = $signed({{(TAPE_ADDR_W+1-5){arg5[4]}}, arg5});
         end else begin : gen_truncate_arg
-            // TAPE_ADDR_W < 5: truncate arg5 to TAPE_ADDR_W bits, sign-extend to TAPE_ADDR_W+1
             assign arg_dp_signed = $signed({arg5[TAPE_ADDR_W-1], arg5[TAPE_ADDR_W-1:0]});
         end
     endgenerate
@@ -176,7 +162,7 @@ module control_unit #(
     wire [TAPE_ADDR_W-1:0] dp_inc = temp_dp_inc[TAPE_ADDR_W-1:0];
     wire [TAPE_ADDR_W-1:0] dp_dec = temp_dp_dec[TAPE_ADDR_W-1:0];
 
-    // Cell arithmetic (uses latched instruction argument)
+    // Cell arithmetic
     wire signed [CELL_W:0] cell_ext = {1'b0, cell_reg};
     wire signed [CELL_W:0] cell_offset = $signed({{(CELL_W+1-5){arg5[4]}}, arg5});
     /* verilator lint_off UNUSEDSIGNAL */
@@ -226,7 +212,7 @@ module control_unit #(
             end
 
             S_WAIT_FETCH: begin
-                // Memory latches read on previous cycle, data becomes valid this cycle
+                // Data becomes valid this cycle
                 prog_raddr_next = pc;
                 next_state = S_DECODE;
             end
@@ -240,7 +226,7 @@ module control_unit #(
                 if (prog_rdata_i == INSTR_HALT) begin
                     next_state = S_HALT;
                 end else begin
-                    // Decode instruction type and route to appropriate execution path
+                    // Route to execution path based on instruction type
                     case (prog_rdata_i[7:5])
                         OP_DP_INC, OP_DP_DEC: begin
                             // Data pointer operations don't need cell value
@@ -269,13 +255,13 @@ module control_unit #(
             end
 
             S_READ_CELL: begin
-                // Memory latches read on previous cycle, data becomes valid this cycle
+                // Data becomes valid this cycle
                 tape_addr_r_next = dp;
                 next_state = S_WAIT_CELL;
             end
 
             S_WAIT_CELL: begin
-                // tape_rdata_i is now valid (two cycles after read request)
+                // Tape data now valid
                 cell_reg_next = tape_rdata_i;
                 next_state = S_EXECUTE;
             end
@@ -388,7 +374,6 @@ module control_unit #(
             end
 
             S_HALT: begin
-                // Halted state - remain here until reset
                 next_state = S_HALT;
             end
 

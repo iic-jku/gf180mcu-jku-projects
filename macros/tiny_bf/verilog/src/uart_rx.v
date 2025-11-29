@@ -1,7 +1,7 @@
 //=============================================================================
 // uart_rx.v - TinyBF UART Receiver (8N1 Serial Input)
 //=============================================================================
-// Project:     TinyBF - Tiny Tapeout Sky 25B Brainfuck ASIC CPU
+// Project:     TinyBF - wafer.space GF180 Brainfuck ASIC CPU
 // Author:      René Hahn
 // Date:        2025-11-26
 // Version:     2.0
@@ -45,18 +45,18 @@ module uart_rx (
     localparam [1:0] DATA_BITS = 2'b10;
     localparam [1:0] STOP_BIT  = 2'b11;
 
-    // Metastability protection: 3-stage synchronizer
+    // 3-stage synchronizer
     reg [2:0] rx_sync;
     always @(posedge clk_i or negedge rst_i) begin
         if (!rst_i) begin
-            rx_sync <= 3'b111;  // Idle high
+            rx_sync <= 3'b111;
         end else begin
             rx_sync <= {rx_sync[1:0], rx_serial_i};
         end
     end
-    wire rx = rx_sync[2];  // Use final stage
+    wire rx = rx_sync[2];
     
-    // Edge detection for start bit (falling edge)
+    // Edge detection for start bit
     reg rx_prev;
     always @(posedge clk_i or negedge rst_i) begin
         if (!rst_i)
@@ -92,7 +92,7 @@ module uart_rx (
         bit_cnt_next = bit_cnt;
         shift_reg_next = shift_reg;
         rx_data_next = rx_data_o;
-        rx_valid_next = rx_valid_o;  // Default: hold current value
+        rx_valid_next = 1'b0;        // Pulse, default low
         rx_frame_err_next = 1'b0;    // Pulse, default low
         rx_busy_next = rx_busy_o;
         
@@ -101,10 +101,9 @@ module uart_rx (
                 rx_busy_next = 1'b0;
                 tick_cnt_next = 4'd0;
                 bit_cnt_next = 3'd0;
-                rx_valid_next = 1'b0;  // Ensure valid is low in idle
+                rx_valid_next = 1'b0;
                 
                 // Detect start bit on falling edge OR low level at tick
-                // Edge detection allows faster response
                 if (rx_falling_edge || (baud_tick_16x_i && !rx)) begin
                     state_next = START_BIT;
                     rx_busy_next = 1'b1;
@@ -168,11 +167,11 @@ module uart_rx (
                     // Sample stop bit at middle (tick 7)
                     if (tick_cnt == 4'd7) begin
                         if (rx) begin
-                            // Valid stop bit - output data and pulse valid for 1 cycle
+                            // Valid stop bit
                             rx_data_next = shift_reg;
                             rx_valid_next = 1'b1;
                         end else begin
-                            // Framing error - stop bit should be high
+                            // Framing error
                             rx_frame_err_next = 1'b1;
                         end
                     end else if (tick_cnt == 4'd15) begin
@@ -180,12 +179,6 @@ module uart_rx (
                         state_next = IDLE;
                         rx_busy_next = 1'b0;
                         tick_cnt_next = 4'd0;
-                    end
-                end else begin
-                    // Auto-clear valid on the NEXT clock cycle (not next baud tick!)
-                    // This ensures rx_valid is only high for 1 system clock cycle
-                    if (rx_valid_o) begin
-                        rx_valid_next = 1'b0;
                     end
                 end
             end

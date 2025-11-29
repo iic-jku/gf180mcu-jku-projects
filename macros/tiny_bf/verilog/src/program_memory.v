@@ -1,7 +1,7 @@
 //=============================================================================
 // program_memory.v - TinyBF Program Memory (RAM - Programmable)
 //=============================================================================
-// Project:     TinyBF - Tiny Tapeout Sky 25B Brainfuck ASIC CPU
+// Project:     TinyBF - wafer.space GF180 Brainfuck ASIC CPU
 // Author:      René Hahn
 // Date:        2025-11-25
 // Version:     3.0
@@ -90,13 +90,13 @@ module program_memory #(
                 1:  default_program = 8'b000_00001;  // >        Move to cell[1]
                 2:  default_program = 8'b010_01010;  // +10      cell[1] = 10 (newline character)
                 3:  default_program = 8'b001_00001;  // <        Move back to cell[0]
-                4:  default_program = 8'b110_00110;  // [ +6     JZ forward 6 (to addr 10) if cell[0]==0
+                4:  default_program = 8'b110_00110;  // [ +6     JZ to addr 10 if cell==0
                 5:  default_program = 8'b011_01111;  // -15      Subtract 15
                 6:  default_program = 8'b011_01111;  // -15      Subtract 15 (total -30, close to -32)
                 7:  default_program = 8'b011_00010;  // -2       Subtract 2 more (total -32)
                 8:  default_program = 8'b100_00000;  // .        Output converted character
                 9:  default_program = 8'b101_00000;  // ,        Read next character
-                10: default_program = 8'b111_11010;  // ] -6     JNZ back -6 (to addr 4) if cell[0]!=0
+                10: default_program = 8'b111_11010;  // ] -6     JNZ to addr 4 if cell!=0
                 11: default_program = 8'b000_00001;  // >        Move to cell[1] (newline)
                 12: default_program = 8'b100_00000;  // .        Output newline
                 13: default_program = 8'h00;         // HALT     End of program
@@ -144,7 +144,6 @@ module program_memory #(
                     rdata_o <= mem[raddr_i];
                 end
             end
-            // Note: If ren_i is low, rdata_o retains its previous value
         end
     end
 

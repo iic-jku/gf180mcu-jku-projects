@@ -1,7 +1,7 @@
 //=============================================================================
 // baud_gen.v - TinyBF UART Baud Rate Generator
 //=============================================================================
-// Project:     TinyBF - Tiny Tapeout Sky 25B Brainfuck ASIC CPU
+// Project:     TinyBF - wafer.space GF180 Brainfuck ASIC CPU
 // Author:      René Hahn
 // Date:        2025-11-10
 // Version:     1.0
@@ -12,7 +12,7 @@
 //   16x tick for RX mid-bit sampling, 1x tick for TX bit timing
 //
 // Parameters:
-//   CLK_FREQ:  System clock frequency in Hz (default 50,000,000)
+//   CLK_FREQ:  System clock frequency in Hz (default 25,000,000)
 //   BAUD_RATE: Target baud rate in bps (default 115200)
 //
 // Interfaces:
@@ -24,7 +24,7 @@
 
 `timescale 1ns/1ps
 module baud_gen #(
-    parameter CLK_FREQ = 50000000,   // System clock frequency (Hz)
+    parameter CLK_FREQ = 25000000,   // System clock frequency (Hz)
     parameter BAUD_RATE = 115200     // Target baud rate (bps)
 )(
     input  wire        clk_i,          // System clock
@@ -48,7 +48,7 @@ module baud_gen #(
             cnt_16x <= {COUNTER_WIDTH{1'b0}};
             tick_16x_o <= 1'b0;
         end else begin
-            // Compare against DIVISOR_16X - 1 directly (synthesis optimizes this)
+            // Compare and reset
             if (cnt_16x == DIVISOR_16X[COUNTER_WIDTH-1:0] - 1'b1) begin
                 cnt_16x <= {COUNTER_WIDTH{1'b0}};
                 tick_16x_o <= 1'b1;

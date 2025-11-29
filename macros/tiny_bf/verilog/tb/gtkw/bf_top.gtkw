@@ -1,0 +1,158 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Fri Nov 28 16:54:56 2025
+[*]
+[dumpfile] "/foss/designs/TinyBF_WaferSpace_sub/verilog/tb/results/bf_top_tb.vcd"
+[dumpfile_mtime] "Fri Nov 28 16:54:39 2025"
+[dumpfile_size] 2374125
+[savefile] "/foss/designs/TinyBF_WaferSpace_sub/verilog/tb/gtkw/bf_top.gtkw"
+[timestart] 1399500000
+[size] 1920 1043
+[pos] -1 -1
+*-27.074358 -1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+[markername] AA
+[markername] BB
+[markername] CC
+[markername] DD
+[markername] EE
+[markername] FF
+[markername] GG
+[markername] HH
+[markername] II
+[markername] JJ
+[markername] KK
+[markername] LL
+[markername] MM
+[markername] NN
+[markername] OO
+[markername] PP
+[markername] QQ
+[markername] RR
+[markername] SS
+[markername] TT
+[markername] UU
+[markername] VV
+[markername] WW
+[markername] XX
+[markername] YY
+[markername] ZZ
+[treeopen] bf_top_tb.
+[treeopen] bf_top_tb.dut.
+[sst_width] 297
+[signals_width] 250
+[sst_expanded] 1
+[sst_vpaned_height] 304
+@420
+bf_top_tb.test_num
+@28
+bf_top_tb.clk
+bf_top_tb.dut.prog_mode_i
+@200
+-
+-CPU
+@22
+bf_top_tb.dut.u_cpu.pc[4:0]
+@2028
+^1 /foss/designs/TinyBF_WaferSpace_sub/verilog/tb/gtkw/state_translate.txt
+bf_top_tb.dut.u_cpu.state[3:0]
+@28
+bf_top_tb.dut.u_cpu.rst_i
+bf_top_tb.dut.u_cpu.start_run_i
+@22
+bf_top_tb.dut.u_cpu.instr_reg[7:0]
+@2028
+^2 /foss/designs/TinyBF_WaferSpace_sub/verilog/tb/gtkw/opcode_translate.txt
+bf_top_tb.dut.u_cpu.opcode[2:0]
+@420
+bf_top_tb.dut.u_cpu.arg5[4:0]
+@200
+-
+@22
+bf_top_tb.dut.u_cpu.prog_rdata_i[7:0]
+@28
+bf_top_tb.dut.u_cpu.prog_ren_o
+@200
+-
+@22
+bf_top_tb.dut.u_cpu.cell_reg[7:0]
+bf_top_tb.dut.u_cpu.tape_rdata_i[7:0]
+@28
+bf_top_tb.dut.u_cpu.tape_ren_o
+@22
+bf_top_tb.dut.u_cpu.tape_wdata_o[7:0]
+@28
+bf_top_tb.dut.u_cpu.tape_wen_o
+@200
+-
+-UART TX
+@28
+[color] 2
+bf_top_tb.dut.u_uart_tx.tx_serial_o
+bf_top_tb.dut.u_uart_tx.state[2:0]
+@22
+bf_top_tb.dut.u_uart_tx.tx_data_i[7:0]
+bf_top_tb.dut.u_uart_tx.shift_reg[7:0]
+@28
+bf_top_tb.dut.u_uart_tx.tx_busy_o
+bf_top_tb.dut.u_uart_tx.tx_start_i
+bf_top_tb.dut.u_uart_tx.baud_tick_i
+bf_top_tb.dut.u_uart_tx.clk_i
+@200
+-
+-UART RX
+@28
+bf_top_tb.dut.u_uart_rx.rx_serial_i
+bf_top_tb.dut.u_uart_rx.state[1:0]
+@22
+bf_top_tb.dut.u_uart_rx.rx_data_o[7:0]
+@28
+bf_top_tb.dut.u_uart_rx.rx_valid_o
+@200
+-
+-ProgMem
+@22
+bf_top_tb.dut.u_prog_mem.raddr_i[4:0]
+bf_top_tb.dut.u_prog_mem.rdata_o[7:0]
+@28
+bf_top_tb.dut.u_prog_mem.ren_i
+@22
+bf_top_tb.dut.u_prog_mem.waddr_i[4:0]
+bf_top_tb.dut.u_prog_mem.wdata_i[7:0]
+@28
+bf_top_tb.dut.u_prog_mem.wen_i
+@200
+-
+-TapeMem
+@22
+bf_top_tb.dut.u_tape_mem.rdata_o[7:0]
+@28
+bf_top_tb.dut.u_tape_mem.ren_i
+@22
+bf_top_tb.dut.u_tape_mem.wdata_i[7:0]
+@28
+bf_top_tb.dut.u_tape_mem.wen_i
+@200
+-
+-Programmer
+@28
+bf_top_tb.dut.u_programmer.prog_mode_i
+bf_top_tb.dut.u_programmer.state[1:0]
+@22
+bf_top_tb.dut.u_programmer.data_reg[7:0]
+bf_top_tb.dut.u_programmer.uart_data_i[7:0]
+@28
+bf_top_tb.dut.u_programmer.uart_valid_i
+@22
+bf_top_tb.dut.u_programmer.prog_waddr_o[4:0]
+bf_top_tb.dut.u_programmer.prog_wdata_o[7:0]
+@28
+bf_top_tb.dut.u_programmer.prog_wen_o
+@200
+-
+-BaudGen
+@28
+bf_top_tb.dut.u_baud_gen.tick_1x_o
+bf_top_tb.dut.u_baud_gen.tick_16x_o
+bf_top_tb.dut.u_uart_rx.rx_sync[2:0]
+[pattern_trace] 1
+[pattern_trace] 0

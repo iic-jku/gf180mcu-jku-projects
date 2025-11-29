@@ -1,15 +1,15 @@
 //=============================================================================
-// tt_um_rh_bf_top.v - TinyBF Tiny Tapeout Board-Level Interface
+// rh_bf_top.v - TinyBF GF180 Board-Level Interface
 //=============================================================================
 // Project:     TinyBF - wafer.space GF180 Brainfuck ASIC CPU
 // Author:      René Hahn
-// Date:        2025-11-10
-// Version:     1.0
+// Date:        2025-11-28
+// Version:     2.0
 //
 // Description:
-//   Tiny Tapeout board interface for TinyBF Brainfuck CPU
-//   Maps Tiny Tapeout standard I/O pins to bf_top module interface
-//   Program is pre-loaded in program_memory.v (no external programming)
+//   GF180 tapeout board interface for TinyBF Brainfuck CPU
+//   Maps standard I/O pins to bf_top module interface
+//   Supports program upload via UART and default program on reset
 //
 // Pin Mapping:
 //   Dedicated Inputs (ui_in):
@@ -27,15 +27,6 @@
 //     uo[6:2]:   Program counter [4:0] (all 5 bits)
 //=============================================================================
 
-`include "bf_top.v"
-`include "control_unit.v"
-`include "program_memory.v"
-`include "tape_memory.v"
-`include "uart_tx.v"
-`include "uart_rx.v"
-`include "baud_gen.v"
-`include "programmer.v"
-`include "reset_sync.v"
 
 module rh_bf_top (
 	input  wire       clk,      // clock
@@ -47,11 +38,11 @@ module rh_bf_top (
 );
 
     //=========================================================================
-    // Parameters - OPTIMIZED FOR AREA CONSTRAINTS
+    // Parameters
     //=========================================================================
-    localparam ADDR_W = 5;              // 32 program memory locations (reduced from 128)
-    localparam TAPE_ADDR_W = 4;         // 16 tape cells (reduced from 64)
-    localparam CLK_FREQ = 50000000;     // 50 MHz system clock
+    localparam ADDR_W = 5;              // 32 program memory locations
+    localparam TAPE_ADDR_W = 4;         // 16 tape cells
+    localparam CLK_FREQ = 25000000;     // 25 MHz system clock
     localparam BAUD_RATE = 115200;      // UART baud rate
 
     //=========================================================================
