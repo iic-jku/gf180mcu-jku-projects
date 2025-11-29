@@ -1,13 +1,36 @@
-ToDo:
-
+Decimation Filter:
+  - clock
+  - reset
+  - 1 x inputs
+  - 2 x outputs
+  
+Octawave:
+  - clock (delete)
+  - reset (delete)
+  - 1 x inputs
+  - 9 x outputs
+  
+TinyWhisper RISC-V:
+  - clock
+  - reset
+  - 8 x inputs
+  - 18 x outputs
+  - 1 x inout
+ 
+Tetris (to Studi Projects):
+  - clock
+  - reset
+  - 5 x inputs
+  - 10 x outputs
+  
 Studi Projects:
- - clock
- - reset
- - 3 x MUX select
- - 12 x inputs
- - 11 x outputs
+  - clock
+  - reset
+  - 3 x MUX select
+  - 12 x inputs
+  - 11 x outputs
 
 Total:
- - 17 x inputs
- - 11 x outputs
- - 28 x pins
+  - 17 x inputs
+  - 11 x outputs
+  - 28 x pins

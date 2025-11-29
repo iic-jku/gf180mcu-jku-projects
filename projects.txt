@@ -3,52 +3,52 @@ https://www.crowdsupply.com/wafer-space/gf180mcu-run-1/updates/tholin-feature
 https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 
 - Decimation Filter - Michael Köfinger
-	--> 3 x inputs
+	--> 3 x inputs (incl. clk + rst)
 	--> 2 x outputs
 	--> 3000um x 1500um
 	
 - Octawave (Digital Core Master Thesis) - Max Golser
-	--> 3 x inputs
+	--> 3 x inputs (incl. clk + rst)
 	--> 9 x outputs
 	--> 1800um x 1200um
 	
 - TinyWhisper RISC-V - JKU & JMU
-	--> 10 x inputs
-	--> 18 x outputs, 1x inout (sda)
+	--> 10 x inputs (incl. clk + rst)
+	--> 18 x outputs, 1 x inout (sda)
 	--> 1200um x 2500um
 
 - Tetris - Dominik Brandstetter & HTL Leonding
-	--> 7 x inputs
+	--> 7 x inputs (incl. clk + rst)
 	--> 10 x outputs
 	--> ?um x ?um
 	
 - TinyBF (Studi Project) - Rene Hahn
-	--> 6 x inputs
+	--> 6 x inputs (incl. clk + rst)
 	--> 11 x outputs
 	--> 400um x 500um
 	
 - SAR ADC Controller (Digital Core Master Thesis) - Ilir Shala
-	--> 4 x inputs
+	--> 4 x inputs (incl. clk + rst)
 	--> 11 x outputs
 	--> 200um x 120um
 	
 - Led Spinner (Studi Project) - Tim Tremetsberger
-	--> 13 x inputs
+	--> 13 x inputs (incl. clk + rst)
 	--> 8 x outputs
 	--> 200um x 150um
 
 - TinyToneGen (Studi Project) - Felix Feierabend
-	--> 12 x inputs
+	--> 12 x inputs (incl. clk + rst)
 	--> 1 x outputs
 	--> 200um x 100um
 	
 - Digital Filter (Studi Project) - Gregor Flachs
-	--> 14 x inputs
+	--> 14 x inputs (incl. clk + rst)
 	--> 8 x outputs
 	--> 300um x 200um
 	
 - Traffic Light Controller (Studi Project) - Maximilian Kernmaier
-	--> 5 x inputs
+	--> 5 x inputs (incl. clk + rst)
 	--> 10 x outputs
 	--> 400um x 200um
 
@@ -58,6 +58,6 @@ https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 	--> 200um x 200um
 
 - VGA Clock (Studi Project) - Timo Laimer
-	--> 7 x inputs
+	--> 7 x inputs (incl. clk + rst)
 	--> 4 x outputs
 	--> 800um x 400um

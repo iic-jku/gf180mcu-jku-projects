@@ -1,10 +1,10 @@
-Decimation Filter (100, 3200)
+Decimation Filter: (100, 3200)
 
-TinyWhisper RISC-V (2700, 100)
+Octawave: (100, 1800)
 
-Octawave (100, 1800)
+TinyWhisper RISC-V: (2700, 100)
 
-Tetris (1500, 100)
+Tetris: (1500, 100)
 
 Studi Projects:
 - Multiplexer (100, 100)	
