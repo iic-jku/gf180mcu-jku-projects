@@ -15,9 +15,7 @@ VERILOG_FILES: ["dir::../verilog/src/octawave.v"]
 # PRIMARY_GDSII_STREAMOUT_TOOL: klayout
 
 # Layout / Floorplan Rules
-# DIE_AREA: [0, 0, 1500, 1000]
-# PL_TARGET_DENSITY_PCT: 70
-DIE_AREA: [0, 0, 3000, 2000]
+DIE_AREA: [0, 0, 1800, 1200]
 PL_TARGET_DENSITY_PCT: 35
 GRT_ALLOW_CONGESTION: true
 RUN_MAGIC_DRC: true
