@@ -6,7 +6,16 @@ meta:
     Checker.KLayoutDRC: null
     
 DESIGN_NAME: rh_bf_top
-VERILOG_FILES: ["dir::../verilog/src/rh_bf_top.v"]
+VERILOG_FILES: ["dir::../verilog/src/rh_bf_top.v",
+"dir::../verilog/src/bf_top.v",
+"dir::../verilog/src/control_unit.v",
+"dir::../verilog/src/program_memory.v",
+"dir::../verilog/src/tape_memory.v",
+"dir::../verilog/src/uart_tx.v",
+"dir::../verilog/src/uart_rx.v",
+"dir::../verilog/src/baud_gen.v",
+"dir::../verilog/src/programmer.v",
+"dir::../verilog/src/reset_sync.v"]
 
 # Enable plugin for better SystemVerilog support
 # USE_SLANG: True
