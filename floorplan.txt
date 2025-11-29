@@ -1,6 +1,9 @@
 ToDo:
 
+TinyWhisper RISC-V (?, ?)
+
 Studi Projects:
+- TinyTone (900, 700)
 - VGA Clock (0, 0)
 - Digital Filter (0, 700)
 - Traffic Light Controller (400, 700)
@@ -8,4 +11,3 @@ Studi Projects:
 - TinyToneGen (600, 1000)
 - Led Spinner (600, 1165)
 - SAR ADC Controller (600, 1380)
-- TinyWhisper RISC-V (?, ?)

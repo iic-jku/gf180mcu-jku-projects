@@ -2,6 +2,16 @@ Project Overview:
 https://www.crowdsupply.com/wafer-space/gf180mcu-run-1/updates/tholin-feature
 https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 
+- TinyBF (Studi Project) - Rene Hahn
+	--> 6 x inputs
+	--> 11 x outputs
+	--> 400um x 500um
+	
+- TinyTone (Studi Project) - Jakob Schaumberger
+	--> 0 x inputs
+	--> 1 x outputs
+	--> ?um x ?um
+	
 - SAR ADC Controller (Digital Core Master Thesis) - Ilir Shala
 	--> 4 x inputs
 	--> 11 x outputs
@@ -16,11 +26,6 @@ https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 	--> 12 x inputs
 	--> 1 x outputs
 	--> 200um x 100um
-
-- TinyBF (Studi Project) - Rene Hahn
-	--> 6 x inputs
-	--> 11 x outputs
-	--> 400um x 500um
 	
 - Digital Filter (Studi Project) - Gregor Flachs
 	--> 14 x inputs
