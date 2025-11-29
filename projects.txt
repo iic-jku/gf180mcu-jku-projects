@@ -17,10 +17,10 @@ https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 	--> 18 x outputs, 1 x inout (sda)
 	--> 1200um x 2500um
 
-- Tetris - Dominik Brandstetter & HTL Leonding
-	--> 7 x inputs (incl. clk + rst)
-	--> 10 x outputs
-	--> ?um x ?um
+- TinyTone (Sanity Bring-Up Test) - Jakob Schaumberger
+	--> 0 x inputs
+	--> 1 x outputs
+	--> 200um x 200um
 	
 - TinyBF (Studi Project) - Rene Hahn
 	--> 6 x inputs (incl. clk + rst)
@@ -52,11 +52,11 @@ https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 	--> 10 x outputs
 	--> 400um x 200um
 
-- TinyTone (Studi Project) - Jakob Schaumberger
-	--> 0 x inputs
-	--> 1 x outputs
-	--> 200um x 200um
-
+- Tetris (Studi Project) - Dominik Brandstetter & HTL Leonding
+	--> 7 x inputs (incl. clk + rst)
+	--> 10 x outputs
+	--> ?um x ?um
+	
 - VGA Clock (Studi Project) - Timo Laimer
 	--> 7 x inputs (incl. clk + rst)
 	--> 4 x outputs

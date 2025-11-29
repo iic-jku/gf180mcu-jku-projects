@@ -1,36 +1,45 @@
+Oben (v.l.n.r.): analog[1], analog[0], bidir[39], bidir[38], bidir[37], bidir[36], bidir[35], bidir[34], VSS, bidir[33], bidir[32], bidir[31], bidir[30], bidir[29], bidir[28], bidir[27], bidir[26]
+Links (v.o.n.u.): input [0], input[1], VSS, VDD, input[2], input[3], input[4], input[5], VSS, VDD, input[6], input[7], input[8], input[9], input[10], input[11], VSS, VDD, VSS, VDD
+Unten (v.l.n.r.): clk, rst_n, bidir[0], bidir[1], bidir[2], bidir[3], bidir[4], bidir[5], VSS, bidir[6], bidir[7], bidir[8], bidir[9], bidir[10], bidir[11], bidir[12], bidir[13]
+Rechts (v.o.n.u.): VDD, VSS, VDD, VSS, bidir[25], bidir[24], bidir[23], bidir[22] bidir[21], bidir[20], VSS, VDD, bidir[19],  bidir[18], biopuz
+
 Decimation Filter:
   - clock
-  - reset
   - 1 x inputs
   - 2 x outputs
+  - total: 4
   
 Octawave:
-  - clock (delete)
-  - reset (delete)
+  - clock
   - 1 x inputs
   - 9 x outputs
+  - total: 11
   
 TinyWhisper RISC-V:
   - clock
-  - reset
   - 8 x inputs
   - 18 x outputs
   - 1 x inout
- 
-Tetris (to Studi Projects):
-  - clock
-  - reset
-  - 5 x inputs
-  - 10 x outputs
+  - total: 28
+  
+TinyTone (Sanity Bring-Up Test):
+  - 1 x outputs
+  - total: 1
   
 Studi Projects:
   - clock
-  - reset
   - 3 x MUX select
   - 12 x inputs
   - 11 x outputs
-
+  - total: 27
+  
 Total:
-  - 17 x inputs
-  - 11 x outputs
-  - 28 x pins
+  - ? x VDD
+  - ? x VSS
+  - ? x clock
+  - 1 x global reset for all designs
+  - ? x inputs
+  - ? x outputs
+  - 1 x inout
+  - ?? pads required
+  - 74 pads available
