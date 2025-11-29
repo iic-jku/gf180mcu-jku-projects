@@ -2,15 +2,30 @@ Project Overview:
 https://www.crowdsupply.com/wafer-space/gf180mcu-run-1/updates/tholin-feature
 https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 
+- Decimation Filter - Michael Köfinger
+	--> 3 x inputs
+	--> 2 x outputs
+	--> 3000um x 1500um
+	
+- Octawave (Digital Core Master Thesis) - Max Golser
+	--> 3 x inputs
+	--> 9 x outputs
+	--> 1800um x 1200um
+	
+- TinyWhisper RISC-V - JKU & JMU
+	--> 10 x inputs
+	--> 18 x outputs, 1x inout (sda)
+	--> 1200um x 2500um
+
+- Tetris - Dominik Brandstetter & HTL Leonding
+	-->
+	-->
+	-->
+	
 - TinyBF (Studi Project) - Rene Hahn
 	--> 6 x inputs
 	--> 11 x outputs
 	--> 400um x 500um
-	
-- TinyTone (Studi Project) - Jakob Schaumberger
-	--> 0 x inputs
-	--> 1 x outputs
-	--> ?um x ?um
 	
 - SAR ADC Controller (Digital Core Master Thesis) - Ilir Shala
 	--> 4 x inputs
@@ -36,33 +51,13 @@ https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 	--> 5 x inputs
 	--> 10 x outputs
 	--> 400um x 200um
-	
+
+- TinyTone (Studi Project) - Jakob Schaumberger
+	--> 0 x inputs
+	--> 1 x outputs
+	--> 200um x 200um
+
 - VGA Clock (Studi Project) - Timo Laimer
 	--> 7 x inputs
 	--> 4 x outputs
 	--> 800um x 400um
-	
-- TinyWhisper + RISC-V - JKU & JMU
-	--> 10 x inputs
-	--> 18 x outputs, 1x inout (sda)
-	--> 1200um x 2500um
-	
-- Decimation Filter - Michael Köfinger
-	--> 3 x inputs
-	--> 2 x outputs
-	--> 2000um x 1000um
-	
-- Octawave (Digital Core Master Thesis) - Max Golser
-	--> 3 x inputs
-	--> 9 x outputs
-	--> 1800um x 1200um
-	
-- Tetris - Dominik Brandstetter & HTL Leonding
-	-->
-	-->
-	-->
-	
-- Digital Core Event-Based ADC - Simon Dorrer
-	-->
-	-->
-	-->

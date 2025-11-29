@@ -1,13 +1,16 @@
-ToDo:
+Decimation Filter (100, 3200)
 
-TinyWhisper RISC-V (?, ?)
+TinyWhisper RISC-V (2700, 100)
+
+Octawave (100, 1800)
 
 Studi Projects:
-- TinyTone (900, 700)
-- VGA Clock (0, 0)
-- Digital Filter (0, 700)
-- Traffic Light Controller (400, 700)
-- TinyBF (0, 1000)
-- TinyToneGen (600, 1000)
-- Led Spinner (600, 1165)
-- SAR ADC Controller (600, 1380)
+- Multiplexer (100, 100)	
+- VGA Clock (200, 100)
+- Digital Filter (200, 800)
+- Traffic Light Controller (600, 800)
+- TinyTone (1100, 800)
+- TinyBF (200, 1100)
+- TinyToneGen (800, 1100)
+- Led Spinner (800, 1265)
+- SAR ADC Controller (800, 1480)
