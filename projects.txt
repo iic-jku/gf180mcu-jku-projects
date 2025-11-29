@@ -18,9 +18,9 @@ https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 	--> 1200um x 2500um
 
 - Tetris - Dominik Brandstetter & HTL Leonding
-	-->
-	-->
-	-->
+	--> 7 x inputs
+	--> 10 x outputs
+	--> ?um x ?um
 	
 - TinyBF (Studi Project) - Rene Hahn
 	--> 6 x inputs

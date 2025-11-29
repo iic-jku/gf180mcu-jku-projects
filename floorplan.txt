@@ -4,6 +4,8 @@ TinyWhisper RISC-V (2700, 100)
 
 Octawave (100, 1800)
 
+Tetris (1500, 100)
+
 Studi Projects:
 - Multiplexer (100, 100)	
 - VGA Clock (200, 100)
