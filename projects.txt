@@ -18,7 +18,7 @@ https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 	--> 1200um x 2500um
 
 - TinyTone (Sanity Bring-Up Test) - Jakob Schaumberger
-	--> 0 x inputs
+	--> 2 x inputs (incl. clk + rst)
 	--> 1 x outputs
 	--> 200um x 200um
 	
