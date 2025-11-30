@@ -4,42 +4,41 @@ Unten (v.l.n.r.): clk, rst_n, bidir[0], bidir[1], bidir[2], bidir[3], bidir[4], 
 Rechts (v.o.n.u.): VDD, VSS, VDD, VSS, bidir[25], bidir[24], bidir[23], bidir[22] bidir[21], bidir[20], VSS, VDD, bidir[19],  bidir[18], biopuz
 
 Decimation Filter:
-  - clock
+  - clock A
   - 1 x inputs
   - 2 x outputs
   - total: 4
   
 Octawave:
-  - clock
+  - clock B
   - 1 x inputs
   - 9 x outputs
   - total: 11
   
 TinyWhisper RISC-V:
-  - clock
-  - 8 x inputs
+  - clock C
+  - 7 x inputs
   - 18 x outputs
-  - 1 x inout
-  - total: 28
+  - total: 26
   
 TinyTone (Sanity Bring-Up Test):
+  - clock D
   - 1 x outputs
   - total: 1
   
 Studi Projects:
-  - clock
+  - clock D
   - 3 x MUX select
   - 12 x inputs
   - 11 x outputs
   - total: 27
   
 Total:
-  - ? x VDD
-  - ? x VSS
-  - ? x clock
-  - 1 x global reset for all designs
-  - ? x inputs
-  - ? x outputs
-  - 1 x inout
-  - ?? pads required
+  - 2 x VDD
+  - 2 x VSS
+  - 4 x clock
+  - 1 x reset (global for all designs)
+  - 24 x inputs
+  - 41 x outputs
+  - 74 pads required
   - 74 pads available
