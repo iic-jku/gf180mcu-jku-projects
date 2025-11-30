@@ -55,7 +55,7 @@ https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 - Tetris (Studi Project) - Dominik Brandstetter & HTL Leonding
 	--> 7 x inputs (incl. clk + rst)
 	--> 10 x outputs
-	--> ?um x ?um
+	--> 1200um x 1800um
 	
 - VGA Clock (Studi Project) - Timo Laimer
 	--> 7 x inputs (incl. clk + rst)
