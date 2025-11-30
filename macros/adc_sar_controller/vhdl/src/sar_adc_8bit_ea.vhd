@@ -173,10 +173,10 @@ begin
         -------------------------------------------------------------------
         when NEXT_BIT =>
           if bit_idx = 0 then
-            -- Ergebnis akkumulieren (Oversampling)
+            -- accumulate result (Oversampling)
             accum <= accum + resize(result_reg, accum'length);
             if osr_cnt = OSR-1 then
-              -- Mittelwert bilden
+              -- calculate average
               result_reg <= resize(accum / OSR, result_reg'length);
               accum      <= (others => '0');
               osr_cnt    <= 0;
