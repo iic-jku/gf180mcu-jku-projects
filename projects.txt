@@ -7,7 +7,7 @@ https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 	--> 2 x outputs
 	--> 3000um x 1500um
 	
-- Octawave (Digital Core Master Thesis) - Max Golser
+- Octowave (Digital Core Master Thesis) - Max Golser
 	--> 3 x inputs (incl. clk + rst)
 	--> 9 x outputs
 	--> 1800um x 1200um

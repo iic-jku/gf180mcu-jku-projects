@@ -1,6 +1,6 @@
 Decimation Filter: (100, 3400) to (3100, 4900)
 
-Octawave: (100, 2000) to (1900, 3200)
+Octowave: (100, 2000) to (1900, 3200)
 
 TinyTone: (3700, 4700) to (3900, 4900)
 

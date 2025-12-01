@@ -9,7 +9,7 @@ Decimation Filter:
   - 2 x outputs
   - total: 4
   
-Octawave:
+Octowave:
   - clock B
   - 1 x inputs
   - 9 x outputs
