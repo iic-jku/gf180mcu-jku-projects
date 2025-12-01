@@ -30,7 +30,6 @@ module uart_rx (
 
   //
   // Number of data bits recieved per UART packet.
-  localparam PAYLOAD_BITS = 8;
 
   //
   // Number of stop bits indicating the end of a packet.
@@ -61,7 +60,7 @@ module uart_rx (
 
   //
   // Storage for the recieved serial data.
-  reg [PAYLOAD_BITS-1:0] recieved_data;
+  reg [7:0] recieved_data;
 
   //
   // Counter for the number of cycles over a packet bit.
@@ -94,7 +93,7 @@ module uart_rx (
 
   always @(posedge clk) begin
     if (!resetn) begin
-      uart_rx_data <= {PAYLOAD_BITS{1'b0}};
+      uart_rx_data <= 8'b0;
     end else if (fsm_state == FSM_STOP) begin
       uart_rx_data <= recieved_data;
     end
@@ -107,7 +106,7 @@ module uart_rx (
   wire next_bit     = cycle_counter == CYCLES_PER_BIT ||
                         fsm_state       == FSM_STOP &&
                         cycle_counter   == {1'b0, CYCLES_PER_BIT[14:0]};
-  wire payload_done = bit_counter == PAYLOAD_BITS;
+  wire payload_done = bit_counter == 8;
 
   //
   // Handle picking the next state.
@@ -127,20 +126,24 @@ module uart_rx (
 
   //
   // Handle updates to the recieved data register.
-  integer i;
   always @(posedge clk) begin : p_recieved_data
     if (!resetn) begin
-      recieved_data <= {PAYLOAD_BITS{1'b0}};
+      recieved_data <= 8'b0;
     end else if (fsm_state == FSM_IDLE) begin
-      recieved_data <= {PAYLOAD_BITS{1'b0}};
+      recieved_data <= 8'b0;
     end else if (fsm_state == FSM_RECV && next_bit) begin
-      recieved_data[PAYLOAD_BITS-1] <= bit_sample;
-      for (i = PAYLOAD_BITS - 2; i >= 0; i = i - 1) begin
-        recieved_data[i] <= recieved_data[i+1];
-      end
+      recieved_data[7] <= bit_sample;
+      recieved_data[0] <= recieved_data[1];
+      recieved_data[1] <= recieved_data[2];
+      recieved_data[2] <= recieved_data[3];
+      recieved_data[3] <= recieved_data[4];
+      recieved_data[4] <= recieved_data[5];
+      recieved_data[5] <= recieved_data[6];
+      recieved_data[6] <= recieved_data[7];
     end
   end
 
+  /* verilator lint_off WIDTHTRUNC */
   //
   // Increments the bit counter when recieving.
   always @(posedge clk) begin : p_bit_counter
@@ -152,6 +155,7 @@ module uart_rx (
       bit_counter <= bit_counter + 1'b1;
     end
   end
+  /* verilator lint_on WIDTHTRUNC */
 
   //
   // Sample the recieved bit when in the middle of a bit frame.

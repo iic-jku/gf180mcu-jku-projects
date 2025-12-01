@@ -31,7 +31,7 @@ module uart_tx (
 
   //
   // Number of data bits recieved per UART packet.
-  parameter PAYLOAD_BITS = 8;
+  // parameter PAYLOAD_BITS = 8;
 
   //
   // Number of stop bits indicating the end of a packet.
@@ -61,7 +61,7 @@ module uart_tx (
 
   //
   // Storage for the serial data to be sent.
-  reg [PAYLOAD_BITS-1:0] data_to_send;
+  reg [7:0] data_to_send;
 
   //
   // Counter for the number of cycles over a packet bit.
@@ -90,7 +90,7 @@ module uart_tx (
   assign uart_txd     = txd_reg;
 
   wire next_bit = cycle_counter == CYCLES_PER_BIT;
-  wire payload_done = bit_counter == PAYLOAD_BITS;
+  wire payload_done = bit_counter == 8;
   wire stop_done = bit_counter == STOP_BITS && fsm_state == FSM_STOP;
 
   //
@@ -114,17 +114,23 @@ module uart_tx (
   integer i;
   always @(posedge clk) begin : p_data_to_send
     if (!resetn) begin
-      data_to_send <= {PAYLOAD_BITS{1'b0}};
+      data_to_send <= 8'b0;
+      i <= 0;
     end else if (fsm_state == FSM_IDLE && uart_tx_en) begin
       data_to_send <= uart_tx_data;
     end else if (fsm_state == FSM_SEND && next_bit) begin
-      for (i = PAYLOAD_BITS - 2; i >= 0; i = i - 1) begin
-        data_to_send[i] <= data_to_send[i+1];
-      end
+      data_to_send[0] <= data_to_send[1];
+      data_to_send[1] <= data_to_send[2];
+      data_to_send[2] <= data_to_send[3];
+      data_to_send[3] <= data_to_send[4];
+      data_to_send[4] <= data_to_send[5];
+      data_to_send[5] <= data_to_send[6];
+      data_to_send[6] <= data_to_send[7];
     end
   end
 
 
+  /* verilator lint_off WIDTHTRUNC */
   //
   // Increments the bit counter each time a new bit frame is sent.
   always @(posedge clk) begin : p_bit_counter
@@ -140,6 +146,7 @@ module uart_tx (
       bit_counter <= bit_counter + 1'b1;
     end
   end
+  /* verilator lint_on WIDTHTRUNC */
 
 
   //

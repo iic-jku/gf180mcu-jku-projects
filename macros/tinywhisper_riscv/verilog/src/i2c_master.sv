@@ -1,6 +1,7 @@
 module i2c_master (
     input logic clk,
     input logic reset,
+    input logic req,
     input logic [15:0] scl_ratio,
 
     // I2C pins
@@ -66,7 +67,7 @@ module i2c_master (
       scl_counter <= 0;
     end else scl_counter <= scl_counter + 1;
 
-    if (reset) begin
+    if (reset == 0 || req == 1) begin
       scl_counter <= 0;
     end
   end
@@ -101,11 +102,17 @@ module i2c_master (
         START: begin
           state <= SEND_ADDR;
           index <= 6;
+          data_out <= 32'b0;
         end
         SEND_ADDR: begin
           if (index == 0) begin
             state <= SEND_CMD;
             index <= 7;
+
+            if (mask[3] == 1) frame_index <= 3;
+            else if (mask[2] == 1) frame_index <= 2;
+            else if (mask[1] == 1) frame_index <= 1;
+            else frame_index <= 0;
           end else index <= index - 1;
         end
 
@@ -113,11 +120,6 @@ module i2c_master (
         RECV_CMD_ACK: begin
           if (write) state <= SEND_FRAME;
           else state <= RECV_FRAME;
-
-          if (mask[3] == 1) frame_index <= 3;
-          else if (mask[2] == 1) frame_index <= 2;
-          else if (mask[1] == 1) frame_index <= 1;
-          else frame_index <= 0;
         end
 
         RECV_FRAME: begin
@@ -152,10 +154,16 @@ module i2c_master (
       endcase
     end
 
-    if (reset) begin
+    if (reset == 0) begin
       state <= RESET;
       scl_reg <= 1;
       frame_index <= 3;
+      index <= 6;
+      data_out <= 32'b0;
+    end else if (req == 1) begin
+      state   <= RESET;
+      scl_reg <= 1;
+      index   <= 6;
     end
   end
 
@@ -172,6 +180,12 @@ module i2c_master (
         RECV_CMD_ACK:   cmd_ack <= sda_i_sync1;
         RECV_FRAME_ACK: frame_acks[frame_index] <= sda_i_sync1;
       endcase
+
+    end
+
+    if (reset == 0) begin
+      frame_acks <= 4'b1111;
+      cmd_ack <= 1;
     end
   end
 

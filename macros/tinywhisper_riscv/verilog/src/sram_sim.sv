@@ -46,6 +46,12 @@ module sram_sim #(
     end
   end
 
+  always_ff @(negedge sclk) begin
+    if (state == SEND_DATA) begin
+      so <= dataout_reg[index];
+    end
+  end
+
   always_ff @(posedge sclk) begin
     if (reset || ~ce) begin
       state <= IDLE;
@@ -114,8 +120,6 @@ module sram_sim #(
         SEND_DATA: begin
           if (index == 0) state <= END;
           else index <= index - 1;
-
-          so <= dataout_reg[index];
         end
 
         END: state <= END;

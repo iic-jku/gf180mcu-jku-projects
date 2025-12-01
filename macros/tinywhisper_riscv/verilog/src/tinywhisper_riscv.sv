@@ -3,8 +3,7 @@ module tinywhisper_riscv #(
     parameter int BAUD = 115_200
 ) (
     input logic clk,
-    input logic reset,    // active low due to pico-ice button
-    input logic intr_ext,
+    input logic reset, // active low due to pico-ice button
 
     input  logic so,
     output logic si,
@@ -23,7 +22,7 @@ module tinywhisper_riscv #(
     input  logic rx,
     output logic tx,
 
-    input  logic [3:0] gpio_in,
+    input  logic [3:0] gpio_in,  // gpio[0] fires external interrupt
     output logic [3:0] gpio_out,
 
     output logic cos_ds,
@@ -81,12 +80,6 @@ module tinywhisper_riscv #(
   logic [2:0] funct3;
   logic       uart_rx_valid;
 
-  logic [7:0] gpio_out_full;
-  assign gpio_out = gpio_out_full[3:0];
-
-  // wire _unused;
-  // assign _unused = &{control_flags[2], gpio_out_full[7:4]};
-
   memory #(
       .CLK_FREQ(CLK_FREQ),
       .BAUD(BAUD)
@@ -112,8 +105,8 @@ module tinywhisper_riscv #(
       .sda_i(sda_i),
       .sda_o(sda_o),
       .sda_oe(sda_oe),
-      .gpio_in({4'b0, gpio_in}),
-      .gpio_out(gpio_out_full),
+      .gpio_in(gpio_in),
+      .gpio_out(gpio_out),
       .cos_ds(cos_ds),
       .cos_ds_n(cos_ds_n),
       .sin_ds(sin_ds),
@@ -168,7 +161,7 @@ module tinywhisper_riscv #(
       .clk(clk),
       .reset(reset),
       .intr_timer(intr_timer),
-      .intr_ext(intr_ext),
+      .intr_ext(gpio_in[0]),
       .uart_rx_valid(uart_rx_valid),
       .exceptions(exceptions),
       .mret(mret),

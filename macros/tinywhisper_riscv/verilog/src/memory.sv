@@ -47,8 +47,8 @@ module memory #(
     output logic uart_rx_valid,
 
     // GPIOs
-    input  logic [7:0] gpio_in,
-    output logic [7:0] gpio_out,
+    input  logic [3:0] gpio_in,
+    output logic [3:0] gpio_out,
 
     // Frequency generator
     output logic cos_ds,
@@ -135,13 +135,13 @@ module memory #(
 
   logic master_reset, master_busy;
   logic sram_busy, sram_valid;
-  logic i2c_reset, i2c_busy, i2c_valid;
+  logic i2c_req, i2c_busy, i2c_valid;
   logic [6:0] i2c_addr;
   logic [3:0] i2c_mask;
 
   logic [31:0] master_dataout, sram_dataout, i2c_dataout;
 
-  logic [7:0] gpio_in_sync;
+  logic [3:0] gpio_in_sync;
 
   // This ensures that the spi_master actually started working
   // Otherwise we would assume it has finished before it began
@@ -172,7 +172,8 @@ module memory #(
   logic [15:0] scl_ratio;
   i2c_master i2c_master (
       .clk(clk),
-      .reset(i2c_reset),
+      .reset(reset),
+      .req(i2c_req),
       .scl_ratio(scl_ratio),
       .sda_i(sda_i),
       .sda_o(sda_o),
@@ -255,14 +256,16 @@ module memory #(
       mtime <= 0;
       mtimecmp <= 0;
       freq_status[1:0] <= 2'b00;
-      gpio_out <= 8'd0;
-      gpio_in_sync <= 8'd0;
+      gpio_out <= 4'd0;
+      gpio_in_sync <= 4'd0;
       uart_rx_status[0] <= 1'b0;
       osr_fc_reg <= {2'b11, 30'b000001100111110101011101010101};
       uart_tx_cpb <= CYCLES_PER_BIT_DEFAULT;
       uart_rx_cpb <= CYCLES_PER_BIT_DEFAULT;
       scl_ratio <= SCL_RATIO_DEFAULT[15:0];
       sclk_flag <= 0;
+      i2c_mask <= 4'b1111;
+      i2c_addr <= 6'b0;
       state <= IDLE;
       target <= SRAM;
     end else if (ce) begin
@@ -290,7 +293,7 @@ module memory #(
             target <= GPIO;
             state  <= GPIO_WAIT;
 
-            if (memwrite) gpio_out <= datain[7:0];
+            if (memwrite) gpio_out <= datain[3:0];
             else begin
               // Set to a defined value, just in case
               dataout <= 0;
@@ -300,7 +303,7 @@ module memory #(
             target <= GPIO;
             state  <= GPIO_WAIT;
 
-            if (~memwrite) dataout <= {24'b0, gpio_in_sync};
+            if (~memwrite) dataout <= {28'b0, gpio_in_sync};
             else state <= FAULT;
 
             // == UART ==================================
@@ -438,7 +441,7 @@ module memory #(
   // reset master if not doing anything
   assign master_reset = (state == READING || state == WRITING) ? 1'b0 : 1'b1;
 
-  assign i2c_reset = (target == I2C) ? master_reset : 1;
+  assign i2c_req = (target == I2C) ? master_reset : 1;
   assign sram_req = (target == SRAM) ? master_reset : 1;
 
   assign intr_timer = ($unsigned(mtime) >= $unsigned(mtimecmp)) ? 1 : 0;

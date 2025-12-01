@@ -1,5 +1,5 @@
-`timescale 1ns / 1ps
-;
+`timescale 1ns / 1ps;
+
 module tinywhisper_riscv_tb ();
   localparam real F_CLK = 12_000_000;
   realtime PERIOD_NS = (1 / F_CLK) * 1_000_000_000;
@@ -9,6 +9,7 @@ module tinywhisper_riscv_tb ();
   logic so, si, sclk, sram_ce;
   logic rst_n;
   logic intr_ext;
+  logic [3:0] gpio_in;
 
   logic rx;
   logic uart_en;
@@ -19,10 +20,11 @@ module tinywhisper_riscv_tb ();
       .si(si),
       .sclk(sclk),
       .sram_ce(sram_ce),
-      .intr_ext(intr_ext),
+      .gpio_in(gpio_in),
       .rx(rx)
   );
 
+  assign gpio_in = {3'b0, intr_ext};
   sram_sim #(
       .INIT_FILE("demo.txt")
   ) sram (
