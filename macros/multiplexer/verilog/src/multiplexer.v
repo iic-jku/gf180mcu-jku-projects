@@ -74,8 +74,17 @@ module multiplexer (
 	input  wire pushed_left_in, 				// Traffic Light Controller: output wire pushed_left_out
 	input  wire pushed_right_in, 				// Traffic Light Controller: output wire pushed_right_out
 	
-	// TinyTone
-	input  wire sound_in, 						// TinyTone: output wire sound_out
+	// Tetris
+	// output up_r_o, 							// Tetris: input  up_r_i
+	// output down_r_o, 						// Tetris: input  down_r_i
+	// output left_r_o, 						// Tetris: input  left_r_i
+	// output right_r_o, 						// Tetris: input  right_r_i
+	// output game_speed_o, 					// Tetris: input  game_speed_i
+	input  wire [5:0] Data_i, 					// Tetris: output [5:0] Data_o
+	input  wire hsync_i, 						// Tetris: output hsync_o
+	input  wire vsync_i, 						// Tetris: output vsync_o
+	input  wire video_active_i, 				// Tetris: output video_active_o
+	input  wire pix_clk_i, 						// Tetris: output pix_clk_o
 	
 	// Classic VGA Clock
     // output wire hour_out, 					// Classic VGA Clock: input wire hour_in
@@ -105,10 +114,10 @@ module multiplexer (
 			end
 			// SAR ADC Controller
 			3'b001: begin
-				mux_out_reg[10]  = spi_miso_in;
-				mux_out_reg[9] 	 = spi_sclk_in;
-				mux_out_reg[8] 	 = done_in;
-				mux_out_reg[7:0] = dac_bits_in;
+				mux_out_reg[10]   = spi_miso_in;
+				mux_out_reg[9] 	  = spi_sclk_in;
+				mux_out_reg[8] 	  = done_in;
+				mux_out_reg[7:0]  = dac_bits_in;
 			end
 			// Led Spinner
 			3'b010: begin
@@ -128,22 +137,26 @@ module multiplexer (
 			end
 			// Traffic Light Controller
 			3'b101: begin
-				mux_out_reg[10] = 1'b0;
-				mux_out_reg[9]  = car_red_light_in;
-				mux_out_reg[8]  = car_yellow_light_in;
-				mux_out_reg[7]  = car_green_light_in;
-				mux_out_reg[6]  = ped_red_light_in;
-				mux_out_reg[5]  = ped_green_light_in;
-				mux_out_reg[4]  = DIN_in;
-				mux_out_reg[3]  = CS_in;
-				mux_out_reg[2]  = SCLK_in;
-				mux_out_reg[1]  = pushed_left_in;
-				mux_out_reg[0]  = pushed_right_in;
+				mux_out_reg[10]   = 1'b0;
+				mux_out_reg[9]    = car_red_light_in;
+				mux_out_reg[8]    = car_yellow_light_in;
+				mux_out_reg[7]    = car_green_light_in;
+				mux_out_reg[6]    = ped_red_light_in;
+				mux_out_reg[5]    = ped_green_light_in;
+				mux_out_reg[4]    = DIN_in;
+				mux_out_reg[3]    = CS_in;
+				mux_out_reg[2]    = SCLK_in;
+				mux_out_reg[1]    = pushed_left_in;
+				mux_out_reg[0]    = pushed_right_in;
 			end
-			// TinyTone
+			// Tetris
 			3'b110: begin
-				mux_out_reg[10:1] = 10'b0000000000;
-				mux_out_reg[0] 	  = sound_in;
+				mux_out_reg[10]   = 1'b0;
+				mux_out_reg[9] 	  = pix_clk_i;
+				mux_out_reg[8] 	  = video_active_i;
+				mux_out_reg[7] 	  = vsync_i;
+				mux_out_reg[6] 	  = hsync_i;
+				mux_out_reg[5:0]  = Data_i; 
 			end
 			// Classic VGA Clock
 			3'b111: begin

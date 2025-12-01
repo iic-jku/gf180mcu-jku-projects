@@ -1,10 +1,10 @@
 [*]
 [*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
-[*] Sat Nov 29 16:35:15 2025
+[*] Mon Dec  1 13:00:10 2025
 [*]
 [dumpfile] "/foss/designs/gf180mcu-jku-projects/macros/multiplexer/verilog/tb/multiplexer_tb.vcd"
-[dumpfile_mtime] "Sat Nov 29 16:34:46 2025"
-[dumpfile_size] 3365
+[dumpfile_mtime] "Mon Dec  1 13:00:05 2025"
+[dumpfile_size] 3621
 [savefile] "/foss/designs/gf180mcu-jku-projects/macros/multiplexer/verilog/tb/multiplexer_tb.gtkw"
 [timestart] 0
 [size] 1602 949
@@ -40,7 +40,7 @@
 [signals_width] 481
 [sst_expanded] 1
 [sst_vpaned_height] 271
-@201
+@200
 -INPUTS
 @28
 multiplexer_tb.clk

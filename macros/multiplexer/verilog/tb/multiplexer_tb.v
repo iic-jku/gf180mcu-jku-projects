@@ -39,7 +39,11 @@ module multiplexer_tb;
   wire SCLK_in				= 1'b1;
   wire pushed_left_in		= 1'b1;
   wire pushed_right_in		= 1'b1;
-  wire sound_in				= 1'b1;
+  wire [5:0] Data_i			= 6'b111111;
+  wire hsync_i 				= 1'b1;
+  wire vsync_i 				= 1'b1;
+  wire video_active_i 		= 1'b1;
+  wire pix_clk_i 			= 1'b1;			
   wire buzzer_in 			= 1'b1;
   wire vga_horizSync_in		= 1'b1;
   wire vga_vertSync_in		= 1'b1;
@@ -73,7 +77,11 @@ module multiplexer_tb;
 	.SCLK_in(SCLK_in),
 	.pushed_left_in(pushed_left_in),
 	.pushed_right_in(pushed_right_in),
-	.sound_in(sound_in),
+	.Data_i(Data_i),
+	.hsync_i(hsync_i),
+	.vsync_i(vsync_i),
+	.video_active_i(video_active_i),
+	.pix_clk_i(pix_clk_i),
 	.buzzer_in(buzzer_in),
 	.vga_horizSync_in(vga_horizSync_in),
 	.vga_vertSync_in(vga_vertSync_in),
