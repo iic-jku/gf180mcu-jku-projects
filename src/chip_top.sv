@@ -23,9 +23,7 @@ module chip_top #(
     inout  wire rst_n_PAD,
     
     inout  wire [NUM_INPUT_PADS-1:0] input_PAD,
-    inout  wire [NUM_BIDIR_PADS-1:0] bidir_PAD,
-    
-    inout  wire [NUM_ANALOG_PADS-1:0] analog_PAD
+    inout  wire [NUM_BIDIR_PADS-1:0] bidir_PAD
 );
 	// ======================================================
     // Wires
