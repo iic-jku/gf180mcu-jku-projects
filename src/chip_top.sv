@@ -18,11 +18,14 @@ module chip_top #(
     inout  wire VDD,
     inout  wire VSS,
     `endif
+
     inout  wire clk_PAD,
     inout  wire rst_n_PAD,
     
     inout  wire [NUM_INPUT_PADS-1:0] input_PAD,
-    inout  wire [NUM_BIDIR_PADS-1:0] bidir_PAD
+    inout  wire [NUM_BIDIR_PADS-1:0] bidir_PAD,
+    
+    inout  wire [NUM_ANALOG_PADS-1:0] analog_PAD
 );
 	// ======================================================
     // Wires
@@ -47,7 +50,7 @@ module chip_top #(
     wire [NUM_BIDIR_PADS-1:0] bidir_CORE2PAD_IE;
     wire [NUM_BIDIR_PADS-1:0] bidir_CORE2PAD_PU;
     wire [NUM_BIDIR_PADS-1:0] bidir_CORE2PAD_PD;
-	// ======================================================
+    // ======================================================
 	
 	// ======================================================
     // VDD - PAD INSTANCES
@@ -79,7 +82,7 @@ module chip_top #(
         );
     end
     endgenerate
-	// ======================================================
+    // ======================================================
 	
 	// ======================================================
     // CLOCK - PAD INSTANCE (Schmitt trigger)
@@ -98,12 +101,11 @@ module chip_top #(
         .PU     (1'b0),
         .PD     (1'b0)
     );
-	// ======================================================
+    // ======================================================
 	
 	// ======================================================
     // RESET - PAD INSTANCE (active low, normal input)
 	// ======================================================
-    // Normal input
     gf180mcu_fd_io__in_c rst_n_pad (
         `ifdef USE_POWER_PINS
         .DVDD   (VDD),
@@ -181,26 +183,20 @@ module chip_top #(
         .NUM_INPUT_PADS  (NUM_INPUT_PADS),
         .NUM_BIDIR_PADS  (NUM_BIDIR_PADS)
     ) i_chip_core (
-		// VDD / VSS
         `ifdef USE_POWER_PINS
         .VDD        (VDD),
         .VSS        (VSS),
         `endif
-		
-		// Clocks
-        .clk      	(clk_PAD2CORE),
-		
-		// Reset (active low)
+    
+        .clk        (clk_PAD2CORE),
         .rst_n      (rst_n_PAD2CORE),
-		
-		// Inputs
+    
         .input_in   (input_PAD2CORE),
         .input_pu   (input_CORE2PAD_PU),
-        .input_pd	(input_CORE2PAD_PD),
-		
-		// Outputs
-        .bidir_in 	(bidir_PAD2CORE),
-        .bidir_out	(bidir_CORE2PAD),
+        .input_pd   (input_CORE2PAD_PD),
+
+        .bidir_in   (bidir_PAD2CORE),
+        .bidir_out  (bidir_CORE2PAD),
         .bidir_oe   (bidir_CORE2PAD_OE),
         .bidir_cs   (bidir_CORE2PAD_CS),
         .bidir_sl   (bidir_CORE2PAD_SL),
@@ -214,14 +210,14 @@ module chip_top #(
     // Chip ID - do not remove, necessary for tapeout
 	// ======================================================
     (* keep *)
-    gf180mcu_ws_ip__id chip_id();
+    gf180mcu_ws_ip__id chip_id ();
     // ======================================================
 	
 	// ======================================================
     // JKU & JMU logo
 	// ======================================================
     (* keep *)
-    gf180mcu_ws_ip__logo wafer_space_logo();
+    gf180mcu_ws_ip__logo wafer_space_logo ();
 	// ======================================================
 endmodule
 

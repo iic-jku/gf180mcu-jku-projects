@@ -14,8 +14,8 @@ module chip_core #(
     inout  wire VSS,
     `endif
     
-    input  wire clk,		// clock
-    input  wire rst_n,     	// reset (active low)
+    input  wire clk,       // clock
+    input  wire rst_n,     // reset (active low)
     
     input  wire [NUM_INPUT_PADS-1:0] input_in,   // Input value
     output wire [NUM_INPUT_PADS-1:0] input_pu,   // Pull-up
@@ -30,7 +30,7 @@ module chip_core #(
     output wire [NUM_BIDIR_PADS-1:0] bidir_pu,   // Pull-up
     output wire [NUM_BIDIR_PADS-1:0] bidir_pd    // Pull-down
 );
-	// ======================================================
+    // ======================================================
 	// IO SETTINGS
 	// ======================================================
 	// See here for usage: https://gf180mcu-pdk.readthedocs.io/en/latest/IPs/IO/gf180mcu_fd_io/digital.html
@@ -46,16 +46,16 @@ module chip_core #(
     assign bidir_ie = ~bidir_oe;
     assign bidir_pu = '0;
     assign bidir_pd = '0;
-	
-	logic _unused;
-    assign _unused = &bidir_in;
-    // ======================================================
     
+    logic _unused;
+    assign _unused = &bidir_in;
+	// ======================================================
+	
 	// ======================================================
 	// MAIN PROJECTS
 	// ======================================================
 	// TinyTone (Sanity Bring-Up Test) - Jakob Schaumberger
-	wire sound_out;
+	logic sound_out;
 	
 	tiny_tone tiny_tone (
 		`ifdef USE_POWER_PINS
@@ -115,12 +115,12 @@ module chip_core #(
 	// ToDo
 	// ======================================================
 	
-	// ======================================================
+    // ======================================================
 	// OUTPUT ASSIGNMENT
 	// ======================================================
-    assign bidir_out = {40'd0, sound_out};
+	assign bidir_out[40:1] = 40'd0;
+    assign bidir_out[0] = sound_out;
 	// ======================================================
-
 endmodule
 
 `default_nettype wire
