@@ -18,8 +18,7 @@ module chip_top #(
     inout  wire VDD,
     inout  wire VSS,
     `endif
-    inout  wire clk_A_PAD,
-	inout  wire clk_B_PAD,
+    inout  wire clk_PAD,
     inout  wire rst_n_PAD,
     
     inout  wire [NUM_INPUT_PADS-1:0] input_PAD,
@@ -29,8 +28,7 @@ module chip_top #(
     // Wires
 	// ======================================================
 	// Clocks
-    wire clk_A_PAD2CORE;
-	wire clk_B_PAD2CORE;
+    wire clk_PAD2CORE;
 	
 	// Reset
     wire rst_n_PAD2CORE;
@@ -84,10 +82,9 @@ module chip_top #(
 	// ======================================================
 	
 	// ======================================================
-    // CLOCK - PAD INSTANCES (Schmitt trigger)
+    // CLOCK - PAD INSTANCE (Schmitt trigger)
 	// ======================================================
-	// Clock A
-    gf180mcu_fd_io__in_s clk_A_PAD (
+    gf180mcu_fd_io__in_s clk_PAD (
         `ifdef USE_POWER_PINS
         .DVDD   (VDD),
         .DVSS   (VSS),
@@ -95,25 +92,8 @@ module chip_top #(
         .VSS    (VSS),
         `endif
     
-        .Y      (clk_A_PAD2CORE),
-        .PAD    (clk_A_PAD),
-        
-        .PU     (1'b0),
-        .PD     (1'b0)
-    );
-	// ======================================================
-	
-	// Clock B
-    gf180mcu_fd_io__in_s clk_B_PAD (
-        `ifdef USE_POWER_PINS
-        .DVDD   (VDD),
-        .DVSS   (VSS),
-        .VDD    (VDD),
-        .VSS    (VSS),
-        `endif
-    
-        .Y      (clk_B_PAD2CORE),
-        .PAD    (clk_B_PAD),
+        .Y      (clk_PAD2CORE),
+        .PAD    (clk_PAD),
         
         .PU     (1'b0),
         .PD     (1'b0)
@@ -121,7 +101,7 @@ module chip_top #(
 	// ======================================================
 	
 	// ======================================================
-    // RESET - PAD INSTANCES (active low, normal input)
+    // RESET - PAD INSTANCE (active low, normal input)
 	// ======================================================
     // Normal input
     gf180mcu_fd_io__in_c rst_n_pad (
@@ -208,8 +188,7 @@ module chip_top #(
         `endif
 		
 		// Clocks
-        .clk_A      (clk_A_PAD2CORE),
-		.clk_B      (clk_B_PAD2CORE),
+        .clk      	(clk_PAD2CORE),
 		
 		// Reset (active low)
         .rst_n      (rst_n_PAD2CORE),

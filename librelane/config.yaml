@@ -56,7 +56,7 @@ IGNORE_DISCONNECTED_MODULES:
 # Clock
 CLOCK_PORT: clk_PAD
 CLOCK_NET: clk_pad/Y
-CLOCK_PERIOD: 40 # 25 MHz
+CLOCK_PERIOD: 25 # in ns = ~40MHz
 
 # Fix hold violations
 PL_RESIZER_HOLD_SLACK_MARGIN: 0.35
@@ -134,6 +134,33 @@ MAGIC_GDS_FLATGLOB:
 MAGIC_EXT_UNIQUE: notopports
 
 MACROS:
+  tiny_tone:
+    gds:
+      - dir::../macros/tiny_tone/librelane/runs/latest/final/gds/tiny_tone.gds
+    lef:
+      - dir::../macros/tiny_tone/librelane/runs/latest/final/lef/tiny_tone.lef
+    pnl:
+      - dir::../macros/tiny_tone/librelane/runs/latest/final/pnl/tiny_tone.pnl.v
+    nl:
+      - dir::../macros/tiny_tone/librelane/runs/latest/final/nl/tiny_tone.nl.v
+    spef:
+      min_*: dir::../macros/tiny_tone/librelane/runs/latest/final/spef/min/tiny_tone.min.spef
+      nom_*: dir::../macros/tiny_tone/librelane/runs/latest/final/spef/nom/tiny_tone.nom.spef
+      max_*: dir::../macros/tiny_tone/librelane/runs/latest/final/spef/max/tiny_tone.max.spef
+    lib:
+      max_ff_n40C_5v50: dir::../macros/tiny_tone/librelane/runs/latest/final/lib/max_ff_n40C_5v50/tiny_tone__max_ff_n40C_5v50.lib
+      max_ss_125C_4v50: dir::../macros/tiny_tone/librelane/runs/latest/final/lib/max_ss_125C_4v50/tiny_tone__max_ss_125C_4v50.lib
+      max_tt_025C_5v00: dir::../macros/tiny_tone/librelane/runs/latest/final/lib/max_tt_025C_5v00/tiny_tone__max_tt_025C_5v00.lib
+      min_ff_n40C_5v50: dir::../macros/tiny_tone/librelane/runs/latest/final/lib/min_ff_n40C_5v50/tiny_tone__min_ff_n40C_5v50.lib
+      min_ss_125C_4v50: dir::../macros/tiny_tone/librelane/runs/latest/final/lib/min_ss_125C_4v50/tiny_tone__min_ss_125C_4v50.lib
+      min_tt_025C_5v00: dir::../macros/tiny_tone/librelane/runs/latest/final/lib/min_tt_025C_5v00/tiny_tone__min_tt_025C_5v00.lib
+      nom_ff_n40C_5v50: dir::../macros/tiny_tone/librelane/runs/latest/final/lib/nom_ff_n40C_5v50/tiny_tone__nom_ff_n40C_5v50.lib
+      nom_ss_125C_4v50: dir::../macros/tiny_tone/librelane/runs/latest/final/lib/nom_ss_125C_4v50/tiny_tone__nom_ss_125C_4v50.lib
+      nom_tt_025C_5v00: dir::../macros/tiny_tone/librelane/runs/latest/final/lib/nom_tt_025C_5v00/tiny_tone__nom_tt_025C_5v00.lib
+    instances:
+      multiplexer:
+        location: [1475, 2950]
+        orientation: N
   gf180mcu_ws_ip__id:
     gds:
       - dir::../ip/gf180mcu_ws_ip__id/gds/gf180mcu_ws_ip__id.gds
@@ -164,34 +191,10 @@ MACROS:
         location: ["expr::$DIE_AREA[2] + -169.25", "expr::$DIE_AREA[3] + -169.25"]
         orientation: N
 
-  gf180mcu_fd_ip_sram__sram512x8m8wm1:
-    gds:
-      - pdk_dir::libs.ref/gf180mcu_fd_ip_sram/gds/gf180mcu_fd_ip_sram__sram512x8m8wm1.gds
-    lef:
-      - pdk_dir::libs.ref/gf180mcu_fd_ip_sram/lef/gf180mcu_fd_ip_sram__sram512x8m8wm1.lef
-    vh:
-      - pdk_dir::libs.ref/gf180mcu_fd_ip_sram/verilog/gf180mcu_fd_ip_sram__sram512x8m8wm1__blackbox.v
-    lib:
-      "*_tt_025C_5v00":
-        - pdk_dir::libs.ref/gf180mcu_fd_ip_sram/lib/gf180mcu_fd_ip_sram__sram512x8m8wm1__tt_025C_5v00.lib
-      "*_ff_n40C_5v50":
-        - pdk_dir::libs.ref/gf180mcu_fd_ip_sram/lib/gf180mcu_fd_ip_sram__sram512x8m8wm1__ff_n40C_5v50.lib
-      "*_ss_125C_4v50":
-        - pdk_dir::libs.ref/gf180mcu_fd_ip_sram/lib/gf180mcu_fd_ip_sram__sram512x8m8wm1__ss_125C_4v50.lib
-    instances:
-      # Make sure to specify the SRAMs in pdn_cfg.tcl
-      i_chip_core.sram_0:
-        location: [490, 500]
-        orientation: N
-      i_chip_core.sram_1:
-        location: [970, 500]
-        orientation: E
-
 # This is an alternative method compared to
 # specifying the power connections in the RTL
-PDN_MACRO_CONNECTIONS:
-- "i_chip_core.sram_0 VDD VSS VDD VSS"
-- "i_chip_core.sram_1 VDD VSS VDD VSS"
+# PDN_MACRO_CONNECTIONS:
+# - "i_chip_core.sram_0 VDD VSS VDD VSS"
 
 # Halo size around macros while cutting rows.
 # Workaround for: https://github.com/The-OpenROAD-Project/OpenROAD/issues/8868

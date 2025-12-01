@@ -12,8 +12,7 @@ module chip_core #(
     inout  wire VSS,
     `endif
     
-    input  wire clk_A,		// clock A
-	input  wire clk_B,  	// clock B
+    input  wire clk,		// clock
     input  wire rst_n,     	// reset (active low)
     
     input  wire [NUM_INPUT_PADS-1:0] input_in,   // Input value
@@ -57,7 +56,7 @@ module chip_core #(
 	wire sound_out;
 	
 	tiny_tone tiny_tone (
-		.clk(clk_A),
+		.clk(clk),
 		.rst_n(rst_n),
 		.sound_out(sound_out)
 	);
