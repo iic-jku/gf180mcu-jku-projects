@@ -57,12 +57,12 @@ PAD_EAST: [
     "dvss_pads\\[3\\].pad",
     "dvdd_pads\\[2\\].pad",
     "dvss_pads\\[4\\].pad",
-    "dvdd_pads\\[3\\].pad",
+    "dvdd_pads\\[3\\].pad"
 ]
 
 # left to right
 PAD_NORTH: [
-    "inputs\\[12\\].pad"
+    "inputs\\[12\\].pad",
     "bidir\\[40\\].pad",
     "bidir\\[39\\].pad",
     "bidir\\[38\\].pad",
