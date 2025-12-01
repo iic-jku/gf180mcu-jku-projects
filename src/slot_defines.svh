@@ -5,7 +5,7 @@
 `define NUM_DVSS_PADS 2
 
 // Signal pads
-`define NUM_INPUT_PADS 29
+`define NUM_INPUT_PADS 24 // without 4 x clock and 1 x reset
 `define NUM_BIDIR_PADS 41
 `define NUM_ANALOG_PADS 0
 
