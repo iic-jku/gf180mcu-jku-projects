@@ -2,6 +2,11 @@ Project Overview:
 https://www.crowdsupply.com/wafer-space/gf180mcu-run-1/updates/tholin-feature
 https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 
+- TinyTone (Sanity Bring-Up Test) - Jakob Schaumberger
+	--> 2 x inputs (incl. clk + rst)
+	--> 1 x outputs
+	--> 200um x 200um
+	
 - Decimation Filter - Michael Köfinger
 	--> 3 x inputs (incl. clk + rst)
 	--> 2 x outputs
@@ -12,15 +17,15 @@ https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 	--> 9 x outputs
 	--> 1800um x 1200um
 	
-- TinyWhisper RISC-V - JKU & JMU
+- TinyWhisper RISC-V - Jonathan Hager (JMU)
 	--> 10 x inputs (incl. clk + rst)
 	--> 18 x outputs, 1 x inout (sda)
 	--> 1200um x 2500um
 
-- TinyTone (Sanity Bring-Up Test) - Jakob Schaumberger
-	--> 2 x inputs (incl. clk + rst)
-	--> 1 x outputs
-	--> 200um x 200um
+- Tetris - Dominik Brandstetter & HTL Leonding
+	--> 7 x inputs (incl. clk + rst)
+	--> 10 x outputs
+	--> 1200um x 1800um
 	
 - TinyBF (Studi Project) - Rene Hahn
 	--> 6 x inputs (incl. clk + rst)
@@ -51,11 +56,6 @@ https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 	--> 5 x inputs (incl. clk + rst)
 	--> 10 x outputs
 	--> 400um x 200um
-
-- Tetris (Studi Project) - Dominik Brandstetter & HTL Leonding
-	--> 7 x inputs (incl. clk + rst)
-	--> 10 x outputs
-	--> 1200um x 1800um
 	
 - VGA Clock (Studi Project) - Timo Laimer
 	--> 7 x inputs (incl. clk + rst)
