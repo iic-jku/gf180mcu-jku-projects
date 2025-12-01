@@ -84,7 +84,7 @@ module chip_top #(
 	// ======================================================
     // CLOCK - PAD INSTANCE (Schmitt trigger)
 	// ======================================================
-    gf180mcu_fd_io__in_s clk_PAD (
+    gf180mcu_fd_io__in_s clk_pad (
         `ifdef USE_POWER_PINS
         .DVDD   (VDD),
         .DVSS   (VSS),

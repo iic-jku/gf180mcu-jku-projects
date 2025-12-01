@@ -56,6 +56,10 @@ module chip_core #(
 	wire sound_out;
 	
 	tiny_tone tiny_tone (
+		`ifdef USE_POWER_PINS
+        .VDD(VDD),
+		.VSS(VSS),
+		`endif
 		.clk(clk),
 		.rst_n(rst_n),
 		.sound_out(sound_out)
