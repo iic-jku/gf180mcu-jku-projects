@@ -21,12 +21,20 @@
 `include "guess_eval.v"
 
 module led_spinner (
+	// VDD / VSS
+	`ifdef USE_POWER_PINS
+	inout  wire VDD,
+	inout  wire VSS,
+	`endif
+	
+	// Inputs
     input  wire       clk,      		// clock
     input  wire       rst_n,    		// reset_n - low to reset
 	input  wire [3:0] speed_bits_in,
 	input  wire       stop_wheel_in,
 	input  wire [5:0] guess_bits_in,
 	
+	// Outputs
 	output wire [6:0] seg_bits_out,
 	output wire		  dp_on_out
 );

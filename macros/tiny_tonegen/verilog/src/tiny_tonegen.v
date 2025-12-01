@@ -4,6 +4,13 @@
 `include "./clock_scaler.v"
 
 module tiny_tonegen (
+	// VDD / VSS
+	`ifdef USE_POWER_PINS
+    inout  wire VDD,
+    inout  wire VSS,
+    `endif
+	
+	// Inputs
     input  wire       clk,      	// clock
     input  wire       rst_n,    	// reset_n - low to reset
 	input  wire       ena,      	// will go high when the design is enabled
@@ -11,6 +18,7 @@ module tiny_tonegen (
 	input  wire 	  write_strobe_in,    
 	input  wire [4:0] data_in,
 	
+	// Outputs
 	output wire 	  signal_bit_out
 );
 

@@ -3659,12 +3659,22 @@ module uart_core
       n72 <= tx_busy_next;
 endmodule
 
-module octowave
-  (input  clock_i,
-   input  reset_n_i,
-   input  uart_rx,
-   output uart_tx,
-   output [7:0] channel_o);
+module octowave (
+	// VDD / VSS
+	`ifdef USE_POWER_PINS
+	inout  wire VDD,
+	inout  wire VSS,
+	`endif
+	
+	// Inputs
+	input  clock_i,
+	input  reset_n_i,
+	input  uart_rx,
+	
+	// Outputs
+	output uart_tx,
+	output [7:0] channel_o
+);
   wire reset;
   wire [7:0] rx_data;
   wire rx_valid;

@@ -15,6 +15,12 @@
 `default_nettype none
 
 module multiplexer (
+	// VDD / VSS
+	`ifdef USE_POWER_PINS
+	inout  wire VDD,
+	inout  wire VSS,
+	`endif
+	
 	input  wire        clk,      		// clock
 	
 	// Multiplexer - Interface to Pad-Ring

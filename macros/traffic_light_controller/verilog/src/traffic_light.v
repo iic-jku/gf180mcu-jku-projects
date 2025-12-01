@@ -24,12 +24,20 @@
 `endif
 
 module traffic_light (
+	// VDD / VSS
+	`ifdef USE_POWER_PINS
+    inout  wire VDD,
+    inout  wire VSS,
+    `endif
+	
+	// Inputs
 	input  wire clk,      // 1MHz
     input  wire rst_n,    // active-low reset
 	input  wire switch_traffic_light_on_in,
     input  wire ped_request_left_in,
     input  wire ped_request_right_in,
 	
+	// Outputs
     output wire car_red_light_out,
 	output wire car_yellow_light_out,
 	output wire car_green_light_out,

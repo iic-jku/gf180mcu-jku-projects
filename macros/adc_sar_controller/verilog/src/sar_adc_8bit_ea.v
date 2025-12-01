@@ -1,12 +1,22 @@
-module sar_adc_spi_oversampling
-  (input  clk,
-   input  reset_n,
-   input  start,
-   input  comp_in,
-   output [7:0] dac_bits,
-   output spi_miso,
-   output spi_sclk,
-   output done);
+module sar_adc_spi_oversampling(
+	// VDD / VSS
+	`ifdef USE_POWER_PINS
+	inout  wire VDD,
+	inout  wire VSS,
+	`endif
+	
+	// Inputs
+	input  clk,
+	input  reset_n,
+	input  start,
+	input  comp_in,
+	
+	// Outputs
+	output [7:0] dac_bits,
+	output spi_miso,
+	output spi_sclk,
+	output done
+);
   reg [2:0] st;
   reg [7:0] result_reg;
   reg [7:0] trial_reg;

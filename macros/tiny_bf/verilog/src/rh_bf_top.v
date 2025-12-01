@@ -29,10 +29,18 @@
 
 
 module rh_bf_top (
+	// VDD / VSS
+	`ifdef USE_POWER_PINS
+	inout  wire VDD,
+	inout  wire VSS,
+	`endif
+	
+	// Inputs
 	input  wire       clk,      // clock
     input  wire       rst_n,    // reset_n - low to reset
 	input  wire [3:0] ui_in,    // Dedicated inputs
 	
+	// Outputs
 	output wire [3:0] uio_out,  // IOs: Output path
     output wire [6:0] uo_out    // Dedicated outputs
 );

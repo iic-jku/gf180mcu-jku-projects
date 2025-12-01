@@ -7,9 +7,18 @@
 `include "./dec_serializer_22b.v"
 
 module decimator_ser_top(
+	// VDD / VSS
+	`ifdef USE_POWER_PINS
+	inout  wire VDD,
+	inout  wire VSS,
+	`endif
+	
+	// Inputs
     input wire      clk,
     input wire      rst_b,
     input wire      data_i,
+	
+	// Outputs
     output wire     data_o,        // Serial Data Stream
     output wire     frame_sync     // High while data is being transmitted
 );

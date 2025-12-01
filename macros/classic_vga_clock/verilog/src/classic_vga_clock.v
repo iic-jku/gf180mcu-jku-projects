@@ -17,6 +17,13 @@
 `include "display_vga.v"
 
 module classic_vga_clock (
+	// VDD / VSS
+	`ifdef USE_POWER_PINS
+	inout  wire VDD,
+	inout  wire VSS,
+	`endif
+	
+	// Inputs
     input wire clk,                 //25 MHz
     input wire reset_n,             //Inverted reset line
     input wire hour_in,             //Hour increment button
@@ -24,7 +31,8 @@ module classic_vga_clock (
     input wire sec_in,              //Second increment button
     input wire al_in,               //Alarmtime increment button
     input wire al_on_off_toggle_in, //Alarm On/Off toggle button
-
+	
+	// Outputs
     output wire buzzer_out,         //Alarm buzzer output (!!! External Buffer + Driver required !!!)
     output wire vga_horizSync_out,  //Horizontal sync
     output wire vga_vertSync_out,   //Vertical sync

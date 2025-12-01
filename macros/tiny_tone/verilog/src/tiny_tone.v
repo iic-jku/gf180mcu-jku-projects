@@ -24,12 +24,18 @@ module tiny_tone
     parameter [23:0] NOTE_DURATION = 24'd2400000   // Strobe period ~0.25s
 )
 (
-    // inputs
+	// VDD / VSS
+	`ifdef USE_POWER_PINS
+    inout  wire VDD,
+    inout  wire VSS,
+    `endif
+	
+    // Inputs
     input wire clk,    // input clock          
     input wire rst_n,  // input reset_n (active low)
 	
-    // outputs
-	output wire sound_out,
+    // Outputs
+	output wire sound_out
 );
 
 wire rst = ~rst_n;

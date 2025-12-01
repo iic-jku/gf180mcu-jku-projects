@@ -20,14 +20,22 @@
 `include "df_adder_subtractor.v"
 `include "df_adder_noovfl.v"
 
-module df_digital_filter
-	(
-		input wire CLK, nRST,
-		input wire enconfig,
-		input wire [2:0] configin,
-		input wire [7:0] datain,
-		output wire [7:0] dataout
-	);
+module df_digital_filter (
+	// VDD / VSS
+	`ifdef USE_POWER_PINS
+	inout  wire VDD,
+	inout  wire VSS,
+	`endif
+	
+	// Inputs
+	input wire CLK, nRST,
+	input wire enconfig,
+	input wire [2:0] configin,
+	input wire [7:0] datain,
+	
+	// Outputs
+	output wire [7:0] dataout
+);
 	
 	reg sync_enconfig [0:1];
 	reg [2:0] sync_configin [0:1];

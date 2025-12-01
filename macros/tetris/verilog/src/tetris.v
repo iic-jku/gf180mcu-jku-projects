@@ -12519,19 +12519,29 @@ module game_toplevel_ea
       n137 <= points_next;
 endmodule
 
-module tetris
-  (input  CLK_i,
-   input  reset_i,
-   input  up_r_i,
-   input  down_r_i,
-   input  left_r_i,
-   input  right_r_i,
-   input  game_speed_i,
-   output [5:0] Data_o,
-   output hsync_o,
-   output vsync_o,
-   output video_active_o,
-   output pix_clk_o);
+module tetris (
+	// VDD / VSS
+	`ifdef USE_POWER_PINS
+	inout  wire VDD,
+	inout  wire VSS,
+	`endif
+
+	// Inputs
+	input  CLK_i,
+	input  reset_i,
+	input  up_r_i,
+	input  down_r_i,
+	input  left_r_i,
+	input  right_r_i,
+	input  game_speed_i,
+
+	// Outputs
+	output [5:0] Data_o,
+	output hsync_o,
+	output vsync_o,
+	output video_active_o,
+	output pix_clk_o
+);
   wire clk_pix;
   wire vsync;
   wire hsync;
