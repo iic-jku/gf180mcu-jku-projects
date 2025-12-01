@@ -13,8 +13,11 @@ module chip_core #(
     inout  wire VSS,
     `endif
     
-    input  wire clk,       // clock
-    input  wire rst_n,     // reset (active low)
+    input  wire clk_A,		// clock A
+	input  wire clk_B,  	// clock B
+	input  wire clk_C,  	// clock C
+	input  wire clk_D,  	// clock D
+    input  wire rst_n,     	// reset (active low)
     
     input  wire [NUM_INPUT_PADS-1:0] input_in,   // Input value
     output wire [NUM_INPUT_PADS-1:0] input_pu,   // Pull-up
@@ -29,15 +32,17 @@ module chip_core #(
     output wire [NUM_BIDIR_PADS-1:0] bidir_pu,   // Pull-up
     output wire [NUM_BIDIR_PADS-1:0] bidir_pd,   // Pull-down
 
-    inout  wire [NUM_ANALOG_PADS-1:0] analog  // Analog
+    inout  wire [NUM_ANALOG_PADS-1:0] analog  	 // Analog (unused)
 );
-
-    // See here for usage: https://gf180mcu-pdk.readthedocs.io/en/latest/IPs/IO/gf180mcu_fd_io/digital.html
-    
+	// ======================================================
+	// IO SETTINGS
+	// ======================================================
+	// See here for usage: https://gf180mcu-pdk.readthedocs.io/en/latest/IPs/IO/gf180mcu_fd_io/digital.html
     // Disable pull-up and pull-down for input
     assign input_pu = '0;
     assign input_pd = '0;
-
+	// ======================================================
+	
     // Set the bidir as output
     assign bidir_oe = '1;
     assign bidir_cs = '0;
@@ -45,57 +50,75 @@ module chip_core #(
     assign bidir_ie = ~bidir_oe;
     assign bidir_pu = '0;
     assign bidir_pd = '0;
-    
-    logic _unused;
+	
+	logic _unused;
     assign _unused = &bidir_in;
-
-    logic [NUM_BIDIR_PADS-1:0] count;
-
-    always_ff @(posedge clk) begin
-        if (!rst_n) begin
-            count <= '0;
-        end else begin
-            if (&input_in) begin
-                count <= count + 1;
-            end
-        end
-    end
-
-    logic [7:0] sram_0_out;
-
-    gf180mcu_fd_ip_sram__sram512x8m8wm1 sram_0 (
-        `ifdef USE_POWER_PINS
-        .VDD  (VDD),
-        .VSS  (VSS),
-        `endif
-
-        .CLK  (clk),
-        .CEN  (1'b1),
-        .GWEN (1'b0),
-        .WEN  (8'b0),
-        .A    ('0),
-        .D    ('0),
-        .Q    (sram_0_out)
-    );
-
-    logic [7:0] sram_1_out;
-
-    gf180mcu_fd_ip_sram__sram512x8m8wm1 sram_1 (
-        `ifdef USE_POWER_PINS
-        .VDD  (VDD),
-        .VSS  (VSS),
-        `endif
-
-        .CLK  (clk),
-        .CEN  (1'b1),
-        .GWEN (1'b0),
-        .WEN  (8'b0),
-        .A    ('0),
-        .D    ('0),
-        .Q    (sram_1_out)
-    );
-
-    assign bidir_out = count ^ {24'd0, sram_0_out, sram_1_out};
+    // ======================================================
+    
+	// ======================================================
+	// MAIN PROJECTS
+	// ======================================================
+	// TinyTone (Sanity Bring-Up Test) - Jakob Schaumberger
+	wire sound_out;
+	tiny_tone tiny_tone (
+		.clk(clk_A),  
+		.rst_n(rst_n),
+		.sound_out(sound_out)
+	);
+	// ======================================================
+	
+	// Decimation Filter - Michael Köfinger
+	// ToDo
+	// ======================================================
+	
+	// Octowave - Max Golser
+	// ToDo
+	// ======================================================
+	
+	// TinyWhisper RISC-V - Jonathan Hager (JMU)
+	// ToDo
+	// ======================================================
+	
+	// Tetris - Dominik Brandstetter & HTL Leonding
+	// ToDo
+	// ======================================================
+	
+	// ======================================================
+	// STUDENT PROJECTS
+	// ======================================================
+	// TinyBF - Rene Hahn
+	// ToDo
+	// ======================================================
+	
+	// SAR ADC Controller - Ilir Shala
+	// ToDo
+	// ======================================================
+	
+	// Led Spinner - Tim Tremetsberger
+	// ToDo
+	// ======================================================
+	
+	// TinyToneGen - Felix Feierabend
+	// ToDo
+	// ======================================================
+	
+	// Digital Filter - Gregor Flachs
+	// ToDo
+	// ======================================================
+	
+	// Traffic Light Controller - Maximilian Kernmaier
+	// ToDo
+	// ======================================================
+	
+	// VGA Clock - Timo Laimer
+	// ToDo
+	// ======================================================
+	
+	// ======================================================
+	// OUTPUT ASSIGNMENT
+	// ======================================================
+    assign bidir_out = {40'd0, sound_out};
+	// ======================================================
 
 endmodule
 
