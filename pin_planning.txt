@@ -22,7 +22,7 @@ TinyWhisper RISC-V:
   - total: 26
   
 TinyTone (Sanity Bring-Up Test):
-  - clock D
+  - clock A
   - 1 x outputs
   - total: 1
   
