@@ -14,8 +14,6 @@ module chip_core #(
     
     input  wire clk_A,		// clock A
 	input  wire clk_B,  	// clock B
-	input  wire clk_C,  	// clock C
-	input  wire clk_D,  	// clock D
     input  wire rst_n,     	// reset (active low)
     
     input  wire [NUM_INPUT_PADS-1:0] input_in,   // Input value
@@ -57,8 +55,9 @@ module chip_core #(
 	// ======================================================
 	// TinyTone (Sanity Bring-Up Test) - Jakob Schaumberger
 	wire sound_out;
+	
 	tiny_tone tiny_tone (
-		.clk(clk_A),  
+		.clk(clk_A),
 		.rst_n(rst_n),
 		.sound_out(sound_out)
 	);
