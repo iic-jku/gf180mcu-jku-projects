@@ -16,7 +16,7 @@ SRC_FOLDER=${SRC_FOLDER:-.}
 mkdir -p build
 
 # Analyze sources
-ghdl -a --std=93c --work=octawave --workdir=build -Pbuild \
+ghdl -a --std=93c --work=octowave --workdir=build -Pbuild \
   "$RTL"/constants_pkg.vhd \
   "$RTL"/lut_pkg.vhd \
   "$RTL"/phase_to_amplitude.vhd \
@@ -29,16 +29,16 @@ ghdl -a --std=93c --work=octawave --workdir=build -Pbuild \
   "$RTL"/UART_TX.vhd \
   "$RTL"/UART_RX.vhd \
   "$RTL"/UART_CORE.vhd \
-  "$RTL"/octawave.vhd
+  "$RTL"/octowave.vhd
 
 # Top entity
-ghdl -m --std=93c --work=octawave --workdir=build -Pbuild octawave
+ghdl -m --std=93c --work=octowave --workdir=build -Pbuild octowave
 
 # Synthesize: generate Verilog output
-ghdl synth --std=93c --work=octawave --workdir=build -Pbuild --out=verilog octawave > "$SRC_FOLDER"/octawave.v
+ghdl synth --std=93c --work=octowave --workdir=build -Pbuild --out=verilog octowave > "$SRC_FOLDER"/octowave.v
 
 # Show interface of generated Verilog module
 echo ""
 echo "------ counter_board interface ------"
-sed -n "/module counter_board/,/);/p" "$SRC_FOLDER"/octawave.v
+sed -n "/module counter_board/,/);/p" "$SRC_FOLDER"/octowave.v
 echo ""

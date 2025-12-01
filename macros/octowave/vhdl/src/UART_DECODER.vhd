@@ -12,6 +12,7 @@ entity UART_DECODER is
     tx_busy_i : in std_logic;
     phase_increment_o : out phase_inc_array;
     phase_value_o : out phase_val_array;
+    amplitude_shift_o : out amplitude_shift_array;
     phase_sync_strobe_o : out std_logic_vector(7 downto 0);
     phase_set_strobe_o : out std_logic_vector(7 downto 0);
     tx_data_o : out std_logic_vector(7 downto 0);
@@ -27,7 +28,7 @@ architecture behav of UART_DECODER is
   type rx_state_type is (RX_IDLE, RX_ADDR, RX_INST, RX_D1, RX_D2, RX_D3, RX_D4, RX_STOP);
   signal rx_state_reg : rx_state_type;
   signal rx_state_next : rx_state_type;
-  
+    
   signal address_reg : std_logic_vector(7 downto 0);
   signal address_next : std_logic_vector(7 downto 0);
   signal instruction_reg : std_logic_vector(7 downto 0);
@@ -45,7 +46,11 @@ architecture behav of UART_DECODER is
   signal phase_inc_next : phase_inc_array;
   signal phase_val_regs : phase_val_array;
   signal phase_val_next : phase_val_array;
-  
+  signal phase_offset_regs : phase_val_array;
+  signal phase_offset_next : phase_val_array;
+  signal amplitude_shift_regs : amplitude_shift_array;
+  signal amplitude_shift_next : amplitude_shift_array;
+    
   signal sync_strobe_reg : std_logic_vector(7 downto 0);
   signal sync_strobe_next : std_logic_vector(7 downto 0);
   signal set_strobe_reg : std_logic_vector(7 downto 0);
@@ -61,13 +66,15 @@ architecture behav of UART_DECODER is
   signal tx_busy_prev_reg : std_logic;
   signal tx_start_reg : std_logic;
   signal tx_start_next : std_logic;
-  
+    
   constant START_BYTE : std_logic_vector(7 downto 0) := X"AA";
   constant STOP_BYTE : std_logic_vector(7 downto 0) := X"55";
 
 begin
 
-  comb_proc : process(rx_state_reg, address_reg, instruction_reg, data1_reg, data2_reg, data3_reg, data4_reg, phase_inc_regs, phase_val_regs, sync_strobe_reg, set_strobe_reg, tx_state_reg, tx_data_reg, tx_valid_reg, tx_busy_prev_reg, tx_start_reg, rx_data_in_reg, rx_valid_in_reg, tx_busy_i)
+  comb_proc : process(rx_state_reg, address_reg, instruction_reg, data1_reg, data2_reg, data3_reg, data4_reg, 
+                      phase_inc_regs, phase_val_regs, phase_offset_regs, amplitude_shift_regs, sync_strobe_reg, set_strobe_reg, 
+                      tx_state_reg, tx_data_reg, tx_valid_reg, tx_busy_prev_reg, tx_start_reg, rx_data_in_reg, rx_valid_in_reg, tx_busy_i)
     variable tx_done : std_logic;
     variable addr_int : integer range 0 to 255;
     variable channel_idx : integer range 0 to 7;
@@ -80,12 +87,15 @@ begin
     data2_next <= data2_reg;
     data3_next <= data3_reg;
     data4_next <= data4_reg;
-    
+      
     phase_inc_next <= phase_inc_regs;
     phase_val_next <= phase_val_regs;
+    phase_offset_next <= phase_offset_regs;
+    amplitude_shift_next <= amplitude_shift_regs;
+
     sync_strobe_next <= (others => '0');
     set_strobe_next <= (others => '0');
-    
+      
     tx_state_next <= tx_state_reg;
     tx_data_next <= tx_data_reg;
     tx_valid_next <= '0';
@@ -122,28 +132,42 @@ begin
           rx_state_next <= RX_STOP;
         when RX_STOP =>
           if rx_data_in_reg = STOP_BYTE then
-             
+              
              if address_reg = X"00" and instruction_reg = X"00" then
                 tx_start_next <= '1';
              end if;
-             
+              
              addr_int := to_integer(unsigned(address_reg));
-             
+             combined_data := unsigned(data1_reg) & unsigned(data2_reg) & unsigned(data3_reg) & unsigned(data4_reg);
+              
              if (addr_int >= 1) and (addr_int <= 8) then
                 channel_idx := addr_int - 1;
-                combined_data := unsigned(data1_reg & data2_reg & data3_reg & data4_reg);
                 
                 case instruction_reg is
-                    when X"00" =>
+                    when X"00" => 
                         phase_inc_next(channel_idx) <= resize(combined_data, PHASE_INCREMENT_WIDTH);
-                    when X"01" =>
-                        sync_strobe_next(channel_idx) <= '1';
-                    when X"02" =>
-                        phase_val_next(channel_idx) <= resize(combined_data, PHASE_WIDTH);
-                        set_strobe_next(channel_idx) <= '1';
+                    when X"01" => 
+                        phase_offset_next(channel_idx) <= resize(combined_data, PHASE_WIDTH);
+                    when X"02" => 
+                        amplitude_shift_next(channel_idx) <= data4_reg(1 downto 0);
                     when others =>
                         null;
                 end case;
+
+             elsif addr_int = 9 then
+                 if instruction_reg = X"00" then
+                     sync_strobe_next <= (others => '1');
+                 end if;
+
+             elsif addr_int = 10 then 
+                 if instruction_reg = X"00" then
+                     for i in 0 to 7 loop
+                         if data1_reg(i) = '1' then
+                             phase_val_next(i) <= phase_offset_regs(i);
+                             set_strobe_next(i) <= '1';
+                         end if;
+                     end loop;
+                 end if;
              end if;
           end if;
           rx_state_next <= RX_IDLE;
@@ -209,6 +233,8 @@ begin
       data4_reg <= (others => '0');
       phase_inc_regs <= (others => (others => '0'));
       phase_val_regs <= (others => (others => '0'));
+      phase_offset_regs <= (others => (others => '0'));
+      amplitude_shift_regs <= (others => (others => '0'));
       sync_strobe_reg <= (others => '0');
       set_strobe_reg <= (others => '0');
       tx_state_reg <= TX_IDLE;
@@ -228,6 +254,8 @@ begin
       data4_reg <= data4_next;
       phase_inc_regs <= phase_inc_next;
       phase_val_regs <= phase_val_next;
+      phase_offset_regs <= phase_offset_next;
+      amplitude_shift_regs <= amplitude_shift_next;
       sync_strobe_reg <= sync_strobe_next;
       set_strobe_reg <= set_strobe_next;
       tx_state_reg <= tx_state_next;
@@ -240,6 +268,7 @@ begin
 
   phase_increment_o <= phase_inc_regs;
   phase_value_o <= phase_val_regs;
+  amplitude_shift_o <= amplitude_shift_regs;
   phase_sync_strobe_o <= sync_strobe_reg;
   phase_set_strobe_o <= set_strobe_reg;
   tx_data_o <= tx_data_reg;
