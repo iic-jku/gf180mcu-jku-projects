@@ -3,6 +3,8 @@
 
 `default_nettype none
 
+`include "../macros/tiny_tone/verilog/src/tiny_tone.v"
+
 module chip_core #(
     parameter NUM_INPUT_PADS,
     parameter NUM_BIDIR_PADS
