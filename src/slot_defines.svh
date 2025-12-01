@@ -1,13 +1,13 @@
 `ifdef SLOT_1X1
 
 // Power/ground pads for core and I/O
-`define NUM_DVDD_PADS 8
-`define NUM_DVSS_PADS 10
+`define NUM_DVDD_PADS 2
+`define NUM_DVSS_PADS 2
 
 // Signal pads
-`define NUM_INPUT_PADS 12
-`define NUM_BIDIR_PADS 40
-`define NUM_ANALOG_PADS 2
+`define NUM_INPUT_PADS 29
+`define NUM_BIDIR_PADS 41
+`define NUM_ANALOG_PADS 0
 
 `endif
 
