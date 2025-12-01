@@ -1,39 +1,31 @@
 Decimation Filter:
   - clock A
-  - 1 x inputs
   - 2 x outputs
-  - total: 4
   
 Octowave:
-  - clock B
-  - 1 x inputs
+  - clock A
   - 9 x outputs
-  - total: 11
   
 TinyWhisper RISC-V:
-  - clock C
-  - 7 x inputs
+  - clock B
   - 18 x outputs
-  - total: 26
   
 TinyTone (Sanity Bring-Up Test):
   - clock A
   - 1 x outputs
-  - total: 1
   
 Studi Projects:
-  - clock D
+  - clock A
   - 3 x MUX select
   - 12 x inputs
   - 11 x outputs
-  - total: 27
   
 Total:
-  - 2 x VDD
-  - 2 x VSS
-  - 4 x clock
+  - 8 x VDD
+  - 10 x VSS
+  - 2 x clock
   - 1 x reset (global for all designs)
-  - 24 x inputs
+  - 12 x inputs
   - 41 x outputs
   - 74 pads required
   - 74 pads available
