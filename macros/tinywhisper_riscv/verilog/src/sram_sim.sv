@@ -54,7 +54,7 @@ module sram_sim #(
 
   always_ff @(posedge sclk) begin
     if (reset || ~ce) begin
-      state <= IDLE;
+      state <= RECV_COMMAND;
       index <= 7;
     end else begin
       unique case (state)
@@ -64,14 +64,16 @@ module sram_sim #(
         end
 
         RECV_COMMAND: begin
-          if (index == 0) begin
-            index <= 23;
-            state <= RECV_ADDR;
-          end else begin
-            index <= index - 1;
-          end
+          if (ce) begin
+            if (index == 0) begin
+              index <= 23;
+              state <= RECV_ADDR;
+            end else begin
+              index <= index - 1;
+            end
 
-          command_reg[index] <= si;
+            command_reg[index] <= si;
+          end
         end
 
         RECV_ADDR: begin

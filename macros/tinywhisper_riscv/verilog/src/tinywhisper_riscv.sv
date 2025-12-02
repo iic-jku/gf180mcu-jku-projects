@@ -2,6 +2,10 @@ module tinywhisper_riscv #(
     parameter int CLK_FREQ = 12_000_000,
     parameter int BAUD = 115_200
 ) (
+`ifdef USE_POWER_PINS
+    inout wire  VDD,
+    inout wire  VSS,
+`endif
     input logic clk,
     input logic reset, // active low due to pico-ice button
 
@@ -87,6 +91,7 @@ module tinywhisper_riscv #(
       .clk(clk),
       .reset(reset),
       .ce(mem_ce),
+      .spi_slow_mode(gpio_in[3]),
       .funct3(funct3),
       .addr(mem_addr),
       .datain(rs2),
@@ -105,7 +110,7 @@ module tinywhisper_riscv #(
       .sda_i(sda_i),
       .sda_o(sda_o),
       .sda_oe(sda_oe),
-      .gpio_in(gpio_in),
+      .gpio_in(gpio_in[2:0]),
       .gpio_out(gpio_out),
       .cos_ds(cos_ds),
       .cos_ds_n(cos_ds_n),

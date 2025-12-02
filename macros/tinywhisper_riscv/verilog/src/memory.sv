@@ -19,6 +19,7 @@ module memory #(
     input logic clk,
     input logic reset,
     input logic ce,     // active low
+    input logic spi_slow_mode,
 
     input logic [ 2:0] funct3,
     input logic [31:0] addr,
@@ -47,7 +48,7 @@ module memory #(
     output logic uart_rx_valid,
 
     // GPIOs
-    input  logic [3:0] gpio_in,
+    input  logic [2:0] gpio_in,
     output logic [3:0] gpio_out,
 
     // Frequency generator
@@ -141,7 +142,7 @@ module memory #(
 
   logic [31:0] master_dataout, sram_dataout, i2c_dataout;
 
-  logic [3:0] gpio_in_sync;
+  logic [2:0] gpio_in_sync;
 
   // This ensures that the spi_master actually started working
   // Otherwise we would assume it has finished before it began
@@ -153,6 +154,7 @@ module memory #(
       .clk(clk),
       .reset(reset),
       .req(sram_req),
+      .slow_mode(spi_slow_mode),
       .si(si),
       .so(so),
       .sclk(sclk),
@@ -257,7 +259,7 @@ module memory #(
       mtimecmp <= 0;
       freq_status[1:0] <= 2'b00;
       gpio_out <= 4'd0;
-      gpio_in_sync <= 4'd0;
+      gpio_in_sync <= 3'd0;
       uart_rx_status[0] <= 1'b0;
       osr_fc_reg <= {2'b11, 30'b000001100111110101011101010101};
       uart_tx_cpb <= CYCLES_PER_BIT_DEFAULT;
@@ -303,7 +305,7 @@ module memory #(
             target <= GPIO;
             state  <= GPIO_WAIT;
 
-            if (~memwrite) dataout <= {28'b0, gpio_in_sync};
+            if (~memwrite) dataout <= {29'b0, gpio_in_sync};
             else state <= FAULT;
 
             // == UART ==================================
