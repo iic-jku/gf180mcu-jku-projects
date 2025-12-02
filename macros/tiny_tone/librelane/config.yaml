@@ -15,15 +15,15 @@ VERILOG_FILES: ["dir::../verilog/src/tiny_tone.v"]
 # PRIMARY_GDSII_STREAMOUT_TOOL: klayout
 
 # Layout / Floorplan Rules
-DIE_AREA: [0, 0, 200, 200]
-PL_TARGET_DENSITY_PCT: 60
+DIE_AREA: [0, 0, 150, 180]
+PL_TARGET_DENSITY_PCT: 70
 GRT_ALLOW_CONGESTION: true
 RUN_MAGIC_DRC: true
 RUN_CTS: true
 # Valid values are AREA 0-3 and DELAY 0-4
 # DELAY 4 = fastest, but largest area
 # AREA 3 = slowest, but smallest area
-SYNTH_STRATEGY: DELAY 4
+SYNTH_STRATEGY: AREA 0
 MAX_FANOUT_CONSTRAINT: 6
 RT_MAX_LAYER: Metal4
 FP_PIN_ORDER_CFG: dir::pin_order.cfg
