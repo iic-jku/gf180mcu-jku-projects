@@ -1,9 +1,9 @@
 MAKEFILE_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 RUN_TAG = $(shell ls librelane/runs/ | tail -n 1)
-TOP = chip_top
+TOP = tinywhisper_riscv
 
-PDK_ROOT ?= $(MAKEFILE_DIR)/gf180mcu
+PDK_ROOT ?= $(MAKEFILE_DIR)/../../gf180mcu_dev
 PDK ?= gf180mcuD
 PDK_TAG ?= 1.1.2
 
@@ -39,7 +39,7 @@ clone-pdk: ## Clone the GF180MCU PDK repository
 .PHONY: clone-pdk
 
 librelane: ## Run LibreLane flow (synthesis, PnR, verification)
-	librelane librelane/slots/slot_${SLOT}.yaml librelane/config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk
+	librelane librelane/config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT}
 .PHONY: librelane
 
 librelane-nodrc: ## Run LibreLane flow without DRC checks
@@ -55,11 +55,11 @@ librelane-magicdrc: ## Run LibreLane flow without KLayout DRC checks
 .PHONY: librelane-magicdrc
 
 librelane-openroad: ## Open the last run in OpenROAD
-	librelane librelane/slots/slot_${SLOT}.yaml librelane/config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk --last-run --flow OpenInOpenROAD
+	librelane librelane/config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --last-run --flow OpenInOpenROAD
 .PHONY: librelane-openroad
 
 librelane-klayout: ## Open the last run in KLayout
-	librelane librelane/slots/slot_${SLOT}.yaml librelane/config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk --last-run --flow OpenInKLayout
+	librelane librelane/config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk --last-run --flow OpenInKLayout
 .PHONY: librelane-klayout
 
 sim: ## Run RTL simulation with cocotb
@@ -83,73 +83,3 @@ render-image: ## Render an image from the final layout (after copy-final)
 	mkdir -p img/
 	PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 scripts/lay2img.py final/gds/${TOP}.gds img/${TOP}.png --width 2048 --oversampling 4
 .PHONY: copy-final
-
-
-# Targets for building the macros in one place (Jonathan)
-build-tiny_tone:
-	@$(MAKE) -C macros/tiny_tone librelane
-	@$(MAKE) -C macros/tiny_tone copy-final
-.PHONY: build-tiny_tone
-
-build-tiny_tonegen:
-	@$(MAKE) -C macros/tiny_tonegen librelane
-	@$(MAKE) -C macros/tiny_tonegen copy-final
-.PHONY: build-tiny_tonegen
-
-build-octowave:
-	@$(MAKE) -C macros/octowave librelane
-	@$(MAKE) -C macros/octowave copy-final
-.PHONY: build-octowave
-
-build-decimation_filter_ser:
-	@$(MAKE) -C macros/decimation_filter_256_ser librelane
-	@$(MAKE) -C macros/decimation_filter_256_ser copy-final
-.PHONY: build-decimation_filter_ser
-
-build-tinywhisper_riscv:
-	@$(MAKE) -C macros/tinywhisper_riscv librelane
-	@$(MAKE) -C macros/tinywhisper_riscv copy-final
-.PHONY: build-tinywhisper_riscv
-
-build-traffic_light_controller:
-	@$(MAKE) -C macros/traffic_light_controller librelane
-	@$(MAKE) -C macros/traffic_light_controller copy-final
-.PHONY: build-traffic_light_controller
-
-build-digital_filter:
-	@$(MAKE) -C macros/digital_filter librelane
-	@$(MAKE) -C macros/digital_filter copy-final
-.PHONY: build-digital_filter
-
-build-adc_sar_controller:
-	@$(MAKE) -C macros/adc_sar_controller librelane
-	@$(MAKE) -C macros/adc_sar_controller copy-final
-.PHONY: build-adc_sar_controller
-
-build-tetris:
-	@$(MAKE) -C macros/tetris librelane
-	@$(MAKE) -C macros/tetris copy-final
-.PHONY: build-tetris
-
-build-multiplexer:
-	@$(MAKE) -C macros/multiplexer librelane
-	@$(MAKE) -C macros/multiplexer copy-final
-.PHONY: build-multiplexer
-
-build-led_spinner:
-	@$(MAKE) -C macros/led_spinner librelane
-	@$(MAKE) -C macros/led_spinner copy-final
-.PHONY: build-led_spinner
-
-build-tiny_bf:
-	@$(MAKE) -C macros/tiny_bf librelane
-	@$(MAKE) -C macros/tiny_bf copy-final
-.PHONY: build-tiny_bf
-
-build-classic_vga_clock:
-	@$(MAKE) -C macros/classic_vga_clock librelane
-	@$(MAKE) -C macros/classic_vga_clock copy-final
-.PHONY: build-classic_vga_clock
-
-build-all-macros: build-tiny_tone build-adc_sar_controller build-classic_vga_clock build-decimation_filter_ser build-digital_filter build-led_spinner build-multiplexer build-octowave build-tetris build-tinywhisper_riscv build-tiny_bf build-tiny_tonegen build-traffic_light_controller
-.PHONY: build-all-macros

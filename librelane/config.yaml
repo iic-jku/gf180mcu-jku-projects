@@ -63,8 +63,8 @@ CLOCK_NET: clk_pad/Y
 CLOCK_PERIOD: 25
 
 # Fix hold violations
-PL_RESIZER_HOLD_SLACK_MARGIN: 0.35
-GRT_RESIZER_HOLD_SLACK_MARGIN: 0.3
+PL_RESIZER_HOLD_SLACK_MARGIN: 0.5
+GRT_RESIZER_HOLD_SLACK_MARGIN: 0.45
 
 # Increase for more logic
 # on your die
@@ -140,27 +140,27 @@ MAGIC_EXT_UNIQUE: notopports
 MACROS:
   tiny_tone:
     gds:
-      - dir::../macros/tiny_tone/librelane/runs/latest/final/gds/tiny_tone.gds
+      - dir::../macros/tiny_tone/final/gds/tiny_tone.gds
     lef:
-      - dir::../macros/tiny_tone/librelane/runs/latest/final/lef/tiny_tone.lef
+      - dir::../macros/tiny_tone/final/lef/tiny_tone.lef
     pnl:
-      - dir::../macros/tiny_tone/librelane/runs/latest/final/pnl/tiny_tone.pnl.v
+      - dir::../macros/tiny_tone/final/pnl/tiny_tone.pnl.v
     nl:
-      - dir::../macros/tiny_tone/librelane/runs/latest/final/nl/tiny_tone.nl.v
+      - dir::../macros/tiny_tone/final/nl/tiny_tone.nl.v
     spef:
-      min_*: dir::../macros/tiny_tone/librelane/runs/latest/final/spef/min/tiny_tone.min.spef
-      nom_*: dir::../macros/tiny_tone/librelane/runs/latest/final/spef/nom/tiny_tone.nom.spef
-      max_*: dir::../macros/tiny_tone/librelane/runs/latest/final/spef/max/tiny_tone.max.spef
+      min_*: dir::../macros/tiny_tone/final/spef/min/tiny_tone.min.spef
+      nom_*: dir::../macros/tiny_tone/final/spef/nom/tiny_tone.nom.spef
+      max_*: dir::../macros/tiny_tone/final/spef/max/tiny_tone.max.spef
     lib:
-      max_ff_n40C_5v50: dir::../macros/tiny_tone/librelane/runs/latest/final/lib/max_ff_n40C_5v50/tiny_tone__max_ff_n40C_5v50.lib
-      max_ss_125C_4v50: dir::../macros/tiny_tone/librelane/runs/latest/final/lib/max_ss_125C_4v50/tiny_tone__max_ss_125C_4v50.lib
-      max_tt_025C_5v00: dir::../macros/tiny_tone/librelane/runs/latest/final/lib/max_tt_025C_5v00/tiny_tone__max_tt_025C_5v00.lib
-      min_ff_n40C_5v50: dir::../macros/tiny_tone/librelane/runs/latest/final/lib/min_ff_n40C_5v50/tiny_tone__min_ff_n40C_5v50.lib
-      min_ss_125C_4v50: dir::../macros/tiny_tone/librelane/runs/latest/final/lib/min_ss_125C_4v50/tiny_tone__min_ss_125C_4v50.lib
-      min_tt_025C_5v00: dir::../macros/tiny_tone/librelane/runs/latest/final/lib/min_tt_025C_5v00/tiny_tone__min_tt_025C_5v00.lib
-      nom_ff_n40C_5v50: dir::../macros/tiny_tone/librelane/runs/latest/final/lib/nom_ff_n40C_5v50/tiny_tone__nom_ff_n40C_5v50.lib
-      nom_ss_125C_4v50: dir::../macros/tiny_tone/librelane/runs/latest/final/lib/nom_ss_125C_4v50/tiny_tone__nom_ss_125C_4v50.lib
-      nom_tt_025C_5v00: dir::../macros/tiny_tone/librelane/runs/latest/final/lib/nom_tt_025C_5v00/tiny_tone__nom_tt_025C_5v00.lib
+      max_ff_n40C_5v50: dir::../macros/tiny_tone/final/lib/max_ff_n40C_5v50/tiny_tone__max_ff_n40C_5v50.lib
+      max_ss_125C_4v50: dir::../macros/tiny_tone/final/lib/max_ss_125C_4v50/tiny_tone__max_ss_125C_4v50.lib
+      max_tt_025C_5v00: dir::../macros/tiny_tone/final/lib/max_tt_025C_5v00/tiny_tone__max_tt_025C_5v00.lib
+      min_ff_n40C_5v50: dir::../macros/tiny_tone/final/lib/min_ff_n40C_5v50/tiny_tone__min_ff_n40C_5v50.lib
+      min_ss_125C_4v50: dir::../macros/tiny_tone/final/lib/min_ss_125C_4v50/tiny_tone__min_ss_125C_4v50.lib
+      min_tt_025C_5v00: dir::../macros/tiny_tone/final/lib/min_tt_025C_5v00/tiny_tone__min_tt_025C_5v00.lib
+      nom_ff_n40C_5v50: dir::../macros/tiny_tone/final/lib/nom_ff_n40C_5v50/tiny_tone__nom_ff_n40C_5v50.lib
+      nom_ss_125C_4v50: dir::../macros/tiny_tone/final/lib/nom_ss_125C_4v50/tiny_tone__nom_ss_125C_4v50.lib
+      nom_tt_025C_5v00: dir::../macros/tiny_tone/final/lib/nom_tt_025C_5v00/tiny_tone__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.tiny_tone:
         location: ["expr::442 + 24 + 1250", "expr::442 + 19 + 1350"]
@@ -168,27 +168,27 @@ MACROS:
   
   decimator_ser_top:
     gds:
-      - dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/gds/decimator_ser_top.gds
+      - dir::../macros/decimation_filter_256_ser/final/gds/decimator_ser_top.gds
     lef:
-      - dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/lef/decimator_ser_top.lef
+      - dir::../macros/decimation_filter_256_ser/final/lef/decimator_ser_top.lef
     pnl:
-      - dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/pnl/decimator_ser_top.pnl.v
+      - dir::../macros/decimation_filter_256_ser/final/pnl/decimator_ser_top.pnl.v
     nl:
-      - dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/nl/decimator_ser_top.nl.v
+      - dir::../macros/decimation_filter_256_ser/final/nl/decimator_ser_top.nl.v
     spef:
-      min_*: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/spef/min/decimator_ser_top.min.spef
-      nom_*: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/spef/nom/decimator_ser_top.nom.spef
-      max_*: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/spef/max/decimator_ser_top.max.spef
+      min_*: dir::../macros/decimation_filter_256_ser/final/spef/min/decimator_ser_top.min.spef
+      nom_*: dir::../macros/decimation_filter_256_ser/final/spef/nom/decimator_ser_top.nom.spef
+      max_*: dir::../macros/decimation_filter_256_ser/final/spef/max/decimator_ser_top.max.spef
     lib:
-      max_ff_n40C_5v50: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/lib/max_ff_n40C_5v50/decimator_ser_top__max_ff_n40C_5v50.lib
-      max_ss_125C_4v50: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/lib/max_ss_125C_4v50/decimator_ser_top__max_ss_125C_4v50.lib
-      max_tt_025C_5v00: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/lib/max_tt_025C_5v00/decimator_ser_top__max_tt_025C_5v00.lib
-      min_ff_n40C_5v50: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/lib/min_ff_n40C_5v50/decimator_ser_top__min_ff_n40C_5v50.lib
-      min_ss_125C_4v50: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/lib/min_ss_125C_4v50/decimator_ser_top__min_ss_125C_4v50.lib
-      min_tt_025C_5v00: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/lib/min_tt_025C_5v00/decimator_ser_top__min_tt_025C_5v00.lib
-      nom_ff_n40C_5v50: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/lib/nom_ff_n40C_5v50/decimator_ser_top__nom_ff_n40C_5v50.lib
-      nom_ss_125C_4v50: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/lib/nom_ss_125C_4v50/decimator_ser_top__nom_ss_125C_4v50.lib
-      nom_tt_025C_5v00: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/lib/nom_tt_025C_5v00/decimator_ser_top__nom_tt_025C_5v00.lib
+      max_ff_n40C_5v50: dir::../macros/decimation_filter_256_ser/final/lib/max_ff_n40C_5v50/decimator_ser_top__max_ff_n40C_5v50.lib
+      max_ss_125C_4v50: dir::../macros/decimation_filter_256_ser/final/lib/max_ss_125C_4v50/decimator_ser_top__max_ss_125C_4v50.lib
+      max_tt_025C_5v00: dir::../macros/decimation_filter_256_ser/final/lib/max_tt_025C_5v00/decimator_ser_top__max_tt_025C_5v00.lib
+      min_ff_n40C_5v50: dir::../macros/decimation_filter_256_ser/final/lib/min_ff_n40C_5v50/decimator_ser_top__min_ff_n40C_5v50.lib
+      min_ss_125C_4v50: dir::../macros/decimation_filter_256_ser/final/lib/min_ss_125C_4v50/decimator_ser_top__min_ss_125C_4v50.lib
+      min_tt_025C_5v00: dir::../macros/decimation_filter_256_ser/final/lib/min_tt_025C_5v00/decimator_ser_top__min_tt_025C_5v00.lib
+      nom_ff_n40C_5v50: dir::../macros/decimation_filter_256_ser/final/lib/nom_ff_n40C_5v50/decimator_ser_top__nom_ff_n40C_5v50.lib
+      nom_ss_125C_4v50: dir::../macros/decimation_filter_256_ser/final/lib/nom_ss_125C_4v50/decimator_ser_top__nom_ss_125C_4v50.lib
+      nom_tt_025C_5v00: dir::../macros/decimation_filter_256_ser/final/lib/nom_tt_025C_5v00/decimator_ser_top__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.decimator_ser_top:
         location: ["expr::442 + 24 + 200", "expr::442 + 19 + 3000"]
@@ -196,27 +196,27 @@ MACROS:
   
   octowave:
     gds:
-      - dir::../macros/octowave/librelane/runs/latest/final/gds/octowave.gds
+      - dir::../macros/octowave/final/gds/octowave.gds
     lef:
-      - dir::../macros/octowave/librelane/runs/latest/final/lef/octowave.lef
+      - dir::../macros/octowave/final/lef/octowave.lef
     pnl:
-      - dir::../macros/octowave/librelane/runs/latest/final/pnl/octowave.pnl.v
+      - dir::../macros/octowave/final/pnl/octowave.pnl.v
     nl:
-      - dir::../macros/octowave/librelane/runs/latest/final/nl/octowave.nl.v
+      - dir::../macros/octowave/final/nl/octowave.nl.v
     spef:
-      min_*: dir::../macros/octowave/librelane/runs/latest/final/spef/min/octowave.min.spef
-      nom_*: dir::../macros/octowave/librelane/runs/latest/final/spef/nom/octowave.nom.spef
-      max_*: dir::../macros/octowave/librelane/runs/latest/final/spef/max/octowave.max.spef
+      min_*: dir::../macros/octowave/final/spef/min/octowave.min.spef
+      nom_*: dir::../macros/octowave/final/spef/nom/octowave.nom.spef
+      max_*: dir::../macros/octowave/final/spef/max/octowave.max.spef
     lib:
-      max_ff_n40C_5v50: dir::../macros/octowave/librelane/runs/latest/final/lib/max_ff_n40C_5v50/octowave__max_ff_n40C_5v50.lib
-      max_ss_125C_4v50: dir::../macros/octowave/librelane/runs/latest/final/lib/max_ss_125C_4v50/octowave__max_ss_125C_4v50.lib
-      max_tt_025C_5v00: dir::../macros/octowave/librelane/runs/latest/final/lib/max_tt_025C_5v00/octowave__max_tt_025C_5v00.lib
-      min_ff_n40C_5v50: dir::../macros/octowave/librelane/runs/latest/final/lib/min_ff_n40C_5v50/octowave__min_ff_n40C_5v50.lib
-      min_ss_125C_4v50: dir::../macros/octowave/librelane/runs/latest/final/lib/min_ss_125C_4v50/octowave__min_ss_125C_4v50.lib
-      min_tt_025C_5v00: dir::../macros/octowave/librelane/runs/latest/final/lib/min_tt_025C_5v00/octowave__min_tt_025C_5v00.lib
-      nom_ff_n40C_5v50: dir::../macros/octowave/librelane/runs/latest/final/lib/nom_ff_n40C_5v50/octowave__nom_ff_n40C_5v50.lib
-      nom_ss_125C_4v50: dir::../macros/octowave/librelane/runs/latest/final/lib/nom_ss_125C_4v50/octowave__nom_ss_125C_4v50.lib
-      nom_tt_025C_5v00: dir::../macros/octowave/librelane/runs/latest/final/lib/nom_tt_025C_5v00/octowave__nom_tt_025C_5v00.lib
+      max_ff_n40C_5v50: dir::../macros/octowave/final/lib/max_ff_n40C_5v50/octowave__max_ff_n40C_5v50.lib
+      max_ss_125C_4v50: dir::../macros/octowave/final/lib/max_ss_125C_4v50/octowave__max_ss_125C_4v50.lib
+      max_tt_025C_5v00: dir::../macros/octowave/final/lib/max_tt_025C_5v00/octowave__max_tt_025C_5v00.lib
+      min_ff_n40C_5v50: dir::../macros/octowave/final/lib/min_ff_n40C_5v50/octowave__min_ff_n40C_5v50.lib
+      min_ss_125C_4v50: dir::../macros/octowave/final/lib/min_ss_125C_4v50/octowave__min_ss_125C_4v50.lib
+      min_tt_025C_5v00: dir::../macros/octowave/final/lib/min_tt_025C_5v00/octowave__min_tt_025C_5v00.lib
+      nom_ff_n40C_5v50: dir::../macros/octowave/final/lib/nom_ff_n40C_5v50/octowave__nom_ff_n40C_5v50.lib
+      nom_ss_125C_4v50: dir::../macros/octowave/final/lib/nom_ss_125C_4v50/octowave__nom_ss_125C_4v50.lib
+      nom_tt_025C_5v00: dir::../macros/octowave/final/lib/nom_tt_025C_5v00/octowave__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.octowave:
         location: ["expr::442 + 24 + 100", "expr::442 + 19 + 1700"]
