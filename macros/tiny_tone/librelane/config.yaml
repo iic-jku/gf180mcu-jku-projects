@@ -16,6 +16,7 @@ VERILOG_FILES: ["dir::../verilog/src/tiny_tone.v"]
 
 # Layout / Floorplan Rules
 DIE_AREA: [0, 0, 150, 180]
+CORE_AREA: [0, 0, 150, 180]
 PL_TARGET_DENSITY_PCT: 70
 GRT_ALLOW_CONGESTION: true
 RUN_MAGIC_DRC: true
