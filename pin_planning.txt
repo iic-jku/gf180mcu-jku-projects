@@ -1,6 +1,5 @@
 Decimation Filter:
   - clock
-  - 1 x inputs
   - 2 x outputs
   
 Octowave:
@@ -22,11 +21,11 @@ Studi Projects:
   - 11 x outputs
   
 Total:
-  - 8 x VDD
+  - 6 x VDD
   - 10 x VSS
   - 1 x clock
   - 1 x reset (global for all designs)
-  - 13 x inputs
+  - 15 x inputs
   - 41 x outputs
   - 74 pads required
   - 74 pads available
