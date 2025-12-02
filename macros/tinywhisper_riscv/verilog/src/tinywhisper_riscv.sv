@@ -8,6 +8,7 @@ module tinywhisper_riscv #(
 `endif
     input logic clk,
     input logic reset, // active low due to pico-ice button
+    input logic spi_slow_mode,
 
     input  logic so,
     output logic si,
@@ -91,7 +92,7 @@ module tinywhisper_riscv #(
       .clk(clk),
       .reset(reset),
       .ce(mem_ce),
-      .spi_slow_mode(gpio_in[3]),
+      .spi_slow_mode(spi_slow_mode),
       .funct3(funct3),
       .addr(mem_addr),
       .datain(rs2),
@@ -110,7 +111,7 @@ module tinywhisper_riscv #(
       .sda_i(sda_i),
       .sda_o(sda_o),
       .sda_oe(sda_oe),
-      .gpio_in(gpio_in[2:0]),
+      .gpio_in(gpio_in),
       .gpio_out(gpio_out),
       .cos_ds(cos_ds),
       .cos_ds_n(cos_ds_n),
