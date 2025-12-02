@@ -52,6 +52,8 @@ IGNORE_DISCONNECTED_MODULES:
 - gf180mcu_fd_io__bi_24t
 - gf180mcu_ws_ip__id
 - gf180mcu_ws_ip__logo
+- gf180mcu_ws_ip__ce
+- gf180mcu_ws_ip__jku
 
 # Clock
 CLOCK_PORT: clk_PAD
@@ -512,7 +514,37 @@ MACROS:
         - dir::../ip/gf180mcu_ws_ip__logo/lib/gf180mcu_ws_ip__logo.lib
     instances:
       wafer_space_logo:
-        location: ["expr::$DIE_AREA[2] + -169.25", "expr::$DIE_AREA[3] + -169.25"]
+        location: ["expr::$DIE_AREA[2] + -169.75", "expr::$DIE_AREA[1] + 26"]
+        orientation: N
+
+  gf180mcu_ws_ip__ce:
+    gds:
+      - dir::../ip/gf180mcu_ws_ip__ce/gds/gf180mcu_ws_ip__ce.gds
+    lef:
+      - dir::../ip/gf180mcu_ws_ip__ce/lef/gf180mcu_ws_ip__ce.lef
+    vh:
+      - dir::../ip/gf180mcu_ws_ip__ce/vh/gf180mcu_ws_ip__ce.v
+    lib:
+      "*":
+        - dir::../ip/gf180mcu_ws_ip__ce/lib/gf180mcu_ws_ip__ce.lib
+    instances:
+      ce_logo:
+        location: ["expr::$DIE_AREA[2] + -169.75", "expr::$DIE_AREA[3] + -169.75"]
+        orientation: N
+
+  gf180mcu_ws_ip__jku:
+    gds:
+      - dir::../ip/gf180mcu_ws_ip__jku/gds/gf180mcu_ws_ip__jku.gds
+    lef:
+      - dir::../ip/gf180mcu_ws_ip__jku/lef/gf180mcu_ws_ip__jku.lef
+    vh:
+      - dir::../ip/gf180mcu_ws_ip__jku/vh/gf180mcu_ws_ip__jku.v
+    lib:
+      "*":
+        - dir::../ip/gf180mcu_ws_ip__jku/lib/gf180mcu_ws_ip__jku.lib
+    instances:
+      jku_logo:
+        location: ["expr::$DIE_AREA[0] + 26", "expr::$DIE_AREA[3] + -169.75"]
         orientation: N
 
 # This is an alternative method compared to
@@ -534,9 +566,13 @@ PDN_CFG: dir::pdn_cfg.tcl
 LVS_FLATTEN_CELLS:
 - gf180mcu_ws_ip__id
 - gf180mcu_ws_ip__logo
+- gf180mcu_ws_ip__ce
+- gf180mcu_ws_ip__jku
 
 # gf180mcu_ws_ip__id/logo has no ports and components
 # therefore make it an abstract cell in the layout
 MAGIC_EXT_ABSTRACT_CELLS:
 - gf180mcu_ws_ip__id
 - gf180mcu_ws_ip__logo
+- gf180mcu_ws_ip__ce
+- gf180mcu_ws_ip__jku
