@@ -159,7 +159,7 @@ MACROS:
       nom_ss_125C_4v50: dir::../macros/tiny_tone/librelane/runs/latest/final/lib/nom_ss_125C_4v50/tiny_tone__nom_ss_125C_4v50.lib
       nom_tt_025C_5v00: dir::../macros/tiny_tone/librelane/runs/latest/final/lib/nom_tt_025C_5v00/tiny_tone__nom_tt_025C_5v00.lib
     instances:
-      tiny_tone:
+      i_chip_core.tiny_tone:
         location: [1475, 2950]
         orientation: N
   gf180mcu_ws_ip__id:
