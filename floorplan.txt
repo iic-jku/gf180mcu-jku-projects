@@ -1,19 +1,19 @@
-Decimation Filter: (100, 3400) to (3100, 4900)
+Decimation Filter: (200, 3000) to (2800, 4000)
 
-Octowave: (100, 2000) to (1900, 3200)
+Octowave: (100, 1700) to (1300, 2700)
 
-TinyTone: (3700, 4700) to (3900, 4900)
+TinyTone: (1250, 1350) to (1400, 1500)
 
-Studi Projects: (100, 100) to (1100, 1600)
-- Multiplexer: (100, 100) to (200, 1600)	
-- VGA Clock: (300, 100) to (1100, 700)
-- Digital Filter: (300, 800) to (600, 1000)
-- Traffic Light Controller: (700, 800) to (1100, 1000)
-- TinyBF: (300, 1100) to (700, 1600)
-- TinyToneGen: (900, 1100) to (1100, 1200)
-- Led Spinner: (900, 1265) to (1100, 1415)
-- SAR ADC Controller: (900, 1480) to (1100, 1600)
+Studi Projects: (100, 100) to (1100, 1500)
+- Multiplexer: (100, 100) to (200, 1500)	
+- VGA Clock: (300, 100) to (1100, 600)
+- Digital Filter: (300, 700) to (600, 900)
+- Traffic Light Controller: (700, 700) to (1100, 900)
+- TinyBF: (300, 1000) to (700, 1500)
+- TinyToneGen: (900, 1000) to (1100, 1100)
+- Led Spinner: (900, 1165) to (1100, 1315)
+- SAR ADC Controller: (900, 1380) to (1100, 1500)
 
-Tetris: (1300, 100) to (2500, 1900)
+Tetris: (1400, 100) to (2800, 1200)
 
-TinyWhisper RISC-V: (2700, 100) to (3900, 2500)
+TinyWhisper RISC-V: (1500, 1400) to (2900, 2800)
