@@ -163,7 +163,7 @@ MACROS:
       nom_tt_025C_5v00: dir::../macros/tiny_tone/librelane/runs/latest/final/lib/nom_tt_025C_5v00/tiny_tone__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.tiny_tone:
-        location: ["expr::$CORE_AREA[0] + 24 + 1250", "expr::$CORE_AREA[1] + 19 + 1350"]
+        location: ["442 + 24 + 1250", "442 + 19 + 1350"]
         orientation: N
   
   decimator_ser_top:
@@ -191,7 +191,7 @@ MACROS:
       nom_tt_025C_5v00: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/lib/nom_tt_025C_5v00/decimator_ser_top__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.decimator_ser_top:
-        location: ["expr::$CORE_AREA[0] + 24 + 200", "expr::$CORE_AREA[1] + 19 + 3000"]
+        location: ["442 + 24 + 200", "442 + 19 + 3000"]
         orientation: N
   
   octowave:
@@ -219,7 +219,7 @@ MACROS:
       nom_tt_025C_5v00: dir::../macros/octowave/librelane/runs/latest/final/lib/nom_tt_025C_5v00/octowave__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.octowave:
-        location: ["expr::$CORE_AREA[0] + 24 + 100", "expr::$CORE_AREA[1] + 19 + 1700"]
+        location: ["442 + 24 + 100", "442 + 19 + 1700"]
         orientation: N
   
   tinywhisper_riscv:
@@ -247,7 +247,7 @@ MACROS:
       nom_tt_025C_5v00: dir::../macros/tinywhisper_riscv/librelane/runs/latest/final/lib/nom_tt_025C_5v00/tinywhisper_riscv__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.tinywhisper_riscv:
-        location: ["expr::$CORE_AREA[0] + 24 + 1500", "expr::$CORE_AREA[1] + 19 + 1400"]
+        location: ["442 + 24 + 1500", "442 + 19 + 1400"]
         orientation: N
   
   tetris:
@@ -275,7 +275,7 @@ MACROS:
       nom_tt_025C_5v00: dir::../macros/tetris/librelane/runs/latest/final/lib/nom_tt_025C_5v00/tetris__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.tetris:
-        location: ["expr::$CORE_AREA[0] + 24 + 1400", "expr::$CORE_AREA[1] + 19 + 100"]
+        location: ["442 + 24 + 1400", "442 + 19 + 100"]
         orientation: N
   
   multiplexer:
@@ -303,7 +303,7 @@ MACROS:
       nom_tt_025C_5v00: dir::../macros/multiplexer/librelane/runs/latest/final/lib/nom_tt_025C_5v00/multiplexer__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.multiplexer:
-        location: ["expr::$CORE_AREA[0] + 24 + 100", "expr::$CORE_AREA[1] + 19 + 100"]
+        location: ["442 + 24 + 100", "442 + 19 + 100"]
         orientation: N
   
   rh_bf_top:
@@ -331,7 +331,7 @@ MACROS:
       nom_tt_025C_5v00: dir::../macros/tiny_bf/librelane/runs/latest/final/lib/nom_tt_025C_5v00/rh_bf_top__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.rh_bf_top:
-        location: ["expr::$CORE_AREA[0] + 24 + 300", "expr::$CORE_AREA[1] + 19 + 1000"]
+        location: ["442 + 24 + 300", "442 + 19 + 1000"]
         orientation: N
   
   sar_adc_spi_oversampling:
@@ -359,7 +359,7 @@ MACROS:
       nom_tt_025C_5v00: dir::../macros/adc_sar_controller/librelane/runs/latest/final/lib/nom_tt_025C_5v00/sar_adc_spi_oversampling__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.sar_adc_spi_oversampling:
-        location: ["expr::$CORE_AREA[0] + 24 + 900", "expr::$CORE_AREA[1] + 19 + 1380"]
+        location: ["442 + 24 + 900", "442 + 19 + 1380"]
         orientation: N
   
   led_spinner:
@@ -387,7 +387,7 @@ MACROS:
       nom_tt_025C_5v00: dir::../macros/led_spinner/librelane/runs/latest/final/lib/nom_tt_025C_5v00/led_spinner__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.led_spinner:
-        location: ["expr::$CORE_AREA[0] + 24 + 900", "expr::$CORE_AREA[1] + 19 + 1165"]
+        location: ["442 + 24 + 900", "442 + 19 + 1165"]
         orientation: N
   
   tiny_tonegen:
@@ -415,7 +415,7 @@ MACROS:
       nom_tt_025C_5v00: dir::../macros/tiny_tonegen/librelane/runs/latest/final/lib/nom_tt_025C_5v00/tiny_tonegen__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.tiny_tonegen:
-        location: ["expr::$CORE_AREA[0] + 24 + 900", "expr::$CORE_AREA[1] + 19 + 1000"]
+        location: ["442 + 24 + 900", "442 + 19 + 1000"]
         orientation: N
   
   df_digital_filter:
@@ -443,7 +443,7 @@ MACROS:
       nom_tt_025C_5v00: dir::../macros/digital_filter/librelane/runs/latest/final/lib/nom_tt_025C_5v00/df_digital_filter__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.df_digital_filter:
-        location: ["expr::$CORE_AREA[0] + 24 + 300", "expr::$CORE_AREA[1] + 19 + 700"]
+        location: ["442 + 24 + 300", "442 + 19 + 700"]
         orientation: N
   
   traffic_light:
@@ -471,7 +471,7 @@ MACROS:
       nom_tt_025C_5v00: dir::../macros/traffic_light_controller/librelane/runs/latest/final/lib/nom_tt_025C_5v00/traffic_light__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.traffic_light:
-        location: ["expr::$CORE_AREA[0] + 24 + 700", "expr::$CORE_AREA[1] + 19 + 700"]
+        location: ["442 + 24 + 700", "442 + 19 + 700"]
         orientation: N
   
   classic_vga_clock:
@@ -499,7 +499,7 @@ MACROS:
       nom_tt_025C_5v00: dir::../macros/classic_vga_clock/librelane/runs/latest/final/lib/nom_tt_025C_5v00/classic_vga_clock__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.classic_vga_clock:
-        location: ["expr::$CORE_AREA[0] + 24 + 300", "expr::$CORE_AREA[1] + 19 + 100"]
+        location: ["442 + 24 + 300", "442 + 19 + 100"]
         orientation: N
   
   gf180mcu_ws_ip__id:
