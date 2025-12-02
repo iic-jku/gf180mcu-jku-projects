@@ -47,8 +47,7 @@ module chip_core #(
     assign bidir_pd = '0;
     
     logic _unused;
-    assign _unused = &bidir_in[NUM_BIDIR_PADS-1:18];
-	assign _unused = &bidir_in[16:0];
+    assign _unused = &{bidir_in[NUM_BIDIR_PADS-1:18], bidir_in[16:0]};
 	// ======================================================
 	
 	// ======================================================
