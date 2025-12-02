@@ -61,8 +61,8 @@ PAD_EAST: [
 
     "bidir\\[16\\].pad",
     "bidir\\[17\\].pad",
-    "inputs\\[0\\].pad",
-    "inputs\\[1\\].pad",
+    "inputs\\[0\\].pad",	# spi_slow_mode (tinywhisper) / input_in[0] (df_digital_filter)
+    "inputs\\[1\\].pad",	# rx (tinywhisper) / guess_bits_in[0] (led_spinner) / input_in[1] (df_digital_filter)
     "bidir\\[18\\].pad",
     clk_pad,
     
@@ -72,7 +72,7 @@ PAD_EAST: [
     "bidir\\[19\\].pad",
     "bidir\\[20\\].pad",
     "bidir\\[21\\].pad",
-    "inputs\\[2\\].pad",
+    "inputs\\[2\\].pad",	# so (tinywhisper) / guess_bits_in[1] (led_spinner) / data_in[0] (tiny_tonegen) / input_in[2] (df_digital_filter)
     "bidir\\[22\\].pad",
     "bidir\\[23\\].pad",
     
@@ -87,21 +87,21 @@ PAD_NORTH: [
     "bidir\\[30\\].pad",
     "bidir\\[29\\].pad",
     "bidir\\[28\\].pad",
-    "inputs\\[11\\].pad", 	# uart_rx
-    "inputs\\[10\\].pad",
-    "inputs\\[9\\].pad",
-    "inputs\\[8\\].pad",
-    "inputs\\[7\\].pad", 	# data_i
+    "inputs\\[11\\].pad", 	# up_r_i (tetris) / speed_bits_in[3] (led_spinner) / ena (tiny_tonegen) / enconfig (df_digital_filter) / switch_traffic_light_on_in (traffic_light) / hour_in (classic_vga_clock)
+    "inputs\\[10\\].pad",	# down_r_i (tetris) / ui_in[3] (brainfuck) / speed_bits_in[2] (led_spinner) / address_in[2] (tiny_tonegen) / configin[2] (df_digital_filter) / ped_request_left_in (traffic_light) / min_in (classic_vga_clock)
+    "inputs\\[9\\].pad",	# left_r_i (tetris) / ui_in[2] (brainfuck) / speed_bits_in[1] (led_spinner) / address_in[1] (tiny_tonegen) / configin[1] (df_digital_filter) / ped_request_right_in (traffic_light) / sec_in (classic_vga_clock)
+    "inputs\\[8\\].pad",	# right_r_i (tetris) / ui_in[1] (brainfuck) / start (sar_adc) / speed_bits_in[0] (led_spinner) / address_in[0] (tiny_tonegen) / configin[0] (df_digital_filter) / al_in (classic_vga_clock)
+    "inputs\\[7\\].pad", 	# game_speed_i (tetris) / ui_in[0] (brainfuck) / comp_in (sar_adc) / stop_wheel_in (led_spinner) / write_strobe_in (tiny_tonegen) / input_in[7] (df_digital_filter) / al_on_off_toggle_in (classic_vga_clock)
 
     "dvss_pads\\[5\\].pad",
     
     rst_n_pad,
     "bidir\\[27\\].pad",
     "bidir\\[26\\].pad",
-    "inputs\\[6\\].pad",
-    "inputs\\[5\\].pad",
-    "inputs\\[4\\].pad",
-    "inputs\\[3\\].pad",
+    "inputs\\[6\\].pad",	# GPIO_in[3] (tinywhisper) / guess_bits_in[5] (led_spinner) / data_in[4] (tiny_tonegen) / input_in[6] (df_digital_filter) / uart_rx (octowave)
+    "inputs\\[5\\].pad",	# GPIO_in[2] (tinywhisper) / guess_bits_in[4] (led_spinner) / data_in[3] (tiny_tonegen) / input_in[5] (df_digital_filter) / data_i (decimator)
+    "inputs\\[4\\].pad",	# GPIO_in[1] (tinywhisper) / guess_bits_in[3] (led_spinner) / data_in[2] (tiny_tonegen) / input_in[4] (df_digital_filter)
+    "inputs\\[3\\].pad",	# GPIO_in[0] (tinywhisper) / guess_bits_in[2] (led_spinner) / data_in[1] (tiny_tonegen) / input_in[3] (df_digital_filter)
     "bidir\\[25\\].pad"
 ]
 
@@ -115,9 +115,9 @@ PAD_WEST: [
     "bidir\\[39\\].pad",
     "bidir\\[38\\].pad",
     "bidir\\[37\\].pad",
-    "inputs\\[14\\].pad",
-    "inputs\\[13\\].pad",
-    "inputs\\[12\\].pad",
+    "inputs\\[14\\].pad",	# MUX[2]
+    "inputs\\[13\\].pad",	# MUX[1]
+    "inputs\\[12\\].pad",	# MUX[0]
 
     "dvdd_pads\\[4\\].pad",
     "dvss_pads\\[7\\].pad",
