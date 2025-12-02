@@ -67,33 +67,37 @@ module chip_core #(
 	// ======================================================
 	
 	// Decimation Filter - Michael Köfinger
-	// ToDo
-	// decimator_ser_top decimator_ser_top (
-		// `ifdef USE_POWER_PINS
-        // .VDD(VDD),
-		// .VSS(VSS),
-		// `endif
-		// .clk(clk),
-		// .rst_b(rst_n),
-		// .data_i(ToDo),
-		// .data_o(ToDo),
-		// .frame_sync(ToDo)
-	// );
+	logic dec_data_o;
+	logic frame_sync_o;
+	
+	decimator_ser_top decimator_ser_top (
+		`ifdef USE_POWER_PINS
+        .VDD(VDD),
+		.VSS(VSS),
+		`endif
+		.clk(clk),
+		.rst_b(rst_n),
+		.data_i(input_in[7]),
+		.data_o(dec_data_o),
+		.frame_sync(frame_sync_o)
+	);
 	// ======================================================
 	
 	// Octowave - Max Golser
-	// ToDo
-	// octowave octowave (
-		// `ifdef USE_POWER_PINS
-        // .VDD(VDD),
-		// .VSS(VSS),
-		// `endif
-		// .clock_i(clk),
-		// .reset_n_i(rst_n),
-		// .uart_rx(ToDo),
-		// .uart_tx(ToDo),
-		// .channel_o(ToDo)
-	// );
+	logic uart_tx_o;
+	logic [7:0] channel_o;
+	
+	octowave octowave (
+		`ifdef USE_POWER_PINS
+        .VDD(VDD),
+		.VSS(VSS),
+		`endif
+		.clock_i(clk),
+		.reset_n_i(rst_n),
+		.uart_rx(input_in[11]),
+		.uart_tx(uart_tx_o),
+		.channel_o(channel_o)
+	);
 	// ======================================================
 	
 	// TinyWhisper RISC-V - Jonathan Hager (JMU)
@@ -328,8 +332,21 @@ module chip_core #(
     // ======================================================
 	// OUTPUT ASSIGNMENT
 	// ======================================================
-	assign bidir_out[40:1] = 40'd0;
-    assign bidir_out[0] = sound_out;
+	assign bidir_out[40:37] = 4'd0;
+	assign bidir_out[36] = channel_o[7];
+	assign bidir_out[35] = channel_o[6];
+	assign bidir_out[34] = channel_o[5];
+	assign bidir_out[33] = channel_o[4];
+	assign bidir_out[32] = channel_o[3];
+	assign bidir_out[31] = channel_o[2];
+	assign bidir_out[30] = channel_o[1];
+	assign bidir_out[29] = channel_o[0];
+	assign bidir_out[28] = uart_tx_o;
+	assign bidir_out[27] = dec_data_o;
+	assign bidir_out[26] = frame_sync_o;
+	assign bidir_out[25:8] = 18'd0;
+    assign bidir_out[7] = sound_out;
+	assign bidir_out[6:0] = 7'd0;
 	// ======================================================
 endmodule
 
