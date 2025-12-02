@@ -28,7 +28,6 @@ DESIGN_NAME: chip_top
 VERILOG_FILES:
 - dir::../src/chip_top.sv
 - dir::../src/chip_core.sv
-# - dir::../macros/tiny_tone/verilog/src/tiny_tone.v
 
 # Enable plugin for better SystemVerilog support
 # USE_SLANG: True
@@ -160,8 +159,332 @@ MACROS:
       nom_tt_025C_5v00: dir::../macros/tiny_tone/librelane/runs/latest/final/lib/nom_tt_025C_5v00/tiny_tone__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.tiny_tone:
-        location: [1475, 2950]
+        location: [1475, 2950] # ToDo
         orientation: N
+  # decimator_ser_top:
+    # gds:
+      # - dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/gds/decimator_ser_top.gds
+    # lef:
+      # - dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/lef/decimator_ser_top.lef
+    # pnl:
+      # - dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/pnl/decimator_ser_top.pnl.v
+    # nl:
+      # - dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/nl/decimator_ser_top.nl.v
+    # spef:
+      # min_*: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/spef/min/decimator_ser_top.min.spef
+      # nom_*: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/spef/nom/decimator_ser_top.nom.spef
+      # max_*: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/spef/max/decimator_ser_top.max.spef
+    # lib:
+      # max_ff_n40C_5v50: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/lib/max_ff_n40C_5v50/decimator_ser_top__max_ff_n40C_5v50.lib
+      # max_ss_125C_4v50: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/lib/max_ss_125C_4v50/decimator_ser_top__max_ss_125C_4v50.lib
+      # max_tt_025C_5v00: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/lib/max_tt_025C_5v00/decimator_ser_top__max_tt_025C_5v00.lib
+      # min_ff_n40C_5v50: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/lib/min_ff_n40C_5v50/decimator_ser_top__min_ff_n40C_5v50.lib
+      # min_ss_125C_4v50: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/lib/min_ss_125C_4v50/decimator_ser_top__min_ss_125C_4v50.lib
+      # min_tt_025C_5v00: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/lib/min_tt_025C_5v00/decimator_ser_top__min_tt_025C_5v00.lib
+      # nom_ff_n40C_5v50: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/lib/nom_ff_n40C_5v50/decimator_ser_top__nom_ff_n40C_5v50.lib
+      # nom_ss_125C_4v50: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/lib/nom_ss_125C_4v50/decimator_ser_top__nom_ss_125C_4v50.lib
+      # nom_tt_025C_5v00: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/lib/nom_tt_025C_5v00/decimator_ser_top__nom_tt_025C_5v00.lib
+    # instances:
+      # i_chip_core.decimator_ser_top:
+        # location: [1475, 2950] # ToDo
+        # orientation: N
+  # octowave:
+    # gds:
+      # - dir::../macros/octowave/librelane/runs/latest/final/gds/octowave.gds
+    # lef:
+      # - dir::../macros/octowave/librelane/runs/latest/final/lef/octowave.lef
+    # pnl:
+      # - dir::../macros/octowave/librelane/runs/latest/final/pnl/octowave.pnl.v
+    # nl:
+      # - dir::../macros/octowave/librelane/runs/latest/final/nl/octowave.nl.v
+    # spef:
+      # min_*: dir::../macros/octowave/librelane/runs/latest/final/spef/min/octowave.min.spef
+      # nom_*: dir::../macros/octowave/librelane/runs/latest/final/spef/nom/octowave.nom.spef
+      # max_*: dir::../macros/octowave/librelane/runs/latest/final/spef/max/octowave.max.spef
+    # lib:
+      # max_ff_n40C_5v50: dir::../macros/octowave/librelane/runs/latest/final/lib/max_ff_n40C_5v50/octowave__max_ff_n40C_5v50.lib
+      # max_ss_125C_4v50: dir::../macros/octowave/librelane/runs/latest/final/lib/max_ss_125C_4v50/octowave__max_ss_125C_4v50.lib
+      # max_tt_025C_5v00: dir::../macros/octowave/librelane/runs/latest/final/lib/max_tt_025C_5v00/octowave__max_tt_025C_5v00.lib
+      # min_ff_n40C_5v50: dir::../macros/octowave/librelane/runs/latest/final/lib/min_ff_n40C_5v50/octowave__min_ff_n40C_5v50.lib
+      # min_ss_125C_4v50: dir::../macros/octowave/librelane/runs/latest/final/lib/min_ss_125C_4v50/octowave__min_ss_125C_4v50.lib
+      # min_tt_025C_5v00: dir::../macros/octowave/librelane/runs/latest/final/lib/min_tt_025C_5v00/octowave__min_tt_025C_5v00.lib
+      # nom_ff_n40C_5v50: dir::../macros/octowave/librelane/runs/latest/final/lib/nom_ff_n40C_5v50/octowave__nom_ff_n40C_5v50.lib
+      # nom_ss_125C_4v50: dir::../macros/octowave/librelane/runs/latest/final/lib/nom_ss_125C_4v50/octowave__nom_ss_125C_4v50.lib
+      # nom_tt_025C_5v00: dir::../macros/octowave/librelane/runs/latest/final/lib/nom_tt_025C_5v00/octowave__nom_tt_025C_5v00.lib
+    # instances:
+      # i_chip_core.octowave:
+        # location: [1475, 2950] # ToDo
+        # orientation: N
+  # tinywhisper_riscv:
+    # gds:
+      # - dir::../macros/tinywhisper_riscv/librelane/runs/latest/final/gds/tinywhisper_riscv.gds
+    # lef:
+      # - dir::../macros/tinywhisper_riscv/librelane/runs/latest/final/lef/tinywhisper_riscv.lef
+    # pnl:
+      # - dir::../macros/tinywhisper_riscv/librelane/runs/latest/final/pnl/tinywhisper_riscv.pnl.v
+    # nl:
+      # - dir::../macros/tinywhisper_riscv/librelane/runs/latest/final/nl/tinywhisper_riscv.nl.v
+    # spef:
+      # min_*: dir::../macros/tinywhisper_riscv/librelane/runs/latest/final/spef/min/tinywhisper_riscv.min.spef
+      # nom_*: dir::../macros/tinywhisper_riscv/librelane/runs/latest/final/spef/nom/tinywhisper_riscv.nom.spef
+      # max_*: dir::../macros/tinywhisper_riscv/librelane/runs/latest/final/spef/max/tinywhisper_riscv.max.spef
+    # lib:
+      # max_ff_n40C_5v50: dir::../macros/tinywhisper_riscv/librelane/runs/latest/final/lib/max_ff_n40C_5v50/tinywhisper_riscv__max_ff_n40C_5v50.lib
+      # max_ss_125C_4v50: dir::../macros/tinywhisper_riscv/librelane/runs/latest/final/lib/max_ss_125C_4v50/tinywhisper_riscv__max_ss_125C_4v50.lib
+      # max_tt_025C_5v00: dir::../macros/tinywhisper_riscv/librelane/runs/latest/final/lib/max_tt_025C_5v00/tinywhisper_riscv__max_tt_025C_5v00.lib
+      # min_ff_n40C_5v50: dir::../macros/tinywhisper_riscv/librelane/runs/latest/final/lib/min_ff_n40C_5v50/tinywhisper_riscv__min_ff_n40C_5v50.lib
+      # min_ss_125C_4v50: dir::../macros/tinywhisper_riscv/librelane/runs/latest/final/lib/min_ss_125C_4v50/tinywhisper_riscv__min_ss_125C_4v50.lib
+      # min_tt_025C_5v00: dir::../macros/tinywhisper_riscv/librelane/runs/latest/final/lib/min_tt_025C_5v00/tinywhisper_riscv__min_tt_025C_5v00.lib
+      # nom_ff_n40C_5v50: dir::../macros/tinywhisper_riscv/librelane/runs/latest/final/lib/nom_ff_n40C_5v50/tinywhisper_riscv__nom_ff_n40C_5v50.lib
+      # nom_ss_125C_4v50: dir::../macros/tinywhisper_riscv/librelane/runs/latest/final/lib/nom_ss_125C_4v50/tinywhisper_riscv__nom_ss_125C_4v50.lib
+      # nom_tt_025C_5v00: dir::../macros/tinywhisper_riscv/librelane/runs/latest/final/lib/nom_tt_025C_5v00/tinywhisper_riscv__nom_tt_025C_5v00.lib
+    # instances:
+      # i_chip_core.tinywhisper_riscv:
+        # location: [1475, 2950] # ToDo
+        # orientation: N
+  # tetris:
+    # gds:
+      # - dir::../macros/tetris/librelane/runs/latest/final/gds/tetris.gds
+    # lef:
+      # - dir::../macros/tetris/librelane/runs/latest/final/lef/tetris.lef
+    # pnl:
+      # - dir::../macros/tetris/librelane/runs/latest/final/pnl/tetris.pnl.v
+    # nl:
+      # - dir::../macros/tetris/librelane/runs/latest/final/nl/tetris.nl.v
+    # spef:
+      # min_*: dir::../macros/tetris/librelane/runs/latest/final/spef/min/tetris.min.spef
+      # nom_*: dir::../macros/tetris/librelane/runs/latest/final/spef/nom/tetris.nom.spef
+      # max_*: dir::../macros/tetris/librelane/runs/latest/final/spef/max/tetris.max.spef
+    # lib:
+      # max_ff_n40C_5v50: dir::../macros/tetris/librelane/runs/latest/final/lib/max_ff_n40C_5v50/tetris__max_ff_n40C_5v50.lib
+      # max_ss_125C_4v50: dir::../macros/tetris/librelane/runs/latest/final/lib/max_ss_125C_4v50/tetris__max_ss_125C_4v50.lib
+      # max_tt_025C_5v00: dir::../macros/tetris/librelane/runs/latest/final/lib/max_tt_025C_5v00/tetris__max_tt_025C_5v00.lib
+      # min_ff_n40C_5v50: dir::../macros/tetris/librelane/runs/latest/final/lib/min_ff_n40C_5v50/tetris__min_ff_n40C_5v50.lib
+      # min_ss_125C_4v50: dir::../macros/tetris/librelane/runs/latest/final/lib/min_ss_125C_4v50/tetris__min_ss_125C_4v50.lib
+      # min_tt_025C_5v00: dir::../macros/tetris/librelane/runs/latest/final/lib/min_tt_025C_5v00/tetris__min_tt_025C_5v00.lib
+      # nom_ff_n40C_5v50: dir::../macros/tetris/librelane/runs/latest/final/lib/nom_ff_n40C_5v50/tetris__nom_ff_n40C_5v50.lib
+      # nom_ss_125C_4v50: dir::../macros/tetris/librelane/runs/latest/final/lib/nom_ss_125C_4v50/tetris__nom_ss_125C_4v50.lib
+      # nom_tt_025C_5v00: dir::../macros/tetris/librelane/runs/latest/final/lib/nom_tt_025C_5v00/tetris__nom_tt_025C_5v00.lib
+    # instances:
+      # i_chip_core.tetris:
+        # location: [1475, 2950] # ToDo
+        # orientation: N
+  # multiplexer:
+    # gds:
+      # - dir::../macros/multiplexer/librelane/runs/latest/final/gds/multiplexer.gds
+    # lef:
+      # - dir::../macros/multiplexer/librelane/runs/latest/final/lef/multiplexer.lef
+    # pnl:
+      # - dir::../macros/multiplexer/librelane/runs/latest/final/pnl/multiplexer.pnl.v
+    # nl:
+      # - dir::../macros/multiplexer/librelane/runs/latest/final/nl/multiplexer.nl.v
+    # spef:
+      # min_*: dir::../macros/multiplexer/librelane/runs/latest/final/spef/min/multiplexer.min.spef
+      # nom_*: dir::../macros/multiplexer/librelane/runs/latest/final/spef/nom/multiplexer.nom.spef
+      # max_*: dir::../macros/multiplexer/librelane/runs/latest/final/spef/max/multiplexer.max.spef
+    # lib:
+      # max_ff_n40C_5v50: dir::../macros/multiplexer/librelane/runs/latest/final/lib/max_ff_n40C_5v50/multiplexer__max_ff_n40C_5v50.lib
+      # max_ss_125C_4v50: dir::../macros/multiplexer/librelane/runs/latest/final/lib/max_ss_125C_4v50/multiplexer__max_ss_125C_4v50.lib
+      # max_tt_025C_5v00: dir::../macros/multiplexer/librelane/runs/latest/final/lib/max_tt_025C_5v00/multiplexer__max_tt_025C_5v00.lib
+      # min_ff_n40C_5v50: dir::../macros/multiplexer/librelane/runs/latest/final/lib/min_ff_n40C_5v50/multiplexer__min_ff_n40C_5v50.lib
+      # min_ss_125C_4v50: dir::../macros/multiplexer/librelane/runs/latest/final/lib/min_ss_125C_4v50/multiplexer__min_ss_125C_4v50.lib
+      # min_tt_025C_5v00: dir::../macros/multiplexer/librelane/runs/latest/final/lib/min_tt_025C_5v00/multiplexer__min_tt_025C_5v00.lib
+      # nom_ff_n40C_5v50: dir::../macros/multiplexer/librelane/runs/latest/final/lib/nom_ff_n40C_5v50/multiplexer__nom_ff_n40C_5v50.lib
+      # nom_ss_125C_4v50: dir::../macros/multiplexer/librelane/runs/latest/final/lib/nom_ss_125C_4v50/multiplexer__nom_ss_125C_4v50.lib
+      # nom_tt_025C_5v00: dir::../macros/multiplexer/librelane/runs/latest/final/lib/nom_tt_025C_5v00/multiplexer__nom_tt_025C_5v00.lib
+    # instances:
+      # i_chip_core.multiplexer:
+        # location: [1475, 2950] # ToDo
+        # orientation: N
+  # rh_bf_top:
+    # gds:
+      # - dir::../macros/rh_bf_top/librelane/runs/latest/final/gds/rh_bf_top.gds
+    # lef:
+      # - dir::../macros/rh_bf_top/librelane/runs/latest/final/lef/rh_bf_top.lef
+    # pnl:
+      # - dir::../macros/rh_bf_top/librelane/runs/latest/final/pnl/rh_bf_top.pnl.v
+    # nl:
+      # - dir::../macros/rh_bf_top/librelane/runs/latest/final/nl/rh_bf_top.nl.v
+    # spef:
+      # min_*: dir::../macros/rh_bf_top/librelane/runs/latest/final/spef/min/rh_bf_top.min.spef
+      # nom_*: dir::../macros/rh_bf_top/librelane/runs/latest/final/spef/nom/rh_bf_top.nom.spef
+      # max_*: dir::../macros/rh_bf_top/librelane/runs/latest/final/spef/max/rh_bf_top.max.spef
+    # lib:
+      # max_ff_n40C_5v50: dir::../macros/rh_bf_top/librelane/runs/latest/final/lib/max_ff_n40C_5v50/rh_bf_top__max_ff_n40C_5v50.lib
+      # max_ss_125C_4v50: dir::../macros/rh_bf_top/librelane/runs/latest/final/lib/max_ss_125C_4v50/rh_bf_top__max_ss_125C_4v50.lib
+      # max_tt_025C_5v00: dir::../macros/rh_bf_top/librelane/runs/latest/final/lib/max_tt_025C_5v00/rh_bf_top__max_tt_025C_5v00.lib
+      # min_ff_n40C_5v50: dir::../macros/rh_bf_top/librelane/runs/latest/final/lib/min_ff_n40C_5v50/rh_bf_top__min_ff_n40C_5v50.lib
+      # min_ss_125C_4v50: dir::../macros/rh_bf_top/librelane/runs/latest/final/lib/min_ss_125C_4v50/rh_bf_top__min_ss_125C_4v50.lib
+      # min_tt_025C_5v00: dir::../macros/rh_bf_top/librelane/runs/latest/final/lib/min_tt_025C_5v00/rh_bf_top__min_tt_025C_5v00.lib
+      # nom_ff_n40C_5v50: dir::../macros/rh_bf_top/librelane/runs/latest/final/lib/nom_ff_n40C_5v50/rh_bf_top__nom_ff_n40C_5v50.lib
+      # nom_ss_125C_4v50: dir::../macros/rh_bf_top/librelane/runs/latest/final/lib/nom_ss_125C_4v50/rh_bf_top__nom_ss_125C_4v50.lib
+      # nom_tt_025C_5v00: dir::../macros/rh_bf_top/librelane/runs/latest/final/lib/nom_tt_025C_5v00/rh_bf_top__nom_tt_025C_5v00.lib
+    # instances:
+      # i_chip_core.rh_bf_top:
+        # location: [1475, 2950] # ToDo
+        # orientation: N
+  # sar_adc_spi_oversampling:
+    # gds:
+      # - dir::../macros/adc_sar_controller/librelane/runs/latest/final/gds/sar_adc_spi_oversampling.gds
+    # lef:
+      # - dir::../macros/adc_sar_controller/librelane/runs/latest/final/lef/sar_adc_spi_oversampling.lef
+    # pnl:
+      # - dir::../macros/adc_sar_controller/librelane/runs/latest/final/pnl/sar_adc_spi_oversampling.pnl.v
+    # nl:
+      # - dir::../macros/adc_sar_controller/librelane/runs/latest/final/nl/sar_adc_spi_oversampling.nl.v
+    # spef:
+      # min_*: dir::../macros/adc_sar_controller/librelane/runs/latest/final/spef/min/sar_adc_spi_oversampling.min.spef
+      # nom_*: dir::../macros/adc_sar_controller/librelane/runs/latest/final/spef/nom/sar_adc_spi_oversampling.nom.spef
+      # max_*: dir::../macros/adc_sar_controller/librelane/runs/latest/final/spef/max/sar_adc_spi_oversampling.max.spef
+    # lib:
+      # max_ff_n40C_5v50: dir::../macros/adc_sar_controller/librelane/runs/latest/final/lib/max_ff_n40C_5v50/sar_adc_spi_oversampling__max_ff_n40C_5v50.lib
+      # max_ss_125C_4v50: dir::../macros/adc_sar_controller/librelane/runs/latest/final/lib/max_ss_125C_4v50/sar_adc_spi_oversampling__max_ss_125C_4v50.lib
+      # max_tt_025C_5v00: dir::../macros/adc_sar_controller/librelane/runs/latest/final/lib/max_tt_025C_5v00/sar_adc_spi_oversampling__max_tt_025C_5v00.lib
+      # min_ff_n40C_5v50: dir::../macros/adc_sar_controller/librelane/runs/latest/final/lib/min_ff_n40C_5v50/sar_adc_spi_oversampling__min_ff_n40C_5v50.lib
+      # min_ss_125C_4v50: dir::../macros/adc_sar_controller/librelane/runs/latest/final/lib/min_ss_125C_4v50/sar_adc_spi_oversampling__min_ss_125C_4v50.lib
+      # min_tt_025C_5v00: dir::../macros/adc_sar_controller/librelane/runs/latest/final/lib/min_tt_025C_5v00/sar_adc_spi_oversampling__min_tt_025C_5v00.lib
+      # nom_ff_n40C_5v50: dir::../macros/adc_sar_controller/librelane/runs/latest/final/lib/nom_ff_n40C_5v50/sar_adc_spi_oversampling__nom_ff_n40C_5v50.lib
+      # nom_ss_125C_4v50: dir::../macros/adc_sar_controller/librelane/runs/latest/final/lib/nom_ss_125C_4v50/sar_adc_spi_oversampling__nom_ss_125C_4v50.lib
+      # nom_tt_025C_5v00: dir::../macros/adc_sar_controller/librelane/runs/latest/final/lib/nom_tt_025C_5v00/sar_adc_spi_oversampling__nom_tt_025C_5v00.lib
+    # instances:
+      # i_chip_core.sar_adc_spi_oversampling:
+        # location: [1475, 2950] # ToDo
+        # orientation: N
+  # led_spinner:
+    # gds:
+      # - dir::../macros/led_spinner/librelane/runs/latest/final/gds/led_spinner.gds
+    # lef:
+      # - dir::../macros/led_spinner/librelane/runs/latest/final/lef/led_spinner.lef
+    # pnl:
+      # - dir::../macros/led_spinner/librelane/runs/latest/final/pnl/led_spinner.pnl.v
+    # nl:
+      # - dir::../macros/led_spinner/librelane/runs/latest/final/nl/led_spinner.nl.v
+    # spef:
+      # min_*: dir::../macros/led_spinner/librelane/runs/latest/final/spef/min/led_spinner.min.spef
+      # nom_*: dir::../macros/led_spinner/librelane/runs/latest/final/spef/nom/led_spinner.nom.spef
+      # max_*: dir::../macros/led_spinner/librelane/runs/latest/final/spef/max/led_spinner.max.spef
+    # lib:
+      # max_ff_n40C_5v50: dir::../macros/led_spinner/librelane/runs/latest/final/lib/max_ff_n40C_5v50/led_spinner__max_ff_n40C_5v50.lib
+      # max_ss_125C_4v50: dir::../macros/led_spinner/librelane/runs/latest/final/lib/max_ss_125C_4v50/led_spinner__max_ss_125C_4v50.lib
+      # max_tt_025C_5v00: dir::../macros/led_spinner/librelane/runs/latest/final/lib/max_tt_025C_5v00/led_spinner__max_tt_025C_5v00.lib
+      # min_ff_n40C_5v50: dir::../macros/led_spinner/librelane/runs/latest/final/lib/min_ff_n40C_5v50/led_spinner__min_ff_n40C_5v50.lib
+      # min_ss_125C_4v50: dir::../macros/led_spinner/librelane/runs/latest/final/lib/min_ss_125C_4v50/led_spinner__min_ss_125C_4v50.lib
+      # min_tt_025C_5v00: dir::../macros/led_spinner/librelane/runs/latest/final/lib/min_tt_025C_5v00/led_spinner__min_tt_025C_5v00.lib
+      # nom_ff_n40C_5v50: dir::../macros/led_spinner/librelane/runs/latest/final/lib/nom_ff_n40C_5v50/led_spinner__nom_ff_n40C_5v50.lib
+      # nom_ss_125C_4v50: dir::../macros/led_spinner/librelane/runs/latest/final/lib/nom_ss_125C_4v50/led_spinner__nom_ss_125C_4v50.lib
+      # nom_tt_025C_5v00: dir::../macros/led_spinner/librelane/runs/latest/final/lib/nom_tt_025C_5v00/led_spinner__nom_tt_025C_5v00.lib
+    # instances:
+      # i_chip_core.led_spinner:
+        # location: [1475, 2950] # ToDo
+        # orientation: N
+  # tiny_tonegen:
+    # gds:
+      # - dir::../macros/tiny_tonegen/librelane/runs/latest/final/gds/tiny_tonegen.gds
+    # lef:
+      # - dir::../macros/tiny_tonegen/librelane/runs/latest/final/lef/tiny_tonegen.lef
+    # pnl:
+      # - dir::../macros/tiny_tonegen/librelane/runs/latest/final/pnl/tiny_tonegen.pnl.v
+    # nl:
+      # - dir::../macros/tiny_tonegen/librelane/runs/latest/final/nl/tiny_tonegen.nl.v
+    # spef:
+      # min_*: dir::../macros/tiny_tonegen/librelane/runs/latest/final/spef/min/tiny_tonegen.min.spef
+      # nom_*: dir::../macros/tiny_tonegen/librelane/runs/latest/final/spef/nom/tiny_tonegen.nom.spef
+      # max_*: dir::../macros/tiny_tonegen/librelane/runs/latest/final/spef/max/tiny_tonegen.max.spef
+    # lib:
+      # max_ff_n40C_5v50: dir::../macros/tiny_tonegen/librelane/runs/latest/final/lib/max_ff_n40C_5v50/tiny_tonegen__max_ff_n40C_5v50.lib
+      # max_ss_125C_4v50: dir::../macros/tiny_tonegen/librelane/runs/latest/final/lib/max_ss_125C_4v50/tiny_tonegen__max_ss_125C_4v50.lib
+      # max_tt_025C_5v00: dir::../macros/tiny_tonegen/librelane/runs/latest/final/lib/max_tt_025C_5v00/tiny_tonegen__max_tt_025C_5v00.lib
+      # min_ff_n40C_5v50: dir::../macros/tiny_tonegen/librelane/runs/latest/final/lib/min_ff_n40C_5v50/tiny_tonegen__min_ff_n40C_5v50.lib
+      # min_ss_125C_4v50: dir::../macros/tiny_tonegen/librelane/runs/latest/final/lib/min_ss_125C_4v50/tiny_tonegen__min_ss_125C_4v50.lib
+      # min_tt_025C_5v00: dir::../macros/tiny_tonegen/librelane/runs/latest/final/lib/min_tt_025C_5v00/tiny_tonegen__min_tt_025C_5v00.lib
+      # nom_ff_n40C_5v50: dir::../macros/tiny_tonegen/librelane/runs/latest/final/lib/nom_ff_n40C_5v50/tiny_tonegen__nom_ff_n40C_5v50.lib
+      # nom_ss_125C_4v50: dir::../macros/tiny_tonegen/librelane/runs/latest/final/lib/nom_ss_125C_4v50/tiny_tonegen__nom_ss_125C_4v50.lib
+      # nom_tt_025C_5v00: dir::../macros/tiny_tonegen/librelane/runs/latest/final/lib/nom_tt_025C_5v00/tiny_tonegen__nom_tt_025C_5v00.lib
+    # instances:
+      # i_chip_core.tiny_tonegen:
+        # location: [1475, 2950] # ToDo
+        # orientation: N
+  # df_digital_filter:
+    # gds:
+      # - dir::../macros/digital_filter/librelane/runs/latest/final/gds/df_digital_filter.gds
+    # lef:
+      # - dir::../macros/digital_filter/librelane/runs/latest/final/lef/df_digital_filter.lef
+    # pnl:
+      # - dir::../macros/digital_filter/librelane/runs/latest/final/pnl/df_digital_filter.pnl.v
+    # nl:
+      # - dir::../macros/digital_filter/librelane/runs/latest/final/nl/df_digital_filter.nl.v
+    # spef:
+      # min_*: dir::../macros/digital_filter/librelane/runs/latest/final/spef/min/df_digital_filter.min.spef
+      # nom_*: dir::../macros/digital_filter/librelane/runs/latest/final/spef/nom/df_digital_filter.nom.spef
+      # max_*: dir::../macros/digital_filter/librelane/runs/latest/final/spef/max/df_digital_filter.max.spef
+    # lib:
+      # max_ff_n40C_5v50: dir::../macros/digital_filter/librelane/runs/latest/final/lib/max_ff_n40C_5v50/df_digital_filter__max_ff_n40C_5v50.lib
+      # max_ss_125C_4v50: dir::../macros/digital_filter/librelane/runs/latest/final/lib/max_ss_125C_4v50/df_digital_filter__max_ss_125C_4v50.lib
+      # max_tt_025C_5v00: dir::../macros/digital_filter/librelane/runs/latest/final/lib/max_tt_025C_5v00/df_digital_filter__max_tt_025C_5v00.lib
+      # min_ff_n40C_5v50: dir::../macros/digital_filter/librelane/runs/latest/final/lib/min_ff_n40C_5v50/df_digital_filter__min_ff_n40C_5v50.lib
+      # min_ss_125C_4v50: dir::../macros/digital_filter/librelane/runs/latest/final/lib/min_ss_125C_4v50/df_digital_filter__min_ss_125C_4v50.lib
+      # min_tt_025C_5v00: dir::../macros/digital_filter/librelane/runs/latest/final/lib/min_tt_025C_5v00/df_digital_filter__min_tt_025C_5v00.lib
+      # nom_ff_n40C_5v50: dir::../macros/digital_filter/librelane/runs/latest/final/lib/nom_ff_n40C_5v50/df_digital_filter__nom_ff_n40C_5v50.lib
+      # nom_ss_125C_4v50: dir::../macros/digital_filter/librelane/runs/latest/final/lib/nom_ss_125C_4v50/df_digital_filter__nom_ss_125C_4v50.lib
+      # nom_tt_025C_5v00: dir::../macros/digital_filter/librelane/runs/latest/final/lib/nom_tt_025C_5v00/df_digital_filter__nom_tt_025C_5v00.lib
+    # instances:
+      # i_chip_core.df_digital_filter:
+        # location: [1475, 2950] # ToDo
+        # orientation: N
+  # traffic_light:
+    # gds:
+      # - dir::../macros/traffic_light_controller/librelane/runs/latest/final/gds/traffic_light.gds
+    # lef:
+      # - dir::../macros/traffic_light_controller/librelane/runs/latest/final/lef/traffic_light.lef
+    # pnl:
+      # - dir::../macros/traffic_light_controller/librelane/runs/latest/final/pnl/traffic_light.pnl.v
+    # nl:
+      # - dir::../macros/traffic_light_controller/librelane/runs/latest/final/nl/traffic_light.nl.v
+    # spef:
+      # min_*: dir::../macros/traffic_light_controller/librelane/runs/latest/final/spef/min/traffic_light.min.spef
+      # nom_*: dir::../macros/traffic_light_controller/librelane/runs/latest/final/spef/nom/traffic_light.nom.spef
+      # max_*: dir::../macros/traffic_light_controller/librelane/runs/latest/final/spef/max/traffic_light.max.spef
+    # lib:
+      # max_ff_n40C_5v50: dir::../macros/traffic_light_controller/librelane/runs/latest/final/lib/max_ff_n40C_5v50/traffic_light__max_ff_n40C_5v50.lib
+      # max_ss_125C_4v50: dir::../macros/traffic_light_controller/librelane/runs/latest/final/lib/max_ss_125C_4v50/traffic_light__max_ss_125C_4v50.lib
+      # max_tt_025C_5v00: dir::../macros/traffic_light_controller/librelane/runs/latest/final/lib/max_tt_025C_5v00/traffic_light__max_tt_025C_5v00.lib
+      # min_ff_n40C_5v50: dir::../macros/traffic_light_controller/librelane/runs/latest/final/lib/min_ff_n40C_5v50/traffic_light__min_ff_n40C_5v50.lib
+      # min_ss_125C_4v50: dir::../macros/traffic_light_controller/librelane/runs/latest/final/lib/min_ss_125C_4v50/traffic_light__min_ss_125C_4v50.lib
+      # min_tt_025C_5v00: dir::../macros/traffic_light_controller/librelane/runs/latest/final/lib/min_tt_025C_5v00/traffic_light__min_tt_025C_5v00.lib
+      # nom_ff_n40C_5v50: dir::../macros/traffic_light_controller/librelane/runs/latest/final/lib/nom_ff_n40C_5v50/traffic_light__nom_ff_n40C_5v50.lib
+      # nom_ss_125C_4v50: dir::../macros/traffic_light_controller/librelane/runs/latest/final/lib/nom_ss_125C_4v50/traffic_light__nom_ss_125C_4v50.lib
+      # nom_tt_025C_5v00: dir::../macros/traffic_light_controller/librelane/runs/latest/final/lib/nom_tt_025C_5v00/traffic_light__nom_tt_025C_5v00.lib
+    # instances:
+      # i_chip_core.traffic_light:
+        # location: [1475, 2950] # ToDo
+        # orientation: N
+  # classic_vga_clock:
+    # gds:
+      # - dir::../macros/classic_vga_clock/librelane/runs/latest/final/gds/classic_vga_clock.gds
+    # lef:
+      # - dir::../macros/classic_vga_clock/librelane/runs/latest/final/lef/classic_vga_clock.lef
+    # pnl:
+      # - dir::../macros/classic_vga_clock/librelane/runs/latest/final/pnl/classic_vga_clock.pnl.v
+    # nl:
+      # - dir::../macros/classic_vga_clock/librelane/runs/latest/final/nl/classic_vga_clock.nl.v
+    # spef:
+      # min_*: dir::../macros/classic_vga_clock/librelane/runs/latest/final/spef/min/classic_vga_clock.min.spef
+      # nom_*: dir::../macros/classic_vga_clock/librelane/runs/latest/final/spef/nom/classic_vga_clock.nom.spef
+      # max_*: dir::../macros/classic_vga_clock/librelane/runs/latest/final/spef/max/classic_vga_clock.max.spef
+    # lib:
+      # max_ff_n40C_5v50: dir::../macros/classic_vga_clock/librelane/runs/latest/final/lib/max_ff_n40C_5v50/classic_vga_clock__max_ff_n40C_5v50.lib
+      # max_ss_125C_4v50: dir::../macros/classic_vga_clock/librelane/runs/latest/final/lib/max_ss_125C_4v50/classic_vga_clock__max_ss_125C_4v50.lib
+      # max_tt_025C_5v00: dir::../macros/classic_vga_clock/librelane/runs/latest/final/lib/max_tt_025C_5v00/classic_vga_clock__max_tt_025C_5v00.lib
+      # min_ff_n40C_5v50: dir::../macros/classic_vga_clock/librelane/runs/latest/final/lib/min_ff_n40C_5v50/classic_vga_clock__min_ff_n40C_5v50.lib
+      # min_ss_125C_4v50: dir::../macros/classic_vga_clock/librelane/runs/latest/final/lib/min_ss_125C_4v50/classic_vga_clock__min_ss_125C_4v50.lib
+      # min_tt_025C_5v00: dir::../macros/classic_vga_clock/librelane/runs/latest/final/lib/min_tt_025C_5v00/classic_vga_clock__min_tt_025C_5v00.lib
+      # nom_ff_n40C_5v50: dir::../macros/classic_vga_clock/librelane/runs/latest/final/lib/nom_ff_n40C_5v50/classic_vga_clock__nom_ff_n40C_5v50.lib
+      # nom_ss_125C_4v50: dir::../macros/classic_vga_clock/librelane/runs/latest/final/lib/nom_ss_125C_4v50/classic_vga_clock__nom_ss_125C_4v50.lib
+      # nom_tt_025C_5v00: dir::../macros/classic_vga_clock/librelane/runs/latest/final/lib/nom_tt_025C_5v00/classic_vga_clock__nom_tt_025C_5v00.lib
+    # instances:
+      # i_chip_core.classic_vga_clock:
+        # location: [1475, 2950] # ToDo
+        # orientation: N
   gf180mcu_ws_ip__id:
     gds:
       - dir::../ip/gf180mcu_ws_ip__id/gds/gf180mcu_ws_ip__id.gds

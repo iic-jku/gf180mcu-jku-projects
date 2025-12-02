@@ -3,8 +3,6 @@
 
 `default_nettype none
 
-// `include "../macros/tiny_tone/verilog/src/tiny_tone.v"
-
 module chip_core #(
     parameter NUM_INPUT_PADS,
     parameter NUM_BIDIR_PADS
@@ -70,49 +68,261 @@ module chip_core #(
 	
 	// Decimation Filter - Michael Köfinger
 	// ToDo
+	// decimator_ser_top decimator_ser_top (
+		// `ifdef USE_POWER_PINS
+        // .VDD(VDD),
+		// .VSS(VSS),
+		// `endif
+		// .clk(clk),
+		// .rst_b(rst_n),
+		// .data_i(ToDo),
+		// .data_o(ToDo),
+		// .frame_sync(ToDo)
+	// );
 	// ======================================================
 	
 	// Octowave - Max Golser
 	// ToDo
+	// octowave octowave (
+		// `ifdef USE_POWER_PINS
+        // .VDD(VDD),
+		// .VSS(VSS),
+		// `endif
+		// .clock_i(clk),
+		// .reset_n_i(rst_n),
+		// .uart_rx(ToDo),
+		// .uart_tx(ToDo),
+		// .channel_o(ToDo)
+	// );
 	// ======================================================
 	
 	// TinyWhisper RISC-V - Jonathan Hager (JMU)
 	// ToDo
+	// tinywhisper_riscv tinywhisper_riscv (
+		// `ifdef USE_POWER_PINS
+        // .VDD(VDD),
+		// .VSS(VSS),
+		// `endif
+		// .clk(clk),
+		// .reset(rst_n),
+		// .so(ToDo),
+		// .si(ToDo),
+		// .sclk(ToDo),
+		// .sram_ce(ToDo),
+		// .sda_i(ToDo),
+		// .sda_o(ToDo),
+		// .sda_oe(ToDo),
+		// .scl(ToDo),
+		// .rx(ToDo),
+		// .tx(ToDo),
+		// .gpio_in(ToDo),
+		// .gpio_out(ToDo),
+		// .cos_ds(ToDo),
+		// .cos_ds_n(ToDo),
+		// .sin_ds(ToDo),
+		// .sin_ds_n(ToDo),
+		// .lo_i(ToDo),
+		// .lo_q(ToDo),
+		// .lo_ix(ToDo),
+		// .lo_qx(ToDo)
+	// );
 	// ======================================================
 	
 	// Tetris - Dominik Brandstetter & HTL Leonding
 	// ToDo
+	// tetris tetris (
+		// `ifdef USE_POWER_PINS
+        // .VDD(VDD),
+		// .VSS(VSS),
+		// `endif
+		// .CLK_i(clk),
+		// .reset_i(rst_n),
+		// .up_r_i(ToDo),
+		// .down_r_i(ToDo),
+		// .left_r_i(ToDo),
+		// .right_r_i(ToDo),
+		// .game_speed_i(ToDo),
+		// .Data_o(ToDo),
+		// .hsync_o(ToDo),
+		// .vsync_o(ToDo),
+		// .video_active_o(ToDo),
+		// .pix_clk_o(ToDo)
+	// );
 	// ======================================================
 	
 	// ======================================================
 	// STUDENT PROJECTS
 	// ======================================================
+	// Multiplexer
+	// ToDo
+	// multiplexer multiplexer (
+		// `ifdef USE_POWER_PINS
+        // .VDD(VDD),
+		// .VSS(VSS),
+		// `endif
+		// .clk(clk),
+		// .design_sel_in(ToDo),
+		// .mux_out(ToDo),
+		// .uio_in(ToDo),
+		// .ui_in(ToDo),
+		// .dac_bits_in(ToDo),
+		// .spi_miso_in(ToDo),
+		// .spi_sclk_in(ToDo),
+		// .done_in(ToDo),
+		// .seg_bits_in(ToDo),
+		// .dp_on_in(ToDo),
+		// .signal_bit_in(ToDo),
+		// .data_in(ToDo),
+		// .car_red_light_in(ToDo),
+		// .car_yellow_light_in(ToDo),
+		// .car_green_light_in(ToDo),
+		// .ped_red_light_in(ToDo),
+		// .ped_green_light_in(ToDo),
+		// .DIN_in(ToDo),
+		// .CS_in(ToDo),
+		// .SCLK_in(ToDo),
+		// .pushed_left_in(ToDo),
+		// .pushed_right_in(ToDo),
+		// .Data_i(ToDo),
+		// .hsync_i(ToDo),
+		// .vsync_i(ToDo),
+		// .video_active_i(ToDo),
+		// .pix_clk_i(ToDo),
+		// .buzzer_in(ToDo),
+		// .vga_horizSync_in(ToDo),
+		// .vga_vertSync_in(ToDo),
+		// .black_white_in(ToDo)
+	// );
+	// ======================================================
+	
 	// TinyBF - Rene Hahn
 	// ToDo
+	// decimator_ser_top decimator_ser_top (
+		// `ifdef USE_POWER_PINS
+        // .VDD(VDD),
+		// .VSS(VSS),
+		// `endif
+		// .clk(clk),
+		// .rst_n(rst_n),
+		// .ui_in(ToDo),
+		// .uio_out(ToDo),
+		// .uo_out(ToDo)
+	// );
 	// ======================================================
 	
 	// SAR ADC Controller - Ilir Shala
 	// ToDo
+	// sar_adc_spi_oversampling sar_adc_spi_oversampling (
+		// `ifdef USE_POWER_PINS
+        // .VDD(VDD),
+		// .VSS(VSS),
+		// `endif
+		// .clk(clk),
+		// .reset_n(rst_n),
+		// .start(ToDo),
+		// .comp_in(ToDo),
+		// .dac_bits(ToDo),
+		// .spi_miso(ToDo),
+		// .spi_sclk(ToDo),
+		// .done(ToDo)
+	// );
 	// ======================================================
 	
 	// Led Spinner - Tim Tremetsberger
 	// ToDo
+	// led_spinner led_spinner (
+		// `ifdef USE_POWER_PINS
+        // .VDD(VDD),
+		// .VSS(VSS),
+		// `endif
+		// .clk(clk),
+		// .rst_n(rst_n),
+		// .speed_bits_in(ToDo),
+		// .stop_wheel_in(ToDo),
+		// .guess_bits_in(ToDo),
+		// .seg_bits_out(ToDo),
+		// .dp_on_out(ToDo)
+	// );
 	// ======================================================
 	
 	// TinyToneGen - Felix Feierabend
 	// ToDo
+	// tiny_tonegen tiny_tonegen (
+		// `ifdef USE_POWER_PINS
+        // .VDD(VDD),
+		// .VSS(VSS),
+		// `endif
+		// .clk(clk),
+		// .rst_n(rst_n),
+		// .ena(ToDo),
+		// .address_in(ToDo),
+		// .write_strobe_in(ToDo),
+		// .data_in(ToDo),
+		// .signal_bit_out(ToDo)
+	// );
 	// ======================================================
 	
 	// Digital Filter - Gregor Flachs
 	// ToDo
+	// df_digital_filter df_digital_filter (
+		// `ifdef USE_POWER_PINS
+        // .VDD(VDD),
+		// .VSS(VSS),
+		// `endif
+		// .clk(clk),
+		// .rst_n(rst_n),
+		// .ena(ToDo),
+		// .address_in(ToDo),
+		// .write_strobe_in(ToDo),
+		// .data_in(ToDo),
+		// .signal_bit_out(ToDo)
+	// );
 	// ======================================================
 	
 	// Traffic Light Controller - Maximilian Kernmaier
 	// ToDo
+	// traffic_light traffic_light (
+		// `ifdef USE_POWER_PINS
+        // .VDD(VDD),
+		// .VSS(VSS),
+		// `endif
+		// .clk(clk),
+		// .rst_n(rst_n),
+		// .switch_traffic_light_on_in(ToDo),
+		// .ped_request_left_in(ToDo),
+		// .ped_request_right_in(ToDo),
+		// .car_red_light_out(ToDo),
+		// .car_yellow_light_out(ToDo),
+		// .car_green_light_out(ToDo),
+		// .ped_red_light_out(ToDo),
+		// .ped_green_light_out(ToDo),
+		// .DIN_out(ToDo),
+		// .CS_out(ToDo),
+		// .SCLK_out(ToDo),
+		// .pushed_left_out(ToDo),
+		// .pushed_right_out(ToDo)
+	// );
 	// ======================================================
 	
 	// VGA Clock - Timo Laimer
 	// ToDo
+	// classic_vga_clock classic_vga_clock (
+		// `ifdef USE_POWER_PINS
+        // .VDD(VDD),
+		// .VSS(VSS),
+		// `endif
+		// .clk(clk),
+		// .reset_n(rst_n),
+		// .hour_in(ToDo),
+		// .min_in(ToDo),
+		// .sec_in(ToDo),
+		// .al_in(ToDo),
+		// .al_on_off_toggle_in(ToDo),
+		// .buzzer_out(ToDo),
+		// .vga_horizSync_out(ToDo),
+		// .vga_vertSync_out(ToDo),
+		// .black_white_out(ToDo)
+	// );
 	// ======================================================
 	
     // ======================================================
