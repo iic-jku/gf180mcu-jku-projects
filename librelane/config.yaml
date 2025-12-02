@@ -159,7 +159,7 @@ MACROS:
       nom_tt_025C_5v00: dir::../macros/tiny_tone/librelane/runs/latest/final/lib/nom_tt_025C_5v00/tiny_tone__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.tiny_tone:
-        location: ["expr::$CORE_AREA[0] + 24 + 100", "expr::$CORE_AREA[1] + 19 + 1700"]
+        location: ["expr::$CORE_AREA[0] + 24 + 1250", "expr::$CORE_AREA[1] + 19 + 1350"]
         orientation: N
   # decimator_ser_top:
     # gds:
@@ -186,7 +186,7 @@ MACROS:
       # nom_tt_025C_5v00: dir::../macros/decimation_filter_256_ser/librelane/runs/latest/final/lib/nom_tt_025C_5v00/decimator_ser_top__nom_tt_025C_5v00.lib
     # instances:
       # i_chip_core.decimator_ser_top:
-        # location: [1475, 2950] # ToDo
+        # location: ["expr::$CORE_AREA[0] + 24 + 200", "expr::$CORE_AREA[1] + 19 + 3000"]
         # orientation: N
   # octowave:
     # gds:
@@ -213,7 +213,7 @@ MACROS:
       # nom_tt_025C_5v00: dir::../macros/octowave/librelane/runs/latest/final/lib/nom_tt_025C_5v00/octowave__nom_tt_025C_5v00.lib
     # instances:
       # i_chip_core.octowave:
-        # location: [1475, 2950] # ToDo
+        # location: ["expr::$CORE_AREA[0] + 24 + 100", "expr::$CORE_AREA[1] + 19 + 1700"]
         # orientation: N
   # tinywhisper_riscv:
     # gds:
