@@ -308,27 +308,27 @@ MACROS:
   
   rh_bf_top:
     gds:
-      - dir::../macros/rh_bf_top/librelane/runs/latest/final/gds/rh_bf_top.gds
+      - dir::../macros/tiny_bf/librelane/runs/latest/final/gds/rh_bf_top.gds
     lef:
-      - dir::../macros/rh_bf_top/librelane/runs/latest/final/lef/rh_bf_top.lef
+      - dir::../macros/tiny_bf/librelane/runs/latest/final/lef/rh_bf_top.lef
     pnl:
-      - dir::../macros/rh_bf_top/librelane/runs/latest/final/pnl/rh_bf_top.pnl.v
+      - dir::../macros/tiny_bf/librelane/runs/latest/final/pnl/rh_bf_top.pnl.v
     nl:
-      - dir::../macros/rh_bf_top/librelane/runs/latest/final/nl/rh_bf_top.nl.v
+      - dir::../macros/tiny_bf/librelane/runs/latest/final/nl/rh_bf_top.nl.v
     spef:
-      min_*: dir::../macros/rh_bf_top/librelane/runs/latest/final/spef/min/rh_bf_top.min.spef
-      nom_*: dir::../macros/rh_bf_top/librelane/runs/latest/final/spef/nom/rh_bf_top.nom.spef
-      max_*: dir::../macros/rh_bf_top/librelane/runs/latest/final/spef/max/rh_bf_top.max.spef
+      min_*: dir::../macros/tiny_bf/librelane/runs/latest/final/spef/min/rh_bf_top.min.spef
+      nom_*: dir::../macros/tiny_bf/librelane/runs/latest/final/spef/nom/rh_bf_top.nom.spef
+      max_*: dir::../macros/tiny_bf/librelane/runs/latest/final/spef/max/rh_bf_top.max.spef
     lib:
-      max_ff_n40C_5v50: dir::../macros/rh_bf_top/librelane/runs/latest/final/lib/max_ff_n40C_5v50/rh_bf_top__max_ff_n40C_5v50.lib
-      max_ss_125C_4v50: dir::../macros/rh_bf_top/librelane/runs/latest/final/lib/max_ss_125C_4v50/rh_bf_top__max_ss_125C_4v50.lib
-      max_tt_025C_5v00: dir::../macros/rh_bf_top/librelane/runs/latest/final/lib/max_tt_025C_5v00/rh_bf_top__max_tt_025C_5v00.lib
-      min_ff_n40C_5v50: dir::../macros/rh_bf_top/librelane/runs/latest/final/lib/min_ff_n40C_5v50/rh_bf_top__min_ff_n40C_5v50.lib
-      min_ss_125C_4v50: dir::../macros/rh_bf_top/librelane/runs/latest/final/lib/min_ss_125C_4v50/rh_bf_top__min_ss_125C_4v50.lib
-      min_tt_025C_5v00: dir::../macros/rh_bf_top/librelane/runs/latest/final/lib/min_tt_025C_5v00/rh_bf_top__min_tt_025C_5v00.lib
-      nom_ff_n40C_5v50: dir::../macros/rh_bf_top/librelane/runs/latest/final/lib/nom_ff_n40C_5v50/rh_bf_top__nom_ff_n40C_5v50.lib
-      nom_ss_125C_4v50: dir::../macros/rh_bf_top/librelane/runs/latest/final/lib/nom_ss_125C_4v50/rh_bf_top__nom_ss_125C_4v50.lib
-      nom_tt_025C_5v00: dir::../macros/rh_bf_top/librelane/runs/latest/final/lib/nom_tt_025C_5v00/rh_bf_top__nom_tt_025C_5v00.lib
+      max_ff_n40C_5v50: dir::../macros/tiny_bf/librelane/runs/latest/final/lib/max_ff_n40C_5v50/rh_bf_top__max_ff_n40C_5v50.lib
+      max_ss_125C_4v50: dir::../macros/tiny_bf/librelane/runs/latest/final/lib/max_ss_125C_4v50/rh_bf_top__max_ss_125C_4v50.lib
+      max_tt_025C_5v00: dir::../macros/tiny_bf/librelane/runs/latest/final/lib/max_tt_025C_5v00/rh_bf_top__max_tt_025C_5v00.lib
+      min_ff_n40C_5v50: dir::../macros/tiny_bf/librelane/runs/latest/final/lib/min_ff_n40C_5v50/rh_bf_top__min_ff_n40C_5v50.lib
+      min_ss_125C_4v50: dir::../macros/tiny_bf/librelane/runs/latest/final/lib/min_ss_125C_4v50/rh_bf_top__min_ss_125C_4v50.lib
+      min_tt_025C_5v00: dir::../macros/tiny_bf/librelane/runs/latest/final/lib/min_tt_025C_5v00/rh_bf_top__min_tt_025C_5v00.lib
+      nom_ff_n40C_5v50: dir::../macros/tiny_bf/librelane/runs/latest/final/lib/nom_ff_n40C_5v50/rh_bf_top__nom_ff_n40C_5v50.lib
+      nom_ss_125C_4v50: dir::../macros/tiny_bf/librelane/runs/latest/final/lib/nom_ss_125C_4v50/rh_bf_top__nom_ss_125C_4v50.lib
+      nom_tt_025C_5v00: dir::../macros/tiny_bf/librelane/runs/latest/final/lib/nom_tt_025C_5v00/rh_bf_top__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.rh_bf_top:
         location: ["expr::$CORE_AREA[0] + 24 + 300", "expr::$CORE_AREA[1] + 19 + 1000"]
