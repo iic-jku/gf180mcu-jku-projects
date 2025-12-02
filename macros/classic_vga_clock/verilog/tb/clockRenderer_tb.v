@@ -1,18 +1,23 @@
-`timescale 1ns/1ps
-
+//`timescale 1ns/1ps
+`timescale 1us/1ns
 module clockRenderer_tb;
 
 
-  reg clk;
-  reg slow_clk;
-  reg reset;
-  reg [3:0] hour;
-  reg [5:0] minute;
-  reg [5:0] second;
-  reg [3:0] al_hour;
-  reg [5:0] al_minute;
+	reg clk;
+	reg slow_clk;
+	reg reset;
+	reg [3:0] hour;
+	reg [5:0] minute;
+	reg [5:0] second;
+	reg [3:0] al_hour;
+	reg [5:0] al_minute;
 
-  wire [31:0] framebuffer [0:31];
+	reg [9:0] horizCounter;
+	reg [9:0] vertCounter;
+	reg [9:0] x_offset;
+	reg [9:0] y_offset;
+	
+	wire pixel_bw;
 
   clockRenderer crMod (	//modified CR for test
     .clk(clk),
@@ -23,7 +28,11 @@ module clockRenderer_tb;
     .second(second),
     .al_hour(al_hour),
     .al_minute(al_minute),
-    .framebuffer(framebuffer)
+	.horizCounter(horizCounter),
+	.vertCounter(vertCounter),
+	.x_offset(x_offset),
+	.y_offset(y_offset),
+    .pixel_bw(bw)
   );
     initial begin
 		$dumpfile("clocRend_tb.vcd");
@@ -31,22 +40,46 @@ module clockRenderer_tb;
 	
 
 	end
+	integer fd;
+	localparam H_MAX = 800; 
+    localparam V_MAX = 525; 
+	localparam H_VISIBLE = 640;
+    localparam V_VISIBLE = 480
+	
+
+    // VGA
+    always @(posedge clk) begin
+        if (horizCounter == H_MAX-1) begin
+            horizCounter <= 0;
+            if (vertCounter == V_MAX-1)
+                vertCounter <= 0;
+            else
+                vertCounter <= vertCounter + 1;
+        end else begin
+            horizCounter <= horizCounter + 1;
+        end
+    end
 
     initial begin
         clk = 0;
-        forever #20 clk = ~clk;  
+        forever #0.02 clk = ~clk;  
     end
 
  initial begin
         slow_clk = 0;
-        forever #5000000 slow_clk = ~slow_clk;  
+        forever #5000 slow_clk = ~slow_clk;  
     end
 
 
   initial begin
+	fd = $fopen("vga_out.txt", "w");
 
-    reset = 1;#1 reset = 0;
-    hour = 4'd0;
+	horizCounter = 0;
+	vertCounter = 0;
+	x_offset = 0;
+	y_offset = 0;
+    reset = 1; #0.02 reset = 0;
+    hour = 4'd0; 	
     minute = 6'd0;
     second = 6'd0;
     al_hour = 4'd4;
@@ -61,23 +94,17 @@ module clockRenderer_tb;
 
     #20000000;
 
-    dump_framebuffer();
-
+	$fclose(fd);
     $finish;
   end
 
-  task dump_framebuffer;
-    integer f, i;
-    begin
-      f = $fopen("framebuffer_output.txt", "w");
-      if (f == 0) begin
-        $finish;
-      end
-      for (i = 0; i < 32; i = i + 1) begin
-        $fwrite(f, "32'b%032b;\n", i, framebuffer[i]);
-      end
-      $fclose(f);
+  always @(posedge clk) begin
+        if (horizCounter < H_VISIBLE && vertCounter < V_VISIBLE) begin
+            $fwrite(fd, "%0d", pixel_bw);
+
+            if (horizCounter == H_VISIBLE-1)
+                $fwrite(fd, "\n");
+        end
     end
-  endtask
 
 endmodule

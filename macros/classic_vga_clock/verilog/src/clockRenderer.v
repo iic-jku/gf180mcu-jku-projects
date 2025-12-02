@@ -58,10 +58,17 @@ cordic_sin_cos cordicModule (
 
 /* verilator lint_off WIDTH */
 //clockhand angles
-wire [8:0] second_angle = (second * 6);   
-wire [8:0] minute_angle = (minute * 6);   
-wire [8:0] hour_angle = ((hour * 60) + minute) / 2; //assuming hour cannot reach 12
-wire [8:0] alarm_angle = (al_hour * 30) + ((al_minute / 10) * 6);   //given incrementation by 10min
+//wire [8:0] second_angle = (second * 6);   
+//wire [8:0] minute_angle = (minute * 6);   
+//wire [8:0] hour_angle = ((hour * 60) + minute) / 2; //assuming hour cannot reach 12
+//wire [8:0] alarm_angle = (al_hour * 30) + ((al_minute / 10) * 6);   //given incrementation by 10min
+
+wire [8:0] second_angle = (second << 2) + (second << 1);
+wire [8:0] minute_angle = (minute << 2) + (minute << 1);
+
+wire [8:0] hour_angle   = ((hour << 6) - (hour << 2) + minute) >> 1;
+
+wire [8:0] alarm_angle  = ((al_hour << 5) - (al_hour << 1))  + (((al_minute / 10) << 2) + ((al_minute / 10) << 1));
 /* verilator lint_on WIDTH */
 
 reg [1:0] state;
