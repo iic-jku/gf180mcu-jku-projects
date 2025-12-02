@@ -5,27 +5,30 @@ https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 - TinyTone (Sanity Bring-Up Test) - Jakob Schaumberger
 	--> 2 x inputs (incl. clk + rst)
 	--> 1 x outputs
-	--> 200um x 200um
+	--> 150um x 180um
 	
 - Decimation Filter - Michael Köfinger
 	--> 3 x inputs (incl. clk + rst)
 	--> 2 x outputs
-	--> 3000um x 1500um
+	--> 2600um x 1000um
 	
 - Octowave (Digital Core Master Thesis) - Max Golser
 	--> 3 x inputs (incl. clk + rst)
 	--> 9 x outputs
-	--> 1800um x 1200um
+	--> 1200um x 1000um
 	
 - TinyWhisper RISC-V - Jonathan Hager (JMU)
 	--> 10 x inputs (incl. clk + rst)
 	--> 18 x outputs, 1 x inout (sda)
-	--> 1200um x 2500um
+	--> 1400um x 1400um
 
 - Tetris - Dominik Brandstetter & HTL Leonding
 	--> 7 x inputs (incl. clk + rst)
 	--> 10 x outputs
-	--> 1200um x 1800um
+	--> 1400um x 1100um
+
+- Multiplexer
+	--> 100um x 1400um
 	
 - TinyBF (Studi Project) - Rene Hahn
 	--> 6 x inputs (incl. clk + rst)
@@ -60,4 +63,4 @@ https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 - VGA Clock (Studi Project) - Timo Laimer
 	--> 7 x inputs (incl. clk + rst)
 	--> 4 x outputs
-	--> 800um x 400um
+	--> 800um x 500um
