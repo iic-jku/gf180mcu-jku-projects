@@ -656,6 +656,19 @@ def chip_top_runner():
 
         # We use the powered netlist
         sources.append(proj_path / f"../final/pnl/{hdl_toplevel}.pnl.v")
+        sources.append(proj_path / f"../macros/adc_sar_controller/final/pnl/sar_adc_spi_oversampling.pnl.v")
+        sources.append(proj_path / f"../macros/classic_vga_clock/final/pnl/classic_vga_clock.pnl.v")
+        sources.append(proj_path / f"../macros/decimation_filter_256_ser/final/pnl/decimator_ser_top.pnl.v")
+        sources.append(proj_path / f"../macros/digital_filter/final/pnl/df_digital_filter.pnl.v")
+        sources.append(proj_path / f"../macros/led_spinner/final/pnl/led_spinner.pnl.v")
+        sources.append(proj_path / f"../macros/multiplexer/final/pnl/multiplexer.pnl.v")
+        sources.append(proj_path / f"../macros/octowave/final/pnl/octowave.pnl.v")
+        sources.append(proj_path / f"../macros/tetris/final/pnl/tetris.pnl.v")
+        sources.append(proj_path / f"../macros/tiny_bf/final/pnl/rh_bf_top.pnl.v")
+        sources.append(proj_path / f"../macros/tiny_tone/final/pnl/tiny_tone.pnl.v")
+        sources.append(proj_path / f"../macros/tiny_tonegen/final/pnl/tiny_tonegen.pnl.v")
+        sources.append(proj_path / f"../macros/tinywhisper_riscv/final/pnl/tinywhisper_riscv.pnl.v")
+        sources.append(proj_path / f"../macros/traffic_light_controller/final/pnl/traffic_light.pnl.v")
 
         defines = {"FUNCTIONAL": True, "USE_POWER_PINS": True}
     else:
