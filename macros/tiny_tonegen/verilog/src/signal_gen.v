@@ -1,3 +1,4 @@
+`ifndef SIM
 `include "./tonegen.v"
 `include "./lfsr.v"
 `include "./mixer.v"
@@ -5,6 +6,7 @@
 `include "./pwm8.v"
 // `include "./vibrato.v"
 // `include "./adsr.v"
+`endif
 
 module signal_generator (
     input clk,              // clock 

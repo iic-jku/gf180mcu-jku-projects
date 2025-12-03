@@ -20,7 +20,7 @@
 `ifndef SIM
     `include "clk_enable.v"
     `include "max7219_driver.v"
-    `include "spi_master.v"
+    `include "spi_master_traffic.v"
 `endif
 
 module traffic_light (

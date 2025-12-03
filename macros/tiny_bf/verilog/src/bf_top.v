@@ -141,7 +141,7 @@ module bf_top #(
     // UART Transmitter
     //========================================================================
     
-    uart_tx u_uart_tx (
+    uart_tx_bf u_uart_tx (
         .clk_i        (clk_i),
         .rst_i        (sync_rst_n),
         .baud_tick_i  (tick_1x),
@@ -155,7 +155,7 @@ module bf_top #(
     // UART Receiver
     //========================================================================
     
-    uart_rx u_uart_rx (
+    uart_rx_bf u_uart_rx (
         .clk_i           (clk_i),
         .rst_i           (sync_rst_n),
         .baud_tick_16x_i (tick_16x),

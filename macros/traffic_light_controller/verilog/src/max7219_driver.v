@@ -30,7 +30,7 @@ module max7219_driver(
     reg         start_transfer;
     wire        busy_spi;
 
-    spi_master spi (
+    spi_master_traffic spi (
         .clk    (clk),
         .rst_n  (rst_n),
         .start  (start_transfer),

@@ -2,9 +2,11 @@
 // 26.11.2025
 // 8-Stage Half-Band Filter Decimator using Saramaki HBFs' with a serial output (shift register)
 
+`ifndef SIM
 `include "./synchronizer.v"
 `include "./dec_top.v"
 `include "./dec_serializer_22b.v"
+`endif
 
 module decimator_ser_top(
 	// VDD / VSS

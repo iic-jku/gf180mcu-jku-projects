@@ -1401,7 +1401,7 @@ module channel
     .bit_o(\sigma_delta_modulator_instance.bit_o ));
 endmodule
 
-module uart_tx
+module uart_tx_octo
   (input  clock_i,
    input  reset_i,
    input  tx_data_valid_i,
@@ -1706,7 +1706,7 @@ module uart_tx
       n869 <= serial_out_next;
 endmodule
 
-module uart_rx
+module uart_rx_octo
   (input  clock_i,
    input  reset_i,
    input  serial_i,
@@ -3575,14 +3575,14 @@ module uart_core
   /* ../../vhdl/src/UART_CORE.vhd:33:10  */
   assign tx_busy_next = n52; // (signal)
   /* ../../vhdl/src/UART_CORE.vhd:37:3  */
-  uart_rx uart_rx_inst (
+  uart_rx_octo uart_rx_inst (
     .clock_i(clock_i),
     .reset_i(reset_i),
     .serial_i(serial_rx_i),
     .data_valid_o(rx_valid_sig),
     .rx_byte_o(rx_byte_sig));
   /* ../../vhdl/src/UART_CORE.vhd:46:3  */
-  uart_tx uart_tx_inst (
+  uart_tx_octo uart_tx_inst (
     .clock_i(clock_i),
     .reset_i(reset_i),
     .tx_data_valid_i(tx_data_valid_reg),

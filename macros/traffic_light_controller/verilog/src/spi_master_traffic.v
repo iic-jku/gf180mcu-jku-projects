@@ -14,7 +14,7 @@
 
 `default_nettype none
 
-module spi_master (
+module spi_master_traffic (
     input wire clk,            // System clock (1 MHz)
     input wire rst_n,
     input wire start,          // Start transfer

@@ -14,11 +14,13 @@
 
 `default_nettype none
 
+`ifndef SIM
 `include "prescaler.v"
 `include "rng.v"
 `include "wheel.v"
 `include "seg_driver.v"
 `include "guess_eval.v"
+`endif
 
 module led_spinner (
 	// VDD / VSS

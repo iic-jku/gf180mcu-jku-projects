@@ -10,10 +10,12 @@
 // Last edited: 09.11.2025
 // ============================================================
 
+`ifndef SIM
 `include "StrobeGenerator.v"
 `include "NotesRom.v"
 `include "SequenceCounter.v"
 `include "PwmModulator.v"
+`endif
 
 `default_nettype none
 `ifndef __TT_UM_TINYTONE__
