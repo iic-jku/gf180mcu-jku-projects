@@ -2,7 +2,7 @@
 <report-database>
  <description>DRC Run Report at</description>
  <original-file/>
- <generator>drc: script='/home/jonathan/Projekte/gf180mcu-tinyrv-radio/ip/gf180mcu_ws_ip__jku/../../gf180mcu/gf180mcuD/libs.tech/klayout/tech/drc/gf180mcu.drc'</generator>
+ <generator>drc: script='/home/jonathan/Projekte/gf180mcu-jku-projects/ip/gf180mcu_ws_ip__jku/../../gf180mcu/gf180mcuD/libs.tech/klayout/tech/drc/gf180mcu.drc'</generator>
  <top-cell>gf180mcu_ws_ip__jku</top-cell>
  <tags>
  </tags>
@@ -458,53 +458,5 @@
   </cell>
  </cells>
  <items>
-  <item>
-   <tags/>
-   <category>'MT.1'</category>
-   <cell>gf180mcu_ws_ip__jku</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (479.56,39.75;480,39.75)|(480.44,39.75;480,39.75)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'MT.1'</category>
-   <cell>gf180mcu_ws_ip__jku</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (480,39.75;480,39.31)|(480,39.75;480,40.19)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'MT.2a'</category>
-   <cell>gf180mcu_ws_ip__jku</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (480,39.75;480,39.29)|(480,39.75;480,40.21)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'MT.2a'</category>
-   <cell>gf180mcu_ws_ip__jku</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (479.54,39.75;480,39.75)|(480.46,39.75;480,39.75)</value>
-   </values>
-  </item>
  </items>
 </report-database>
