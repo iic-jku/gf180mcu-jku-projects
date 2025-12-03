@@ -183,6 +183,38 @@ module chip_core #(
 	// Multiplexer
 	logic [10:0] mux_out;
 	
+	// TinyBF - Rene Hahn
+	logic [3:0] uio_out;
+    logic [6:0] uo_out;
+	logic [7:0] dac_bits;
+
+	logic spi_miso;
+	logic spi_sclk;
+	logic done;
+
+	logic [6:0] seg_bits_out;
+	logic dp_on_out;
+
+	logic signal_bit_out;
+
+	logic [7:0] dataout;
+
+	logic car_red_light_out;
+	logic car_yellow_light_out;
+	logic car_green_light_out;
+	logic ped_red_light_out;
+	logic ped_green_light_out;
+	logic DIN_out;
+	logic CS_out;
+	logic SCLK_out;
+	logic pushed_left_out;
+	logic pushed_right_out;
+
+	logic buzzer_out;
+    logic vga_horizSync_out;
+    logic vga_vertSync_out;
+    logic black_white_out;
+
 	multiplexer multiplexer (
 		`ifdef USE_POWER_PINS
         .VDD(VDD),
@@ -223,10 +255,6 @@ module chip_core #(
 	);
 	// ======================================================
 	
-	// TinyBF - Rene Hahn
-	logic [3:0] uio_out;
-    logic [6:0] uo_out;
-	
 	rh_bf_top rh_bf_top (
 		`ifdef USE_POWER_PINS
         .VDD(VDD),
@@ -241,11 +269,6 @@ module chip_core #(
 	// ======================================================
 	
 	// SAR ADC Controller - Ilir Shala
-	logic [7:0] dac_bits;
-	logic spi_miso;
-	logic spi_sclk;
-	logic done;
-	
 	sar_adc_spi_oversampling sar_adc_spi_oversampling (
 		`ifdef USE_POWER_PINS
         .VDD(VDD),
@@ -263,9 +286,6 @@ module chip_core #(
 	// ======================================================
 	
 	// Led Spinner - Tim Tremetsberger
-	logic [6:0] seg_bits_out;
-	logic dp_on_out;
-	
 	led_spinner led_spinner (
 		`ifdef USE_POWER_PINS
         .VDD(VDD),
@@ -282,7 +302,6 @@ module chip_core #(
 	// ======================================================
 	
 	// TinyToneGen - Felix Feierabend
-	logic signal_bit_out;
 	
 	tiny_tonegen tiny_tonegen (
 		`ifdef USE_POWER_PINS
@@ -300,7 +319,6 @@ module chip_core #(
 	// ======================================================
 	
 	// Digital Filter - Gregor Flachs
-	logic [7:0] dataout;
 	
 	df_digital_filter df_digital_filter (
 		`ifdef USE_POWER_PINS
@@ -317,16 +335,6 @@ module chip_core #(
 	// ======================================================
 	
 	// Traffic Light Controller - Maximilian Kernmaier
-	logic car_red_light_out;
-	logic car_yellow_light_out;
-	logic car_green_light_out;
-	logic ped_red_light_out;
-	logic ped_green_light_out;
-	logic DIN_out;
-	logic CS_out;
-	logic SCLK_out;
-	logic pushed_left_out;
-	logic pushed_right_out;
 	
 	traffic_light traffic_light (
 		`ifdef USE_POWER_PINS
@@ -352,10 +360,6 @@ module chip_core #(
 	// ======================================================
 	
 	// VGA Clock - Timo Laimer
-	logic buzzer_out;
-    logic vga_horizSync_out;
-    logic vga_vertSync_out;
-    logic black_white_out;
 	
 	classic_vga_clock classic_vga_clock (
 		`ifdef USE_POWER_PINS

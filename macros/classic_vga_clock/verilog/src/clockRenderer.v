@@ -12,7 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+`ifndef SIM
 `include "cordic_sin_cos.v"
+`endif
 
 module clockRenderer (
     input clk,			//25 MHz

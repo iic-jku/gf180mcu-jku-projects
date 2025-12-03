@@ -12,9 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+`ifndef SIM
 `include "button_debounce.v"
 `include "clockRenderer.v"
 `include "display_vga.v"
+`endif
 
 module classic_vga_clock (
 	// VDD / VSS

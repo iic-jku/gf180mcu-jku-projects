@@ -25,7 +25,7 @@
 //=============================================================================
 
 `timescale 1ns/1ps
-module uart_tx (
+module uart_tx_bf (
     input  wire        clk_i,          // System clock
     input  wire        rst_i,          // Active-low reset
     input  wire        baud_tick_i,    // Baud rate tick (1x)

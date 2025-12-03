@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+`ifndef SIM
 `include "df_multiplier_c1.v"
 `include "df_multiplier_c2.v"
 `include "df_multiplier_c3.v"
@@ -19,6 +20,7 @@
 `include "df_opt_2comp.v"
 `include "df_adder_subtractor.v"
 `include "df_adder_noovfl.v"
+`endif
 
 module df_digital_filter (
 	// VDD / VSS
