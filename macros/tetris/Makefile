@@ -5,7 +5,7 @@ TOP = tetris
 
 PDK_ROOT ?= $(MAKEFILE_DIR)/../../gf180mcu_dev
 PDK ?= gf180mcuD
-PDK_TAG ?= 1.1.2
+PDK_TAG ?= 1.4.1
 
 AVAILABLE_SLOTS = 1x1 0p5x1 1x0p5 0p5x0p5
 DEFAULT_SLOT = 1x1
