@@ -4,25 +4,25 @@ meta:
   substituting_steps:
 
     # Disable KLayout DRC
-    # KLayout.DRC: null
-    # Checker.KLayoutDRC: null
+    #KLayout.DRC: null
+    #Checker.KLayoutDRC: null
 
     # Disable KLayout antenna check
-    # KLayout.Antenna: null
-    # Checker.KLayoutAntenna: null
+    #KLayout.Antenna: null
+    #Checker.KLayoutAntenna: null
 
     # Disable KLayout density check
-    # KLayout.Density: null
-    # Checker.KLayoutDensity: null
+    #KLayout.Density: null
+    #Checker.KLayoutDensity: null
 
     # Save time during development
     # Enable for sign-off
-    # OpenROAD.IRDropReport: null
-    # Magic.DRC: null
-    # Checker.MagicDRC: null
-    # KLayout.XOR: null
-    # Netgen.LVS: null
-    # Checker.LVS: null
+    #OpenROAD.IRDropReport: null
+    #Magic.DRC: null
+    #Checker.MagicDRC: null
+    #KLayout.XOR: null
+    #Netgen.LVS: null
+    #Checker.LVS: null
 
     # Fix Hold violations by inserting buffers
     "+OpenROAD.DetailedRouting": "Odb.InsertECOBuffers"
@@ -71,8 +71,8 @@ CLOCK_NET: clk_pad/Y
 CLOCK_PERIOD: 25
 
 # Fix hold violations
-PL_RESIZER_HOLD_SLACK_MARGIN: 0.5
-GRT_RESIZER_HOLD_SLACK_MARGIN: 0.45
+PL_RESIZER_HOLD_SLACK_MARGIN: 0.35
+GRT_RESIZER_HOLD_SLACK_MARGIN: 0.3
 
 # Increase for more logic
 # on your die
@@ -110,10 +110,6 @@ PDN_CORE_HORIZONTAL_LAYER: Metal3
 MAGIC_GDS_FLATGLOB:
 # For contacts
 - "*_CDNS_*"
-# COMP and Poly2 filler cells need to be 
-# flattened to form a "filltrans" layer
-- "COMP_fill_cell"
-- "Poly2_fill_cell"
 # Foundry provided SRAMs
 - "*$$*"
 - "M1_N*"
@@ -137,10 +133,17 @@ MAGIC_GDS_FLATGLOB:
 - "xdec_*"
 - "ypredec*"
 - "xpredec*"
-- "xdec8_*"
 - "prexdec_*"
+- "xdec8_*"
+- "xdec16_*"
 - "xdec32_*"
 - "sa_*"
+
+# Since we cannot meet the minimum density limit on Metal2,
+# move the dummy shapes to the active metal layer and ignore
+# DM.5_DM.7 and DM.4_DM.6
+KLAYOUT_FILLER_OPTIONS:
+  Metal2_active: true
 
 # Because we have multiple power pads for one power domain
 MAGIC_EXT_UNIQUE: notopports

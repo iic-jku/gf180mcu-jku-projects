@@ -5,7 +5,7 @@ TOP = chip_top
 
 PDK_ROOT ?= $(MAKEFILE_DIR)/gf180mcu
 PDK ?= gf180mcuD
-PDK_TAG ?= 1.4.1
+PDK_TAG ?= 1.6.3
 
 AVAILABLE_SLOTS = 1x1 0p5x1 1x0p5 0p5x0p5
 DEFAULT_SLOT = 1x1
@@ -87,7 +87,6 @@ render-image: ## Render an image from the final layout (after copy-final)
 	mkdir -p img/
 	PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 scripts/lay2img.py final/gds/${TOP}.gds img/${TOP}.png --width 2048 --oversampling 4
 .PHONY: copy-final
-
 
 # Targets for building the macros in one place (Jonathan)
 build-tiny_tone:

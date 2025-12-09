@@ -6,4 +6,5 @@ All categories arranged alphabetically.
 > significant portions of the code. See the contributors graph for a full list of
 > human authors.
 
-* Simon Dorrer
+* Simon Dorrer, JKU
+* Jonathan Hager, JMU
