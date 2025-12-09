@@ -1,12 +1,12 @@
-TinyTone: (1250, 1350) to (1400, 1500)
+TinyTone: (800, 1580) to (1050, 1720)
 
-Decimation Filter: (200, 3000) to (2800, 4000)
+Decimation Filter: (200, 3100) to (2800, 4100)
 
-Octowave: (100, 1700) to (1300, 2700)
+Octowave: (100, 1800) to (1300, 2900)
 
-TinyWhisper RISC-V: (1500, 1400) to (2900, 2800)
+TinyWhisper RISC-V: (1300, 100) to (2900, 1500)
 
-Tetris: (1400, 100) to (2800, 1200)
+Tetris: (1500, 1700) to (2900, 2900)
 
 Studi Projects: (100, 100) to (1100, 1500)
 - Multiplexer: (100, 100) to (200, 1500)	

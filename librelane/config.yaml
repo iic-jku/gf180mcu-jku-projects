@@ -4,25 +4,25 @@ meta:
   substituting_steps:
 
     # Disable KLayout DRC
-    #KLayout.DRC: null
-    #Checker.KLayoutDRC: null
+    # KLayout.DRC: null
+    # Checker.KLayoutDRC: null
 
     # Disable KLayout antenna check
-    #KLayout.Antenna: null
-    #Checker.KLayoutAntenna: null
+    # KLayout.Antenna: null
+    # Checker.KLayoutAntenna: null
 
     # Disable KLayout density check
-    #KLayout.Density: null
-    #Checker.KLayoutDensity: null
+    # KLayout.Density: null
+    # Checker.KLayoutDensity: null
 
     # Save time during development
     # Enable for sign-off
-    #OpenROAD.IRDropReport: null
-    #Magic.DRC: null
-    #Checker.MagicDRC: null
-    #KLayout.XOR: null
-    #Netgen.LVS: null
-    #Checker.LVS: null
+    # OpenROAD.IRDropReport: null
+    # Magic.DRC: null
+    # Checker.MagicDRC: null
+    # KLayout.XOR: null
+    # Netgen.LVS: null
+    # Checker.LVS: null
 
     # Fix Hold violations by inserting buffers
     "+OpenROAD.DetailedRouting": "Odb.InsertECOBuffers"
@@ -171,7 +171,7 @@ MACROS:
       nom_tt_025C_5v00: dir::../macros/tiny_tone/final/lib/nom_tt_025C_5v00/tiny_tone__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.tiny_tone:
-        location: ["expr::442 + 24 + 1250", "expr::442 + 19 + 1350"]
+        location: ["expr::442 + 24 + 800", "expr::442 + 19 + 1580"]
         orientation: N
   
   decimator_ser_top:
@@ -199,7 +199,7 @@ MACROS:
       nom_tt_025C_5v00: dir::../macros/decimation_filter_256_ser/final/lib/nom_tt_025C_5v00/decimator_ser_top__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.decimator_ser_top:
-        location: ["expr::442 + 24 + 200", "expr::442 + 19 + 3000"]
+        location: ["expr::442 + 24 + 200", "expr::442 + 19 + 3100"]
         orientation: N
   
   octowave:
@@ -227,7 +227,7 @@ MACROS:
       nom_tt_025C_5v00: dir::../macros/octowave/final/lib/nom_tt_025C_5v00/octowave__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.octowave:
-        location: ["expr::442 + 24 + 100", "expr::442 + 19 + 1700"]
+        location: ["expr::442 + 24 + 100", "expr::442 + 19 + 1800"]
         orientation: N
   
   tinywhisper_riscv:
@@ -255,7 +255,7 @@ MACROS:
       nom_tt_025C_5v00: dir::../macros/tinywhisper_riscv/librelane/runs/latest/final/lib/nom_tt_025C_5v00/tinywhisper_riscv__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.tinywhisper_riscv:
-        location: ["expr::442 + 24 + 1500", "expr::442 + 19 + 1400"]
+        location: ["expr::442 + 24 + 1300", "expr::442 + 19 + 100"]
         orientation: N
   
   tetris:
@@ -283,7 +283,7 @@ MACROS:
       nom_tt_025C_5v00: dir::../macros/tetris/librelane/runs/latest/final/lib/nom_tt_025C_5v00/tetris__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.tetris:
-        location: ["expr::442 + 24 + 1400", "expr::442 + 19 + 100"]
+        location: ["expr::442 + 24 + 1500", "expr::442 + 19 + 1700"]
         orientation: N
   
   multiplexer:
