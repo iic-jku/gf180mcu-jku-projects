@@ -22,17 +22,17 @@ echo -e "${GREEN}Verilator:------------------------------------------ ${NC}"
 verilator --lint-only -I"$RTL" "$RTL"/"$name".v # -I"$RTL" for multiple Verilog file dependencies in "src" folder
 
 echo -e "${GREEN}IVerilog:------------------------------------------- ${NC}"
-iverilog -g2005 -I"$RTL" "$RTL/$name.v" "$SRC_FOLDER/${name}_tb.v" # -I"$RTL" for multiple Verilog file dependencies in "src" folder
+iverilog -g2005 -I"$RTL" "$RTL/$name.v" "$SRC_FOLDER/tb_${name}.v" # -I"$RTL" for multiple Verilog file dependencies in "src" folder
 
 echo -e "${GREEN}a:-------------------------------------------------- ${NC}"
 ./a.out
 
 echo -e "${GREEN}GTKWave:-------------------------------------------- ${NC}"
-if [ -e "$SRC_FOLDER"/"$name"_tb.gtkw ]
+if [ -e "$SRC_FOLDER"/tb_"$name".gtkw ]
 then
-  gtkwave "$SRC_FOLDER"/"$name"_tb.gtkw
+  gtkwave "$SRC_FOLDER"/tb_"$name".gtkw
 else
-  gtkwave "$SRC_FOLDER"/"$name"_tb.vcd
+  gtkwave "$SRC_FOLDER"/tb_"$name".vcd
 fi
 
 # Clean
