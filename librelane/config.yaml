@@ -395,7 +395,7 @@ MACROS:
       nom_tt_025C_5v00: dir::../macros/led_spinner/librelane/runs/latest/final/lib/nom_tt_025C_5v00/led_spinner__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.led_spinner:
-        location: ["expr::442 + 24 + 900", "expr::442 + 19 + 1165"]
+        location: ["expr::442 + 24 + 900", "expr::442 + 19 + 1180"]
         orientation: N
   
   tiny_tonegen:
