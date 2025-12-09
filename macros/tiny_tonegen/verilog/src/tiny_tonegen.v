@@ -1,9 +1,7 @@
 // Author: Felix Feierabend
 
-`ifndef SIM
 `include "./signal_gen.v"
 `include "./clock_scaler.v"
-`endif
 
 module tiny_tonegen (
 	// VDD / VSS
@@ -24,28 +22,26 @@ module tiny_tonegen (
 	output wire 	  signal_bit_out
 );
 
-wire clk_scaled;
-wire signal_bit;
-wire [6:0] debug_bits;
+	wire clk_scaled;
+	wire signal_bit;
 
-clock_scale clk_scaler (
-    .en(ena),
-    .clk(clk),
-    .rst(rst_n),
-    .scale_factor(11'd50),
-    .clk_out(clk_scaled)
-);
+	clock_scale clk_scaler (
+		.en(ena),
+		.clk(clk),
+		.rst(rst_n),
+		.scale_factor(8'd25),
+		.clk_out(clk_scaled)
+	);
 
-signal_generator signal_gen (
-    .clk(clk_scaled),
-    .write_strobe(write_strobe_in),
-    .address(address_in),
-    .data(data_in),
-    .signal_out(signal_bit),
-    .debug(debug_bits),
-    .rst(~rst_n)
-);
+	signal_generator signal_gen (
+		.clk(clk_scaled),
+		.write_strobe(write_strobe_in),
+		.address(address_in),
+		.data(data_in),
+		.signal_out(signal_bit),
+		.rst(rst_n)
+	);
 
-assign signal_bit_out = signal_bit;
+	assign signal_bit_out = signal_bit;
 
 endmodule

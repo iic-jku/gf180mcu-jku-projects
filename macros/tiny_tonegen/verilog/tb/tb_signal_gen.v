@@ -1,5 +1,5 @@
 `timescale 10ns/10ns
-`include "./signal_gen.v"
+`include "../src/signal_gen.v"
 
 module tb_signal_gen;
 

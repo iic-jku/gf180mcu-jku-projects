@@ -6,8 +6,8 @@ module pwm8 (
 );
     reg[7:0] clk_cnt = 0;   // counter of positive clk edges
 
-    always @(posedge(clk) or posedge rst) begin
-        if (rst) begin
+    always @(posedge(clk)) begin
+        if (!rst) begin
             clk_cnt <= 8'b0;
             pwm_o <= 0;
         end else begin

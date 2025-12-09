@@ -2,11 +2,10 @@ module clock_scale (
     input en,
     input clk,
     input rst,
-    input [11:0] scale_factor,
+    input [7:0] scale_factor,
     output reg clk_out
 );
-    reg[11:0] counter = 0;
-    reg[11:0] next_counter = 11'b1;
+    reg[7:0] counter = 0;
     reg clk_val = 0;
 
     always @(posedge clk or negedge rst) begin
