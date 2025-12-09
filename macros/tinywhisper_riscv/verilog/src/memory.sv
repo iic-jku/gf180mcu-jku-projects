@@ -48,7 +48,7 @@ module memory #(
     output logic uart_rx_valid,
 
     // GPIOs
-    input  logic [3:0] gpio_in,
+    input  logic [2:0] gpio_in,
     output logic [3:0] gpio_out,
 
     // Frequency generator
@@ -142,7 +142,7 @@ module memory #(
 
   logic [31:0] master_dataout, sram_dataout, i2c_dataout;
 
-  logic [3:0] gpio_in_sync;
+  logic [2:0] gpio_in_sync;
 
   // This ensures that the spi_master actually started working
   // Otherwise we would assume it has finished before it began
@@ -226,13 +226,15 @@ module memory #(
   // active | start | reset_n
   logic [ 2:0] freq_status;
   logic [31:0] osr_fc_reg;
-  logic [ 2:0] lo_reg;
+  logic [ 4:0] ds_lo_conf;
   freq_generator freq_inst (
       .clk(clk),
       .reset_n(freq_status[0]),
       .f_c(osr_fc_reg[29:0]),
       .osr_level(osr_fc_reg[31:30]),
-      .lo_div_sel(lo_reg),
+      .lo_div_sel(ds_lo_conf[2:0]),
+      .ds_mode(ds_lo_conf[3]),
+      .ds_invert(ds_lo_conf[4]),
       .start(freq_status[1]),
 
       .active(freq_status[2]),
@@ -259,7 +261,7 @@ module memory #(
       mtimecmp <= 0;
       freq_status[1:0] <= 2'b00;
       gpio_out <= 4'd0;
-      gpio_in_sync <= 4'd0;
+      gpio_in_sync <= 3'd0;
       uart_rx_status[0] <= 1'b0;
       osr_fc_reg <= {2'b11, 30'b000001100111110101011101010101};
       uart_tx_cpb <= CYCLES_PER_BIT_DEFAULT;
@@ -305,7 +307,7 @@ module memory #(
             target <= GPIO;
             state  <= GPIO_WAIT;
 
-            if (~memwrite) dataout <= {28'b0, gpio_in_sync};
+            if (~memwrite) dataout <= {29'b0, gpio_in_sync};
             else state <= FAULT;
 
             // == UART ==================================
@@ -391,7 +393,7 @@ module memory #(
               MTIMECMPH_ADDR:      mtimecmp[63:32] <= datain_reg;
               FREQ_STATUS_ADDR:    freq_status[1:0] <= datain_reg[1:0];
               FREQ_OSR_FC_ADDR:    osr_fc_reg <= datain_reg;
-              FREQ_LO_DIV_ADDR:    lo_reg <= datain_reg[2:0];
+              FREQ_LO_DIV_ADDR:    ds_lo_conf <= datain_reg[4:0];
               UART_RX_STATUS_ADDR: uart_rx_status[0] <= datain_reg[0];
               // UART_RX_DATA_ADDR: lo_reg <= datain_reg[2:0];
               UART_RX_CPB_ADDR:    uart_rx_cpb <= datain_reg[15:0];
@@ -409,7 +411,7 @@ module memory #(
               MTIMECMPH_ADDR:      dataout <= mtimecmp[63:32];
               FREQ_STATUS_ADDR:    dataout <= {29'b0, freq_status};
               FREQ_OSR_FC_ADDR:    dataout <= osr_fc_reg;
-              FREQ_LO_DIV_ADDR:    dataout <= {29'b0, lo_reg};
+              FREQ_LO_DIV_ADDR:    dataout <= {27'b0, ds_lo_conf};
               UART_RX_STATUS_ADDR: dataout <= {29'b0, uart_rx_status};
               UART_RX_DATA_ADDR:   dataout <= {24'b0, uart_rx_data};
               UART_RX_CPB_ADDR:    dataout <= {16'b0, uart_rx_cpb};

@@ -2,8 +2,10 @@ module freq_generator (
     input logic        clk,
     input logic        reset_n,
     input logic [29:0] f_c,
-    input logic [ 1:0] osr_level,  // 0: 32, 1: 64, 2: 128, 3: 256
+    input logic [ 1:0] osr_level,   // 0: 32, 1: 64, 2: 128, 3: 256
     input logic [ 2:0] lo_div_sel,
+    input logic        ds_mode,
+    input logic        ds_invert,
 
     input logic start,
 
@@ -56,9 +58,9 @@ module freq_generator (
       .i_clk(clk),
       .i_ena_mod(dsmod_ena),
       .i_data(cosine),
-      .i_out_invert(1'b0),
+      .i_out_invert(ds_invert),
       .o_data_rd(dsmod_cos_data_rd),
-      .i_mode(1'b0),
+      .i_mode(ds_mode),
       .i_osr(osr_level),
       .o_ds(cos_ds),
       .o_ds_n(cos_ds_n)
@@ -70,9 +72,9 @@ module freq_generator (
       .i_clk(clk),
       .i_ena_mod(dsmod_ena),
       .i_data(sine),
-      .i_out_invert(1'b0),
+      .i_out_invert(ds_invert),
       .o_data_rd(dsmod_sin_data_rd),
-      .i_mode(1'b0),
+      .i_mode(ds_mode),
       .i_osr(osr_level),
       .o_ds(sin_ds),
       .o_ds_n(sin_ds_n)
