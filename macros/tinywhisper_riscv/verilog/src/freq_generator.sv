@@ -53,32 +53,42 @@ module freq_generator (
 
   logic dsmod_ena;
   logic dsmod_cos_data_rd;
+  logic cos_o_ds;
+  logic cos_o_ds_n;
   dsmod dsmod_cos (
       .i_rst_n(transmission_reset_n),
       .i_clk(clk),
       .i_ena_mod(dsmod_ena),
       .i_data(cosine),
-      .i_out_invert(ds_invert),
+      .i_out_invert(1'b0),
       .o_data_rd(dsmod_cos_data_rd),
       .i_mode(ds_mode),
       .i_osr(osr_level),
-      .o_ds(cos_ds),
-      .o_ds_n(cos_ds_n)
+      .o_ds(cos_o_ds),
+      .o_ds_n(cos_o_ds_n)
   );
 
+  assign cos_ds   = (ds_invert) ? cos_o_ds_n : cos_o_ds;
+  assign cos_ds_n = (ds_invert) ? cos_o_ds : cos_o_ds_n;
+
   logic dsmod_sin_data_rd;
+  logic sin_o_ds;
+  logic sin_o_ds_n;
   dsmod dsmod_sin (
       .i_rst_n(transmission_reset_n),
       .i_clk(clk),
       .i_ena_mod(dsmod_ena),
       .i_data(sine),
-      .i_out_invert(ds_invert),
+      .i_out_invert(1'b0),
       .o_data_rd(dsmod_sin_data_rd),
       .i_mode(ds_mode),
       .i_osr(osr_level),
       .o_ds(sin_ds),
       .o_ds_n(sin_ds_n)
   );
+
+  assign sin_ds   = (ds_invert) ? sin_o_ds_n : sin_o_ds;
+  assign sin_ds_n = (ds_invert) ? sin_o_ds : sin_o_ds_n;
 
   logic lo_enable;
   lo_gen lo_gen (

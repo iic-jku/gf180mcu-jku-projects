@@ -270,6 +270,7 @@ module memory #(
       sclk_flag <= 0;
       i2c_mask <= 4'b1111;
       i2c_addr <= 6'b0;
+      ds_lo_conf <= 5'b00100;
       state <= IDLE;
       target <= SRAM;
     end else if (ce) begin
