@@ -83,8 +83,8 @@ module freq_generator (
       .o_data_rd(dsmod_sin_data_rd),
       .i_mode(ds_mode),
       .i_osr(osr_level),
-      .o_ds(sin_ds),
-      .o_ds_n(sin_ds_n)
+      .o_ds(sin_o_ds),
+      .o_ds_n(sin_o_ds_n)
   );
 
   assign sin_ds   = (ds_invert) ? sin_o_ds_n : sin_o_ds;
