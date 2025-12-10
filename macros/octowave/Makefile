@@ -3,7 +3,7 @@ MAKEFILE_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 RUN_TAG = $(shell ls librelane/runs/ | tail -n 1)
 TOP = octowave
 
-PDK_ROOT ?= $(MAKEFILE_DIR)/../../gf180mcu_dev
+PDK_ROOT ?= $(MAKEFILE_DIR)/../../gf180mcu
 PDK ?= gf180mcuD
 PDK_TAG ?= 1.6.3
 
