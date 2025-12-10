@@ -8,6 +8,8 @@ TinyWhisper RISC-V: (1300, 100) to (2900, 1500)
 
 Tetris: (1500, 1700) to (2900, 2900)
 
+TinyStack: (300, 1600) to (500, 1700)
+
 Studi Projects: (100, 100) to (1100, 1500)
 - Multiplexer: (100, 100) to (200, 1500)	
 - TinyBF: (300, 1000) to (700, 1500)

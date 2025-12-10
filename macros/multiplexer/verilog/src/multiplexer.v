@@ -21,49 +21,65 @@ module multiplexer (
 	inout  wire VSS,
 	`endif
 	
-	input  wire        clk,      		// clock
+	input  wire        clk,      				// clock
 	
 	// Multiplexer - Interface to Pad-Ring
-	input  wire [2:0]  design_sel_in, 	// design select (3 bits)
+	input  wire [2:0]  design_sel_in, 			// design select (3 bits)
 	// Note that only the outputs of the projects are muxed.
 	// The inputs of the projects are connected in parallel.
 	// Meaning that all projects are running simultaneously, but only the outputs of one project are observed.
 	// After a project switch with "design_sel_in" a reset is recommended.
-	// input  wire [11:0] mux_in,			// 12 inputs for all projects
-	output  wire [10:0] mux_out,			// 11 outputs for all projects
+	// input  wire [11:0] mux_in,				// 12 inputs for all projects
+	output  wire [10:0] mux_out,				// 11 outputs for all projects
+	
+	// Tetris
+	// output up_r_o, 							// Tetris: input  up_r_i
+	// output down_r_o, 						// Tetris: input  down_r_i
+	// output left_r_o, 						// Tetris: input  left_r_i
+	// output right_r_o, 						// Tetris: input  right_r_i
+	// output game_speed_o, 					// Tetris: input  game_speed_i
+	input  wire [5:0] Data_i, 					// Tetris: output [5:0] Data_o
+	input  wire hsync_i, 						// Tetris: output hsync_o
+	input  wire vsync_i, 						// Tetris: output vsync_o
+	input  wire video_active_i, 				// Tetris: output video_active_o
+	input  wire pix_clk_i, 						// Tetris: output pix_clk_o
+	
+	// TinyStack
+	// output wire [4:0] ui_wokwi_out, 			// TinyStack: input  wire [4:0] ui_wokwi_in
+	input  wire [7:0] uo_wokwi_in, 				// TinyStack: output wire [7:0] uo_wokwi_out
 	
 	// TinyBF
-	// output wire [3:0] uo_out,			// TinyBF: input  wire [3:0] ui_in
-	input  wire [3:0] uio_in,				// TinyBF: output wire [3:0] uio_out
-    input  wire [6:0] ui_in,				// TinyBF: output wire [6:0] uo_out
+	// output wire [3:0] uo_out,				// TinyBF: input  wire [3:0] ui_in
+	input  wire [3:0] uio_in,					// TinyBF: output wire [3:0] uio_out
+    input  wire [6:0] ui_in,					// TinyBF: output wire [6:0] uo_out
 	
 	// SAR ADC Controller
-	// output wire start_out,				// SAR ADC Controller: input wire start
-	// output wire comp_out,				// SAR ADC Controller: input wire comp_in
-	input  wire [7:0] dac_bits_in,			// SAR ADC Controller: output wire [7:0] dac_bits
-	input  wire spi_miso_in,				// SAR ADC Controller: output wire spi_miso
-	input  wire spi_sclk_in,				// SAR ADC Controller: output wire spi_sclk
-	input  wire done_in,					// SAR ADC Controller: output wire done
+	// output wire start_out,					// SAR ADC Controller: input wire start
+	// output wire comp_out,					// SAR ADC Controller: input wire comp_in
+	input  wire [7:0] dac_bits_in,				// SAR ADC Controller: output wire [7:0] dac_bits
+	input  wire spi_miso_in,					// SAR ADC Controller: output wire spi_miso
+	input  wire spi_sclk_in,					// SAR ADC Controller: output wire spi_sclk
+	input  wire done_in,						// SAR ADC Controller: output wire done
 	
 	// Led Spinner
-	// output wire [3:0] speed_bits_out,	// Led Spinner: input  wire [3:0] speed_bits_in
-	// output wire       stop_wheel_out,	// Led Spinner: input  wire       stop_wheel_in
-	// output wire [5:0] guess_bits_out,	// Led Spinner: input  wire [5:0] guess_bits_in
-	input  wire [6:0] seg_bits_in,			// Led Spinner: output wire [6:0] seg_bits_out
-	input  wire		  dp_on_in,				// Led Spinner: output wire		  dp_on_out
+	// output wire [3:0] speed_bits_out,		// Led Spinner: input  wire [3:0] speed_bits_in
+	// output wire       stop_wheel_out,		// Led Spinner: input  wire       stop_wheel_in
+	// output wire [5:0] guess_bits_out,		// Led Spinner: input  wire [5:0] guess_bits_in
+	input  wire [6:0] seg_bits_in,				// Led Spinner: output wire [6:0] seg_bits_out
+	input  wire		  dp_on_in,					// Led Spinner: output wire		  dp_on_out
 	
 	// TinyToneGen
-	// output wire       ena_out,			// TinyToneGen: input  wire       ena
-	// output wire [2:0] address_out,		// TinyToneGen: input  wire [2:0] address_in  
-	// output wire 	  write_strobe_out,		// TinyToneGen: input  wire 	  write_strobe_in  
-	// output wire [4:0] data_out,			// TinyToneGen: input  wire [4:0] data_in
-	input  wire 	  signal_bit_in,		// TinyToneGen: output wire 	  signal_bit_out
+	// output wire       ena_out,				// TinyToneGen: input  wire       ena
+	// output wire [2:0] address_out,			// TinyToneGen: input  wire [2:0] address_in  
+	// output wire 	  write_strobe_out,			// TinyToneGen: input  wire 	  write_strobe_in  
+	// output wire [4:0] data_out,				// TinyToneGen: input  wire [4:0] data_in
+	input  wire 	  signal_bit_in,			// TinyToneGen: output wire 	  signal_bit_out
 	
 	// Digital Filter
-	// output wire 	  enconfig_out, 		// Digital Filter: input wire enconfig
-	// output wire [2:0] config_out, 		// Digital Filter: input wire [2:0] configin
-	// output wire [7:0] data_out, 			// Digital Filter: input wire [7:0] datain
-	input  wire [7:0] data_in,				// Digital Filter: output wire [7:0] dataout
+	// output wire 	  enconfig_out, 			// Digital Filter: input wire enconfig
+	// output wire [2:0] config_out, 			// Digital Filter: input wire [2:0] configin
+	// output wire [7:0] data_out, 				// Digital Filter: input wire [7:0] datain
+	input  wire [7:0] data_in,					// Digital Filter: output wire [7:0] dataout
 	
 	// Traffic Light Controller
 	// output wire switch_traffic_light_on_out, // Traffic Light Controller: input  wire switch_traffic_light_on_in
@@ -79,18 +95,6 @@ module multiplexer (
 	input  wire SCLK_in, 						// Traffic Light Controller: output wire SCLK_out
 	input  wire pushed_left_in, 				// Traffic Light Controller: output wire pushed_left_out
 	input  wire pushed_right_in, 				// Traffic Light Controller: output wire pushed_right_out
-	
-	// Tetris
-	// output up_r_o, 							// Tetris: input  up_r_i
-	// output down_r_o, 						// Tetris: input  down_r_i
-	// output left_r_o, 						// Tetris: input  left_r_i
-	// output right_r_o, 						// Tetris: input  right_r_i
-	// output game_speed_o, 					// Tetris: input  game_speed_i
-	input  wire [5:0] Data_i, 					// Tetris: output [5:0] Data_o
-	input  wire hsync_i, 						// Tetris: output hsync_o
-	input  wire vsync_i, 						// Tetris: output vsync_o
-	input  wire video_active_i, 				// Tetris: output video_active_o
-	input  wire pix_clk_i, 						// Tetris: output pix_clk_o
 	
 	// Classic VGA Clock
     // output wire hour_out, 					// Classic VGA Clock: input wire hour_in
@@ -131,14 +135,17 @@ module multiplexer (
 				mux_out_reg[7] 	  = dp_on_in;
 				mux_out_reg[6:0]  = seg_bits_in;
 			end
-			// TinyToneGen
+			// TinyStack
 			3'b011: begin
-				mux_out_reg[10:1] = 10'b0000000000;
-				mux_out_reg[0] 	  = signal_bit_in;
-			end
-			// Digital Filter
-			3'b100: begin
 				mux_out_reg[10:8] = 3'b000;
+				mux_out_reg[7:0]  = uo_wokwi_in;
+			end
+			// TinyToneGen & Digital Filter
+			3'b100: begin
+				mux_out_reg[10:9] = 2'b00;
+				// TinyToneGen
+				mux_out_reg[8] 	  = signal_bit_in;
+				// Digital Filter
 				mux_out_reg[7:0]  = data_in;
 			end
 			// Traffic Light Controller

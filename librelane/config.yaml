@@ -296,6 +296,34 @@ MACROS:
         location: ["expr::442 + 24 + 1500", "expr::442 + 19 + 1700"]
         orientation: N
   
+  tiny_stack:
+    gds:
+      - dir::../macros/tiny_stack/final/gds/tiny_stack.gds
+    lef:
+      - dir::../macros/tiny_stack/final/lef/tiny_stack.lef
+    pnl:
+      - dir::../macros/tiny_stack/final/pnl/tiny_stack.pnl.v
+    nl:
+      - dir::../macros/tiny_stack/final/nl/tiny_stack.nl.v
+    spef:
+      min_*: dir::../macros/tiny_stack/final/spef/min/tiny_stack.min.spef
+      nom_*: dir::../macros/tiny_stack/final/spef/nom/tiny_stack.nom.spef
+      max_*: dir::../macros/tiny_stack/final/spef/max/tiny_stack.max.spef
+    lib:
+      max_ff_n40C_5v50: dir::../macros/tiny_stack/final/lib/max_ff_n40C_5v50/tiny_stack__max_ff_n40C_5v50.lib
+      max_ss_125C_4v50: dir::../macros/tiny_stack/final/lib/max_ss_125C_4v50/tiny_stack__max_ss_125C_4v50.lib
+      max_tt_025C_5v00: dir::../macros/tiny_stack/final/lib/max_tt_025C_5v00/tiny_stack__max_tt_025C_5v00.lib
+      min_ff_n40C_5v50: dir::../macros/tiny_stack/final/lib/min_ff_n40C_5v50/tiny_stack__min_ff_n40C_5v50.lib
+      min_ss_125C_4v50: dir::../macros/tiny_stack/final/lib/min_ss_125C_4v50/tiny_stack__min_ss_125C_4v50.lib
+      min_tt_025C_5v00: dir::../macros/tiny_stack/final/lib/min_tt_025C_5v00/tiny_stack__min_tt_025C_5v00.lib
+      nom_ff_n40C_5v50: dir::../macros/tiny_stack/final/lib/nom_ff_n40C_5v50/tiny_stack__nom_ff_n40C_5v50.lib
+      nom_ss_125C_4v50: dir::../macros/tiny_stack/final/lib/nom_ss_125C_4v50/tiny_stack__nom_ss_125C_4v50.lib
+      nom_tt_025C_5v00: dir::../macros/tiny_stack/final/lib/nom_tt_025C_5v00/tiny_stack__nom_tt_025C_5v00.lib
+    instances:
+      i_chip_core.tiny_stack:
+        location: ["expr::442 + 24 + 300", "expr::442 + 19 + 1600"]
+        orientation: N
+        
   multiplexer:
     gds:
       - dir::../macros/multiplexer/librelane/runs/latest/final/gds/multiplexer.gds

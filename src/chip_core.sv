@@ -177,6 +177,21 @@ module chip_core #(
 	);
 	// ======================================================
 	
+	// TinyStack - LiTec
+	logic [7:0] uo_wokwi_out;
+	
+	tiny_stack tiny_stack (
+		`ifdef USE_POWER_PINS
+        .VDD(VDD),
+		.VSS(VSS),
+		`endif
+		.clk(clk),
+		.rst_n(rst_n),
+		.ui_wokwi_in(input_in[11:7]),
+		.uo_wokwi_out(uo_wokwi_out)
+	);
+	// ======================================================
+	
 	// ======================================================
 	// STUDENT PROJECTS
 	// ======================================================
@@ -221,18 +236,33 @@ module chip_core #(
 		.VSS(VSS),
 		`endif
 		.clk(clk),
+		// Multiplexer
 		.design_sel_in(input_in[14:12]),
 		.mux_out(mux_out),
+		// Tetris
+		.Data_i(tetris_data_o),
+		.hsync_i(tetris_hsync_o),
+		.vsync_i(tetris_vsync_o),
+		.video_active_i(tetris_video_active_o),
+		.pix_clk_i(tetris_pix_clk_o),
+		// TinyStack
+		.uo_wokwi_in(uo_wokwi_out),
+		// TinyBF
 		.uio_in(uio_out),
 		.ui_in(uo_out),
+		// SAR ADC Controller
 		.dac_bits_in(dac_bits),
 		.spi_miso_in(spi_miso),
 		.spi_sclk_in(spi_sclk),
 		.done_in(done),
+		// Led Spinner
 		.seg_bits_in(seg_bits_out),
 		.dp_on_in(dp_on_out),
+		// TinyToneGen
 		.signal_bit_in(signal_bit_out),
+		// Digital Filter
 		.data_in(dataout),
+		// Traffic Light Controller
 		.car_red_light_in(car_red_light_out),
 		.car_yellow_light_in(car_yellow_light_out),
 		.car_green_light_in(car_green_light_out),
@@ -243,11 +273,7 @@ module chip_core #(
 		.SCLK_in(SCLK_out),
 		.pushed_left_in(pushed_left_out),
 		.pushed_right_in(pushed_right_out),
-		.Data_i(tetris_data_o),
-		.hsync_i(tetris_hsync_o),
-		.vsync_i(tetris_vsync_o),
-		.video_active_i(tetris_video_active_o),
-		.pix_clk_i(tetris_pix_clk_o),
+		// Classic VGA Clock
 		.buzzer_in(buzzer_out),
 		.vga_horizSync_in(vga_horizSync_out),
 		.vga_vertSync_in(vga_vertSync_out),
@@ -255,6 +281,7 @@ module chip_core #(
 	);
 	// ======================================================
 	
+	// TinyBF - Rene Hahn
 	rh_bf_top rh_bf_top (
 		`ifdef USE_POWER_PINS
         .VDD(VDD),
@@ -302,7 +329,6 @@ module chip_core #(
 	// ======================================================
 	
 	// TinyToneGen - Felix Feierabend
-	
 	tiny_tonegen tiny_tonegen (
 		`ifdef USE_POWER_PINS
         .VDD(VDD),
@@ -319,7 +345,6 @@ module chip_core #(
 	// ======================================================
 	
 	// Digital Filter - Gregor Flachs
-	
 	df_digital_filter df_digital_filter (
 		`ifdef USE_POWER_PINS
         .VDD(VDD),
@@ -335,7 +360,6 @@ module chip_core #(
 	// ======================================================
 	
 	// Traffic Light Controller - Maximilian Kernmaier
-	
 	traffic_light traffic_light (
 		`ifdef USE_POWER_PINS
         .VDD(VDD),
@@ -360,7 +384,6 @@ module chip_core #(
 	// ======================================================
 	
 	// VGA Clock - Timo Laimer
-	
 	classic_vga_clock classic_vga_clock (
 		`ifdef USE_POWER_PINS
         .VDD(VDD),
@@ -383,13 +406,13 @@ module chip_core #(
     // ======================================================
 	// OUTPUT ASSIGNMENT
 	// ======================================================
-	// multiplexer
+	// Multiplexer
 	assign bidir_out[40] = mux_out[3];
 	assign bidir_out[39] = mux_out[2];
 	assign bidir_out[38] = mux_out[1];
 	assign bidir_out[37] = mux_out[0];
 	
-	// octowave
+	// Octowave
 	assign bidir_out[36] = channel_o[7];
 	assign bidir_out[35] = channel_o[6];
 	assign bidir_out[34] = channel_o[5];
@@ -400,11 +423,11 @@ module chip_core #(
 	assign bidir_out[29] = channel_o[0];
 	assign bidir_out[28] = uart_tx_o;
 	
-	// decimator
+	// Decimation Filter
 	assign bidir_out[27] = dec_data_o;
 	assign bidir_out[26] = frame_sync_o;
 	
-	// tinywhisper_riscv
+	// TinyWhisper RISC-V
 	assign bidir_out[25] = gpio_out[3];
 	assign bidir_out[24] = gpio_out[2];
 	assign bidir_out[23] = gpio_out[1];
@@ -425,10 +448,10 @@ module chip_core #(
 	assign bidir_out[9] = cos_ds_n;
 	assign bidir_out[8] = cos_ds;
 	
-	// tiny_tone
+	// TinyTone
     assign bidir_out[7] = sound_out;
 	
-	// multiplexer
+	// Multiplexer
 	assign bidir_out[6] = mux_out[10];
 	assign bidir_out[5] = mux_out[9];
 	assign bidir_out[4] = mux_out[8];

@@ -87,11 +87,11 @@ PAD_NORTH: [
     "bidir\\[30\\].pad",
     "bidir\\[29\\].pad",
     "bidir\\[28\\].pad",
-    "inputs\\[11\\].pad", 	# up_r_i (tetris) / speed_bits_in[3] (led_spinner) / ena (tiny_tonegen) / enconfig (df_digital_filter) / switch_traffic_light_on_in (traffic_light) / hour_in (classic_vga_clock)
-    "inputs\\[10\\].pad",	# down_r_i (tetris) / ui_in[3] (brainfuck) / speed_bits_in[2] (led_spinner) / address_in[2] (tiny_tonegen) / configin[2] (df_digital_filter) / ped_request_left_in (traffic_light) / min_in (classic_vga_clock)
-    "inputs\\[9\\].pad",	# left_r_i (tetris) / ui_in[2] (brainfuck) / speed_bits_in[1] (led_spinner) / address_in[1] (tiny_tonegen) / configin[1] (df_digital_filter) / ped_request_right_in (traffic_light) / sec_in (classic_vga_clock)
-    "inputs\\[8\\].pad",	# right_r_i (tetris) / ui_in[1] (brainfuck) / start (sar_adc) / speed_bits_in[0] (led_spinner) / address_in[0] (tiny_tonegen) / configin[0] (df_digital_filter) / al_in (classic_vga_clock)
-    "inputs\\[7\\].pad", 	# game_speed_i (tetris) / ui_in[0] (brainfuck) / comp_in (sar_adc) / stop_wheel_in (led_spinner) / write_strobe_in (tiny_tonegen) / input_in[7] (df_digital_filter) / al_on_off_toggle_in (classic_vga_clock)
+    "inputs\\[11\\].pad", 	# up_r_i (tetris) / ui_wokwi_in[4] / speed_bits_in[3] (led_spinner) / ena (tiny_tonegen) / enconfig (df_digital_filter) / switch_traffic_light_on_in (traffic_light) / hour_in (classic_vga_clock)
+    "inputs\\[10\\].pad",	# down_r_i (tetris) / ui_wokwi_in[3] / ui_in[3] (brainfuck) / speed_bits_in[2] (led_spinner) / address_in[2] (tiny_tonegen) / configin[2] (df_digital_filter) / ped_request_left_in (traffic_light) / min_in (classic_vga_clock)
+    "inputs\\[9\\].pad",	# left_r_i (tetris) / ui_wokwi_in[2] / ui_in[2] (brainfuck) / speed_bits_in[1] (led_spinner) / address_in[1] (tiny_tonegen) / configin[1] (df_digital_filter) / ped_request_right_in (traffic_light) / sec_in (classic_vga_clock)
+    "inputs\\[8\\].pad",	# right_r_i (tetris) / ui_wokwi_in[1] / ui_in[1] (brainfuck) / start (sar_adc) / speed_bits_in[0] (led_spinner) / address_in[0] (tiny_tonegen) / configin[0] (df_digital_filter) / al_in (classic_vga_clock)
+    "inputs\\[7\\].pad", 	# game_speed_i (tetris) / ui_wokwi_in[0] / ui_in[0] (brainfuck) / comp_in (sar_adc) / stop_wheel_in (led_spinner) / write_strobe_in (tiny_tonegen) / input_in[7] (df_digital_filter) / al_on_off_toggle_in (classic_vga_clock)
 
     "dvss_pads\\[5\\].pad",
     

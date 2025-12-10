@@ -27,6 +27,11 @@ https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 	--> 10 x outputs
 	--> 1400um x 1200um
 
+- TinyStack - LiTec
+	--> 7 x inputs (incl. clk + rst)
+	--> 8 x outputs
+	--> 200um x 100um
+
 - Multiplexer
 	--> 100um x 1400um
 	
