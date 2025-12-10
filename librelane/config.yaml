@@ -56,10 +56,9 @@ SIGNOFF_SDC_FILE: dir::chip_top.sdc
 FALLBACK_SDC: dir::chip_top.sdc
 
 # Power / ground nets
-VDD_NETS:
-- VDD
-GND_NETS:
-- VSS
+VDD_NETS: ["VDD"]
+GND_NETS: ["VSS"]
+VERILOG_POWER_DEFINE: "USE_POWER_PINS"
 
 # We need to add gf180mcu_fd_io__bi_24t
 # due to the unused Y output for output only pads
