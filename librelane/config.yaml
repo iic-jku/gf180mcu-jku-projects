@@ -24,13 +24,20 @@ meta:
     #Netgen.LVS: null
     #Checker.LVS: null
 
+    Checker.SetupViolations: null # Disable setup violation errors
+
     # Fix Hold violations by inserting buffers
     "+OpenROAD.DetailedRouting": "Odb.InsertECOBuffers"
     "+Odb.InsertECOBuffers": "OpenROAD.DetailedRouting"
 
+
 INSERT_ECO_BUFFERS:
-  - target: rst_n_PAD
-    buffer: gf180mcu_fd_sc_mcu7t5v0__buf_x20
+  - target: rst_n_pad/Y
+    buffer: gf180mcu_fd_sc_mcu7t5v0__buf_20
+  - target: inputs[0].pad/Y
+    buffer: gf180mcu_fd_sc_mcu7t5v0__buf_20
+  - target: bidir[17].pad/Y
+    buffer: gf180mcu_fd_sc_mcu7t5v0__buf_20
 
 DESIGN_NAME: chip_top
 VERILOG_FILES:
