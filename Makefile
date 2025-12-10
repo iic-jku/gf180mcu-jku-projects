@@ -94,65 +94,70 @@ build-tiny_tone:
 	@$(MAKE) -C macros/tiny_tone copy-final
 .PHONY: build-tiny_tone
 
-build-tiny_tonegen:
-	@$(MAKE) -C macros/tiny_tonegen librelane
-	@$(MAKE) -C macros/tiny_tonegen copy-final
-.PHONY: build-tiny_tonegen
+build-decimation_filter_ser:
+	@$(MAKE) -C macros/decimation_filter_256_ser librelane
+	@$(MAKE) -C macros/decimation_filter_256_ser copy-final
+.PHONY: build-decimation_filter_ser
 
 build-octowave:
 	@$(MAKE) -C macros/octowave librelane
 	@$(MAKE) -C macros/octowave copy-final
 .PHONY: build-octowave
 
-build-decimation_filter_ser:
-	@$(MAKE) -C macros/decimation_filter_256_ser librelane
-	@$(MAKE) -C macros/decimation_filter_256_ser copy-final
-.PHONY: build-decimation_filter_ser
-
 build-tinywhisper_riscv:
 	@$(MAKE) -C macros/tinywhisper_riscv librelane
 	@$(MAKE) -C macros/tinywhisper_riscv copy-final
 .PHONY: build-tinywhisper_riscv
-
-build-traffic_light_controller:
-	@$(MAKE) -C macros/traffic_light_controller librelane
-	@$(MAKE) -C macros/traffic_light_controller copy-final
-.PHONY: build-traffic_light_controller
-
-build-digital_filter:
-	@$(MAKE) -C macros/digital_filter librelane
-	@$(MAKE) -C macros/digital_filter copy-final
-.PHONY: build-digital_filter
-
-build-adc_sar_controller:
-	@$(MAKE) -C macros/adc_sar_controller librelane
-	@$(MAKE) -C macros/adc_sar_controller copy-final
-.PHONY: build-adc_sar_controller
 
 build-tetris:
 	@$(MAKE) -C macros/tetris librelane
 	@$(MAKE) -C macros/tetris copy-final
 .PHONY: build-tetris
 
+build-tiny_stack:
+	@$(MAKE) -C macros/tiny_stack librelane
+	@$(MAKE) -C macros/tiny_stack copy-final
+.PHONY: build-tiny_stack
+
 build-multiplexer:
 	@$(MAKE) -C macros/multiplexer librelane
 	@$(MAKE) -C macros/multiplexer copy-final
 .PHONY: build-multiplexer
-
-build-led_spinner:
-	@$(MAKE) -C macros/led_spinner librelane
-	@$(MAKE) -C macros/led_spinner copy-final
-.PHONY: build-led_spinner
 
 build-tiny_bf:
 	@$(MAKE) -C macros/tiny_bf librelane
 	@$(MAKE) -C macros/tiny_bf copy-final
 .PHONY: build-tiny_bf
 
+build-adc_sar_controller:
+	@$(MAKE) -C macros/adc_sar_controller librelane
+	@$(MAKE) -C macros/adc_sar_controller copy-final
+.PHONY: build-adc_sar_controller
+
+build-led_spinner:
+	@$(MAKE) -C macros/led_spinner librelane
+	@$(MAKE) -C macros/led_spinner copy-final
+.PHONY: build-led_spinner
+
+build-tiny_tonegen:
+	@$(MAKE) -C macros/tiny_tonegen librelane
+	@$(MAKE) -C macros/tiny_tonegen copy-final
+.PHONY: build-tiny_tonegen
+
+build-digital_filter:
+	@$(MAKE) -C macros/digital_filter librelane
+	@$(MAKE) -C macros/digital_filter copy-final
+.PHONY: build-digital_filter
+
+build-traffic_light_controller:
+	@$(MAKE) -C macros/traffic_light_controller librelane
+	@$(MAKE) -C macros/traffic_light_controller copy-final
+.PHONY: build-traffic_light_controller
+
 build-classic_vga_clock:
 	@$(MAKE) -C macros/classic_vga_clock librelane
 	@$(MAKE) -C macros/classic_vga_clock copy-final
 .PHONY: build-classic_vga_clock
 
-build-all-macros: build-tiny_tone build-adc_sar_controller build-classic_vga_clock build-decimation_filter_ser build-digital_filter build-led_spinner build-multiplexer build-octowave build-tetris build-tinywhisper_riscv build-tiny_bf build-tiny_tonegen build-traffic_light_controller
+build-all-macros: build-tiny_tone build-decimation_filter_ser build-octowave build-tinywhisper_riscv build-tetris build-tiny_stack build-multiplexer build-tiny_bf build-adc_sar_controller build-led_spinner build-tiny_tonegen build-digital_filter build-traffic_light_controller build-classic_vga_clock
 .PHONY: build-all-macros
