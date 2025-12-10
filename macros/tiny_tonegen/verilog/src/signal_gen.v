@@ -13,7 +13,7 @@ module signal_generator (
     output signal_out       // output for the audio signal
 );
 
-    reg [7:0] periodA = 12'd200;
+    reg [7:0] periodA = 8'd200;
     reg [3:0] volA = 4'd8;
     reg [3:0] volN = 4'd3;
     
@@ -59,14 +59,14 @@ module signal_generator (
 
     always @(posedge clk) begin
         if (!rst) begin
-            periodA = 12'd200;
+            periodA = 8'd200;
             volA = 4'd8;
             volN = 4'd3;
             enableN = 1;
         end else begin
             if (write_strobe) begin
                 case (address)
-                    3'b000: periodA <= {periodA[11:5], data};
+                    3'b000: periodA <= {data, periodA[2:0]};
                     3'b010: volA <= data[3:0];
                     3'b100: volN <= data[3:0];
                     3'b101: {enableA, enableN} <= {data[1:0]};

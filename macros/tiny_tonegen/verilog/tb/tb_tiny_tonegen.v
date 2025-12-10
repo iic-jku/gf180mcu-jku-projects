@@ -1,14 +1,5 @@
 `timescale 1ns / 1ns // `timescale <time_unit> / <time_precision>
 
-`include "../src/tiny_tonegen.v"
-`include "../src/lfsr.v"
-`include "../src/mixer.v"
-`include "../src/clock_scaler.v"
-`include "../src/pwm8.v"
-`include "../src/adsr.v"
-`include "../src/signal_gen.v"
-`include "../src/mult4x4.v"
-
 module tb_tiny_tonegen;
     reg clk = 1'b0;
     reg write_strb = 0;
