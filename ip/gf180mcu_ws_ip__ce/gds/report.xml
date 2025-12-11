@@ -2,7 +2,7 @@
 <report-database>
  <description>DRC Run Report at</description>
  <original-file/>
- <generator>drc: script='/home/jonathan/Projekte/gf180mcu-tinyrv-radio/ip/gf180mcu_ws_ip__ce/../../gf180mcu/gf180mcuD/libs.tech/klayout/tech/drc/gf180mcu.drc'</generator>
+ <generator>drc: script='/home/dorrer/eda/designs/gf180mcu-jku-projects/ip/gf180mcu_ws_ip__ce/../../gf180mcu/gf180mcuD/libs.tech/klayout/tech/drc/gf180mcu.drc'</generator>
  <top-cell>gf180mcu_ws_ip__ce</top-cell>
  <tags>
  </tags>
@@ -117,7 +117,7 @@
   </category>
   <category>
    <name>MT.2b</name>
-   <description>MT.2b : Space to wide Metal2 (length &amp; width &gt; 10um) : 0.6µm</description>
+   <description>MT.2b : Space to wide metaltop (length &amp; width &gt; 10um) : 0.6µm</description>
    <categories>
    </categories>
   </category>
@@ -444,6 +444,18 @@
   <category>
    <name>DE.4</name>
    <description>DE.4 : Minimum NDMY to NDMY space (Merge if space is less) : 20µm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CUP.2</name>
+   <description>CUP.2 : Minimum width of the metal (#{metal_name}) line used for bond pads: 1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CUP.3</name>
+   <description>CUP.3 : Minimum space of the metal (#{metal_name}) line used for bond pads (slots): 1</description>
    <categories>
    </categories>
   </category>
