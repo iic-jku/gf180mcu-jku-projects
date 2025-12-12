@@ -13,10 +13,14 @@ module tiny_stack(
   inout  wire VDD,
   inout  wire VSS,
   `endif
+  
+  // Inputs
   input clk,
   input rst_n,
-  input  wire [4:0] ui_wokwi_in,    // Dedicated inputs
-  output wire [7:0] uo_wokwi_out	// Dedicated outputs
+  input  wire [4:0] ui_wokwi_in,
+  
+  // Outputs
+  output wire [7:0] uo_wokwi_out
 );
   wire net1 = clk;
   wire net2 = rst_n;
