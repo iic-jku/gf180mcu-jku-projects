@@ -1,4 +1,6 @@
+`ifndef SIM
 `include "./mult4x4.v"
+`endif
 
 module mixer (
     input clk,

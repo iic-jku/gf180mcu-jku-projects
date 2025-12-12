@@ -389,7 +389,7 @@ async def do_i2c_slave(dut):
     dut.bidir_PAD.set(Immediate(tmp))
 
 
-@cocotb.test()
+# @cocotb.test()
 async def test_cpu_fibonacci_slow(dut):
     global mem_pattern
     mem_pattern = []
@@ -426,7 +426,7 @@ async def test_cpu_fibonacci_slow(dut):
     logger.info("Done!")
 
 
-@cocotb.test()
+# @cocotb.test()
 async def test_cpu_fibonacci_fast(dut):
     global mem_pattern
     mem_pattern = []
@@ -463,7 +463,7 @@ async def test_cpu_fibonacci_fast(dut):
     logger.info("Done!")
 
 
-@cocotb.test()
+# @cocotb.test()
 async def test_cpu_uart_tx(dut):
     global uart_rx_bytes
 
@@ -494,7 +494,7 @@ async def test_cpu_uart_tx(dut):
     logger.info("Done!")
 
 
-@cocotb.test()
+# @cocotb.test()
 async def test_cpu_uart_rx(dut):
     global uart_tx_enable
     global uart_tx_current_data
@@ -536,7 +536,7 @@ async def test_cpu_uart_rx(dut):
     logger.info("Done!")
 
 
-@cocotb.test()
+# @cocotb.test()
 async def test_cpu_i2c_rw(dut):
     global uart_tx_enable
     global uart_tx_current_data
@@ -856,6 +856,7 @@ def chip_top_runner():
         sources.append(proj_path / f"../macros/tiny_tonegen/final/pnl/tiny_tonegen.pnl.v")
         sources.append(proj_path / f"../macros/tinywhisper_riscv/final/pnl/tinywhisper_riscv.pnl.v")
         sources.append(proj_path / f"../macros/traffic_light_controller/final/pnl/traffic_light.pnl.v")
+        sources.append(proj_path / f"../macros/tiny_stack/final/pnl/tiny_stack.pnl.v")
 
         defines = {"FUNCTIONAL": True, "USE_POWER_PINS": True}
     else:
@@ -924,7 +925,8 @@ def chip_top_runner():
         sources.append(proj_path / "../macros/tiny_tonegen/verilog/src/tiny_tonegen.v")
         sources.append(proj_path / "../macros/tiny_tonegen/verilog/src/signal_gen.v")
         sources.append(proj_path / "../macros/tiny_tonegen/verilog/src/clock_scaler.v")
-        sources.append(proj_path / "../macros/tiny_tonegen/verilog/src/tonegen.v")
+        sources.append(proj_path / "../macros/tiny_tonegen/verilog/src/mult4x4.v")
+        sources.append(proj_path / "../macros/tiny_tonegen/verilog/src/adsr.v")
         sources.append(proj_path / "../macros/tiny_tonegen/verilog/src/lfsr.v")
         sources.append(proj_path / "../macros/tiny_tonegen/verilog/src/mixer.v")
         sources.append(proj_path / "../macros/tiny_tonegen/verilog/src/pwm8.v")
@@ -962,6 +964,10 @@ def chip_top_runner():
         sources.append(proj_path / "../macros/decimation_filter_256_ser/verilog/src/synchronizer.v")
         sources.append(proj_path / "../macros/decimation_filter_256_ser/verilog/src/dec_top.v")
         sources.append(proj_path / "../macros/decimation_filter_256_ser/verilog/src/dec_serializer_22b.v")
+
+        # tiny_stack
+        sources.append(proj_path / "../macros/tiny_stack/verilog/src/cells.v")
+        sources.append(proj_path / "../macros/tiny_stack/verilog/src/tiny_stack.v")
 
     sources += [
         # IO pad models

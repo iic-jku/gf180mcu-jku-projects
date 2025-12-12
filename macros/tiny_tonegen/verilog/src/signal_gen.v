@@ -1,7 +1,9 @@
+`ifndef SIM
 `include "./adsr.v"
 `include "./pwm8.v"
 `include "./lfsr.v"
 `include "./mixer.v"
+`endif
 
 module signal_generator (
     input clk,              // clock 

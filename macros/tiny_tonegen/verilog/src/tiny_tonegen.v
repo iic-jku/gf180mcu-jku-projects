@@ -1,7 +1,9 @@
 // Author: Felix Feierabend
 
+`ifndef SIM
 `include "./signal_gen.v"
 `include "./clock_scaler.v"
+`endif
 
 module tiny_tonegen (
 	// VDD / VSS
