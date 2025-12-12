@@ -4,6 +4,11 @@ meta:
   substituting_steps:
     KLayout.DRC: null
     Checker.KLayoutDRC: null
+    "+OpenROAD.DetailedRouting": "Odb.InsertECODiodes"
+    "+Odb.InsertECODiodes": "OpenROAD.DetailedRouting"
+
+INSERT_ECO_DIODES:
+  - target: fanout5255/I
     
 DESIGN_NAME: tetris
 VERILOG_FILES: ["dir::../verilog/src/tetris.v"]
@@ -16,7 +21,7 @@ VERILOG_FILES: ["dir::../verilog/src/tetris.v"]
 
 # Layout / Floorplan Rules
 DIE_AREA: [0, 0, 1400, 1200]
-PL_TARGET_DENSITY_PCT: 30
+PL_TARGET_DENSITY_PCT: 28
 GRT_ALLOW_CONGESTION: true
 RUN_MAGIC_DRC: true
 RUN_CTS: true

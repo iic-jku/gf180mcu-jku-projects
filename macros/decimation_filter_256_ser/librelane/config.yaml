@@ -4,6 +4,11 @@ meta:
   substituting_steps:
     KLayout.DRC: null
     Checker.KLayoutDRC: null
+    "+OpenROAD.DetailedRouting": "Odb.InsertECODiodes"
+    "+Odb.InsertECODiodes": "OpenROAD.DetailedRouting"
+
+INSERT_ECO_DIODES:
+  - target: fanout888/I
     
 DESIGN_NAME: decimator_ser_top
 VERILOG_FILES: ["dir::../verilog/src/decimator_ser_top.v"]
