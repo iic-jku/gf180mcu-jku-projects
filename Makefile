@@ -131,7 +131,9 @@ build-tiny_bf:
 
 build-adc_sar_controller:
 	@$(MAKE) -C macros/adc_sar_controller librelane
+	@$(MAKE) -C macros/adc_sar_controller copy-reports
 	@$(MAKE) -C macros/adc_sar_controller copy-final
+	@$(MAKE) -C macros/adc_sar_controller render-image
 .PHONY: build-adc_sar_controller
 
 build-led_spinner:
