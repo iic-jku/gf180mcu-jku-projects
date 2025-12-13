@@ -4,6 +4,8 @@ meta:
   substituting_steps:
     KLayout.DRC: null
     Checker.KLayoutDRC: null
+    
+    # Fix Antenna violations by inserting them manually
     "+OpenROAD.DetailedRouting": "Odb.InsertECODiodes"
     "+Odb.InsertECODiodes": "OpenROAD.DetailedRouting"
 

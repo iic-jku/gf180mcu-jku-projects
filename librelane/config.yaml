@@ -24,7 +24,11 @@ meta:
     #Netgen.LVS: null
     #Checker.LVS: null
 
-    Checker.SetupViolations: null # Disable setup violation errors
+    # Disable setup violation errors
+    # The decimator is built for 100kHz,
+    # but the top-level clock is set to 40MHz.
+    # 40MHz is the maximum required clock for Tetris.
+    Checker.SetupViolations: null
 
     # Fix Hold violations by inserting buffers
     "+OpenROAD.DetailedRouting": "Odb.InsertECOBuffers"
