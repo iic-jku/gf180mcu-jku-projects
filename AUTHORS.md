@@ -4,7 +4,7 @@
 > significant portions of the code. See the contributors graph for a full list of
 > human authors.
 
-* Simon Dorrer (JKU): Multiplexer, Floorplan, Pinplan, Top-Level Hardening
+* Simon Dorrer (JKU, [simon.dorrer@jku.at]()): Multiplexer, Floorplan, Pinplan, Top-Level Hardening
 * Jonathan Hager (JMU): TinyWhisper RISC-V, cocotb Simulation, Top-Level Hardening
 * Jakob Schaumberger (JKU): TinyTone
 * Michael Köfinger (JKU): Decimation Filter
