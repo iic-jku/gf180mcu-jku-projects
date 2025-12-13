@@ -7,20 +7,6 @@ PDK_ROOT ?= $(MAKEFILE_DIR)/../../gf180mcu
 PDK ?= gf180mcuD
 PDK_TAG ?= 1.6.4
 
-AVAILABLE_SLOTS = 1x1 0p5x1 1x0p5 0p5x0p5
-DEFAULT_SLOT = 1x1
-
-# Slot can be any of AVAILABLE_SLOTS
-SLOT ?= $(DEFAULT_SLOT)
-
-ifeq ($(SLOT),default)        
-    SLOT = $(DEFAULT_SLOT)
-endif
-
-ifeq ($(filter $(SLOT),$(AVAILABLE_SLOTS)),)
-    $(error $(SLOT) does not exist in AVAILABLE_SLOTS: $(AVAILABLE_SLOTS))
-endif
-
 .DEFAULT_GOAL := help
 
 help: ## Show this help message
@@ -62,19 +48,37 @@ librelane-klayout: ## Open the last run in KLayout
 	librelane librelane/config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk --last-run --flow OpenInKLayout
 .PHONY: librelane-klayout
 
-sim: ## Run RTL simulation with cocotb
-	cd cocotb; PDK_ROOT=${PDK_ROOT} PDK=${PDK} SLOT=${SLOT} python3 chip_top_tb.py
-.PHONY: sim
+# sim: ## Run RTL simulation with cocotb
+	# cd cocotb; PDK_ROOT=${PDK_ROOT} PDK=${PDK} SLOT=${SLOT} python3 chip_top_tb.py
+# .PHONY: sim
 
-sim-gl: ## Run gate-level simulation with cocotb (after copy-final)
-	cd cocotb; GL=1 PDK_ROOT=${PDK_ROOT} PDK=${PDK} SLOT=${SLOT} python3 chip_top_tb.py
-.PHONY: sim-gl
+# sim-gl: ## Run gate-level simulation with cocotb (after copy-final)
+	# cd cocotb; GL=1 PDK_ROOT=${PDK_ROOT} PDK=${PDK} SLOT=${SLOT} python3 chip_top_tb.py
+# .PHONY: sim-gl
 
-sim-view: ## View simulation waveforms in GTKWave
-	gtkwave cocotb/sim_build/chip_top.fst
-.PHONY: sim-view
+# sim-view: ## View simulation waveforms in GTKWave
+	# gtkwave cocotb/sim_build/chip_top.fst
+# .PHONY: sim-view
+
+copy-reports: ## Copy yosys, antenna violations, hold & setup timing and manufacturability reports
+	rm -rf reports/
+	mkdir -p reports/
+	cp librelane/runs/${RUN_TAG}/06-yosys-synthesis/reports/pre_synth_chk.rpt reports/yosys_synth_check.rpt
+	cp librelane/runs/${RUN_TAG}/06-yosys-synthesis/reports/pre_techmap.rpt reports/yosys_pre_techmap.rpt
+	cp librelane/runs/${RUN_TAG}/06-yosys-synthesis/reports/post_dff.rpt reports/yosys_post_dff.rpt
+	cp librelane/runs/${RUN_TAG}/46-openroad-checkantennas-1/reports/antenna.rpt reports/antenna_violations.rpt
+	cp librelane/runs/${RUN_TAG}/46-openroad-checkantennas-1/reports/antenna_summary.rpt reports/antenna_summary.rpt
+	cp librelane/runs/${RUN_TAG}/55-openroad-stapostpnr/summary.rpt reports/hold_setup_timing.rpt
+	cp librelane/runs/${RUN_TAG}/73-misc-reportmanufacturability/manufacturability.rpt reports/manufacturability.rpt
+.PHONY: copy-reports
 
 copy-final: ## Copy final output files from the last run
 	rm -rf final/
 	cp -r librelane/runs/${RUN_TAG}/final/ final/
+.PHONY: copy-final
+
+render-image: ## Render an image from the layout of the macro (after copy-final)
+	rm -rf img/
+	mkdir -p img/
+	PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 $(MAKEFILE_DIR)/../../scripts/lay2img.py final/gds/${TOP}.gds img/${TOP}.png --width 2048 --oversampling 4
 .PHONY: copy-final
