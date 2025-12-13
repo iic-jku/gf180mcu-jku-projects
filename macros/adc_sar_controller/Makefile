@@ -80,5 +80,5 @@ copy-final: ## Copy final output files from the last run
 render-image: ## Render an image from the layout of the macro (after copy-final)
 	rm -rf img/
 	mkdir -p img/
-	PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 $(MAKEFILE_DIR)/../../gf180mcu/lay2img.py final/gds/${TOP}.gds img/${TOP}.png --width 2048 --oversampling 4
+	PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 $(MAKEFILE_DIR)/../../scripts/lay2img.py final/gds/${TOP}.gds img/${TOP}.png --width 2048 --oversampling 4
 .PHONY: copy-final
