@@ -28,6 +28,7 @@ module chip_core #(
     output wire [NUM_BIDIR_PADS-1:0] bidir_pu,   // Pull-up
     output wire [NUM_BIDIR_PADS-1:0] bidir_pd    // Pull-down
 );
+
     // ======================================================
 	// IO SETTINGS
 	// ======================================================

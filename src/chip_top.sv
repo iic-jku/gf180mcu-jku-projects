@@ -25,10 +25,11 @@ module chip_top #(
     inout  wire [NUM_INPUT_PADS-1:0] input_PAD,
     inout  wire [NUM_BIDIR_PADS-1:0] bidir_PAD
 );
+
 	// ======================================================
     // Wires
 	// ======================================================
-	// Clocks
+	// Clock
     wire clk_PAD2CORE;
 	
 	// Reset
