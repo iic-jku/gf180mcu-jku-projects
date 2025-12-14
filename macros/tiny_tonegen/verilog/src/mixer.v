@@ -30,7 +30,7 @@ module mixer (
         .y(multA)
     );
 
-    always @(posedge(clk)) begin
+    always @(posedge(clk) or negedge rst) begin
         if (!rst) begin
             a_val <= 5'd0;
             n_val <= 5'd0;

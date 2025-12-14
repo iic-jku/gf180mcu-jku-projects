@@ -389,7 +389,7 @@ async def do_i2c_slave(dut):
     dut.bidir_PAD.set(Immediate(tmp))
 
 
-# @cocotb.test()
+@cocotb.test()
 async def test_cpu_fibonacci_slow(dut):
     global mem_pattern
     mem_pattern = []
@@ -426,7 +426,7 @@ async def test_cpu_fibonacci_slow(dut):
     logger.info("Done!")
 
 
-# @cocotb.test()
+@cocotb.test()
 async def test_cpu_fibonacci_fast(dut):
     global mem_pattern
     mem_pattern = []
@@ -463,7 +463,7 @@ async def test_cpu_fibonacci_fast(dut):
     logger.info("Done!")
 
 
-# @cocotb.test()
+@cocotb.test()
 async def test_cpu_uart_tx(dut):
     global uart_rx_bytes
 
@@ -494,7 +494,7 @@ async def test_cpu_uart_tx(dut):
     logger.info("Done!")
 
 
-# @cocotb.test()
+@cocotb.test()
 async def test_cpu_uart_rx(dut):
     global uart_tx_enable
     global uart_tx_current_data
@@ -536,7 +536,7 @@ async def test_cpu_uart_rx(dut):
     logger.info("Done!")
 
 
-# @cocotb.test()
+@cocotb.test()
 async def test_cpu_i2c_rw(dut):
     global uart_tx_enable
     global uart_tx_current_data
@@ -568,7 +568,7 @@ async def test_cpu_i2c_rw(dut):
     logger.info("Done!")
 
 
-# @cocotb.test()
+@cocotb.test()
 async def test_cpu_gpio(dut):
     # Create a logger for this testbench
     logger = logging.getLogger("my_testbench")
@@ -617,7 +617,7 @@ async def test_cpu_gpio(dut):
     logger.info("Done!")
 
 
-# @cocotb.test()
+@cocotb.test()
 async def test_cpu_wspr(dut):
     # Create a logger for this testbench
     logger = logging.getLogger("my_testbench")
@@ -644,7 +644,7 @@ async def test_cpu_wspr(dut):
 # Other projects (just generating clock and reset)
 
 
-# @cocotb.test()
+@cocotb.test()
 async def test_mux_tiny_bf(dut):
     # Create a logger for this testbench
     logger = logging.getLogger("my_testbench")
@@ -667,7 +667,7 @@ async def test_mux_tiny_bf(dut):
     logger.info("Done!")
 
 
-# @cocotb.test()
+@cocotb.test()
 async def test_mux_sar_adc(dut):
     # Create a logger for this testbench
     logger = logging.getLogger("my_testbench")
@@ -690,7 +690,7 @@ async def test_mux_sar_adc(dut):
     logger.info("Done!")
 
 
-# @cocotb.test()
+@cocotb.test()
 async def test_mux_led_spinner(dut):
     # Create a logger for this testbench
     logger = logging.getLogger("my_testbench")
@@ -713,7 +713,7 @@ async def test_mux_led_spinner(dut):
     logger.info("Done!")
 
 
-# @cocotb.test()
+@cocotb.test()
 async def test_mux_tiny_stack(dut):
     # Create a logger for this testbench
     logger = logging.getLogger("my_testbench")
@@ -758,7 +758,7 @@ async def test_mux_tiny_tonegen_digital_filter(dut):
     tmp[11] = 1 # ena = 1
     dut.input_PAD.set(Immediate(tmp))
 
-    for i in range(18000):
+    for i in range(100000):
         await ClockCycles(dut.clk_PAD, 1)
 
         if i == 50: # Addr = 000, data = 00110
@@ -809,7 +809,7 @@ async def test_mux_tiny_tonegen_digital_filter(dut):
     CPU_CLK_FREQ = old_freq
 
 
-# @cocotb.test()
+@cocotb.test()
 async def test_mux_traffic_light(dut):
     # Create a logger for this testbench
     logger = logging.getLogger("my_testbench")
@@ -832,7 +832,7 @@ async def test_mux_traffic_light(dut):
     logger.info("Done!")
 
 
-# @cocotb.test()
+@cocotb.test()
 async def test_mux_tetris(dut):
     # Create a logger for this testbench
     logger = logging.getLogger("my_testbench")
@@ -855,7 +855,7 @@ async def test_mux_tetris(dut):
     logger.info("Done!")
 
 
-# @cocotb.test()
+@cocotb.test()
 async def test_mux_classic_vga_clock(dut):
     # Create a logger for this testbench
     logger = logging.getLogger("my_testbench")
