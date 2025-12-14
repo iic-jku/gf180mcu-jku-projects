@@ -63,13 +63,14 @@ librelane-klayout: ## Open the last run in KLayout
 copy-reports: ## Copy yosys, antenna violations, hold & setup timing and manufacturability reports
 	rm -rf reports/
 	mkdir -p reports/
-	cp librelane/runs/${RUN_TAG}/06-yosys-synthesis/reports/pre_synth_chk.rpt reports/yosys_synth_check.rpt
-	cp librelane/runs/${RUN_TAG}/06-yosys-synthesis/reports/pre_techmap.rpt reports/yosys_pre_techmap.rpt
-	cp librelane/runs/${RUN_TAG}/06-yosys-synthesis/reports/post_dff.rpt reports/yosys_post_dff.rpt
-	cp librelane/runs/${RUN_TAG}/46-openroad-checkantennas-1/reports/antenna.rpt reports/antenna_violations.rpt
-	cp librelane/runs/${RUN_TAG}/46-openroad-checkantennas-1/reports/antenna_summary.rpt reports/antenna_summary.rpt
-	cp librelane/runs/${RUN_TAG}/55-openroad-stapostpnr/summary.rpt reports/hold_setup_timing.rpt
-	cp librelane/runs/${RUN_TAG}/73-misc-reportmanufacturability/manufacturability.rpt reports/manufacturability.rpt
+	# Using * wildcard to ignore step numbers
+	cp librelane/runs/${RUN_TAG}/*-yosys-synthesis/reports/pre_synth_chk.rpt reports/yosys_synth_check.rpt
+	cp librelane/runs/${RUN_TAG}/*-yosys-synthesis/reports/pre_techmap.rpt reports/yosys_pre_techmap.rpt
+	cp librelane/runs/${RUN_TAG}/*-yosys-synthesis/reports/post_dff.rpt reports/yosys_post_dff.rpt
+	cp librelane/runs/${RUN_TAG}/*-openroad-checkantennas-*/reports/antenna.rpt reports/antenna_violations.rpt
+	cp librelane/runs/${RUN_TAG}/*-openroad-checkantennas-*/reports/antenna_summary.rpt reports/antenna_summary.rpt
+	cp librelane/runs/${RUN_TAG}/*-openroad-stapostpnr/summary.rpt reports/hold_setup_timing.rpt
+	cp librelane/runs/${RUN_TAG}/*-misc-reportmanufacturability/manufacturability.rpt reports/manufacturability.rpt
 .PHONY: copy-reports
 
 copy-final: ## Copy final output files from the last run
