@@ -84,6 +84,12 @@ CLOCK_PERIOD: 25 # in ns = 40MHz
 PL_RESIZER_HOLD_SLACK_MARGIN: 0.35
 GRT_RESIZER_HOLD_SLACK_MARGIN: 0.3
 
+# Increase these to potentially reduce slew and cap violations
+# DESIGN_REPAIR_MAX_SLEW_PCT: 60
+# GRT_DESIGN_REPAIR_MAX_SLEW_PCT: 60
+# DESIGN_REPAIR_MAX_CAP_PCT: 60
+# GRT_DESIGN_REPAIR_MAX_CAP_PCT: 60
+
 # Increase for more logic
 # on your die
 PL_TARGET_DENSITY_PCT: 35
