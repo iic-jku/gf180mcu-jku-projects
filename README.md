@@ -1,6 +1,27 @@
 # gf180mcu Project Template
 
-Project template for wafer.space MPW runs using the gf180mcu PDK.
+Project JKU1 for wafer.space MPW runs using the gf180mcu PDK.
+
+- [x] Top-Level: pass; checked violations
+  - [x] setup, max. cap. and max. slew violations &rarr; checked: due to Decimator's smaller clock
+  - [x] hold violations &rarr; fixed with ECO buffers
+- [x] TinyTone: pass; no violations
+- [x] Decimation Filter: pass; no violations
+  - [x] antenna violations &rarr; fixed with ECO diodes
+- [x] Octowave: pass; no violations
+  - [x] antenna violations &rarr; fixed with ECO diodes
+- [x] TinyWhisper RISC-V: pass; no violations
+- [x] Tetris: pass; no violations
+  - [x] antenna violations &rarr; fixed with ECO diodes
+- [x] TinyStack: pass; no violations
+- [x] Multiplexer: pass; no violations
+- [x] TinyBF: pass; no violations
+- [x] SAR ADC Controller: pass; no violations
+- [x] Led Spinner: pass; no violations
+- [x] TinyToneGen: pass; no violations
+- [x] Digital Filter: pass; no violations
+- [x] Traffic Light Controller: pass; no violations
+- [x] VGA Clock: pass; no violations
 
 ## Prerequisites
 
