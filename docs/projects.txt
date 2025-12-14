@@ -53,7 +53,7 @@ https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 - TinyToneGen (Studi Project) - Felix Feierabend
 	--> 12 x inputs (incl. clk + rst)
 	--> 1 x outputs
-	--> 220um x 130um
+	--> 230um x 140um
 	
 - Digital Filter (Studi Project) - Gregor Flachs
 	--> 14 x inputs (incl. clk + rst)

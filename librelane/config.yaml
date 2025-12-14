@@ -476,7 +476,7 @@ MACROS:
       nom_tt_025C_5v00: dir::../macros/tiny_tonegen/final/lib/nom_tt_025C_5v00/tiny_tonegen__nom_tt_025C_5v00.lib
     instances:
       i_chip_core.tiny_tonegen:
-        location: ["expr::442 + 24 + 900", "expr::442 + 19 + 1000"]
+        location: ["expr::442 + 24 + 900", "expr::442 + 19 + 990"]
         orientation: N
   
   df_digital_filter:
