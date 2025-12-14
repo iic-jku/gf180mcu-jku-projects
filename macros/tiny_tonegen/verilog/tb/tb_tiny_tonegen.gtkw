@@ -1,0 +1,34 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Sun Dec 14 13:54:07 2025
+[*]
+[dumpfile] "/foss/designs/gf180mcu-jku-projects/macros/tiny_tonegen/verilog/tb/tb_tiny_tonegen.vcd"
+[dumpfile_mtime] "Sun Dec 14 13:51:50 2025"
+[dumpfile_size] 87694527
+[savefile] "/foss/designs/gf180mcu-jku-projects/macros/tiny_tonegen/verilog/tb/tb_tiny_tonegen.gtkw"
+[timestart] 0
+[size] 1427 600
+[pos] -1 -1
+*-24.301085 61900000 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+[treeopen] tb_tiny_tonegen.
+[sst_width] 297
+[signals_width] 142
+[sst_expanded] 1
+[sst_vpaned_height] 149
+@201
+-INPUTs
+@28
+tb_tiny_tonegen.clk
+tb_tiny_tonegen.rst_n
+tb_tiny_tonegen.ena
+tb_tiny_tonegen.address[2:0]
+@22
+tb_tiny_tonegen.data[4:0]
+@28
+tb_tiny_tonegen.write_strb
+@200
+-OUTPUTs
+@28
+tb_tiny_tonegen.signal_bit_out
+[pattern_trace] 1
+[pattern_trace] 0

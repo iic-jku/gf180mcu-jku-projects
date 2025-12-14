@@ -37,6 +37,6 @@ fi
 
 # Clean
 rm -f a.out
-# rm -f *.vcd
+rm -f *.vcd
 
 echo -e "${GREEN}Generated files were removed------------------------ ${NC}"
