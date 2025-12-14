@@ -15,12 +15,12 @@ module signal_generator (
     output signal_out       // output for the audio signal
 );
 
-    reg [7:0] periodA = 8'd200;
-    reg [3:0] volA = 4'd8;
-    reg [3:0] volN = 4'd3;
+    reg [7:0] periodA;
+    reg [3:0] volA;
+    reg [3:0] volN;
     
-    reg enableA = 1;
-    reg enableN = 1;
+    reg enableA;
+    reg enableN;
 
     wire noise;
     wire waveA;
@@ -30,6 +30,7 @@ module signal_generator (
     
     adsr envA_gen (
         .clk_i(clk),
+        .rst(rst),
         .enable_i(enableA),
         .attack_i(4'd2),
         .decay_i(4'd2),
@@ -59,12 +60,13 @@ module signal_generator (
     
     assign signal_out = pwm;
 
-    always @(posedge clk) begin
+    always @(posedge clk or negedge rst) begin
         if (!rst) begin
-            periodA = 8'd200;
-            volA = 4'd8;
-            volN = 4'd3;
-            enableN = 1;
+            periodA <= 8'd200;
+            volA <= 4'd8;
+            volN <= 4'd3;
+            enableN <= 1;
+            enableA <= 1;
         end else begin
             if (write_strobe) begin
                 case (address)

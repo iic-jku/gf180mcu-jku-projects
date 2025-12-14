@@ -9,14 +9,15 @@ module lfsr (
     reg[15:0] noise_reg;    // 16-bit shift-register
     reg feedback;           // feedback value
 
-    initial noise_reg = 16'hACE1;   // often used seed for lfsr-based noise
-    initial noise_out = 1'b0;
-    initial feedback = 1'b0;
+    // initial noise_reg = 16'hACE1;   // often used seed for lfsr-based noise
+    // initial noise_out = 1'b0;
+    // initial feedback = 1'b0;
 
     always @(posedge(clk) or negedge(rst)) begin
         if (!rst) begin
             noise_reg <= 16'hACE1;
             noise_out <= 0;
+            feedback <= 1'b0;
         end else if (en_step) begin
             // Feedback-Value for feedbackpolynmoial x^16 + x^15 + x^13 + x^4 + 1
             feedback <= noise_reg[15] ^ noise_reg[15] ^ noise_reg[13] ^ noise_reg[4] ^ 1;

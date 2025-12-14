@@ -1,5 +1,6 @@
 module adsr (
     input clk_i,
+    input rst,
     input enable_i,                 // adsr envelope generator active
     input [3:0] attack_i,           // attack
     input [3:0] decay_i,            // decay
@@ -14,12 +15,17 @@ parameter ATTACK = 2'b01;
 parameter DECAY = 2'b10;
 parameter RELEASE = 2'b11;
 
-reg[1:0] state = IDLE;
+reg[1:0] state;
 
-reg [3:0] timer = 0;
+reg [3:0] timer;
 
-always @(posedge clk_i) begin
-    case (state)
+always @(posedge clk_i or negedge rst) begin
+   if (rst == 0) begin
+      state <= IDLE;
+      timer <= 0;
+    end
+    else begin 
+       case (state)
         IDLE: begin
             if (enable_i) state <= ATTACK;
             level_o <= 0;
@@ -62,6 +68,7 @@ always @(posedge clk_i) begin
 
         default: ;
     endcase
+    end
 end
     
 endmodule

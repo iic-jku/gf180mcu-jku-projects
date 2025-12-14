@@ -22,7 +22,7 @@ module mixer (
     reg [4:0] a_val, n_val;
     reg [5:0] sum;
 
-    reg started = 0;
+    reg started;
 
     mult4x4 mul (
         .a(volumeA),
