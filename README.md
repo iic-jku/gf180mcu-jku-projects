@@ -1,6 +1,6 @@
-# gf180mcu Project Template
+# gf180mcuD - JKU - Projects
 
-Project JKU1 for wafer.space MPW runs using the gf180mcu PDK.
+Project `JKU1` for wafer.space MPW runs using the `gf180mcuD` PDK.
 
 - [x] Top-Level: pass; checked violations
   - [x] setup, max. cap. and max. slew violations &rarr; checked: due to Decimator's smaller clock
