@@ -96,6 +96,12 @@ This will only work if the last run was completed without errors. This command i
 
 ## Build Macros
 
+To build a specific macro, look into the `Makefile` and run the corresponding command. For example, the following command builds the `tetris` macro:
+
+```
+make build-tetris
+```
+
 To build all macros, run the following command:
 
 ```
