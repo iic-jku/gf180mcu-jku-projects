@@ -1,0 +1,42 @@
+158. Printing statistics.
+
+=== traffic_light ===
+
+   Number of wires:               1426
+   Number of wire bits:           1674
+   Number of public wires:          42
+   Number of public wire bits:     191
+   Number of ports:                 15
+   Number of port bits:             15
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1578
+     $_ANDNOT_                     473
+     $_AND_                         50
+     $_MUX_                        182
+     $_NAND_                        97
+     $_NOR_                         86
+     $_NOT_                         32
+     $_ORNOT_                       49
+     $_OR_                         330
+     $_XNOR_                        41
+     $_XOR_                         66
+     gf180mcu_fd_sc_mcu7t5v0__dffq_1     19
+     gf180mcu_fd_sc_mcu7t5v0__dffrnq_1    145
+     gf180mcu_fd_sc_mcu7t5v0__dffsnq_1      8
+
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+
+   Chip area for module '\traffic_light': 12664.108800
+     of which used for sequential elements: 12664.108800 (100.00%)
+

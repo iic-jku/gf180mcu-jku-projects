@@ -1,0 +1,44 @@
+152. Printing statistics.
+
+=== rh_bf_top ===
+
+   Number of wires:               1737
+   Number of wire bits:           2235
+   Number of public wires:         107
+   Number of public wire bits:     600
+   Number of ports:                  5
+   Number of port bits:             17
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               2220
+     $_ANDNOT_                     670
+     $_AND_                         59
+     $_DFFE_PN0P_                  450
+     $_DFFE_PN1P_                   38
+     $_DFF_PN0_                     40
+     $_DFF_PN1_                      5
+     $_MUX_                         98
+     $_NAND_                        73
+     $_NOR_                         36
+     $_NOT_                         31
+     $_ORNOT_                       63
+     $_OR_                         595
+     $_XNOR_                        13
+     $_XOR_                         49
+
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+   Area for cell type $_DFF_PN0_ is unknown!
+   Area for cell type $_DFF_PN1_ is unknown!
+   Area for cell type $_DFFE_PN0P_ is unknown!
+   Area for cell type $_DFFE_PN1P_ is unknown!
+

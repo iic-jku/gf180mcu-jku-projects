@@ -1,0 +1,41 @@
+154. Printing statistics.
+
+=== rh_bf_top ===
+
+   Number of wires:               2225
+   Number of wire bits:           2723
+   Number of public wires:         107
+   Number of public wire bits:     600
+   Number of ports:                  5
+   Number of port bits:             17
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               2708
+     $_ANDNOT_                     670
+     $_AND_                         59
+     $_MUX_                        586
+     $_NAND_                        73
+     $_NOR_                         36
+     $_NOT_                         31
+     $_ORNOT_                       63
+     $_OR_                         595
+     $_XNOR_                        13
+     $_XOR_                         49
+     gf180mcu_fd_sc_mcu7t5v0__dffrnq_1    490
+     gf180mcu_fd_sc_mcu7t5v0__dffsnq_1     43
+
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+
+   Chip area for module '\rh_bf_top': 39970.201600
+     of which used for sequential elements: 39970.201600 (100.00%)
+

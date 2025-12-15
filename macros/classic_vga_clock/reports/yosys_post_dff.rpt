@@ -1,0 +1,42 @@
+155. Printing statistics.
+
+=== classic_vga_clock ===
+
+   Number of wires:              18114
+   Number of wire bits:          20491
+   Number of public wires:          99
+   Number of public wire bits:    1310
+   Number of ports:                 11
+   Number of port bits:             11
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:              20434
+     $_ANDNOT_                    3230
+     $_AND_                        297
+     $_MUX_                       9267
+     $_NAND_                       222
+     $_NOR_                        419
+     $_NOT_                        286
+     $_ORNOT_                      341
+     $_OR_                        3947
+     $_XNOR_                       285
+     $_XOR_                        853
+     gf180mcu_fd_sc_mcu7t5v0__dffq_1    103
+     gf180mcu_fd_sc_mcu7t5v0__dffrnq_1   1178
+     gf180mcu_fd_sc_mcu7t5v0__dffsnq_1      6
+
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+
+   Chip area for module '\classic_vga_clock': 94953.376000
+     of which used for sequential elements: 94953.376000 (100.00%)
+

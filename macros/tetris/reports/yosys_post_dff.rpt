@@ -1,0 +1,41 @@
+163. Printing statistics.
+
+=== tetris ===
+
+   Number of wires:              15136
+   Number of wire bits:          18164
+   Number of public wires:         528
+   Number of public wire bits:    3542
+   Number of ports:                 12
+   Number of port bits:             17
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:              17484
+     $_ANDNOT_                    2417
+     $_AND_                        282
+     $_MUX_                       7321
+     $_NAND_                       336
+     $_NOR_                        486
+     $_NOT_                        733
+     $_ORNOT_                      476
+     $_OR_                        2279
+     $_XNOR_                       147
+     $_XOR_                        733
+     gf180mcu_fd_sc_mcu7t5v0__dffq_1   1885
+     gf180mcu_fd_sc_mcu7t5v0__dffrnq_1    389
+
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+
+   Chip area for module '\tetris': 149034.323200
+     of which used for sequential elements: 149034.323200 (100.00%)
+

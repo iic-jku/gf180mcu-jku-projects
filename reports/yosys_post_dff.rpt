@@ -1,0 +1,62 @@
+108. Printing statistics.
+
+=== chip_top ===
+
+   Number of wires:                 61
+   Number of wire bits:            270
+   Number of public wires:          61
+   Number of public wire bits:     270
+   Number of ports:                  4
+   Number of port bits:             58
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 93
+     $_NOT_                          1
+     classic_vga_clock               1
+     decimator_ser_top               1
+     df_digital_filter               1
+     gf180mcu_fd_io__bi_24t         41
+     gf180mcu_fd_io__in_c           16
+     gf180mcu_fd_io__in_s            1
+     gf180mcu_ws_io__dvdd            6
+     gf180mcu_ws_io__dvss           10
+     gf180mcu_ws_ip__ce              1
+     gf180mcu_ws_ip__id              1
+     gf180mcu_ws_ip__jku             1
+     gf180mcu_ws_ip__logo            1
+     led_spinner                     1
+     multiplexer                     1
+     octowave                        1
+     rh_bf_top                       1
+     sar_adc_spi_oversampling        1
+     tetris                          1
+     tiny_stack                      1
+     tiny_tone                       1
+     tiny_tonegen                    1
+     tinywhisper_riscv               1
+     traffic_light                   1
+
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type \gf180mcu_ws_ip__id is unknown!
+   Area for cell type \gf180mcu_ws_ip__logo is unknown!
+   Area for cell type \gf180mcu_ws_ip__ce is unknown!
+   Area for cell type \gf180mcu_ws_ip__jku is unknown!
+   Area for cell type \tiny_tone is unknown!
+   Area for cell type \decimator_ser_top is unknown!
+   Area for cell type \octowave is unknown!
+   Area for cell type \tinywhisper_riscv is unknown!
+   Area for cell type \tetris is unknown!
+   Area for cell type \tiny_stack is unknown!
+   Area for cell type \multiplexer is unknown!
+   Area for cell type \rh_bf_top is unknown!
+   Area for cell type \sar_adc_spi_oversampling is unknown!
+   Area for cell type \led_spinner is unknown!
+   Area for cell type \tiny_tonegen is unknown!
+   Area for cell type \df_digital_filter is unknown!
+   Area for cell type \traffic_light is unknown!
+   Area for cell type \classic_vga_clock is unknown!
+
+   Chip area for module '\chip_top': 1942500.000000
+     of which used for sequential elements: 0.000000 (0.00%)
+

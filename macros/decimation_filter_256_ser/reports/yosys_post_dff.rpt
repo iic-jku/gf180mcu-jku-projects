@@ -1,0 +1,40 @@
+127. Printing statistics.
+
+=== decimator_ser_top ===
+
+   Number of wires:              73274
+   Number of wire bits:          83937
+   Number of public wires:         280
+   Number of public wire bits:    7109
+   Number of ports:                  5
+   Number of port bits:              5
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:              81337
+     $_ANDNOT_                   18741
+     $_AND_                        495
+     $_MUX_                       9509
+     $_NAND_                      1323
+     $_NOR_                      10241
+     $_NOT_                       4362
+     $_ORNOT_                     3928
+     $_OR_                        8691
+     $_XNOR_                      4432
+     $_XOR_                      14865
+     gf180mcu_fd_sc_mcu7t5v0__dffq_1   4750
+
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+
+   Chip area for module '\decimator_ser_top': 302388.800000
+     of which used for sequential elements: 302388.800000 (100.00%)
+
