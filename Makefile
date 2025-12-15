@@ -102,7 +102,7 @@ copy-gds: ## Copy and ZIP final output GDS from the last run (for submission)
 	rm -rf gds/
 	mkdir -p gds/
 	cp -r final/gds/${TOP}.gds gds/${TOP}.gds
-	zip -r ${TOP}.zip ${TOP}.gds
+	zip -r gds/${TOP}.zip gds/${TOP}.gds
 .PHONY: copy-gds
 
 render-image: ## Render an image from the final layout (after copy-final)
