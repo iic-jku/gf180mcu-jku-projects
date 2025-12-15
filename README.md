@@ -84,6 +84,16 @@ make copy-final
 
 This will only work if the last run was completed without errors. This command is also available for the macros.
 
+## Copying the final GDS to the GDS Folder
+
+To copy your latest GDS in the `final/` folder in the root directory of the repository and save it in the `gds/` folder, run the following command:
+
+```
+make copy-gds
+```
+
+This will only work if the last run was completed without errors.
+
 ## Render Layout of the Design
 
 To render your latest GDS in the `final/` folder in the root directory of the repository and save it in the `img/` folder, run the following command:
