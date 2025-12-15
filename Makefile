@@ -213,5 +213,5 @@ build-all-macros: build-tiny_tone build-decimation_filter_256_ser build-octowave
 .PHONY: build-all-macros
 
 # Target for building the whole chip (Simon)
-build-all: clone-pdk build-all-macros librelane copy-reports copy-final render-image librelane-openroad
+build-all: clone-pdk build-all-macros librelane copy-reports copy-final copy-gds render-image librelane-openroad
 .PHONY: build-all
