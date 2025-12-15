@@ -40,6 +40,7 @@ Project `JKU1` for wafer.space MPW runs using the `gf180mcuD` PDK.
 
 ![chip_top_white](img/chip_top_white.png)
 
+![chip_top_white](img/chip_top_layout_gui.png)
 
 ## Prerequisites
 
