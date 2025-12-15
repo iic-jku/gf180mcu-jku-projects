@@ -86,7 +86,7 @@ This will only work if the last run was completed without errors. This command i
 
 ## Copying the final GDS to the GDS Folder
 
-To copy your latest GDS in the `final/` folder in the root directory of the repository and save it in the `gds/` folder, run the following command:
+To copy and ZIP your latest GDS in the `final/` folder in the root directory of the repository and save it in the `gds/` folder, run the following command:
 
 ```
 make copy-gds

@@ -98,10 +98,11 @@ copy-final: ## Copy final output files from the last run
 	cp -r librelane/runs/${RUN_TAG}/final/ final/
 .PHONY: copy-final
 
-copy-gds: ## Copy final output GDS from the last run (for submission)
+copy-gds: ## Copy and ZIP final output GDS from the last run (for submission)
 	rm -rf gds/
 	mkdir -p gds/
 	cp -r final/gds/${TOP}.gds gds/${TOP}.gds
+	zip -r ${TOP}.zip ${TOP}.gds
 .PHONY: copy-gds
 
 render-image: ## Render an image from the final layout (after copy-final)
