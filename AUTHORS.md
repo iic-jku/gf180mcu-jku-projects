@@ -13,7 +13,7 @@
 * Linzer Technikum (LiTec): TinyStack
 * Rene Hahn (JKU): TinyBF
 * Ilir Shala (JKU): SAR ADC Controller
-* Tim Tremetsberger (JKU): Led Spinner
+* Tim Tremetsberger (JKU): LED Spinner
 * Felix Feierabend (JKU): TinyToneGen
 * Gregor Flachs (JKU): Digital Filter
 * Maximilian Kernmaier (JKU): Traffic Light Controller

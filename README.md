@@ -2,26 +2,42 @@
 
 Project `JKU1` for wafer.space MPW runs using the `gf180mcuD` PDK.
 
-- [x] Top-Level: pass; checked violations
-  - [x] setup, max. cap. and max. slew violations &rarr; checked: due to Decimator's smaller clock
+- [x] **GDS Submission:** https://platform.wafer.space/
+- [x] **Precheck:** https://github.com/wafer-space/gf180mcu-precheck
+- [x] **Top-Level:** pass; validated violations
+  - [x] setup time, max. cap. and max. slew violations &rarr; validated: due to decimator's lower clock of 100kHz
   - [x] hold violations &rarr; fixed with ECO buffers
-- [x] TinyTone: pass; no violations
-- [x] Decimation Filter: pass; no violations
+- [x] **TinyTone:** pass; no violations
+- [x] **Decimation Filter:** pass; no violations
+  - [x] **N/A Reg to Reg Paths**
   - [x] antenna violations &rarr; fixed with ECO diodes
-- [x] Octowave: pass; no violations
+- [x] **Octowave:** pass; validated violations
+  - [x] **setup violation for SS corner**
   - [x] antenna violations &rarr; fixed with ECO diodes
-- [x] TinyWhisper RISC-V: pass; no violations
-- [x] Tetris: pass; no violations
+- [x] **TinyWhisper RISC-V:** pass; validated violations
+  - [x] **setup violation for SS corner**
+
+- [x] **Tetris:** pass; validated violations
+  - [x] **setup violation for SS corner**
   - [x] antenna violations &rarr; fixed with ECO diodes
-- [x] TinyStack: pass; no violations
-- [x] Multiplexer: pass; no violations
-- [x] TinyBF: pass; no violations
-- [x] SAR ADC Controller: pass; no violations
-- [x] Led Spinner: pass; no violations
-- [x] TinyToneGen: pass; no violations
-- [x] Digital Filter: pass; no violations
-- [x] Traffic Light Controller: pass; no violations
-- [x] VGA Clock: pass; no violations
+  
+- [x] **TinyStack:** pass; no violations
+- [x] **Multiplexer:** pass; no violations
+  - [x] **N/A Reg to Reg Paths**
+
+- [x] **TinyBF:** pass; no violations
+- [x] **SAR ADC Controller:** pass; no violations
+- [x] **LED Spinner:** pass; no violations
+  - [x] **N/A Reg to Reg Paths**
+
+- [x] **TinyToneGen:** pass; no violations
+  - [x] **N/A Reg to Reg Paths**
+
+- [x] **Digital Filter:** pass; no violations
+- [x] **Traffic Light Controller:** pass; no violations
+- [x] **VGA Clock:** pass; validated violations
+  - [x] **setup violation for SS corner**
+
 
 ## Prerequisites
 

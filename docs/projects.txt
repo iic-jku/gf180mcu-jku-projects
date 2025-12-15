@@ -45,7 +45,7 @@ https://github.com/AvalonSemiconductors/ws-submission-2025/tree/main
 	--> 11 x outputs
 	--> 200um x 120um
 	
-- Led Spinner (Studi Project) - Tim Tremetsberger
+- LED Spinner (Studi Project) - Tim Tremetsberger
 	--> 13 x inputs (incl. clk + rst)
 	--> 8 x outputs
 	--> 200um x 150um
