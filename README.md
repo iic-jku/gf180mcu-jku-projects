@@ -122,7 +122,7 @@ For each macro the following commands are executed: `make librelane`, `make copy
 
 ## Build All
 
-To clone the PDK, build all macros, build the top-level chip, copy its reports, render its GDS and display it in the OpenROAD GUI, run the following command:
+To clone the PDK, build all macros, build the top-level chip, copy its reports, copy its `final/` folder, copy and ZIP its GDS, render its GDS and display it in the OpenROAD GUI, run the following command:
 
 ```
 make build-all
