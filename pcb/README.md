@@ -50,7 +50,7 @@
 
 ### Decimation Filter
 
-- Waiting for response (Michael Köfinger)
+- SPI
 
 ### TinyTone
 
