@@ -7,6 +7,7 @@
 - Jakob Schaumberger
 - Max Zaglmayr
 - Max Golser
+- Rene Hahn
 
 ## TODO
 
@@ -68,7 +69,8 @@
 
 ### TinyBF
 
-- Waiting for response (Rene Hahn)
+- Input + Outputs to MCU
+- UART + Testpads
 
 ### SAR ADC Controller
 
