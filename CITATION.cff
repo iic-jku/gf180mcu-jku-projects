@@ -7,9 +7,9 @@ authors:
 - family-names: Hager
   given-names: Jonathan
   orcid: https://orcid.org/0009-0006-7950-6312
-title: "GitHub Repository for a wafer.space MPW Multi-Project Chip by JKU"
+title: "GitHub Repository for a wafer.space MPW Multi-Project Chip"
 date-released: 2025
 url: https://github.com/iic-jku/gf180mcu-jku-projects
 identifiers:
   - type: doi
-    value: ToDo
+    value: 10.5281/zenodo.19654471

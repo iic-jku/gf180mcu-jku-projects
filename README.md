@@ -182,11 +182,12 @@ You can now update the testbench according to your design.
 ## Cite This Work
 
 ```
-@software{2025_ws_mpw_chip,
+@software{2025_WS_MPW,
 	author = {Dorrer, Simon and Hager, Jonathan},
 	month = dec,
-	title = {{GitHub Repository for a wafer.space MPW Multi-Project Chip by JKU}},
+	year = {2025},
+	title = {{GitHub Repository for a wafer.space MPW Multi-Project Chip}},
 	url = {https://github.com/iic-jku/gf180mcu-jku-projects},
-	year = {2025}
+	doi = {10.5281/zenodo.19654471}
 }
 ```
