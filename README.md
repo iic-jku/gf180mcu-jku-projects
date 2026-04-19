@@ -38,9 +38,14 @@ Project `JKU1` for wafer.space MPW runs using the `gf180mcuD` PDK.
 - [x] **VGA Clock:** pass; validated violations
   - [x] **setup violation for SS corner**
 
-![chip_top_white](img/chip_top_white.png)
+<p align="center">
+  <a href="img/chip_top_white.png">
+    <img src="img/chip_top_white.png" alt="Render of the wafer.space gf180mcuD MPW Multi-Project Chip (4mm x 5mm)" width=70%>
+  </a>
+  <br>
+  <em>Render of the wafer.space gf180mcuD MPW Multi-Project Chip (4mm x 5mm).</em>
+</p>
 
-![chip_top_layout_gui](img/chip_top_layout_gui.png)
 
 ## Prerequisites
 
