@@ -18,4 +18,3 @@
 * Gregor Flachs (JKU): Digital Filter
 * Maximilian Kernmaier (JKU): Traffic Light Controller
 * Timo Laimer (JKU): VGA Clock
-

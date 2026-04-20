@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025-2026 Simon Dorrer, Jonathan Hager
+# SPDX-License-Identifier: Apache-2.0
+
 TinyTone: (800, 1580) to (1050, 1720)
 
 Decimation Filter: (200, 3100) to (2800, 4100)

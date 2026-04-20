@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025-2026 Simon Dorrer, Jonathan Hager
+# SPDX-License-Identifier: Apache-2.0
+
 Decimation Filter:
   - clock
   - 2 x outputs

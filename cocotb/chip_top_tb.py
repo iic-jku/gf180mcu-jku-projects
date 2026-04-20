@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: © 2025 Project Template Contributors
+# SPDX-FileCopyrightText: 2025-2026 Simon Dorrer, Jonathan Hager
 # SPDX-License-Identifier: Apache-2.0
 
 import os

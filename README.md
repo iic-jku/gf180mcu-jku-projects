@@ -1,42 +1,23 @@
 # gf180mcuD - JKU - Projects
 
-Project `JKU1` for wafer.space MPW runs using the `gf180mcuD` PDK.
+Project `JKU1` for wafer.space MPW run using the `gf180mcuD` PDK.
 
 - [x] **GDS Submission:** https://platform.wafer.space/
 - [x] **Precheck:** https://github.com/wafer-space/gf180mcu-precheck
-- [x] **Top-Level:** pass; validated violations
-  - [x] setup time, max. cap. and max. slew violations &rarr; validated: due to decimator's lower clock of 100kHz
-  - [x] hold violations &rarr; fixed with ECO buffers
-- [x] **TinyTone:** pass; no violations
-- [x] **Decimation Filter:** pass; no violations
-  - [x] **N/A Reg to Reg Paths**
-  - [x] antenna violations &rarr; fixed with ECO diodes
-- [x] **Octowave:** pass; validated violations
-  - [x] **setup violation for SS corner**
-  - [x] antenna violations &rarr; fixed with ECO diodes
-- [x] **TinyWhisper RISC-V:** pass; validated violations
-  - [x] **setup violation for SS corner**
-
-- [x] **Tetris:** pass; validated violations
-  - [x] **setup violation for SS corner**
-  - [x] antenna violations &rarr; fixed with ECO diodes
-  
-- [x] **TinyStack:** pass; no violations
-- [x] **Multiplexer:** pass; no violations
-  - [x] **N/A Reg to Reg Paths**
-
-- [x] **TinyBF:** pass; no violations
-- [x] **SAR ADC Controller:** pass; no violations
-- [x] **LED Spinner:** pass; no violations
-  - [x] **N/A Reg to Reg Paths**
-
-- [x] **TinyToneGen:** pass; no violations
-  - [x] **N/A Reg to Reg Paths**
-
-- [x] **Digital Filter:** pass; no violations
-- [x] **Traffic Light Controller:** pass; no violations
-- [x] **VGA Clock:** pass; validated violations
-  - [x] **setup violation for SS corner**
+- [x] **Projects (Pass):**
+  - [x] TinyWhisper RISC-V (Jonathan Hager - JMU)
+  - [x] TinyTone (Jakob Schaumberger - JKU)
+  - [x] Decimation Filter (Michael Köfinger - JKU)
+  - [x] Octowave (Max Golser - JKU)
+  - [x] Tetris (Dominik Brandstetter - JKU & HTL Leonding)
+  - [x] TinyStack (Linzer Technikum)
+  - [x] TinyBF (Rene Hahn - JKU)
+  - [x] SAR ADC Controller (Ilir Shala - JKU)
+  - [x] LED Spinner (Tim Tremetsberger - JKU)
+  - [x] TinyToneGen (Felix Feierabend - JKU)
+  - [x] Digital Filter (Gregor Flachs - JKU)
+  - [x] Traffic Light Controller (Maximilian Kernmaier - JKU)
+  - [x] VGA Clock (Timo Laimer - JKU)
 
 <p align="center">
   <a href="img/chip_top_white.png">
