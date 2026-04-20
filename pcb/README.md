@@ -74,7 +74,12 @@
 
 ### SAR ADC Controller
 
-- Waiting for response (Ilir Shala)
+- Do not connect `comp_in` with MCU
+- Connect 8-Bit DAC traces with MCU and DAC (switchable)
+- Analog Front-End (maybe provided by Ilir)
+	- DAC
+	- Comparator
+	- S&H
 
 ### LED Spinner
 
