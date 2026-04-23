@@ -29,6 +29,14 @@ Project `JKU1` for wafer.space MPW run using the `gf180mcuD` PDK.
     - **setup violation for SS corner**
 
 <p align="center">
+  <a href="img/die_foto.JPG">
+    <img src="img/die_foto.JPG" alt="Die foto of the wafer.space gf180mcuD MPW Multi-Project Chip (4mm x 5mm)" width=70%>
+  </a>
+  <br>
+  <em>Die foto of the wafer.space gf180mcuD MPW Multi-Project Chip (4mm x 5mm).</em>
+</p>
+
+<p align="center">
   <a href="img/chip_top_white.png">
     <img src="img/chip_top_white.png" alt="Render of the wafer.space gf180mcuD MPW Multi-Project Chip (4mm x 5mm)" width=70%>
   </a>
