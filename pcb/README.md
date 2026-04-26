@@ -18,6 +18,7 @@
 - CoB breakout board: https://github.com/wafer-space/chip-on-board-wire-bonded-pcbs
 - Tiny Tapeout demo PCB: https://github.com/TinyTapeout/tt-demo-pcb
 - Tiny Tapeout PCB files: https://github.com/TinyTapeout/pcb-files
+- Tiny Tapeout GF 0p2 mezzanine adapter PCB: https://github.com/htfab/breakout-ttgf0p2-ws-adapter
 - VGA breakout board: https://github.com/mole99/tiny-vga
 - GF180MCU-D JKU projects: https://github.com/iic-jku/gf180mcu-jku-projects
 
