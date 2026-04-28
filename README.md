@@ -4,32 +4,6 @@
 
 Project `JKU1` for wafer.space MPW run using the `gf180mcuD` PDK.
 
-- [x] **GDS Submission:** https://platform.wafer.space/
-- [x] **Precheck:** https://github.com/wafer-space/gf180mcu-precheck
-- [x] **Projects (Pass):**
-  - [x] Multiplexer (Simon Dorrer - JKU)
-    - **N/A Reg to Reg Paths**
-  - [x] TinyWhisper RISC-V (Jonathan Hager - JMU)
-    - **setup violation for SS corner**
-  - [x] TinyTone (Jakob Schaumberger - JKU)
-  - [x] Decimation Filter (Michael Köfinger - JKU)
-    - **N/A Reg to Reg Paths**
-  - [x] Octowave (Max Golser - JKU)
-    - **setup violation for SS corner**
-  - [x] Tetris (Dominik Brandstetter - JKU & HTL Leonding)
-    - **setup violation for SS corner**
-  - [x] TinyStack (Linzer Technikum)
-  - [x] TinyBF (Rene Hahn - JKU)
-  - [x] SAR ADC Controller (Ilir Shala - JKU)
-  - [x] LED Spinner (Tim Tremetsberger - JKU)
-    - **N/A Reg to Reg Paths**
-  - [x] TinyToneGen (Felix Feierabend - JKU)
-    - **N/A Reg to Reg Paths**
-  - [x] Digital Filter (Gregor Flachs - JKU)
-  - [x] Traffic Light Controller (Maximilian Kernmaier - JKU)
-  - [x] VGA Clock (Timo Laimer - JKU)
-    - **setup violation for SS corner**
-
 <p align="center">
   <a href="release/v.1.0.0/img/CoB.png">
     <img src="release/v.1.0.0/img/CoB.png" alt="Chip-on-Board (CoB) wire-bonded die of the wafer.space gf180mcuD chip" width=90%>
@@ -57,6 +31,35 @@ Project `JKU1` for wafer.space MPW run using the `gf180mcuD` PDK.
   <br>
   <em>Micrograph of the bare die (left) and render of the layout (right) of the wafer.space gf180mcuD chip (4mm x 5mm).</em>
 </p>
+
+
+## Overview
+
+- [x] **GDS Submission:** https://platform.wafer.space/
+- [x] **Precheck:** https://github.com/wafer-space/gf180mcu-precheck
+- [x] **Projects (Pass):**
+  - [x] Multiplexer (Simon Dorrer - JKU)
+    - **N/A Reg to Reg Paths**
+  - [x] TinyWhisper RISC-V (Jonathan Hager - JMU)
+    - **setup violation for SS corner**
+  - [x] TinyTone (Jakob Schaumberger - JKU)
+  - [x] Decimation Filter (Michael Köfinger - JKU)
+    - **N/A Reg to Reg Paths**
+  - [x] Octowave (Max Golser - JKU)
+    - **setup violation for SS corner**
+  - [x] Tetris (Dominik Brandstetter - JKU & HTL Leonding)
+    - **setup violation for SS corner**
+  - [x] TinyStack (Linzer Technikum)
+  - [x] TinyBF (Rene Hahn - JKU)
+  - [x] SAR ADC Controller (Ilir Shala - JKU)
+  - [x] LED Spinner (Tim Tremetsberger - JKU)
+    - **N/A Reg to Reg Paths**
+  - [x] TinyToneGen (Felix Feierabend - JKU)
+    - **N/A Reg to Reg Paths**
+  - [x] Digital Filter (Gregor Flachs - JKU)
+  - [x] Traffic Light Controller (Maximilian Kernmaier - JKU)
+  - [x] VGA Clock (Timo Laimer - JKU)
+    - **setup violation for SS corner**
 
 
 ## Prerequisites
