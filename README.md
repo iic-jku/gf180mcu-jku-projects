@@ -1,4 +1,6 @@
-# gf180mcuD - JKU - Projects
+# wafer.space gf180mcuD MPW Multi-Project Chip
+
+(c) 2025-2026 Simon Dorrer (JKU), Jonathan Hager (JMU), Dominik Brandstetter (JKU) and [co-designers](https://github.com/iic-jku/gf180mcu-jku-projects/blob/main/AUTHORS.md).
 
 Project `JKU1` for wafer.space MPW run using the `gf180mcuD` PDK.
 
@@ -29,19 +31,31 @@ Project `JKU1` for wafer.space MPW run using the `gf180mcuD` PDK.
     - **setup violation for SS corner**
 
 <p align="center">
-  <a href="img/die_foto.JPG">
-    <img src="img/die_foto.JPG" alt="Die foto of the wafer.space gf180mcuD MPW Multi-Project Chip (4mm x 5mm)" width=70%>
+  <a href="release/v.1.0.0/img/CoB.png">
+    <img src="release/v.1.0.0/img/CoB.png" alt="Chip-on-Board (CoB) wire-bonded die of the wafer.space gf180mcuD chip" width=90%>
   </a>
   <br>
-  <em>Die foto of the wafer.space gf180mcuD MPW Multi-Project Chip (4mm x 5mm).</em>
+  <em>Chip-on-Board (CoB) wire-bonded die of the wafer.space gf180mcuD chip.</em>
 </p>
 
 <p align="center">
-  <a href="img/chip_top_white.png">
-    <img src="img/chip_top_white.png" alt="Render of the wafer.space gf180mcuD MPW Multi-Project Chip (4mm x 5mm)" width=70%>
+  <a href="release/v.1.0.0/img/CoB_ruler.png">
+    <img src="release/v.1.0.0/img/CoB_ruler.png" alt="Micrograph of CoB wire-bonded die of the wafer.space gf180mcuD chip with ruler on the right side" width=90%>
   </a>
   <br>
-  <em>Render of the wafer.space gf180mcuD MPW Multi-Project Chip (4mm x 5mm).</em>
+  <em>Micrograph of CoB wire-bonded die of the wafer.space gf180mcuD chip with ruler on the right side.</em>
+</p>
+
+<p align="center">
+  <a href="release/v.1.0.0/img/die.png">
+    <img src="release/v.1.0.0/img/die.png" alt="Micrograph of the bare die of the wafer.space gf180mcuD chip (4mm x 5mm)" width=46.34%>
+  </a>
+  &nbsp;
+  <a href="release/v.1.0.0/img/chip_top_white.png">
+    <img src="release/v.1.0.0/img/chip_top_white.png" alt="Render of the layout of the wafer.space gf180mcuD chip (4mm x 5mm)" width=45%>
+  </a>
+  <br>
+  <em>Micrograph of the bare die (left) and render of the layout (right) of the wafer.space gf180mcuD chip (4mm x 5mm).</em>
 </p>
 
 
