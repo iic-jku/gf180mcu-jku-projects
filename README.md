@@ -225,7 +225,7 @@ This project is supported by [wafer.space](https://wafer.space/) and the [Johann
     </td>
     <td align="right" width="50%">
       <a href="https://wafer.space/" target="_blank">
-        <img src="doc/fig/funding/wafer.space.png" alt="wafer.space" width="94%"/>
+        <img src="doc/fig/funding/wafer.space.png" alt="wafer.space" width="60%"/>
       </a>
     </td>
   </tr>
