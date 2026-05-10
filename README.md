@@ -33,6 +33,16 @@ Project `JKU1` for wafer.space MPW run using the `gf180mcuD` PDK.
 </p>
 
 
+## Sanity Bring-Up Test
+
+We wired up the DIP adapter PCB on a breadboard. We supplied the board with 3V3 or 5V via decoupling capacitors, connected an AWG to the clock input, and tied the reset input to high: the sanity bring-up test works. On one digital output, the Super Mario Bros. theme song is played via a buzzer through a PWM signal. Nothing fancy, just a quick breadboard build-up and test, but at least we can say that the chip is alive!
+
+https://github.com/user-attachments/assets/dcc359f1-c54c-4383-b16b-32720ad51963
+<p align="center">
+  <em>Sanity bring-up test playing the Super Mario Bros. theme song.</em>
+</p>
+
+
 ## Overview
 
 - [x] **GDS Submission:** https://platform.wafer.space/
