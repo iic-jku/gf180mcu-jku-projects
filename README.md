@@ -211,3 +211,22 @@ You can now update the testbench according to your design.
 	doi = {10.5281/zenodo.19654471}
 }
 ```
+
+## Acknowledgements
+
+This project is supported by [wafer.space](https://wafer.space/) and the [Johannes Kepler University](https://jku.at).
+
+<table width="100%">
+  <tr>
+    <td align="left" width="50%">
+      <a href="https://iic.jku.at" target="_blank">
+        <img src="doc/fig/funding/iic-jku.svg" alt="Johannes Kepler University: Institute for Integrated Circuits and Quantum Computing" width="94%"/>
+      </a>
+    </td>
+    <td align="right" width="50%">
+      <a href="https://wafer.space/" target="_blank">
+        <img src="doc/fig/funding/wafer.space.png" alt="wafer.space" width="94%"/>
+      </a>
+    </td>
+  </tr>
+</table>
