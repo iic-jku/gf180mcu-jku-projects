@@ -7,3 +7,4 @@ final/
 # img/
 *.lyrdb
 gds/chip_top.gds
+release/v.1.0.0/img/cob_keyence4.tif
