@@ -21,8 +21,8 @@ Project `JKU1` for wafer.space MPW run using the `gf180mcuD` PDK.
 </p>
 
 <p align="center">
-  <a href="release/v.1.0.0/img/die.png">
-    <img src="release/v.1.0.0/img/die.png" alt="Micrograph of the bare die of the wafer.space gf180mcuD chip (4mm x 5mm)" width=46.34%>
+  <a href="release/v.1.0.0/img/die_andonstar.png">
+    <img src="release/v.1.0.0/img/die_andonstar.png" alt="Micrograph of the bare die of the wafer.space gf180mcuD chip (4mm x 5mm)" width=46.34%>
   </a>
   &nbsp;
   <a href="release/v.1.0.0/img/chip_top_white.png">
